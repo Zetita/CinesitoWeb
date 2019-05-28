@@ -1,6 +1,7 @@
 # CinesitoWeb
 Vamos a meterle hasta donde nos de la NAFFFTA WARAP
-====================================================
+
+
 PAUTAS PARA REGULARIZAR LA MATERIA.
 ============================================
 • Dos tipos de usuario distintos. Incluir un login de usuarios. En
@@ -26,7 +27,7 @@ evaluaciones tanto para regularizar como para aprobar la
 materia.
 
 PAUTAS PARA APROBAR EL FINAL DE LA MATERIA.
-
+============================================
 
 • Cumplir con las pautas para regularizar la materia.
 
