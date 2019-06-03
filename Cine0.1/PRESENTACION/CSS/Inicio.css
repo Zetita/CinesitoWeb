@@ -1,0 +1,33 @@
+﻿
+body {
+    background-color: black;
+}
+
+header {
+    color: red;
+    text-align: left;
+    width: 694px;
+}
+
+nav {
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5em;
+}
+
+li {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline;
+}
+
+#Pie {
+    color: white;
+}
+
+#F {
+    color: red;
+    padding-right: 60px;
+}
