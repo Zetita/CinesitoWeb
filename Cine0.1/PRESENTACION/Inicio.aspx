@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="PRESENTACION.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="PRESENTACION.Inicio" %>
 
 <!DOCTYPE html>
 
@@ -14,12 +14,12 @@
 
     <nav >
       <ul Height="269px" Width="694px">
-          <li id="F">CineFrenz</li>
-          <li>CARTELERA</li>
-          <li>PROXIMAMENTE</li>
-          <li>CINES</li>
-          <li>SNACKS</li>
+          <header> <asp:Label ID="F" runat="server" Text="CineFrenz"></asp:Label>   </header>
           
+          <asp:Label ID="CARTELERA" runat="server" Text="CARTELERA"></asp:Label>
+          <asp:Label ID="CINES" runat="server" Text="CINES"></asp:Label>
+          <asp:Label ID="SNACKS" runat="server" Text="SNACKS"></asp:Label>
+                   
          
       </ul>
          </nav>
@@ -32,3 +32,4 @@
     </center>
     </body>
 </html>
+

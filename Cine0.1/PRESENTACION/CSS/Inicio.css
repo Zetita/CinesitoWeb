@@ -31,3 +31,22 @@ li {
     color: red;
     padding-right: 60px;
 }
+
+#CARTELERA{
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline;
+}
+#SNACKS {
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline;
+}
+#CINES {
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline;
+}
