@@ -9,17 +9,16 @@ namespace DAO
 {
     public class AccesoDatos
     {
-        String rutaBDNeptuno =
-      "Data Source=localhost\\sqlexpress;Initial Catalog=Cine;Integrated Security=True";
+        string rutaBase = "Data Source=localhost\\sqlexpress;Initial Catalog=CineFrenz;Integrated Security=True";
 
         public AccesoDatos()
         {
-            // TODO: Agregar aquí la lógica del constructor
+
         }
 
-        private SqlConnection ObtenerConexion()
+        public SqlConnection ObtenerConexion()
         {
-            SqlConnection cn = new SqlConnection(rutaBDNeptuno);
+            SqlConnection cn = new SqlConnection(rutaBase);
             try
             {
                 cn.Open();
@@ -30,14 +29,12 @@ namespace DAO
                 return null;
             }
         }
-
-
-        private SqlDataAdapter ObtenerAdaptador(String consultaSql, SqlConnection cn)
+        public SqlDataAdapter ObtenerAdaptador(String consultaSql)
         {
             SqlDataAdapter adaptador;
             try
             {
-                adaptador = new SqlDataAdapter(consultaSql, cn);
+                adaptador = new SqlDataAdapter(consultaSql, rutaBase);
                 return adaptador;
             }
             catch (Exception ex)
@@ -45,6 +42,5 @@ namespace DAO
                 return null;
             }
         }
-
     }
 }
