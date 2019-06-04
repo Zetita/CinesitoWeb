@@ -10,7 +10,7 @@
 namespace PRESENTACION {
     
     
-    public partial class Inicio {
+    public partial class WebForm1 {
         
         /// <summary>
         /// Control form1.
