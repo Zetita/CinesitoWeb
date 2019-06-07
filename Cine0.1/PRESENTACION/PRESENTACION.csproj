@@ -68,33 +68,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSS\Inicio.css" />
-    <Content Include="CSS\Login.css" />
-    <Content Include="JS\Slider.js" />
-    <Content Include="LogIn.aspx" />
-    <Content Include="Slider\Aladdin.png" />
-    <Content Include="Slider\JohnWick.png" />
+    <Content Include="Recursos\user.png" />
     <Content Include="Web.config" />
-    <Content Include="Inicio.aspx">
-      <BrowseToURL>~/Inicio.aspx</BrowseToURL>
-    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LogIn.aspx.cs">
-      <DependentUpon>LogIn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LogIn.aspx.designer.cs">
-      <DependentUpon>LogIn.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Inicio.aspx.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inicio.aspx.designer.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -104,6 +82,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CSS\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
