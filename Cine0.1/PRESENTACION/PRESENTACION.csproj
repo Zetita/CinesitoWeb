@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin_Peliculas.aspx" />
+    <Content Include="Admin_Snacks.aspx" />
     <Content Include="CSS\Admin.css" />
     <Content Include="CSS\EstiloPag.css" />
     <Content Include="JS\Slider.js" />
@@ -96,6 +97,13 @@
     </Compile>
     <Compile Include="Admin_Peliculas.aspx.designer.cs">
       <DependentUpon>Admin_Peliculas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Snacks.aspx.cs">
+      <DependentUpon>Admin_Snacks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Snacks.aspx.designer.cs">
+      <DependentUpon>Admin_Snacks.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Visual.Master.cs">

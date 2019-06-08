@@ -13,5 +13,15 @@ namespace PRESENTACION
         {
 
         }
+
+        protected void LinkPeliculas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Peliculas.aspx");
+        }
+
+        protected void LinkSnacks_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Snacks.aspx");
+        }
     }
 }

@@ -106,4 +106,8 @@
         </table>
         </div>
     </div>
+    <div class="Label">
+    <asp:Label ID="Label3" runat="server" Text="Listado de Peliculas"></asp:Label>
+    </div>
+
 </asp:Content>

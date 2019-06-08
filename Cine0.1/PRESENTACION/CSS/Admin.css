@@ -37,3 +37,19 @@ body {
 .tabla {
     font-weight: 400;
 }
+TABLE.tablalistado {
+    BACKGROUND-COLOR: #74aefa;
+}
+
+    TABLE.tablalistado TR {
+        BACKGROUND-COLOR: #a7a7a7;
+    }
+
+    TABLE.tablalistado TH {
+        BACKGROUND-COLOR: #B11515;
+        PADDING: 4px;
+    }
+
+    TABLE.tablalistado TD {
+        PADDING: 4px;
+    }

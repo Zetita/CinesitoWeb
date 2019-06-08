@@ -18,7 +18,7 @@
             <asp:LinkButton ID="LinkPeliculas" runat="server" CssClass="LinksButtons" OnClick="LinkPeliculas_Click">Peliculas</asp:LinkButton>
             <asp:LinkButton ID="LinkFormatos" runat="server" CssClass="LinksButtons">Formatos</asp:LinkButton>
             <asp:LinkButton ID="LinkFunciones" runat="server" CssClass="LinksButtons">Funciones</asp:LinkButton>
-            <asp:LinkButton ID="LinkSnacks" runat="server" CssClass="LinksButtons">Snacks</asp:LinkButton>
+            <asp:LinkButton ID="LinkSnacks" runat="server" CssClass="LinksButtons" OnClick="LinkSnacks_Click">Snacks</asp:LinkButton>
             <asp:LinkButton ID="LinkVentas" runat="server" CssClass="LinksButtons">Ventas</asp:LinkButton>
 
         </div>
