@@ -12,9 +12,9 @@ header {
 }
 
 
-nav{
-
-   
+#div_nav {
+    text-align: center;
+    display: inline-block;
 }
 
 
@@ -23,7 +23,7 @@ footer {
    
 }
 
-#Button1 {
+.Button {
     outline-color: black;
     border-bottom-style: none;
     border-bottom-color: none;
@@ -31,27 +31,12 @@ footer {
     color: white;
     border:0;
 }
-#Button2 {
-    outline-color: black;
-    border-bottom-style: none;
-    border-bottom-color: none;
-    background-color: black;
-    color: white;
-    border: 0;
-}
-#Button3 {
-    outline-color: black;
-    border-bottom-style: none;
-    border-bottom-color: none;
-    background-color: black;
-    color: white;
-    border: 0;
-}
+
 
 #LOGOBUTTON {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
      
-        outline-color: black;
+    outline-color: black;
     border-bottom-style: none;
     border-bottom-color: none;
     background-color: black;

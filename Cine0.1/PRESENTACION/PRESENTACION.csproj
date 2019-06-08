@@ -73,6 +73,7 @@
     <Content Include="CSS\Admin.css" />
     <Content Include="CSS\EstiloPag.css" />
     <Content Include="JS\Slider.js" />
+    <Content Include="Recursos\search.png" />
     <Content Include="Slider\Future.jpg" />
     <Content Include="Slider\JohnWick.jpeg" />
     <Content Include="Recursos\logo.png" />
@@ -81,7 +82,7 @@
     <Content Include="Recursos\logo_transparent1.png" />
     <Content Include="Recursos\user.png" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="Inicio.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -113,12 +114,12 @@
     <Compile Include="Visual.Master.designer.cs">
       <DependentUpon>Visual.Master</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

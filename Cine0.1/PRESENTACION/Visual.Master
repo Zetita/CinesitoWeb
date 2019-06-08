@@ -18,24 +18,26 @@
 <body>
     
     <form id="form1" runat="server">
-       <div style="text-align:center" 
+       <div style="text-align:center"> 
             <header>
                <div style="text-align:center; display:inline-block; width:307px; height:59px;">  
                   <asp:Button ID="LOGOBUTTON" runat="server" Text="CINE FRENZ"  width="307px" height="59px"/>
                </div>
             </header>
             <nav>
-           
-            <div style="text-align:center; display:inline-block">     <asp:Button ID="Button1" runat="server" Text="PELICULAS" /></div>
-             <div style="text-align:center; display:inline-block">    <asp:Button ID="Button2" runat="server" Text="CINES" /></div>
-             <div style="text-align:center; display:inline-block">    <asp:Button ID="Button3" runat="server" Text="SNACKS" /></div>
-                 <div style="text-align:right; display:inline-block; width:500px; height:30px;">   <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Recursos/user.png"/></div>
-            
-              
-              
 
-                 
-               
+           <div id="div_nav">
+                <asp:Button ID="Button1" runat="server" CssClass="Button" Text="PELICULAS" />
+                <asp:Button ID="Button2" runat="server" CssClass="Button" Text="SUCURSALES" />
+                <asp:Button ID="Button3" runat="server" CssClass="Button" Text="SNACKS" />
+                
+           </div>    
+           <div style="text-align:right; display:inline-block; width:500px; height:30px;">   
+                <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/Recursos/search.png"/>
+                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Recursos/user.png"/>
+              
+           </div>
+                
             </nav>
         <section style="text-align:center; display:inline-block; height: 720px; width: 1280px;">
 
@@ -44,7 +46,7 @@
             </asp:ContentPlaceHolder>
 
         </section>
-       
+      </div>
     </form>
    
 
