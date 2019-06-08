@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Visual.master.cs" Inherits="PRESENTACION.Visual" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+     
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="CSS/EstiloPag.css">
+   
+  
+
+
+</head>
+<body>
+    
+    <form id="form1" runat="server">
+       <div style="text-align:center" 
+            <header>
+               <div style="text-align:center; display:inline-block; width:307px; height:59px;">  
+                  <asp:Button ID="LOGOBUTTON" runat="server" Text="CINE FRENZ"  width="307px" height="59px"/>
+               </div>
+            </header>
+            <nav>
+           
+            <div style="text-align:center; display:inline-block">     <asp:Button ID="Button1" runat="server" Text="PELICULAS" /></div>
+             <div style="text-align:center; display:inline-block">    <asp:Button ID="Button2" runat="server" Text="CINES" /></div>
+             <div style="text-align:center; display:inline-block">    <asp:Button ID="Button3" runat="server" Text="SNACKS" /></div>
+                 <div style="text-align:right; display:inline-block; width:500px; height:30px;">   <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Recursos/user.png"/></div>
+            
+              
+              
+
+                 
+               
+            </nav>
+        <section style="text-align:center; display:inline-block; height: 720px; width: 1280px;">
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+               
+            </asp:ContentPlaceHolder>
+
+        </section>
+       
+    </form>
+   
+
+   <footer><small>Derechos Reservados <em>GRUPO 5</em></small></footer>
+     
+    <script type="text/javascript" src="JS/Slider.js"></script>
+</body>
+
+</html>

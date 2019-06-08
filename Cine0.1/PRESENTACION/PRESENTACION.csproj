@@ -68,14 +68,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\EstiloPag.css" />
+    <Content Include="JS\Slider.js" />
+    <Content Include="Slider\Future.jpg" />
+    <Content Include="Slider\JohnWick.jpeg" />
+    <Content Include="Recursos\logo.png" />
+    <Content Include="Recursos\logo1.png" />
+    <Content Include="Recursos\logo_transparent.png" />
+    <Content Include="Recursos\logo_transparent1.png" />
     <Content Include="Recursos\user.png" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visual.Master.cs">
+      <DependentUpon>Visual.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visual.Master.designer.cs">
+      <DependentUpon>Visual.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Visual.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -83,9 +107,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CSS\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
