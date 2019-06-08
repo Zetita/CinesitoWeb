@@ -1,0 +1,39 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Arimo);
+
+body {
+    background: #a7a7a7;
+    font-family: "Arimo", sans-serif;
+    text-align: center;
+    font-size: medium;
+}
+
+#div_nav {
+    text-align: center;
+    padding: 2.5% 0;
+    background-color: #716b6b;
+}
+
+.LinksButtons {
+    margin: auto;
+    padding: 0 2.0%;
+    color: #B11515;
+}
+
+.Label {
+    text-align: left;
+    font-weight: 700;
+}
+
+.inicio {
+    float: left;
+    margin: auto;
+    padding: 0 1.0%;
+    background-color: #b11515;
+    text-decoration: none;
+    color: #a7a7a7;
+    font-weight: 700;
+}
+
+.tabla {
+    font-weight: 400;
+}

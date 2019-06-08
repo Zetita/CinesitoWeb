@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="PRESENTACION.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="CSS/Admin.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="div_nav">
+            <a href="Inicio.aspx" class="inicio">INICIO</a>
+            <asp:LinkButton ID="LinkSucursales" runat="server" CssClass="LinksButtons">Sucursales y salas</asp:LinkButton>
+            <asp:LinkButton ID="LinkPeliculas" runat="server" CssClass="LinksButtons" OnClick="LinkPeliculas_Click">Peliculas</asp:LinkButton>
+            <asp:LinkButton ID="LinkFormatos" runat="server" CssClass="LinksButtons">Formatos</asp:LinkButton>
+            <asp:LinkButton ID="LinkFunciones" runat="server" CssClass="LinksButtons">Funciones</asp:LinkButton>
+            <asp:LinkButton ID="LinkSnacks" runat="server" CssClass="LinksButtons">Snacks</asp:LinkButton>
+            <asp:LinkButton ID="LinkVentas" runat="server" CssClass="LinksButtons">Ventas</asp:LinkButton>
+
+        </div>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
