@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Visual.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="PRESENTACION.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Visual.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="PRESENTACION.Inicio" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     
 </asp:Content>
@@ -118,7 +119,7 @@
                     <br /></td>
             </SelectedItemTemplate>
         </asp:ListView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString2 %>" SelectCommand="SELECT [Titulo_Pelicula], [ImagenURL] FROM [Peliculas]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString %>" SelectCommand="SELECT [Titulo_Pelicula], [ImagenURL] FROM [Peliculas]"></asp:SqlDataSource>
 
     </div>
 

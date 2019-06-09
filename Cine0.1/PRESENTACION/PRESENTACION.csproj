@@ -72,6 +72,14 @@
     <Content Include="Admin_Snacks.aspx" />
     <Content Include="CSS\Admin.css" />
     <Content Include="CSS\EstiloPag.css" />
+    <Content Include="img\snacks\agua_bon_aqua.jpg" />
+    <Content Include="img\snacks\balde_pochoclos_chico.jpg" />
+    <Content Include="img\snacks\balde_pochoclos_grande.jpg" />
+    <Content Include="img\snacks\nachos_con_queso.png" />
+    <Content Include="img\snacks\pancho.png" />
+    <Content Include="img\snacks\pizzeta.png" />
+    <Content Include="img\snacks\skittles.jpg" />
+    <Content Include="img\snacks\vaso_gaseosa.jpg" />
     <Content Include="JS\Slider.js" />
     <Content Include="Peliculas.aspx" />
     <Content Include="Recursos\search.png" />

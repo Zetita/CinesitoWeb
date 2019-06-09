@@ -1,9 +1,10 @@
 ﻿
 <%@ Page Title="" Language="C#" MasterPageFile="~/Visual.Master" AutoEventWireup="true" CodeBehind="Peliculas.aspx.cs" Inherits="PRESENTACION.Peliculas" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <title> </title>
+   
     <style>
 		body{background-color: black;padding: 0px;font-family: Arial;}
 		
@@ -29,12 +30,9 @@
 			background-color: white;
 		}
 		
-	</style>
-</head>
-<body >
-    
+	</style>  
         
-</div>
+<div>
         <asp:Image ID="imgPortada" runat="server" ImageUrl="~/Recursos/1.jpg" style="position:absolute;top:155px;left:75px; height: 387px; width: 256px;"/>
         <b><asp:Label ID="lblNombre" runat="server" style="position:absolute;text-transform:uppercase; top: 150px; left: 346px; margin-right:700px" Font-Size="XX-Large"></asp:Label></b>
         <asp:Label ID="lblSinopsis" runat="server" style="position:absolute; top:250px;left:346px; text-align:justify; margin-right:700px"></asp:Label>
@@ -70,7 +68,5 @@
         </asp:DropDownList>
    
             
-    
-</body>
-</html>
+</div>
 </asp:Content>
