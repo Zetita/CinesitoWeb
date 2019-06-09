@@ -108,7 +108,7 @@
                         <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("URLImagen_Snack") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("URLImagen_Snack") %>' />
+                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("URLImagen_Snack") %>' Width="80px" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Disponibilidad" SortExpression="Estado_Snack">

@@ -40,31 +40,31 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Button LOGOBUTTON;
         
         /// <summary>
-        /// Control Button1.
+        /// Control btnPeliculas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnPeliculas;
         
         /// <summary>
-        /// Control Button2.
+        /// Control btnSucursales.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnSucursales;
         
         /// <summary>
-        /// Control Button3.
+        /// Control btnSnacks.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button btnSnacks;
         
         /// <summary>
         /// Control ImageButton3.
@@ -76,13 +76,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.ImageButton ImageButton3;
         
         /// <summary>
-        /// Control ImageButton2.
+        /// Control btnIniciarSesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
+        protected global::System.Web.UI.WebControls.ImageButton btnIniciarSesion;
         
         /// <summary>
         /// Control ContentPlaceHolder1.

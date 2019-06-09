@@ -27,14 +27,14 @@
             <nav>
 
            <div id="div_nav">
-                <asp:Button ID="Button1" runat="server" CssClass="Button" Text="PELICULAS" />
-                <asp:Button ID="Button2" runat="server" CssClass="Button" Text="SUCURSALES" />
-                <asp:Button ID="Button3" runat="server" CssClass="Button" Text="SNACKS" />
+                <asp:Button ID="btnPeliculas" runat="server" CssClass="Button" Text="PELICULAS" OnClick="btnPeliculas_Click" />
+                <asp:Button ID="btnSucursales" runat="server" CssClass="Button" Text="SUCURSALES" />
+                <asp:Button ID="btnSnacks" runat="server" CssClass="Button" Text="SNACKS" />
                 
            </div>    
            <div style="text-align:right; display:inline-block; width:500px; height:30px;">   
                 <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/Recursos/search.png"/>
-                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Recursos/user.png"/>
+                <asp:ImageButton ID="btnIniciarSesion" runat="server" ImageUrl="~/Recursos/user.png"/>
               
            </div>
                 

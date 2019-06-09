@@ -18,5 +18,10 @@ namespace PRESENTACION
         {
 
         }
+
+        protected void btnPeliculas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Peliculas.aspx");
+        }
     }
 }
