@@ -49,8 +49,10 @@
       </div>
     </form>
    
+    <section >
+   <footer ><small style="text-align:center; display:inline-block;">Derechos Reservados <em>GRUPO 5</em></small></footer>
+        </section>
 
-   <footer><small>Derechos Reservados <em>GRUPO 5</em></small></footer>
      
     <script type="text/javascript" src="JS/Slider.js"></script>
 </body>

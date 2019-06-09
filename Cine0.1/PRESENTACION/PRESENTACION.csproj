@@ -73,6 +73,7 @@
     <Content Include="CSS\Admin.css" />
     <Content Include="CSS\EstiloPag.css" />
     <Content Include="JS\Slider.js" />
+    <Content Include="Recursos\1.jpg" />
     <Content Include="Recursos\search.png" />
     <Content Include="Slider\Future.jpg" />
     <Content Include="Slider\JohnWick.jpeg" />

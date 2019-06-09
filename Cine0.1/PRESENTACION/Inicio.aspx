@@ -42,6 +42,9 @@
     </div>
     <div>
 
+        <asp:ListView ID="ListView1" runat="server" OnSelectedIndexChanged="ListView1_SelectedIndexChanged">
+        </asp:ListView>
+
     </div>
 
 
