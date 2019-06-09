@@ -39,20 +39,27 @@
            </div>
                 
             </nav>
-        <section style="text-align:center; display:inline-block; height: 720px; width: 1280px;">
-
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+           <section style="text-align:center">
+        <div style="height: 15px;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                
             </asp:ContentPlaceHolder>
 
-        </section>
+       
       </div>
-    </form>
-   
-
-   <footer><small>Derechos Reservados <em>GRUPO 5</em></small></footer>
+                 </section>
+        </div>
+      
      
     <script type="text/javascript" src="JS/Slider.js"></script>
-</body>
+       
+   
+
+   
+     
+    </form>
+  
+   </body>
+   
 
 </html>
