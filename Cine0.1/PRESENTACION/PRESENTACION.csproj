@@ -73,6 +73,7 @@
     <Content Include="Admin_Peliculas.aspx" />
     <Content Include="Admin_Snacks.aspx" />
     <Content Include="Admin_Sucursales.aspx" />
+    <Content Include="Butacas.aspx" />
     <Content Include="CSS\Admin.css" />
     <Content Include="CSS\EstiloPag.css" />
     <Content Include="img\snacks\agua_bon_aqua.jpg" />
@@ -85,6 +86,7 @@
     <Content Include="img\snacks\vaso_gaseosa.jpg" />
     <Content Include="JS\Slider.js" />
     <Content Include="Peliculas.aspx" />
+    <Content Include="Recursos\linea.png" />
     <Content Include="Recursos\search.png" />
     <Content Include="Slider\Future.jpg" />
     <Content Include="Slider\JohnWick.jpeg" />
@@ -138,6 +140,13 @@
     </Compile>
     <Compile Include="Admin_Sucursales.aspx.designer.cs">
       <DependentUpon>Admin_Sucursales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Butacas.aspx.cs">
+      <DependentUpon>Butacas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Butacas.aspx.designer.cs">
+      <DependentUpon>Butacas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Peliculas.aspx.cs">
       <DependentUpon>Peliculas.aspx</DependentUpon>
