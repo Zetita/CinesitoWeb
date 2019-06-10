@@ -27,6 +27,7 @@ namespace PRESENTACION
         protected void LinkSucursales_Click(object sender, EventArgs e)
         {
             Response.Redirect("Admin_Sucursales.aspx");
+
         }
 
         protected void LinkFormatos_Click(object sender, EventArgs e)
