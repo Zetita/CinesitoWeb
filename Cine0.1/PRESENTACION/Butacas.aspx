@@ -49,7 +49,7 @@
     <asp:Button ID="btn29" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 552px; left: 266px; right: 455px;" />
 
     <asp:Image ID="imgPantalla" style="position:absolute; top: 183px; left: 216px; height: 235px; width: 412px;" runat="server" ImageUrl="~/Recursos/linea.png" />
-    <asp:Label ID="lbl" runat="server" style="position:absolute;color:white;font-family:Calibri;font-size:x-large; top: 311px; left: 384px;" Text="PANTALLA" Font-Bold="True"></asp:Label>
+    <asp:Label ID="lblPantalla" runat="server" style="position:absolute;color:white;font-family:Calibri;font-size:x-large; top: 311px; left: 384px;" Text="PANTALLA" Font-Bold="True"></asp:Label>
     <asp:Image ID="imgPelicula" runat="server" ImageUrl="~/Recursos/1.jpg" style="position:absolute; top: 229px; left: 696px; height: 272px; width: 196px;" />
     <asp:Label ID="lblNombre" runat="server" Text="JOHN WICK 3: PARABELLUM" style="position:absolute;font-family:Calibri;color:white; top: 229px; left: 905px; margin-right:1000px;font-size:x-large" Font-Bold="True"></asp:Label>
     <asp:Label ID="lblFormato" runat="server" Text="3D - Audio Español" style="position:absolute;font-family:Calibri;color:white; top: 330px; left: 905px; font-size:x-large" Font-Bold="False"></asp:Label>

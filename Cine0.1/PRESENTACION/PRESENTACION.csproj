@@ -74,6 +74,7 @@
     <Content Include="Admin_Snacks.aspx" />
     <Content Include="Admin_Sucursales.aspx" />
     <Content Include="Butacas.aspx" />
+    <Content Include="Compras.aspx" />
     <Content Include="CSS\Admin.css" />
     <Content Include="CSS\EstiloPag.css" />
     <Content Include="img\snacks\agua_bon_aqua.jpg" />
@@ -147,6 +148,13 @@
     </Compile>
     <Compile Include="Butacas.aspx.designer.cs">
       <DependentUpon>Butacas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras.aspx.cs">
+      <DependentUpon>Compras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras.aspx.designer.cs">
+      <DependentUpon>Compras.aspx</DependentUpon>
     </Compile>
     <Compile Include="Peliculas.aspx.cs">
       <DependentUpon>Peliculas.aspx</DependentUpon>

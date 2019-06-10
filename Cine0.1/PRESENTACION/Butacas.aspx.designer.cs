@@ -418,13 +418,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Image imgPantalla;
         
         /// <summary>
-        /// Control lbl.
+        /// Control lblPantalla.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl;
+        protected global::System.Web.UI.WebControls.Label lblPantalla;
         
         /// <summary>
         /// Control imgPelicula.
