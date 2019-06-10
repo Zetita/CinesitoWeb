@@ -14,10 +14,10 @@
     <form id="form1" runat="server">
         <div id="div_nav">
             <a href="Inicio.aspx" class="inicio">INICIO</a>
-            <asp:LinkButton ID="LinkSucursales" runat="server" CssClass="LinksButtons">Sucursales y salas</asp:LinkButton>
+            <asp:LinkButton ID="LinkSucursales" runat="server" CssClass="LinksButtons" OnClick="LinkSucursales_Click">Sucursales y salas</asp:LinkButton>
             <asp:LinkButton ID="LinkPeliculas" runat="server" CssClass="LinksButtons" OnClick="LinkPeliculas_Click">Peliculas</asp:LinkButton>
-            <asp:LinkButton ID="LinkFormatos" runat="server" CssClass="LinksButtons">Formatos</asp:LinkButton>
-            <asp:LinkButton ID="LinkFunciones" runat="server" CssClass="LinksButtons">Funciones</asp:LinkButton>
+            <asp:LinkButton ID="LinkFormatos" runat="server" CssClass="LinksButtons" OnClick="LinkFormatos_Click">Formatos</asp:LinkButton>
+            <asp:LinkButton ID="LinkFunciones" runat="server" CssClass="LinksButtons" OnClick="LinkFunciones_Click">Funciones</asp:LinkButton>
             <asp:LinkButton ID="LinkSnacks" runat="server" CssClass="LinksButtons" OnClick="LinkSnacks_Click">Snacks</asp:LinkButton>
             <asp:LinkButton ID="LinkVentas" runat="server" CssClass="LinksButtons">Ventas</asp:LinkButton>
 

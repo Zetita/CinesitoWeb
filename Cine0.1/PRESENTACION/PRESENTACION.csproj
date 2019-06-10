@@ -69,8 +69,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin_Formatos.aspx" />
+    <Content Include="Admin_Funciones.aspx" />
     <Content Include="Admin_Peliculas.aspx" />
     <Content Include="Admin_Snacks.aspx" />
+    <Content Include="Admin_Sucursales.aspx" />
     <Content Include="CSS\Admin.css" />
     <Content Include="CSS\EstiloPag.css" />
     <Content Include="img\snacks\agua_bon_aqua.jpg" />
@@ -109,6 +111,13 @@
     <Compile Include="Admin_Formatos.aspx.designer.cs">
       <DependentUpon>Admin_Formatos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Funciones.aspx.cs">
+      <DependentUpon>Admin_Funciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Funciones.aspx.designer.cs">
+      <DependentUpon>Admin_Funciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Peliculas.aspx.cs">
       <DependentUpon>Admin_Peliculas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -122,6 +131,13 @@
     </Compile>
     <Compile Include="Admin_Snacks.aspx.designer.cs">
       <DependentUpon>Admin_Snacks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Sucursales.aspx.cs">
+      <DependentUpon>Admin_Sucursales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Sucursales.aspx.designer.cs">
+      <DependentUpon>Admin_Sucursales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Peliculas.aspx.cs">
       <DependentUpon>Peliculas.aspx</DependentUpon>
