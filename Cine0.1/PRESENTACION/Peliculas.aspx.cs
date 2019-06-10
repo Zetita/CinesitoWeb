@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace PRESENTACION
 {
@@ -24,7 +26,7 @@ namespace PRESENTACION
             //lblNombre.Text = dt.Rows[0]["Titulo_Pelicula"].ToString();
             //lblSinopsis.Text = dt.Rows[0]["Sinopsis_Pelicula"].ToString();
             //lblGenero.Text = "Genero: " + dt.Rows[0]["Genero_Pelicula"].ToString() + ".";
-            //lblDuracion.Text = "Duración: " + dt.Rows[0]["Duración"].ToString() + " horas.";
+            //lblDuracion.Text = "Duración: " + dt.Rows[0]["Duracion"].ToString() + " horas.";
             //lblDirector.Text = "Director: " + dt.Rows[0]["Director_Pelicula"].ToString() + ".";
         }
     }

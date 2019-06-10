@@ -32,9 +32,9 @@
 		
 	</style>  
         
-<div>
+<div style="color:white">
         <asp:Image ID="imgPortada" runat="server" ImageUrl="~/Recursos/1.jpg" style="position:absolute;top:155px;left:75px; height: 387px; width: 256px;"/>
-        <b><asp:Label ID="lblNombre" runat="server" style="position:absolute;text-transform:uppercase; top: 150px; left: 346px; margin-right:700px" Font-Size="XX-Large"></asp:Label></b>
+        <b><asp:Label ID="lblNombre" runat="server" style="position:absolute;text-transform:uppercase; top: 150px; left: 263px; margin-right:700px" Font-Size="XX-Large"></asp:Label></b>
         <asp:Label ID="lblSinopsis" runat="server" style="position:absolute; top:250px;left:346px; text-align:justify; margin-right:700px"></asp:Label>
         <asp:Label ID="lblGenero" runat="server" style="position:absolute; top:400px; left:346px"></asp:Label>
         <asp:Label ID="lblDuracion" runat="server" style="position:absolute; top:425px; left:346px"></asp:Label>
