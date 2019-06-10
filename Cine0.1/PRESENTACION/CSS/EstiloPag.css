@@ -48,13 +48,12 @@ footer {
     color: white;
 
 }
-#Filtro1 {
+#Peliculas{
+    text-align:center;
+    margin-right:60%;
     color: white;
-    background-color: black;
-    border-bottom-color: white;
 }
-#Filtro2 {
-    color: white;
-    background-color: black;
-    border-bottom-color:white;
+#Lista{
+    text-align:center;
+    margin-left:25%;
 }
