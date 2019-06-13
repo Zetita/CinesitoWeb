@@ -9,51 +9,69 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="stylesheet" type="text/css" href="CSS/EstiloPag.css">
-   
-  
-
+    <style>
+		body{background-color: #000;padding: 0px;font-family: Arial;}
+		
+		#menu{
+			background-color: #000;
+            
+		}
+		#menu ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		#menu ul li{
+			display: inline-block;
+		}
+		#menu ul li a{
+			color: white;
+			display: block;
+			padding: 20px 20px;
+			text-decoration: none;
+		}
+		#menu ul li a:hover{
+			background-color: #800000;
+		}
+		
+	</style>
 
 </head>
 <body>
     
-    <form id="form1" runat="server">
-       <div style="text-align:center"> 
-            <header>
-               <div style="text-align:center; display:inline-block; width:307px; height:59px;">  
-                  <asp:Button ID="LOGOBUTTON" runat="server" Text="CINE FRENZ"  width="307px" height="59px"/>
-               </div>
-            </header>
-            <nav>
-
-           <div id="div_nav">
-                <asp:Button ID="btnPeliculas" runat="server" CssClass="Button" Text="PELICULAS" OnClick="btnPeliculas_Click" />
-                <asp:Button ID="btnSucursales" runat="server" CssClass="Button" Text="SUCURSALES" />
-                <asp:Button ID="btnSnacks" runat="server" CssClass="Button" Text="SNACKS" />
-                
-           </div>    
-           <div style="text-align:right; display:inline-block; width:500px; height:30px;">   
-                <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/Recursos/search.png"/>
-                <asp:ImageButton ID="btnIniciarSesion" runat="server" ImageUrl="~/Recursos/user.png"/>
-              
-           </div>
+   <form id="form1" runat="server" >
+        <div id="menu" style="text-align:center;color:white">
+		<ul>
+            <li style="float:left;font-size:x-large; padding:13px 20px"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CineFrenz</b></li>
+			<li><a href="#">CARTELERA</a></li>
+			<li><a href="#">PROXIMAMENTE</a></li>
+			<li><a href="#">CINES</a></li>
+			<li><a href="#">PROMOCIONES</a></li>
+            <li><a href="#">SNACKS</a></li>
+		    
+            <li style="float:right; padding:13px 20px">
+                <asp:ImageButton ID="ImageButton1" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/user.png" Height="32px" Width="35px" />
+            </li>
+		</ul>
+            
+</div>
                 
             </nav>
-        <section style="text-align:center; display:inline-block; height: 720px; width: 1280px;">
+       
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
                
             </asp:ContentPlaceHolder>
 
-        </section>
-      </div>
+       <ul style="background-color:#595959;padding:20px 20px; margin-top:550px; text-align:center;color:white" >
+
+                <li> <b>Derechos Reservados, Grupo 5 ©</b></li>
+
+            </ul>
+ 
     </form>
    
-    <div style="text-align:center;">  <footer ><small style="text-align:center; display:inline-block;">Derechos Reservados <em>GRUPO 5</em></small></footer>
-       </div>
- 
-     
-    <script type="text/javascript" src="JS/Slider.js"></script>
+   
 </body>
 
 </html>
