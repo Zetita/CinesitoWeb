@@ -8,7 +8,7 @@ using System.Data;
 
 namespace DAO
 {
-    class GestionDatos
+    public class GestionDatos
     {
         private DataTable ObtenerTabla(String Nombre, String Sql)
         {
@@ -18,9 +18,9 @@ namespace DAO
             adaptador.Fill(ds, Nombre);
             return ds.Tables[Nombre];
         }
-        public DataTable ObtenerTodosLosFormatos()
+        public DataTable ObtenerTodos(string Tabla,string Consulta)
         {
-            return ObtenerTabla("Formatos", "SELECT * FROM Formatos");
+            return ObtenerTabla(Tabla, Consulta);
         }
     }
 }
