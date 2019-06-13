@@ -25,8 +25,8 @@
 
     <div id="Control" style="text-align:center">  <!-- Siguiente/Atras buttons -->
       
-  <a class="prev" onclick="plusSlides(-1)"><label><</label></a>
-  <a class="next" onclick="plusSlides(1)"><label>></label></a>
+  <a class="prev" onclick="plusSlides(-1)"><label style="color:white;"><</label></a>
+  <a class="next" onclick="plusSlides(1)"><label style="color:white;">></label></a>
 </div style="text-align:center">
     #L<br>
 

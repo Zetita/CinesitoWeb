@@ -7,6 +7,8 @@
      
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+      <%-- NO BORRAR, CONEXION DE JS  --%> 
+    <script src="Slider.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
@@ -71,7 +73,7 @@
  
     </form>
    
-   
+    <script type="text/javascript" src="JS/Slider.js"></script>
 </body>
 
 </html>
