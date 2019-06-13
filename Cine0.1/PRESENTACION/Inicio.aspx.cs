@@ -23,5 +23,10 @@ namespace PRESENTACION
         {
 
         }
+
+        protected void ListView1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -40,14 +40,15 @@
             <asp:Label ID="Label1" runat="server" Text="-PELICULAS"></asp:Label>
         </div>
         
-        <div id="Lista">
-    <div >
+        <div id="Lista" style="text-align:center; align-items:center; margin-left:15%; margin-right:30%; ">
+    <div  >
 
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource2" GroupItemCount="5">
+        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource2" GroupItemCount="4" OnSelectedIndexChanged="ListView1_SelectedIndexChanged1">
             <AlternatingItemTemplate>
-                <td runat="server" style="background-color: #FAFAD2;color: #284775;">&nbsp;<asp:Label ID="Titulo_PeliculaLabel" runat="server" Text='<%# Eval("Titulo_Pelicula") %>' />
-                    <br />
+                <td runat="server" style="border-color: #000000; background-color: #000000; color: #FFFFFF;  margin-right:3%; margin-left:3%;">
                     <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl='<%# Eval("ImagenURL") %>' />
+                    &nbsp;<br />
+                    <asp:Label ID="Titulo_PeliculaLabel" runat="server" Text='<%# Eval("Titulo_Pelicula") %>'></asp:Label>
                     <br /></td>
             </AlternatingItemTemplate>
             <EditItemTemplate>
@@ -88,9 +89,10 @@
                     <br /></td>
             </InsertItemTemplate>
             <ItemTemplate>
-                <td runat="server" style="background-color: #FFFBD6; color: #333333;">&nbsp;<asp:Label ID="Titulo_PeliculaLabel" runat="server" Text='<%# Eval("Titulo_Pelicula") %>'></asp:Label>
-                    <br />
+                <td runat="server" style="border-color: #000000; background-color: #000000; color: #FFFFFF; margin-right:3%; margin-left:3%;">
                     <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl='<%# Eval("ImagenURL") %>' />
+                    &nbsp;<br />
+                    <asp:Label ID="Titulo_PeliculaLabel" runat="server" Text='<%# Eval("Titulo_Pelicula") %>'></asp:Label>
                     <br /></td>
             </ItemTemplate>
             <LayoutTemplate>
@@ -104,7 +106,7 @@
                         </td>
                     </tr>
                     <tr runat="server">
-                        <td runat="server" style="text-align: center;background-color: #FFCC66;font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;"></td>
+                        <td runat="server" style="border-color: #000000; text-align: center;background-color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; color: #333333;"></td>
                     </tr>
                 </table>
             </LayoutTemplate>
