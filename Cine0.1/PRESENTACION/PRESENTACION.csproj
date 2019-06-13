@@ -76,6 +76,7 @@
     <Content Include="Butacas.aspx" />
     <Content Include="Compras.aspx" />
     <Content Include="CSS\Admin.css" />
+    <Content Include="CSS\Barra.css" />
     <Content Include="CSS\EstiloPag.css" />
     <Content Include="img\snacks\agua_bon_aqua.jpg" />
     <Content Include="img\snacks\balde_pochoclos_chico.jpg" />
@@ -190,7 +191,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{dc5bd935-23c6-4fee-bf8d-81a83fe97a9a}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

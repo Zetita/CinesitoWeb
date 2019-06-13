@@ -4,39 +4,11 @@
 
 <html>
 <head runat="server">
-     
+     <link rel="stylesheet" type="text/css" href="CSS/Barra.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-      <%-- NO BORRAR, CONEXION DE JS  --%> 
-    <script src="Slider.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style>
-		body{background-color: #000;padding: 0px;font-family: Arial;}
-		
-		#menu{
-			background-color: #000;
-            
-		}
-		#menu ul{
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
-		#menu ul li{
-			display: inline-block;
-		}
-		#menu ul li a{
-			color: white;
-			display: block;
-			padding: 20px 20px;
-			text-decoration: none;
-		}
-		#menu ul li a:hover{
-			background-color: #800000;
-		}
-		
-	</style>
 
 </head>
 <body>
@@ -52,7 +24,8 @@
             <li><a href="#">SNACKS</a></li>
 		    
             <li style="float:right; padding:13px 20px">
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/user.png" Height="32px" Width="35px" />
+                <asp:ImageButton ID="imgbtnUser" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/user.png" Height="32px" Width="35px" />
+                <asp:ImageButton ID="imgbtnSearch" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/search.png" Height="32px" Width="35px" />
             </li>
 		</ul>
             
@@ -73,7 +46,7 @@
  
     </form>
    
-    <script type="text/javascript" src="JS/Slider.js"></script>
+   
 </body>
 
 </html>
