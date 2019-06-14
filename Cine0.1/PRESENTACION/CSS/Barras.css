@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: #b3b3b3;
+    background-color: #000;
     padding: 0px;
     font-family: Arial;
 }
@@ -28,3 +28,4 @@
                 #menu ul li a:hover {
                     background-color: #800000;
                 }
+
