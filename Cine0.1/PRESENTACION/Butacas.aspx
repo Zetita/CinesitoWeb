@@ -5,10 +5,10 @@
 
     <!-- FILA F-->
     <asp:Label ID="lblF" runat="server" Text="F" style="position:absolute;color:white;top:273px;left:250px;font-family:Calibri" Font-Bold="true"></asp:Label>
-    <asp:Button ID="btn1" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 270px; left: 266px; right: 455px;" BackColor="#CC0000"  />
-    <asp:Button ID="btn2" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 270px; left: 303px; right: 418px;" BackColor="#CC0000" />
+    <asp:Button ID="btn1" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 270px; left: 266px; right: 455px;" />
+    <asp:Button ID="btn2" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 270px; left: 303px; right: 418px;" />
     <asp:Button ID="btn3" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 270px; left: 379px; right: 341px;" />
-    <asp:Button ID="btn4" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 270px; left: 415px; right: 306px;" BackColor="#009900" />
+    <asp:Button ID="btn4" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 270px; left: 415px; right: 306px;" />
     <asp:Button ID="btn5" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 270px; left: 452px; right: 269px;" />
     <asp:Button ID="btn6" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 270px; left: 527px; right: 194px;" />
     <asp:Button ID="btn7" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 270px; left: 566px; right: 155px;" />
@@ -19,7 +19,7 @@
     <asp:Button ID="btn9" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 305px; left: 303px; right: 418px;" />
     <asp:Button ID="btn10" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 305px; left: 379px; right: 342px;" />
     <asp:Button ID="btn11" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 305px; left: 415px; right: 306px;" />
-    <asp:Button ID="btn12" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 305px; left: 452px; right: 269px;" BackColor="#CC0000" />
+    <asp:Button ID="btn12" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 305px; left: 452px; right: 269px;" />
     <asp:Button ID="btn13" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 305px; left: 527px; right: 194px;" />
     <asp:Button ID="btn14" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 305px; left: 566px; right: 155px;" />
 
@@ -37,9 +37,9 @@
     <asp:Label ID="lblC" runat="server" Text="C" style="position:absolute;color:white;top:378px;left:250px;font-family:Calibri" Font-Bold="true"></asp:Label>
     <asp:Button ID="btn22" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 374px; left: 266px; right: 455px;" />
     <asp:Button ID="btn23" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 374px; left: 303px; right: 418px;" />
-    <asp:Button ID="btn24" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 374px; left: 379px; right: 342px;" BackColor="#CC0000" />
-    <asp:Button ID="btn25" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 374px; left: 415px; right: 306px;" BackColor="#CC0000" />
-    <asp:Button ID="btn26" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 374px; left: 451px; right: 270px;" BackColor="#CC0000" />
+    <asp:Button ID="btn24" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 374px; left: 379px; right: 342px;" />
+    <asp:Button ID="btn25" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 374px; left: 415px; right: 306px;" />
+    <asp:Button ID="btn26" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 374px; left: 451px; right: 270px;" />
     <asp:Button ID="btn27" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 374px; left: 527px; right: 194px;" />
     <asp:Button ID="btn28" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 374px; left: 566px; right: 155px;" />
 
@@ -51,17 +51,17 @@
     <asp:Button ID="btn32" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 409px; left: 415px; right: 306px;" />
     <asp:Button ID="btn33" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 409px; left: 451px; right: 270px;" />
     <asp:Button ID="btn34" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 409px; left: 526px; right: 195px;" />
-    <asp:Button ID="btn35" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 409px; left: 566px; right: 155px;" BackColor="#CC0000" />
+    <asp:Button ID="btn35" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 409px; left: 566px; right: 155px;" />
 
     <!-- FILA A-->
     <asp:Label ID="lblA" runat="server" Text="A" style="position:absolute;color:white;top:447px;left:250px;font-family:Calibri" Font-Bold="true"></asp:Label>
-    <asp:Button ID="btn36" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 443px; left: 266px; right: 455px;" BackColor="#CC0000" />
+    <asp:Button ID="btn36" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 443px; left: 266px; right: 455px;" />
     <asp:Button ID="btn37" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 443px; left: 303px; right: 418px;" />
     <asp:Button ID="btn38" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 443px; left: 341px; right: 380px;" />
-    <asp:Button ID="btn39" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 443px; left: 378px; right: 343px;" BackColor="#CC0000" />
-    <asp:Button ID="btn40" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 443px; left: 414px; right: 307px;" BackColor="#CC0000" />
-    <asp:Button ID="btn41" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 443px; left: 452px; right: 269px;" BackColor="#CC0000" />
-    <asp:Button ID="btn42" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 443px; left: 489px; right: 232px;" BackColor="#CC0000" />
+    <asp:Button ID="btn39" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 443px; left: 378px; right: 343px;" />
+    <asp:Button ID="btn40" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 443px; left: 414px; right: 307px;" />
+    <asp:Button ID="btn41" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 443px; left: 452px; right: 269px;" />
+    <asp:Button ID="btn42" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 443px; left: 489px; right: 232px;" />
     <asp:Button ID="btn43" runat="server" Height="29px" Text="8" Width="30px" style="position:absolute; top: 443px; left: 526px; right: 195px;" />
     <asp:Button ID="btn44" runat="server" Height="29px" Text="9" Width="30px" style="position:absolute; top: 443px; left: 564px; right: 157px;" />
 
@@ -90,7 +90,7 @@
     <asp:Label ID="lblLinea" runat="server" Text="________________________________________" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 337px; left: 696px"></asp:Label>
 
     <!-- BOTONES -->
-    <asp:Button ID="btnVolver" runat="server" Height="26px" Text="VOLVER" style="background-color:#cc0000;position:absolute;width:500px;top:527px;left:170px;height:30px" />
-    <asp:Button ID="btnSiguiente" runat="server" Text="SIGUIENTE" style="background-color:#cc0000;position:absolute;top:527px;width:500px;left:680px ;height:30px" Font-Bold="true"/>
+    <asp:Button ID="btnVolver" runat="server" Height="26px" Text="VOLVER" style="background-color:#cc0000;position:absolute;width:500px;top:527px;left:170px;height:30px" OnClick="btnVolver_Click" />
+    <asp:Button ID="btnSiguiente" runat="server" Text="SIGUIENTE" style="background-color:#cc0000;position:absolute;top:527px;width:500px;left:680px ;height:30px" Font-Bold="true" OnClick="btnSiguiente_Click"/>
     
 </asp:Content>
