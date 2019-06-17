@@ -5,65 +5,65 @@
 
     <!-- FILA F-->
     <asp:Label ID="lblF" runat="server" Text="F" style="position:absolute;color:white;top:273px;left:250px;font-family:Calibri" Font-Bold="true"></asp:Label>
-    <asp:Button ID="btn1" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 270px; left: 266px; right: 455px;" />
-    <asp:Button ID="btn2" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 270px; left: 303px; right: 418px;" />
-    <asp:Button ID="btn3" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 270px; left: 379px; right: 341px;" />
-    <asp:Button ID="btn4" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 270px; left: 415px; right: 306px;" />
-    <asp:Button ID="btn5" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 270px; left: 452px; right: 269px;" />
-    <asp:Button ID="btn6" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 270px; left: 527px; right: 194px;" />
-    <asp:Button ID="btn7" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 270px; left: 566px; right: 155px;" />
+    <asp:Button ID="btn1" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 270px; left: 266px; right: 455px;" OnClick="btn1_Click" />
+    <asp:Button ID="btn2" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 270px; left: 303px; right: 418px;" OnClick="btn2_Click" />
+    <asp:Button ID="btn3" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 270px; left: 379px; right: 341px;" OnClick="btn3_Click" />
+    <asp:Button ID="btn4" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 270px; left: 415px; right: 306px;" OnClick="btn4_Click" />
+    <asp:Button ID="btn5" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 270px; left: 452px; right: 269px;" OnClick="btn5_Click" />
+    <asp:Button ID="btn6" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 270px; left: 527px; right: 194px;" OnClick="btn6_Click" />
+    <asp:Button ID="btn7" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 270px; left: 566px; right: 155px;" OnClick="btn7_Click" />
 
     <!-- FILA E-->
     <asp:Label ID="lblE" runat="server" Text="E" style="position:absolute;color:white;top:309px;left:250px;font-family:Calibri" Font-Bold="true"></asp:Label>
-    <asp:Button ID="btn8" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 305px; left: 266px; right: 455px;" />
-    <asp:Button ID="btn9" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 305px; left: 303px; right: 418px;" />
-    <asp:Button ID="btn10" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 305px; left: 379px; right: 342px;" />
-    <asp:Button ID="btn11" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 305px; left: 415px; right: 306px;" />
-    <asp:Button ID="btn12" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 305px; left: 452px; right: 269px;" />
-    <asp:Button ID="btn13" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 305px; left: 527px; right: 194px;" />
-    <asp:Button ID="btn14" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 305px; left: 566px; right: 155px;" />
+    <asp:Button ID="btn8" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 305px; left: 266px; right: 455px;" OnClick="btn8_Click" />
+    <asp:Button ID="btn9" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 305px; left: 303px; right: 418px;" OnClick="btn9_Click" />
+    <asp:Button ID="btn10" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 305px; left: 379px; right: 342px;" OnClick="btn10_Click" />
+    <asp:Button ID="btn11" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 305px; left: 415px; right: 306px;" OnClick="btn11_Click" />
+    <asp:Button ID="btn12" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 305px; left: 452px; right: 269px;" OnClick="btn12_Click" />
+    <asp:Button ID="btn13" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 305px; left: 527px; right: 194px;" OnClick="btn13_Click" />
+    <asp:Button ID="btn14" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 305px; left: 566px; right: 155px;" OnClick="btn14_Click" />
 
     <!-- FILA D-->
     <asp:Label ID="lblD" runat="server" Text="D" style="position:absolute;color:white;top:344px;left:250px;font-family:Calibri" Font-Bold="true"></asp:Label>
-    <asp:Button ID="btn15" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 339px; left: 266px; right: 455px;" />
-    <asp:Button ID="btn16" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 339px; left: 303px; right: 418px;" />
-    <asp:Button ID="btn17" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 339px; left: 379px; right: 342px;" />
-    <asp:Button ID="btn18" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 339px; left: 414px; right: 307px;" />
-    <asp:Button ID="btn19" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 339px; left: 452px; right: 269px;" />
-    <asp:Button ID="btn20" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 339px; left: 527px; right: 194px;" />
-    <asp:Button ID="btn21" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 339px; left: 566px; right: 155px;" />
+    <asp:Button ID="btn15" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 339px; left: 266px; right: 455px;" OnClick="btn15_Click" />
+    <asp:Button ID="btn16" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 339px; left: 303px; right: 418px;" OnClick="btn16_Click" />
+    <asp:Button ID="btn17" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 339px; left: 379px; right: 342px;" OnClick="btn17_Click" />
+    <asp:Button ID="btn18" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 339px; left: 414px; right: 307px;" OnClick="btn18_Click" />
+    <asp:Button ID="btn19" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 339px; left: 452px; right: 269px;" OnClick="btn19_Click" />
+    <asp:Button ID="btn20" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 339px; left: 527px; right: 194px;" OnClick="btn20_Click" />
+    <asp:Button ID="btn21" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 339px; left: 566px; right: 155px;" OnClick="btn21_Click" />
 
     <!-- FILA C-->
     <asp:Label ID="lblC" runat="server" Text="C" style="position:absolute;color:white;top:378px;left:250px;font-family:Calibri" Font-Bold="true"></asp:Label>
-    <asp:Button ID="btn22" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 374px; left: 266px; right: 455px;" />
-    <asp:Button ID="btn23" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 374px; left: 303px; right: 418px;" />
-    <asp:Button ID="btn24" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 374px; left: 379px; right: 342px;" />
-    <asp:Button ID="btn25" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 374px; left: 415px; right: 306px;" />
-    <asp:Button ID="btn26" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 374px; left: 451px; right: 270px;" />
-    <asp:Button ID="btn27" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 374px; left: 527px; right: 194px;" />
-    <asp:Button ID="btn28" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 374px; left: 566px; right: 155px;" />
+    <asp:Button ID="btn22" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 374px; left: 266px; right: 455px;" OnClick="btn22_Click" />
+    <asp:Button ID="btn23" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 374px; left: 303px; right: 418px;" OnClick="btn23_Click" />
+    <asp:Button ID="btn24" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 374px; left: 379px; right: 342px;" OnClick="btn24_Click" />
+    <asp:Button ID="btn25" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 374px; left: 415px; right: 306px;" OnClick="btn25_Click" />
+    <asp:Button ID="btn26" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 374px; left: 451px; right: 270px;" OnClick="btn26_Click" />
+    <asp:Button ID="btn27" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 374px; left: 527px; right: 194px;" OnClick="btn27_Click" />
+    <asp:Button ID="btn28" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 374px; left: 566px; right: 127px;" OnClick="btn28_Click" />
 
     <!-- FILA B-->
     <asp:Label ID="lblB" runat="server" Text="B" style="position:absolute;color:white;top:413px;left:250px;font-family:Calibri" Font-Bold="true"></asp:Label>
-    <asp:Button ID="btn29" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 409px; left: 266px; right: 455px;" />
-    <asp:Button ID="btn30" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 409px; left: 303px; right: 418px;" />
-    <asp:Button ID="btn31" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 409px; left: 379px; right: 342px;" />
-    <asp:Button ID="btn32" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 409px; left: 415px; right: 306px;" />
-    <asp:Button ID="btn33" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 409px; left: 451px; right: 270px;" />
-    <asp:Button ID="btn34" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 409px; left: 526px; right: 195px;" />
-    <asp:Button ID="btn35" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 409px; left: 566px; right: 155px;" />
+    <asp:Button ID="btn29" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 409px; left: 266px; right: 455px;" OnClick="btn29_Click" />
+    <asp:Button ID="btn30" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 409px; left: 303px; right: 418px;" OnClick="btn30_Click" />
+    <asp:Button ID="btn31" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 409px; left: 379px; right: 342px;" OnClick="btn31_Click" />
+    <asp:Button ID="btn32" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 409px; left: 415px; right: 306px;" OnClick="btn32_Click" />
+    <asp:Button ID="btn33" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 409px; left: 451px; right: 270px;" OnClick="btn33_Click" />
+    <asp:Button ID="btn34" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 409px; left: 526px; right: 195px;" OnClick="btn34_Click" />
+    <asp:Button ID="btn35" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 409px; left: 566px; right: 155px;" OnClick="btn35_Click" />
 
     <!-- FILA A-->
     <asp:Label ID="lblA" runat="server" Text="A" style="position:absolute;color:white;top:447px;left:250px;font-family:Calibri" Font-Bold="true"></asp:Label>
-    <asp:Button ID="btn36" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 443px; left: 266px; right: 455px;" />
-    <asp:Button ID="btn37" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 443px; left: 303px; right: 418px;" />
-    <asp:Button ID="btn38" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 443px; left: 341px; right: 380px;" />
-    <asp:Button ID="btn39" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 443px; left: 378px; right: 343px;" />
-    <asp:Button ID="btn40" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 443px; left: 414px; right: 307px;" />
-    <asp:Button ID="btn41" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 443px; left: 452px; right: 269px;" />
-    <asp:Button ID="btn42" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 443px; left: 489px; right: 232px;" />
-    <asp:Button ID="btn43" runat="server" Height="29px" Text="8" Width="30px" style="position:absolute; top: 443px; left: 526px; right: 195px;" />
-    <asp:Button ID="btn44" runat="server" Height="29px" Text="9" Width="30px" style="position:absolute; top: 443px; left: 564px; right: 157px;" />
+    <asp:Button ID="btn36" runat="server" Height="29px" Text="1" Width="30px" style="position:absolute; top: 443px; left: 266px; right: 455px;" OnClick="btn36_Click" />
+    <asp:Button ID="btn37" runat="server" Height="29px" Text="2" Width="30px" style="position:absolute; top: 443px; left: 303px; right: 418px;" OnClick="btn37_Click" />
+    <asp:Button ID="btn38" runat="server" Height="29px" Text="3" Width="30px" style="position:absolute; top: 443px; left: 341px; right: 380px;" OnClick="btn38_Click" />
+    <asp:Button ID="btn39" runat="server" Height="29px" Text="4" Width="30px" style="position:absolute; top: 443px; left: 378px; right: 343px;" OnClick="btn39_Click" />
+    <asp:Button ID="btn40" runat="server" Height="29px" Text="5" Width="30px" style="position:absolute; top: 443px; left: 414px; right: 307px;" OnClick="btn40_Click" />
+    <asp:Button ID="btn41" runat="server" Height="29px" Text="6" Width="30px" style="position:absolute; top: 443px; left: 452px; right: 269px;" OnClick="btn41_Click" />
+    <asp:Button ID="btn42" runat="server" Height="29px" Text="7" Width="30px" style="position:absolute; top: 443px; left: 489px; right: 232px;" OnClick="btn42_Click" />
+    <asp:Button ID="btn43" runat="server" Height="29px" Text="8" Width="30px" style="position:absolute; top: 443px; left: 526px; right: 195px;" OnClick="btn43_Click" />
+    <asp:Button ID="btn44" runat="server" Height="29px" Text="9" Width="30px" style="position:absolute; top: 443px; left: 564px; right: 157px;" OnClick="btn44_Click" />
 
     <!-- PANTALLA -->
     <asp:Image ID="imgPantalla" style="position:absolute; top: 40px; left: 216px; height: 235px; width: 412px;" runat="server" ImageUrl="~/Recursos/linea.png" />
@@ -71,7 +71,7 @@
     
     <!-- INFO ENTRADA -->
     <asp:Label ID="lblButacaReservada" runat="server" Text="(Butaca F-4)" style="position:absolute;font-family:Calibri;color:white;font-size:medium; top: 402px; left: 696px"></asp:Label>
-    <asp:Label ID="lblFormato" runat="server" Text="3D - Audio Español" style="position:absolute;font-family:Calibri;color:white; top: 187px; left: 905px; font-size:x-large" Font-Bold="False"></asp:Label>
+    <asp:Label ID="lblFormato" runat="server"  style="position:absolute;font-family:Calibri;color:white; top: 187px; left: 905px; font-size:x-large" Font-Bold="False"></asp:Label>
     <asp:Label ID="lblFecha" runat="server" Text="Jueves 13 de Junio - 15:30" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 329px; left: 905px"></asp:Label>
     <asp:Label ID="lblEntrada" runat="server" Text="Entrada General x1"  style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 369px; left: 696px"></asp:Label>
     <asp:Label ID="lblPrecio" runat="server" Text="$330" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 369px; left: 1080px"></asp:Label>
@@ -79,12 +79,12 @@
     <asp:Label ID="lblTotal" runat="server" Text="TOTAL" style="position:absolute;font-family:Calibri;color:white;font-size:xx-large; top: 457px; left: 696px" Font-Bold="true"></asp:Label>
 
     <!-- INFO LUGAR -->
-    <asp:Label ID="lblSucursal" runat="server" Text="Unicenter - Sala 8" style="position:absolute;font-family:Calibri;color:white; top: 227px; left: 905px; font-size:x-large" Font-Bold="true"></asp:Label>
-    <asp:Label ID="lblDireccion" runat="server" Text="Paraná 3745, Martínez, Buenos Aires" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 267px; left: 905px; margin-right:200px"></asp:Label>
+    <asp:Label ID="lblSucursal" runat="server" style="position:absolute;font-family:Calibri;color:white; top: 227px; left: 905px; font-size:x-large" Font-Bold="true"></asp:Label>
+    <asp:Label ID="lblDireccion" runat="server"  style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 267px; left: 905px; margin-right:200px"></asp:Label>
 
     <!-- PELICULA -->
-    <asp:Image ID="imgPelicula" runat="server" ImageUrl="~/Recursos/1.jpg" style="position:absolute; top: 86px; left: 696px; height: 272px; width: 196px;" />
-    <asp:Label ID="lblNombre" runat="server" Text="JOHN WICK 3: PARABELLUM" style="position:absolute;font-family:Calibri;color:white; top: 86px; left: 905px; margin-right:1000px;font-size:x-large" Font-Bold="True"></asp:Label>
+    <asp:Image ID="imgPelicula" runat="server" style="position:absolute; top: 86px; left: 696px; height: 272px; width: 196px;" />
+    <asp:Label ID="lblNombre" runat="server" style="position:absolute;font-family:Calibri;color:white; top: 86px; left: 905px; margin-right:1000px;font-size:x-large" Font-Bold="True"></asp:Label>
     
     <!-- BOLUDECES-->
     <asp:Label ID="lblLinea" runat="server" Text="________________________________________" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 337px; left: 696px"></asp:Label>
