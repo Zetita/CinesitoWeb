@@ -34,7 +34,7 @@ namespace PRESENTACION
                     }
                 }
             }
-            //Consulta = ArmarConsultaHeavy(ID_Funcion);
+            //Consulta = ArmarConsultaHeavy(ID_Funcion); x
             //cn.Open();
             //SqlParameter Parametro = new SqlParameter();
             //SqlCommand cmd = new SqlCommand();
