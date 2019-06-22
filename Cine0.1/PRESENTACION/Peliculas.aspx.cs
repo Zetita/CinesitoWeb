@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using DAO;
 
 namespace PRESENTACION
 {
@@ -14,57 +15,58 @@ namespace PRESENTACION
         protected void Page_Load(object sender, EventArgs e)
         {
             string IDPelicula;
-            DAO.GestionDatos Datos = new DAO.GestionDatos();
+
+            DAO_Peliculas Pelicula = new DAO_Peliculas();
+            DAO_Sucursales Sucursal = new DAO_Sucursales();
             //IDPelicula = Application["ID"].ToString();
             IDPelicula = "1";
 
             string Consulta = "Select * from Peliculas where ID_Pelicula = " + IDPelicula;
-            DataTable dt = Datos.ObtenerTodos("Peliculas", Consulta);
+            DataTable dt = Pelicula.ObtenerTablaPeliculas();
             LlenarPelicula(dt);
 
-            //Consulta = "Select * From Sucursales";
-            //dt = Datos.ObtenerTodos("Sucursales", Consulta);
-            //LlenarDDLSucursal(dt);
+            dt = Sucursal.ObtenerTablaSucursales();
+            LlenarDDLSucursal(dt);
         }
 
         protected void ddlCine_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //ddlFormato.Enabled = true;
-            //DAO.GestionDatos Datos = new DAO.GestionDatos();
-            //string Consulta = "Select * from Formatos";
-            //DataTable dt = Datos.ObtenerTodos("Formatos", Consulta);
-            //LlenarDDLFormatos(dt);
-            //Application["ID_Sucursal"] = ddlCine.SelectedItem.Value.ToString();
+            ddlFormato.Enabled = true;
+            DAO_Formatos Datos = new DAO_Formatos();
+            DataTable dt = Datos.ObtenerTablaFormatos();
+            LlenarDDLFormatos(dt);
+            Application["ID_Sucursal"] = ddlCine.SelectedItem.Value.ToString();
         }
 
         protected void ddlFormato_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //    ddlDía.Enabled = true;
-            //    DAO.GestionDatos Datos = new DAO.GestionDatos();
-            //    string IDPelicula = Application["ID"].ToString();
-            //    string IDPelicula = "1";
-
-            //    string Consulta = "Select * from PeliculasxFormatos";
-            //    DataTable dt = Datos.ObtenerTodos("PeliculasxFormatos", Consulta);
-            //    string IDPxF = SacarIDPxF(IDPelicula, ddlFormato.SelectedItem.Value.ToString(), dt);
-
-            //    Consulta = "Select * from Funciones where ID_PxF=" + IDPxF;
-            //    dt = Datos.ObtenerTodos("Funciones", Consulta);
-            //    LlenarDDLDia(dt);
-            //    Application["ID_PxF"] = IDPxF;
+            ddlDía.Enabled = true;
+            DAO_PxF PxF = new DAO_PxF();
+            DAO_Funciones Funcion = new DAO_Funciones();
+            //string IDPelicula = Application["ID"].ToString();
+            string IDPelicula = "1";
+            Response.Write("<script>window.alert('asdaf');</script)");
+            DataTable dt = PxF.ObtenerTablaPxF();
+            string IDPxF = SacarIDPxF(IDPelicula, ddlFormato.SelectedValue, dt);
+            string Consulta = "Select * from Funciones where ID_PxF =" + IDPxF;
+            dt = Funcion.ObtenerTablaFunciones(Consulta);
+            LlenarDDLDia(dt);
+            Application["ID_PxF"] = IDPxF;
+            
+            
         }
 
         protected void ddlDía_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //    ddlHorario.Enabled = true;
-            //    DAO.GestionDatos Datos = new DAO.GestionDatos();
-            //    string Dia = ddlDía.SelectedItem.ToString();
-            //    string ID_Sucursal = Application["ID_Sucursal"].ToString();
-            //    string IDPxF = Application["IDPxF"].ToString();
-            //    string Consulta = "Select * from Funciones where ID_PxF = "+IDPxF+" and ID_Sucursal = "+ID_Sucursal+" and FechaHora_Funcion LIKE '"+Dia+"%'";
-            //    DataTable dt = Datos.ObtenerTodos("Funciones", Consulta);
-            //    LlenarDDLHora(dt, Dia, IDPxF);
-            //    Application["Dia"] = ddlDía.SelectedItem.ToString();      
+            ddlHorario.Enabled = true;
+            DAO_Funciones Datos = new DAO_Funciones();
+            string Dia = ddlDía.SelectedItem.ToString();
+            string ID_Sucursal = Application["ID_Sucursal"].ToString();
+            string IDPxF = Application["IDPxF"].ToString();
+            string Consulta = "Select * from Funciones where ID_PxF = " + IDPxF + " and ID_Sucursal = " + ID_Sucursal + " and FechaHora_Funcion LIKE '" + Dia + "%'";
+            DataTable dt = Datos.ObtenerTablaFunciones(Consulta);
+            LlenarDDLHora(dt, Dia, IDPxF);
+            Application["Dia"] = ddlDía.SelectedItem.ToString();
         }
 
         protected void ddlHorario_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,8 +106,16 @@ namespace PRESENTACION
         {
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                ddlFormato.Items.Add(dt.Rows[i]["Nombre_Formato"].ToString());
-                ddlFormato.Items[i].Value = dt.Rows[i]["ID_Formato"].ToString();
+                if (dt.Rows[i]["Subtitulos_Formato"].ToString() == "False")
+                {
+                    ddlFormato.Items.Add(dt.Rows[i]["Nombre_Formato"].ToString() + " - Audio " + dt.Rows[i]["Idioma_Formato"].ToString());
+                    ddlFormato.Items[i].Value = dt.Rows[i]["ID_Formato"].ToString();
+                }
+                else
+                {
+                    ddlFormato.Items.Add(dt.Rows[i]["Nombre_Formato"].ToString() + " - Subtitulos " + dt.Rows[i]["Idioma_Formato"].ToString());
+                    ddlFormato.Items[i].Value = dt.Rows[i]["ID_Formato"].ToString();
+                }
             }
         }
 
@@ -138,11 +148,15 @@ namespace PRESENTACION
         public string SacarIDPxF(string IDPelicula, string IDFormato, DataTable dt)
         {
             string IDPxF=string.Empty;
-            foreach(DataRow i in dt.Rows)
+
+            for (int i=0;i<dt.Rows.Count;i++)
             {
-                if (i["ID_Pelicula"].ToString() == IDPelicula && i["ID_Formato"].ToString() == IDFormato)
+               
+                if (dt.Rows[i]["ID_Pelicula"].ToString() == IDPelicula && dt.Rows[i]["ID_Formato"].ToString() == IDFormato)
                 {
-                    IDPxF = i["ID_PxF"].ToString();
+                    
+                    IDPxF = dt.Rows[i]["ID_PxF"].ToString();
+                    
                 }
             }
             return IDPxF;
@@ -150,12 +164,12 @@ namespace PRESENTACION
 
         public string SacarFuncion()
         {
-            DAO.GestionDatos Datos = new DAO.GestionDatos();
+            DAO_Funciones Datos = new DAO_Funciones();
             string FechaHora = Application["Dia"].ToString();
             string Sucursal = Application["ID_Sucursal"].ToString();
             string PxF = Application["ID_PxF"].ToString();
             string Consulta = "Select * from Funciones where ID_Sucursal = " + Sucursal + " and ID_PxF = " + PxF + "and FechaHora_Funcion =" + FechaHora;
-            DataTable dt = Datos.ObtenerTodos("Funciones", Consulta);
+            DataTable dt = Datos.ObtenerTablaFunciones(Consulta);
             string ID_Funcion = dt.Rows[0]["ID_Funcion"].ToString();
             return ID_Funcion;
         }

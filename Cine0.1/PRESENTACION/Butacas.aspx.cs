@@ -14,31 +14,31 @@ namespace PRESENTACION
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DAO.GestionDatos Datos = new DAO.GestionDatos();
-            //string ID_Funcion = Application["ID_Funcion"].ToString();
-            string ID_Funcion = "1";
-            //string ID_Pelicula=Application["ID_Pelicula"].ToString();
-            string Ruta = "Data Source=localhost\\sqlexpress2;Initial Catalog=CineFrenz; Integrated Security=true";
-            string Consulta = "Select * from ButacasxFunciones where ID_Funcion=" + ID_Funcion;
-            DataTable dt = Datos.ObtenerTodos("ButacasxFunciones", Consulta);
-            DataSet ds = new DataSet();
-            SqlConnection cn = new SqlConnection(Ruta);
+            ////DAO.GestionDatos Datos = new DAO.GestionDatos();
+            ////string ID_Funcion = Application["ID_Funcion"].ToString();
+            //string ID_Funcion = "1";
+            ////string ID_Pelicula=Application["ID_Pelicula"].ToString();
+            //string Ruta = "Data Source=localhost\\sqlexpress2;Initial Catalog=CineFrenz; Integrated Security=true";
+            //string Consulta = "Select * from ButacasxFunciones where ID_Funcion=" + ID_Funcion;
+            //DataTable dt = Datos.ObtenerTodos("ButacasxFunciones", Consulta);
+            //DataSet ds = new DataSet();
+            //SqlConnection cn = new SqlConnection(Ruta);
 
-            for (int x = 1; x <= 44; x++)
-            {
-                for (int j = 0; j < dt.Rows.Count; j++)
-                {
-                    if (x.ToString() == dt.Rows[j]["ID_Butaca"].ToString().Trim())
-                    {
-                        Colorear(x.ToString(), 0);
-                    }
-                }
-            }
-            Consulta = ArmarConsultaHeavy(ID_Funcion);
-            dt = Datos.ObtenerTodos("Funciones", Consulta);
-            LlenarResumen(dt);
-            Application["CantEntradas"] = 3;
-            Application["CantEntradasT"] = Application["CantEntradas"];
+            //for (int x = 1; x <= 44; x++)
+            //{
+            //    for (int j = 0; j < dt.Rows.Count; j++)
+            //    {
+            //        if (x.ToString() == dt.Rows[j]["ID_Butaca"].ToString().Trim())
+            //        {
+            //            Colorear(x.ToString(), 0);
+            //        }
+            //    }
+            //}
+            //Consulta = ArmarConsultaHeavy(ID_Funcion);
+            //dt = Datos.ObtenerTodos("Funciones", Consulta);
+            //LlenarResumen(dt);
+            //Application["CantEntradas"] = 3;
+            //Application["CantEntradasT"] = Application["CantEntradas"];
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
