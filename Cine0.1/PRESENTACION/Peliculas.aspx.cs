@@ -72,9 +72,15 @@ namespace PRESENTACION
             //    Application["Dia"] += ddlHorario.SelectedItem.ToString();
             //    string ID_Funcion=SacarFuncion();
             //    Application["ID_Funcion"] = ID_Funcion;
+            //    ddlCantEntradas.Enabled = true;
         }
 
-    public void LlenarPelicula(DataTable dt)
+        protected void ddlCantEntradas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Application["CantEntradas"] = ddlCantEntradas.SelectedItem.ToString();
+        }
+
+        public void LlenarPelicula(DataTable dt)
         {
             lblNombre.Text = dt.Rows[0]["Titulo_Pelicula"].ToString();
             lblSinopsis.Text = dt.Rows[0]["Sinopsis_Pelicula"].ToString();

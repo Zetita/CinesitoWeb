@@ -25,18 +25,33 @@
     </asp:DropDownList>
 
     <!-- FORMATO -->
-    <asp:Label ID="lblFormato" runat="server" Text="Formato:" style="position:absolute;top:461px;left:565px"></asp:Label>  
-    <asp:DropDownList ID="ddlFormato" runat="server" style="position:absolute;top:460px;left:642px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlFormato_SelectedIndexChanged">
+    <asp:Label ID="lblFormato" runat="server" Text="Formato:" style="position:absolute;top:461px;left:500px"></asp:Label>  
+    <asp:DropDownList ID="ddlFormato" runat="server" style="position:absolute;top:460px;left:577px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlFormato_SelectedIndexChanged">
     </asp:DropDownList>    
 
     <!-- DÍA -->
-    <asp:Label ID="lblDía" runat="server" Text="Día:" style="position:absolute;top:461px;left:780px"></asp:Label>
-    <asp:DropDownList ID="ddlDía" runat="server" style="position:absolute;top:460px;left:822px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlDía_SelectedIndexChanged">
+    <asp:Label ID="lblDía" runat="server" Text="Día:" style="position:absolute;top:461px;left:652px"></asp:Label>
+    <asp:DropDownList ID="ddlDía" runat="server" style="position:absolute;top:460px;left:696px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlDía_SelectedIndexChanged">
     </asp:DropDownList>
 
     <!-- HORARIO -->
-    <asp:Label ID="lblHorario" runat="server" Text="Horario:" style="position:absolute;top:461px;left:985px"></asp:Label>
-    <asp:DropDownList ID="ddlHorario" runat="server" style="position:absolute;top:460px;left:1057px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlHorario_SelectedIndexChanged">
+    <asp:Label ID="lblHorario" runat="server" Text="Horario:" style="position:absolute;top:461px;left:771px"></asp:Label>
+    <asp:DropDownList ID="ddlHorario" runat="server" style="position:absolute;top:460px;left:844px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlHorario_SelectedIndexChanged">
+    </asp:DropDownList>
+
+    <!-- CANT. ENTRADAS -->
+    <asp:Label ID="lblCantEntradas" runat="server" Text="Cantidad de Entradas:" style="position:absolute;top:461px;left:919px"></asp:Label>
+    <asp:DropDownList ID="ddlCantEntradas" runat="server" style="position:absolute;top:460px;left:1095px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlCantEntradas_SelectedIndexChanged">
+        <asp:ListItem>1</asp:ListItem>
+        <asp:ListItem>2</asp:ListItem>
+        <asp:ListItem>3</asp:ListItem>
+        <asp:ListItem>4</asp:ListItem>
+        <asp:ListItem>5</asp:ListItem>
+        <asp:ListItem>6</asp:ListItem>
+        <asp:ListItem>7</asp:ListItem>
+        <asp:ListItem>8</asp:ListItem>
+        <asp:ListItem>9</asp:ListItem>
+        <asp:ListItem>10</asp:ListItem>
     </asp:DropDownList>
    
     <!-- BOTONES -->
