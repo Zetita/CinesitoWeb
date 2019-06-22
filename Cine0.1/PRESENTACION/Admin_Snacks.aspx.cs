@@ -17,20 +17,20 @@ namespace PRESENTACION
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            //String pathCarpeta = @"img\snacks\";
-            //String savePath = Server.MapPath("~") + pathCarpeta;
-            //String fileName = FileImagen.FileName;
-            //String pathCompleta = savePath + fileName;
+            String pathCarpeta = @"img\snacks\";
+            String savePath = Server.MapPath("~") + pathCarpeta;
+            String fileName = FileImagen.FileName;
+            String pathCompleta = savePath + fileName;
 
-            //Snack snack = new Snack();
-            //snack.Nombre = txtSnack.Text;
-            //snack.Tipo = ddlTipoSnack.Text;
-            //snack.Precio = Double.Parse(txtPrecio.Text);
-            //snack.Estado = true;
-            //String rutaBase = "~/img/snacks/" + fileName;
-            //snack.ImagentURL = rutaBase;
+            Snack snack = new Snack();
+            snack.Nombre = txtSnack.Text;
+            snack.Tipo = ddlTipoSnack.Text;
+            snack.Precio = Double.Parse(txtPrecio.Text);
+            snack.Estado = true;
+            String rutaBase = "~/img/snacks/" + fileName;
+            snack.ImagentURL = rutaBase;
 
-            
+
 
         }
     }

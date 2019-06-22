@@ -192,9 +192,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAO\DAO.csproj">
-      <Project>{dc5bd935-23c6-4fee-bf8d-81a83fe97a9a}</Project>
-      <Name>DAO</Name>
+    <ProjectReference Include="..\ENTIDAD\ENTIDAD.csproj">
+      <Project>{d6144964-6d3d-4582-a02e-d0c7d4f195f6}</Project>
+      <Name>ENTIDAD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEGOCIO\NEGOCIO.csproj">
+      <Project>{37ce562f-46f4-434e-8243-c3578684bdb4}</Project>
+      <Name>NEGOCIO</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
