@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formatos.cs" />
     <Compile Include="Peliculas.cs" />
     <Compile Include="Snack.cs" />
     <Compile Include="Sucursal.cs" />

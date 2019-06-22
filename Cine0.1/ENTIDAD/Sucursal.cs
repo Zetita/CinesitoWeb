@@ -18,5 +18,31 @@ namespace ENTIDAD
         {
 
         }
+
+        public String idSucursal
+        {
+            set { s_idSucursal = value; }
+            get { return s_idSucursal; }
+        }
+        public String Nombre
+        {
+            set { s_Nombre = value; }
+            get { return s_Nombre; }
+        }
+        public String Direccion
+        {
+            set { s_Direccion = value; }
+            get { return s_Direccion; }
+        }
+        public String Localidad
+        {
+            set { s_Localidad = value; }
+            get { return s_Localidad; }
+        }
+        public String Provincia
+        {
+            set { s_Provincia = value; }
+            get { return s_Provincia; }
+        }
     }
 }

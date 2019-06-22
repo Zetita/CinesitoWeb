@@ -28,7 +28,7 @@ namespace PRESENTACION
             snack.Precio = Double.Parse(txtPrecio.Text);
             snack.Estado = true;
             String rutaBase = "~/img/snacks/" + fileName;
-            snack.ImagentURL = rutaBase;
+            snack.ImagenURL = rutaBase;
 
 
 
