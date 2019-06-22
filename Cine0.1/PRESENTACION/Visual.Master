@@ -18,9 +18,7 @@
 		<ul>
             <li style="float:left;font-size:x-large; padding:13px 20px"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CineFrenz</b></li>
 			<li><a href="#">CARTELERA</a></li>
-			<li><a href="#">PROXIMAMENTE</a></li>
 			<li><a href="#">CINES</a></li>
-			<li><a href="#">PROMOCIONES</a></li>
             <li><a href="#">SNACKS</a></li>
 		    
             <li style="float:right; padding:13px 20px">
@@ -30,9 +28,7 @@
 		</ul>
             
 </div>
-                
-            </nav>
-       
+              
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
                
