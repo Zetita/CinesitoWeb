@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DAO
@@ -41,6 +42,32 @@ namespace DAO
             {
                 return null;
             }
+        }
+        private DataTable ObtenerTabla(String Nombre, String Sql)
+        {
+            DataSet ds = new DataSet();
+
+            SqlConnection Conexion = ObtenerConexion();
+            SqlDataAdapter adaptador = ObtenerAdaptador(Sql);
+            adaptador.Fill(ds, Nombre);
+            return ds.Tables[Nombre];
+        }
+
+
+
+
+        public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)
+        {
+            int FilasCambiadas;
+            SqlConnection Conexion = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd = Comando;
+            cmd.Connection = Conexion;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = NombreSP;
+            FilasCambiadas = cmd.ExecuteNonQuery();
+            Conexion.Close();
+            return FilasCambiadas;
         }
     }
 }
