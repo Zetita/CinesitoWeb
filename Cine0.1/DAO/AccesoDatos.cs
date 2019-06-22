@@ -43,7 +43,7 @@ namespace DAO
                 return null;
             }
         }
-        private DataTable ObtenerTabla(String Nombre, String Sql)
+        public DataTable ObtenerTabla(String Nombre, String Sql)
         {
             DataSet ds = new DataSet();
 
