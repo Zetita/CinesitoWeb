@@ -43,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Formatos.cs" />
+    <Compile Include="Funciones.cs" />
     <Compile Include="Peliculas.cs" />
+    <Compile Include="PeliculasxFormatos.cs" />
     <Compile Include="Snack.cs" />
     <Compile Include="Sucursal.cs" />
     <Compile Include="Usuario.cs" />
