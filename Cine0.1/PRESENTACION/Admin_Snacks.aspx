@@ -56,7 +56,7 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" />
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
                 </td>
             </tr>
         </table>
