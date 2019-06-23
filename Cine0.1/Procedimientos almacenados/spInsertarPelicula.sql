@@ -1,0 +1,45 @@
+USE CineFrenz
+GO
+
+CREATE PROCEDURE spInsertarPelicula
+(
+@ID_PELICULA CHAR(20),
+@TITULO CHAR(40),
+@GENERO TEXT,
+@CLASIFICACION CHAR(10),
+@FECHAESTRENO DATE,
+@DIRECTOR CHAR(40),
+@SINOPSIS TEXT,
+@IMAGENURL TEXT,
+@DURACION TIME(7),
+@TRAILERURL TEXT,
+@ESTADO bit
+)
+AS
+INSERT INTO Peliculas
+(
+Titulo_Pelicula,
+Genero_Pelicula,
+Clasificacion_Pelicula,
+FechaEstreno_Pelicula,
+Director_Pelicula,
+Sinopsis_Pelicula,
+ImagenURL,
+Duracion,
+TrailerURL,
+Estado
+)
+VALUES
+(
+@TITULO,
+@GENERO,
+@CLASIFICACION,
+@FECHAESTRENO,
+@DIRECTOR,
+@SINOPSIS,
+@IMAGENURL,
+@DURACION,
+@TRAILERURL,
+@ESTADO
+
+)RETURN

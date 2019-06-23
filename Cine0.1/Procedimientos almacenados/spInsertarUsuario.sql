@@ -1,0 +1,45 @@
+USE CineFrenz
+GO
+
+CREATE PROCEDURE spInsertarUsuario
+(
+@USUARIO CHAR(40),
+@CONTRASENIA VARBINARY(MAX),
+@EMAIL CHAR(40),
+@APELLIDOS CHAR(40),
+@NOMBRES CHAR(40),
+@DNI CHAR(8),
+@TELEFONO CHAR(15),
+@FECHANAC DATE,
+@ADMINISTRADOR BIT,
+@ACTIVO BIT
+)
+AS
+INSERT INTO Usuarios
+(
+Usuario,
+Contrasenia,
+Email_Usuario,
+Apellidos_Usuario,
+Nombres_Usuario,
+DNI_Usuario,
+Telefono_Usuario,
+FechaNac_Usuario,
+Administrador,
+Activo
+)
+VALUES
+(
+@USUARIO,
+@CONTRASENIA,
+@EMAIL,
+@APELLIDOS,
+@NOMBRES,
+@DNI,
+@TELEFONO,
+@FECHANAC,
+@ADMINISTRADOR,
+@ACTIVO
+
+)
+RETURN
