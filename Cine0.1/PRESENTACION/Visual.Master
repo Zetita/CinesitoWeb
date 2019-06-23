@@ -16,14 +16,14 @@
    <form id="form1" runat="server"  >
         <div id="menu" style="text-align:center;color:white">
 		<ul>
-            <li><asp:Image ID="ImageButton1" runat="server" ImageAlign="Left" style="position:absolute;left:0;top:13px" Width="240px" ImageUrl="~/Recursitos/logo_transparent1.png"/></li>
+            <li><asp:Image ID="ImageButton1" runat="server" ImageAlign="Left" style="position:absolute;left:0;top:13px" Width="240px" ImageUrl="~/Recursos/logo_transparent1.png"/></li>
 			<li><a href="#">CARTELERA</a></li>
 			<li><a href="#">CINES</a></li>
             <li><a href="#">SNACKS</a></li>
 		    
             <li style="float:right; padding:13px 20px">
-                <asp:ImageButton ID="imgbtnUser" runat="server" ImageAlign="Right" ImageUrl="~/Recursitos/user.png" Height="32px" Width="35px" />
-                <asp:ImageButton ID="imgbtnSearch" runat="server" ImageAlign="Right" ImageUrl="~/Recursitos/search.png" Height="32px" Width="35px" />
+                <asp:ImageButton ID="imgbtnUser" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/user.png" Height="32px" Width="35px" />
+                <asp:ImageButton ID="imgbtnSearch" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/search.png" Height="32px" Width="35px" />
             </li>
 		</ul>
             
