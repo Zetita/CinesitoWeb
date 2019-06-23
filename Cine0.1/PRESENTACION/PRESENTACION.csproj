@@ -98,13 +98,6 @@
     <Content Include="Recursitos\logo_transparent1.png" />
     <Content Include="Recursitos\search.png" />
     <Content Include="Recursitos\user.png" />
-    <Content Include="recursos\linea.png" />
-    <Content Include="recursos\logo.png" />
-    <Content Include="recursos\logo1.png" />
-    <Content Include="recursos\logo_transparent.png" />
-    <Content Include="recursos\logo_transparent1.png" />
-    <Content Include="recursos\search.png" />
-    <Content Include="recursos\user.png" />
     <Content Include="Slider\Future.jpg" />
     <Content Include="Slider\JohnWick.jpeg" />
     <Content Include="Web.config" />
@@ -194,7 +187,6 @@
     <Content Include="Admin.Master" />
     <None Include="packages.config" />
     <Content Include="Visual.Master" />
-    <Content Include="recursos\GothamHTFLight.woff" />
     <Content Include="Recursitos\GothamHTFLight.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
