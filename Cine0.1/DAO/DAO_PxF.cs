@@ -18,42 +18,46 @@ namespace DAO
             DataTable tabla = ad.ObtenerTabla("PeliculasxFormatos", "Select * from PeliculasXFormatos");
             return tabla;
         }
-
-        public void armarParametros(ref SqlCommand Comando, PeliculasxFormato PxF)
+        public DataTable ObtenerTablaPxF(String id_pel)
+        {
+            DataTable tabla = ad.ObtenerTabla("PeliculasxFormatos", "Select * from PeliculasXFormatos Where ID_Pelicula='" + id_pel + "'");
+            return tabla;
+        }
+        public void armarParametros(ref SqlCommand Comando, PeliculasxFormato pxf)
         {
             SqlParameter SqlParametros = new SqlParameter();
 
             SqlParametros = Comando.Parameters.Add("@ID_PXF", SqlDbType.Char, 20);
-            SqlParametros.Value = PxF.IDPxF;
+            SqlParametros.Value = pxf.IDPxF;
             SqlParametros = Comando.Parameters.Add("@ID_PELICULA", SqlDbType.Char, 20);
-            SqlParametros.Value = PxF.IDPelicula;
+            SqlParametros.Value = pxf.IDPelicula;
             SqlParametros = Comando.Parameters.Add("@ID_FORMATO", SqlDbType.Char, 20);
-            SqlParametros.Value = PxF.IDFormato;
+            SqlParametros.Value = pxf.IDFormato;
 
         }
 
-        //public bool ActualizarPxF(PeliculasxFormatos PxF)
-        //{
-        //    SqlCommand Comando = new SqlCommand();
-        //    armarParametros(ref Comando, PxF);
-        //    int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarPxF");
-        //    if (filasInsertadas == 1)
-        //        return true;
-        //    else
-        //        return false;
-        //}
+        public bool ActualizarPxF(PeliculasxFormato pxf)
+        {
+            SqlCommand Comando = new SqlCommand();
+            armarParametros(ref Comando, pxf);
+            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarPxF");
+            if (filasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
 
-        public int eliminarSucursal(PeliculasxFormato PxF)
+        public int eliminarSucursal(PeliculasxFormato pxf)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, PxF);
+            armarParametros(ref comando, pxf);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarPxF");
         }
 
-        public bool insertarSucursal(PeliculasxFormato PxF)
+        public bool insertarSucursal(PeliculasxFormato pxf)
         {
             SqlCommand Comando = new SqlCommand();
-            armarParametros(ref Comando, PxF);
+            armarParametros(ref Comando, pxf);
             int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spInsertarPxF");
             if (filasInsertadas == 1)
                 return true;

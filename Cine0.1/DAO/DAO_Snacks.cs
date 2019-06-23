@@ -17,6 +17,11 @@ namespace DAO
             DataTable tabla = ad.ObtenerTabla("Snacks", "Select * from Snacks");
             return tabla;
         }
+        public DataTable ObtenerTablaSnacks(String tipo)
+        {
+            DataTable tabla = ad.ObtenerTabla("Snacks", "Select * from Snacks Where Tipo_Snack='" + tipo + "'");
+            return tabla;
+        }
 
         public void armarParametros(ref SqlCommand Comando, Snack snack)
         {

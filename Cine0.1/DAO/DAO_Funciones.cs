@@ -25,43 +25,43 @@ namespace DAO
             return tabla;
         }
 
-        public void armarParametros(ref SqlCommand Comando, Funcion Funcion)
+        public void armarParametros(ref SqlCommand Comando, Funcion funcion)
         {
             SqlParameter SqlParametros = new SqlParameter();
 
             SqlParametros = Comando.Parameters.Add("@ID_FUNCION", SqlDbType.Char, 20);
-            SqlParametros.Value = Funcion.IDFuncion;
+            SqlParametros.Value = funcion.IDFuncion;
             SqlParametros = Comando.Parameters.Add("@ID_PXF", SqlDbType.Char, 20);
-            SqlParametros.Value = Funcion.IDPxF;
+            SqlParametros.Value = funcion.IDPxF;
             SqlParametros = Comando.Parameters.Add("@ID_SALA", SqlDbType.Char, 20);
-            SqlParametros.Value = Funcion.IDSala;
-            SqlParametros = Comando.Parameters.Add("@FECFUNCION", SqlDbType.DateTime);
-            SqlParametros.Value = Funcion.FechaHora;
+            SqlParametros.Value = funcion.IDSala;
+            SqlParametros = Comando.Parameters.Add("@FECHA_HORA", SqlDbType.DateTime);
+            SqlParametros.Value = funcion.FechaHora;
             
         }
 
-        //public bool ActualizarFuncion(Funciones Funcion)
-        //{
-        //    SqlCommand Comando = new SqlCommand();
-        //    armarParametros(ref Comando, Funcion);
-        //    int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarFuncion");
-        //    if (filasInsertadas == 1)
-        //        return true;
-        //    else
-        //        return false;
-        //}
+        public bool ActualizarFuncion(Funcion funcion)
+        {
+            SqlCommand Comando = new SqlCommand();
+            armarParametros(ref Comando, funcion);
+            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarFuncion");
+            if (filasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
 
-        public int eliminarFuncion(Funcion Funcion)
+        public int eliminarFuncion(Funcion funcion)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, Funcion);
+            armarParametros(ref comando, funcion);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarFuncion");
         }
 
-        public bool insertarFuncion(Funcion Funcion)
+        public bool insertarFuncion(Funcion funcion)
         {
             SqlCommand Comando = new SqlCommand();
-            armarParametros(ref Comando, Funcion);
+            armarParametros(ref Comando, funcion);
             int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spInsertarFuncion");
             if (filasInsertadas == 1)
                 return true;

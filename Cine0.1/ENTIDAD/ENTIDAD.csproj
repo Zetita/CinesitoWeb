@@ -43,14 +43,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ButacasxFunciones.cs" />
+    <Compile Include="DetalleVenta.cs" />
     <Compile Include="Formato.cs" />
     <Compile Include="Funcion.cs" />
     <Compile Include="Pelicula.cs" />
     <Compile Include="PeliculasxFormato.cs" />
+    <Compile Include="Sala.cs" />
     <Compile Include="Snack.cs" />
+    <Compile Include="SnackxVenta.cs" />
     <Compile Include="Sucursal.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Venta.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

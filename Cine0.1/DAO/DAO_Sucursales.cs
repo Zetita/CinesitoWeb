@@ -18,46 +18,46 @@ namespace DAO
             return tabla;
         }
 
-        public void armarParametros(ref SqlCommand Comando, Sucursal Sucursal)
+        public void armarParametros(ref SqlCommand Comando, Sucursal sucursal)
         {
             SqlParameter SqlParametros = new SqlParameter();
 
             SqlParametros = Comando.Parameters.Add("@ID_SUCURSAL", SqlDbType.Char, 20);
-            SqlParametros.Value = Sucursal.idSucursal;
+            SqlParametros.Value = sucursal.idSucursal;
             SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.Char, 20);
-            SqlParametros.Value = Sucursal.Nombre;
+            SqlParametros.Value = sucursal.Nombre;
             SqlParametros = Comando.Parameters.Add("@DIRECCION", SqlDbType.Char, 60);
-            SqlParametros.Value = Sucursal.Direccion;
+            SqlParametros.Value = sucursal.Direccion;
             SqlParametros = Comando.Parameters.Add("@LOCALIDAD", SqlDbType.Char, 40);
-            SqlParametros.Value = Sucursal.Localidad;
+            SqlParametros.Value = sucursal.Localidad;
             SqlParametros = Comando.Parameters.Add("@PROVINCIA", SqlDbType.Char, 40);
-            SqlParametros.Value = Sucursal.Provincia;
+            SqlParametros.Value = sucursal.Provincia;
             
 
         }
 
-        //public bool ActualizarSucursal(Sucursal Sucursal)
-        //{
-        //    SqlCommand Comando = new SqlCommand();
-        //    armarParametros(ref Comando, Funcion);
-        //    int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarSucursal");
-        //    if (filasInsertadas == 1)
-        //        return true;
-        //    else
-        //        return false;
-        //}
+        public bool ActualizarSucursal(Sucursal sucursal)
+        {
+            SqlCommand Comando = new SqlCommand();
+            armarParametros(ref Comando, sucursal);
+            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarSucursal");
+            if (filasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
 
-        public int eliminarSucursal(Sucursal Sucursal)
+        public int eliminarSucursal(Sucursal sucursal)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, Sucursal);
+            armarParametros(ref comando, sucursal);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarSucursal");
         }
 
-        public bool insertarSucursal(Sucursal Sucursal)
+        public bool insertarSucursal(Sucursal sucursal)
         {
             SqlCommand Comando = new SqlCommand();
-            armarParametros(ref Comando, Sucursal);
+            armarParametros(ref Comando, sucursal);
             int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spInsertarSucursal");
             if (filasInsertadas == 1)
                 return true;
