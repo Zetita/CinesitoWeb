@@ -46,6 +46,7 @@ namespace PRESENTACION
 
                 n_Snack n_snack = new n_Snack();
 
+
                 if (n_snack.insertarSnack(snack))
                 {
                     lblAgregado.Text = "Exito al agregar";
