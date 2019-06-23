@@ -45,7 +45,7 @@
    
     <!-- BOTONES -->
     <asp:Button ID="btnSeleccionar" runat="server" Font-Bold="True" Text="COMPLETE LOS DATOS NECESARIOS" style="background-color:#003d66;position:absolute;top:527px;left:660px;width:577px;height:30px " OnClick="btnSeleccionar_Click" Enabled="False" />
-    <asp:Button ID="btnVolver" runat="server" Text="VOLVER" style="background-color:#003d66;position:absolute;top:527px;left:75px;width:577px;height:30px " />
+    <asp:Button ID="btnVolver" runat="server" Text="VOLVER" style="background-color:#003d66;position:absolute;top:527px;left:75px;width:577px;height:30px " OnClick="btnVolver_Click" />
 
 </div>
 </asp:Content>

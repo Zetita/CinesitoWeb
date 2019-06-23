@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using DAO;
 using NEGOCIO;
+using System.Drawing;
 
 namespace PRESENTACION
 {
@@ -173,6 +174,11 @@ namespace PRESENTACION
             Response.Redirect("Butacas.aspx");
         }
 
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public void LlenarPelicula(DataTable dt)
         {
             lblNombre.Text = dt.Rows[0]["Titulo_Pelicula"].ToString();
@@ -302,5 +308,6 @@ namespace PRESENTACION
             }
         }
 
+        
     }
 }
