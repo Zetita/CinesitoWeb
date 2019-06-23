@@ -23,6 +23,7 @@ namespace PRESENTACION
             {
                 cargarGrilla();
                 cargarDDL();
+
             }
         }
         public void cargarGrilla()
