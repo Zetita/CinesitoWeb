@@ -18,6 +18,7 @@ namespace DAO
             DataTable tabla = ad.ObtenerTabla("ButacaXFunciones", "Select * from ButacaXFunciones");
             return tabla;
         }
+
         public DataTable ObtenerTablaBxF(String Consulta)
         {
             DataTable tabla =
