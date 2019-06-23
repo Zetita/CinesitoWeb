@@ -14,7 +14,7 @@ namespace DAO
         AccesoDatos ad = new AccesoDatos();
         public DataTable ObtenerTablaSnacks()
         {
-            DataTable tabla = ad.ObtenerTabla("Snacks", "Select * from Snacks Where Estado_Snack='True'");
+            DataTable tabla = ad.ObtenerTabla("Snacks", "Select * from Snacks");
             return tabla;
         }
 
@@ -37,16 +37,16 @@ namespace DAO
 
         }
 
-        //public bool ActualizarSnack(Snack snack)
-        //{
-        //    SqlCommand Comando = new SqlCommand();
-        //    armarParametros(ref Comando, snack);
-        //    int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarSnack");
-        //    if (filasInsertadas == 1)
-        //        return true;
-        //    else
-        //        return false;
-        //}
+        public bool ActualizarSnack(Snack snack)
+        {
+            SqlCommand Comando = new SqlCommand();
+            armarParametros(ref Comando, snack);
+            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarSnack");
+            if (filasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
 
         public int eliminarSnack(Snack snack)
         {

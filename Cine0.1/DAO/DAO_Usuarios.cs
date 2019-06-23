@@ -14,12 +14,12 @@ namespace DAO
         AccesoDatos ad = new AccesoDatos();
         public DataTable ObtenerTablaUsuarios()
         {
-            DataTable tabla = ad.ObtenerTabla("Usuario", "Select * from Usuario where Activo='True'");
+            DataTable tabla = ad.ObtenerTabla("Usuarios", "Select * from Usuarios where Activo='True'");
             return tabla;
         }
         public DataTable ObtenerTablaUsuarios(String usuario)
         {
-            DataTable tabla = ad.ObtenerTabla("Usuario", "Select * from Usuario where Usuario='" + usuario + "' and Activo='True'");
+            DataTable tabla = ad.ObtenerTabla("Usuarios", "Select * from Usuarios where Usuario='" + usuario + "' and Activo='True'");
             return tabla;
         }
         public DataTable ObtenerTablaAdmins()
@@ -34,7 +34,7 @@ namespace DAO
             SqlCommand cmd;
             SqlDataReader dr;
             String sql =
-            "SELECT * From Usuario Where Usuario='" + usuario + "' AND Contrasenia='" + pass + "' and Activo='True'";
+            "SELECT * From Usuarios Where Usuario='" + usuario + "' AND Contrasenia='" + pass + "' and Activo='True'";
             if (cn != null)
             {
                 cmd = new SqlCommand(sql, cn);
@@ -65,7 +65,7 @@ namespace DAO
             SqlCommand cmd;
             SqlDataReader dr;
             String sql =
-            "Select * From Usuario Where Usuario='" + usuario + "' AND Administrador='True' and Activo='True'";
+            "Select * From Usuarios Where Usuario='" + usuario + "' AND Administrador='True' and Activo='True'";
             if (cn != null)
             {
                 cmd = new SqlCommand(sql, cn);
@@ -93,12 +93,10 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_USUARIO", SqlDbType.Char, 20);
-            SqlParametros.Value = usuario.idUsuario;
             SqlParametros = Comando.Parameters.Add("@USUARIO", SqlDbType.Char, 40);
             SqlParametros.Value = usuario.User;
-            //SqlParametros = Comando.Parameters.Add("@CONTRASENIA", SqlDbType.VarBinary);  DUDITA DECLARACION DE TIPO
-            //SqlParametros.Value = usuario.contra;
+            SqlParametros = Comando.Parameters.Add("@CONTRASENIA", SqlDbType.VarBinary);
+            SqlParametros.Value = usuario.Contrasenia;
             SqlParametros = Comando.Parameters.Add("@EMAIL", SqlDbType.Char, 40);
             SqlParametros.Value = usuario.Email;
             SqlParametros = Comando.Parameters.Add("@APELLIDO", SqlDbType.Char, 40);
@@ -118,16 +116,16 @@ namespace DAO
   
         }
 
-        //public bool ActualizarUsuario(Usuario usuario)
-        //{
-        //    SqlCommand Comando = new SqlCommand();
-        //    armarParametros(ref Comando, usuario);
-        //    int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarUsuario");
-        //    if (filasInsertadas == 1)
-        //        return true;
-        //    else
-        //        return false;
-        //}
+        public bool ActualizarUsuario(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            armarParametros(ref Comando, usuario);
+            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarUsuario");
+            if (filasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
 
         public int eliminarUsuario(Usuario usuario)
         {
