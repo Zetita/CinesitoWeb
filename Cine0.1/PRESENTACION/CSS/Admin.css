@@ -16,7 +16,7 @@ body {
 .LinksButtons {
     margin: auto;
     padding: 0 2.0%;
-    color: #B11515;
+    color: #003d66;
 }
 
 .Label {
@@ -28,7 +28,7 @@ body {
     float: left;
     margin: auto;
     padding: 0 1.0%;
-    background-color: #b11515;
+    background-color: #0033CC;
     text-decoration: none;
     color: #a7a7a7;
     font-weight: 700;
@@ -46,7 +46,7 @@ TABLE.tablalistado {
     }
 
     TABLE.tablalistado TH {
-        BACKGROUND-COLOR: #B11515;
+        BACKGROUND-COLOR: #003d66;
         PADDING: 4px;
     }
 

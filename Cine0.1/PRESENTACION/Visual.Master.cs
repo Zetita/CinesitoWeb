@@ -16,12 +16,9 @@ namespace PRESENTACION
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
-
+            Response.Redirect("Inicio.aspx");
         }
 
-        protected void btnPeliculas_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Peliculas.aspx");
-        }
+
     }
 }
