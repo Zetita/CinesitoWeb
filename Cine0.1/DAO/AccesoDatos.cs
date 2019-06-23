@@ -53,8 +53,7 @@ namespace DAO
             return ds.Tables[Nombre];
         }
 
-
-
+        
 
         public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)
         {

@@ -17,11 +17,11 @@ namespace NEGOCIO
             return da.ObtenerTablaSnacks();
         }
 
-        //public bool editarSnack(Snack snack)
-        //{
-        //    DAO_Snacks da = new DAO_Snacks();
-        //    return da.ActualizarSnack(snack);
-        //}
+        public bool editarSnack(Snack snack)
+        {
+            DAO_Snacks da = new DAO_Snacks();
+            return da.ActualizarSnack(snack);
+        }
         public int eliminarSnack(Snack snack)
         {
             DAO_Snacks da = new DAO_Snacks();
