@@ -18,28 +18,28 @@ namespace DAO
             return tabla;
         }
 
-        public void armarParametros(ref SqlCommand Comando, Formatos Formato)
+        public void armarParametros(ref SqlCommand Comando, Formato formato)
         {
             SqlParameter SqlParametros = new SqlParameter();
 
             SqlParametros = Comando.Parameters.Add("@ID_FORMATO", SqlDbType.Char, 20);
-            SqlParametros.Value = Formato.IdFormato;
+            SqlParametros.Value = formato.IdFormato;
             SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.Char, 20);
-            SqlParametros.Value = Formato.Nombre;
+            SqlParametros.Value = formato.Nombre;
             SqlParametros = Comando.Parameters.Add("@IDIOMA", SqlDbType.Char, 40);
-            SqlParametros.Value = Formato.Idioma;
+            SqlParametros.Value = formato.Idioma;
             SqlParametros = Comando.Parameters.Add("@SUBTITULOS", SqlDbType.Bit);
-            SqlParametros.Value = Formato.Subtitulos;
+            SqlParametros.Value = formato.Subtitulos;
             SqlParametros = Comando.Parameters.Add("@PRECIO", SqlDbType.Float);
-            SqlParametros.Value = Formato.Precio;
+            SqlParametros.Value = formato.Precio;
 
 
         }
 
-        //public bool ActualizarFormato(Formatos Formato)
+        //public bool ActualizarFormato(Formato formato)
         //{
         //    SqlCommand Comando = new SqlCommand();
-        //    armarParametros(ref Comando, Formato);
+        //    armarParametros(ref Comando, formato);
         //    int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarFormato");
         //    if (filasInsertadas == 1)
         //        return true;
@@ -47,17 +47,17 @@ namespace DAO
         //        return false;
         //}
 
-        public int eliminarSucursal(Formatos Formato)
+        public int eliminarFormato(Formato formato)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, Formato);
+            armarParametros(ref comando, formato);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarFormato");
         }
 
-        public bool insertarSucursal(Formatos Formato)
+        public bool insertarFormato(Formato formato)
         {
             SqlCommand Comando = new SqlCommand();
-            armarParametros(ref Comando, Formato);
+            armarParametros(ref Comando, formato);
             int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spInsertarFormato");
             if (filasInsertadas == 1)
                 return true;

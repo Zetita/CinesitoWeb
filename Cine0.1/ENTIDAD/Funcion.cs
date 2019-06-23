@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ENTIDAD
 {
-    public class Funciones
+    public class Funcion
     {
         private string s_IDFuncion;
         private string s_IDPxF;
         private string s_IDSala;
         private string s_FechaHora;
 
-        public Funciones()
+        public Funcion()
         {
 
         }

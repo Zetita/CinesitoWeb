@@ -18,7 +18,7 @@ namespace DAO
             return tabla;
         }
 
-        public void armarParametros(ref SqlCommand Comando, Funciones Funcion)
+        public void armarParametros(ref SqlCommand Comando, Funcion Funcion)
         {
             SqlParameter SqlParametros = new SqlParameter();
 
@@ -44,14 +44,14 @@ namespace DAO
         //        return false;
         //}
 
-        public int eliminarFuncion(Funciones Funcion)
+        public int eliminarFuncion(Funcion Funcion)
         {
             SqlCommand comando = new SqlCommand();
             armarParametros(ref comando, Funcion);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarFuncion");
         }
 
-        public bool insertarFuncion(Funciones Funcion)
+        public bool insertarFuncion(Funcion Funcion)
         {
             SqlCommand Comando = new SqlCommand();
             armarParametros(ref Comando, Funcion);

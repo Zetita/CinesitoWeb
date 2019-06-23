@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ENTIDAD
 {
-    public class PeliculasxFormatos
+    public class PeliculasxFormato
     {
         private string s_IDPxF;
         private string s_IDPelicula;
         private string s_IDFormato;
 
-        public PeliculasxFormatos()
+        public PeliculasxFormato()
         {
 
         }

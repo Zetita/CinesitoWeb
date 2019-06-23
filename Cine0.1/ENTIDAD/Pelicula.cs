@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENTIDAD
 {
-    public class Peliculas
+    public class Pelicula
     {
         private String s_idPelicula;
         private String s_Titulo;
@@ -19,7 +19,7 @@ namespace ENTIDAD
         private DateTime dt_Duracion;
         private String s_TrailerURL;
 
-        public Peliculas()
+        public Pelicula()
         {
 
         }

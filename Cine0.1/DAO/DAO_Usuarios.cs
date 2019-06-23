@@ -14,17 +14,81 @@ namespace DAO
         AccesoDatos ad = new AccesoDatos();
         public DataTable ObtenerTablaUsuarios()
         {
-            DataTable tabla = ad.ObtenerTabla("Usuario", "Select * from Usuario where estado=1");
+            DataTable tabla = ad.ObtenerTabla("Usuario", "Select * from Usuario where Activo='True'");
             return tabla;
         }
-
+        public DataTable ObtenerTablaUsuarios(String usuario)
+        {
+            DataTable tabla = ad.ObtenerTabla("Usuario", "Select * from Usuario where Usuario='" + usuario + "' and Activo='True'");
+            return tabla;
+        }
         public DataTable ObtenerTablaAdmins()
         {
             return ad.ObtenerTabla("Administradores", "Select * from Usuarios Where Administrador=1 ");
         }
 
+        
+        public bool estaRegistrado(String usuario, String pass)
+        {
+            SqlConnection cn = ad.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "SELECT * From Usuario Where Usuario='" + usuario + "' AND Contrasenia='" + pass + "' and Activo='True'";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
+        }
 
-
+        public bool esAdministrador(String usuario)
+        {
+            SqlConnection cn = ad.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "Select * From Usuario Where Usuario='" + usuario + "' AND Administrador='True' and Activo='True'";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
+        }
         public void armarParametros(ref SqlCommand Comando, Usuario usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -54,7 +118,7 @@ namespace DAO
   
         }
 
-        //public bool ActualizarUsuarios(Usuario usuario)
+        //public bool ActualizarUsuario(Usuario usuario)
         //{
         //    SqlCommand Comando = new SqlCommand();
         //    armarParametros(ref Comando, usuario);
@@ -65,7 +129,7 @@ namespace DAO
         //        return false;
         //}
 
-        public int eliminarUsuarios(Usuario usuario)
+        public int eliminarUsuario(Usuario usuario)
         {
             SqlCommand comando = new SqlCommand();
             armarParametros(ref comando, usuario);
