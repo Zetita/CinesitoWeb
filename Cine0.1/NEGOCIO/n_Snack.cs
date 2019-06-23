@@ -30,7 +30,7 @@ namespace NEGOCIO
         public bool insertarSnack(Snack snack)
         {
             DAO_Snacks da = new DAO_Snacks();
-            return da.insertarSnack(snack)
+            return da.insertarSnack(snack);
         }
     }
 }

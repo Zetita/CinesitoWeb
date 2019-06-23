@@ -66,7 +66,7 @@
     <asp:Button ID="btn44" runat="server" Height="29px" Text="9" Width="30px" style="position:absolute; top: 443px; left: 564px; right: 157px;" OnClick="btn44_Click" />
 
     <!-- PANTALLA -->
-    <asp:Image ID="imgPantalla" style="position:absolute; top: 40px; left: 216px; height: 235px; width: 412px;" runat="server" ImageUrl="~/Recursos/linea.png" />
+    <asp:Image ID="imgPantalla" style="position:absolute; top: 40px; left: 216px; height: 235px; width: 412px;" runat="server" ImageUrl="~/Recursitos/linea.png" />
     <asp:Label ID="lblPantalla" runat="server" style="position:absolute;color:white;font-family:Calibri;font-size:x-large; top: 168px; left: 384px;" Text="PANTALLA" Font-Bold="True"></asp:Label>
     
     <!-- INFO ENTRADA -->

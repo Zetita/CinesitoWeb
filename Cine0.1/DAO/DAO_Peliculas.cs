@@ -14,13 +14,13 @@ namespace DAO
         AccesoDatos ad = new AccesoDatos();
         public DataTable ObtenerTablaPeliculas()
         {
-            DataTable tabla = ad.ObtenerTabla("Peliculas", "Select * from Peliculas Where Estado='True'");
+            DataTable tabla = ad.ObtenerTabla("Peliculas", "Select * from Peliculas Where Estado=1");
             return tabla;
         }
-        public DataTable ObtenerTablaPeliculas(String titulo)
+        public DataTable ObtenerTablaPeliculas(String Consulta)
         {
             DataTable tabla = 
-                ad.ObtenerTabla("Peliculas","Select * from Peliculas Where Titulo_Pelicula Like '%" + titulo + "%' and Estado='True'" );
+                ad.ObtenerTabla("Peliculas",Consulta );
             return tabla;
         }
 

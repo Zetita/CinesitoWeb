@@ -18,12 +18,12 @@ namespace PRESENTACION
             DAO_Peliculas Pelicula = new DAO_Peliculas();
             DAO_Sucursales Sucursal = new DAO_Sucursales();
             //IDPelicula = Application["ID"].ToString();
-            IDPelicula = "3";
+            IDPelicula = "1";
 
             if (IsPostBack) ddlCine.Items.Clear();
             else Boton("0");
 
-            string Consulta = "Select * from Peliculas where ID_Pelicula = " + IDPelicula;
+            string Consulta = "Select * from Peliculas where ID_Pelicula = " + IDPelicula + "And Estado=1";
             DataTable dt = Pelicula.ObtenerTablaPeliculas(Consulta);
             LlenarPelicula(dt);
 
