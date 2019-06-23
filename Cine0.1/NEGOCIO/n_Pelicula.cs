@@ -18,10 +18,10 @@ namespace NEGOCIO
             return da.ObtenerTablaPeliculas();
         }
 
-        public DataTable ObtenerTabla(String titulo)
+        public DataTable ObtenerTabla(String Consulta)
         {
             DAO_Peliculas da = new DAO_Peliculas();
-            return da.ObtenerTablaPeliculas(titulo);
+            return da.ObtenerTablaPeliculas(Consulta);
         }
         //public bool editarPelicula(Pelicula pelicula)
         //{

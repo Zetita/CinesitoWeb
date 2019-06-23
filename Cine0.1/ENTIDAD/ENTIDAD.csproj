@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButacasxFunciones.cs" />
     <Compile Include="Formato.cs" />
     <Compile Include="Funcion.cs" />
     <Compile Include="Pelicula.cs" />

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using DAO;
+using NEGOCIO;
 
 namespace PRESENTACION
 {
@@ -15,48 +16,57 @@ namespace PRESENTACION
         protected void Page_Load(object sender, EventArgs e)
         {
             string IDPelicula;
-            DAO_Peliculas Pelicula = new DAO_Peliculas();
+            n_Pelicula Pelicula = new n_Pelicula();
             DAO_Sucursales Sucursal = new DAO_Sucursales();
-            //IDPelicula = Application["ID"].ToString();
-            IDPelicula = "1";
+            DataTable dt = new DataTable();
+            //IDPelicula = Application["ID_Pelicula"].ToString();
+            Application["ID_Pelicula"]=IDPelicula = "2";
 
-            if (IsPostBack) ddlCine.Items.Clear();
-            else Boton("0");
+
+            if (!IsPostBack) {
 
             string Consulta = "Select * from Peliculas where ID_Pelicula = " + IDPelicula + "And Estado=1";
-            DataTable dt = Pelicula.ObtenerTablaPeliculas(Consulta);
+            dt = Pelicula.ObtenerTabla(Consulta);
             LlenarPelicula(dt);
 
-            
             dt = Sucursal.ObtenerTablaSucursales();
             LlenarDDLSucursal(dt);
+            }
+            
+            else Boton("0");
+
+
         }
 
         protected void ddlCine_SelectedIndexChanged(object sender, EventArgs e)
         {
             DAO_Formatos Datos = new DAO_Formatos();
-            DataTable dt = Datos.ObtenerTablaFormatos();
-
-            if (IsPostBack)
-            {
-                ddlFormato.Enabled = true;
-                ddlDía.Enabled = false;
-                ddlHorario.Enabled = false;
-                Boton("0");
-            }
-
+            DataTable dt = Datos.ObtenerTablaFormatos();    
+           
+            ddlFormato.Enabled = true;
+            ddlDía.Enabled = false;
+            ddlHorario.Enabled = false;
+               
             if (ddlFormato.SelectedItem.ToString() == "-")
             {
                 Boton("0");
                 ddlDía.Enabled = false;
                 ddlHorario.Enabled = false;
             }
+            if (ddlCine.SelectedItem.ToString() != "-")
+            {
+                ddlFormato.Items.Clear();
+                ddlFormato.Items.Add("-");
 
-            ddlFormato.Items.Clear();
-            ddlFormato.Items.Add("-");
+                LlenarDDLFormatos(dt);
+                Application["ID_Sucursal"] = ddlCine.SelectedItem.Value.ToString();
 
-            LlenarDDLFormatos(dt);
-            Application["ID_Sucursal"] = ddlCine.SelectedItem.Value.ToString();
+                Boton("0");
+            }
+            else
+            {
+                ddlFormato.Enabled = false;
+            }
         }
 
         protected void ddlFormato_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,7 +75,7 @@ namespace PRESENTACION
             DAO_PxF PxF = new DAO_PxF();
             DAO_Funciones Funcion = new DAO_Funciones();
             //string IDPelicula = Application["ID"].ToString();
-            string IDPelicula = "1";
+            string IDPelicula = "2";
             DataTable dt = PxF.ObtenerTablaPxF();
             string IDPxF = SacarIDPxF(IDPelicula, ddlFormato.SelectedValue, dt);
             string IDSucursal = Application["ID_Sucursal"].ToString();
@@ -85,9 +95,18 @@ namespace PRESENTACION
             {
                 string Consulta = "Select * from Funciones where ID_PxF = " + IDPxF + " and ID_Sucursal = " + IDSucursal;
                 dt = Funcion.ObtenerTablaFunciones(Consulta);
-                LlenarDDLDia(dt);
-                Application["ID_PxF"] = IDPxF;
-                Boton("0");
+                if (dt.Rows.Count > 0)
+                {
+                    LlenarDDLDia(dt);
+                    Application["ID_PxF"] = IDPxF;
+                    Boton("0");
+                }
+                else
+                {
+                    ddlDía.Enabled = false;
+                    ddlHorario.Enabled = false;
+                    Boton("2");
+                }
             }
             catch
             {
@@ -170,7 +189,7 @@ namespace PRESENTACION
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 ddlCine.Items.Add(dt.Rows[i]["Nombre_Sucursal"].ToString());
-                ddlCine.Items[i].Value= dt.Rows[i]["ID_Sucursal"].ToString();
+                ddlCine.Items[i+1].Value= dt.Rows[i]["ID_Sucursal"].ToString();
             }
         }
 
@@ -181,12 +200,12 @@ namespace PRESENTACION
                 if (dt.Rows[i]["Subtitulos_Formato"].ToString() == "False")
                 {
                     ddlFormato.Items.Add(dt.Rows[i]["Nombre_Formato"].ToString() + " - Audio " + dt.Rows[i]["Idioma_Formato"].ToString());
-                    ddlFormato.Items[i].Value = dt.Rows[i]["ID_Formato"].ToString();
+                    ddlFormato.Items[i+1].Value = dt.Rows[i]["ID_Formato"].ToString();
                 }
                 else
                 {
                     ddlFormato.Items.Add(dt.Rows[i]["Nombre_Formato"].ToString() + " - Subtitulos " + dt.Rows[i]["Idioma_Formato"].ToString());
-                    ddlFormato.Items[i].Value = dt.Rows[i]["ID_Formato"].ToString();
+                    ddlFormato.Items[i+1].Value = dt.Rows[i]["ID_Formato"].ToString();
                 }
             }
         }
@@ -223,8 +242,7 @@ namespace PRESENTACION
 
         public string SacarIDPxF(string IDPelicula, string IDFormato, DataTable dt)
         {
-            string IDPxF=string.Empty;
-            IDPelicula = "1";
+            string IDPxF=string.Empty;            
             for (int i=0;i<dt.Rows.Count;i++)
             {
                 
@@ -270,7 +288,7 @@ namespace PRESENTACION
             switch (Estado)
             {
                 case "0":
-                    btnSeleccionar.Text = " COMPLETE LOS DATOS ";
+                    btnSeleccionar.Text = " COMPLETE LOS DATOS NECESARIOS";
                     btnSeleccionar.Enabled = false;
                     break;
                 case "1":

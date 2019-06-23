@@ -1,4 +1,5 @@
 ﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/Visual.Master" AutoEventWireup="true" CodeBehind="Butacas.aspx.cs" Inherits="PRESENTACION.Butacas" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
@@ -90,7 +91,7 @@
     <asp:Label ID="lblLinea" runat="server" Text="________________________________________" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 337px; left: 696px"></asp:Label>
 
     <!-- BOTONES -->
-    <asp:Button ID="btnVolver" runat="server" Height="26px" Text="VOLVER" style="background-color:#cc0000;position:absolute;width:500px;top:527px;left:170px;height:30px" OnClick="btnVolver_Click" />
-    <asp:Button ID="btnSiguiente" runat="server" Text="SIGUIENTE" style="background-color:#cc0000;position:absolute;top:527px;width:500px;left:680px ;height:30px" Font-Bold="true" OnClick="btnSiguiente_Click"/>
+    <asp:Button ID="btnVolver" runat="server" Height="26px" Text="VOLVER" style="background-color:#003d66;position:absolute;width:500px;top:527px;left:170px;height:30px" OnClick="btnVolver_Click" />
+    <asp:Button ID="btnSiguiente" runat="server" Text="SIGUIENTE" style="background-color:#003d66;position:absolute;top:527px;width:500px;left:680px ;height:30px" Font-Bold="true" OnClick="btnSiguiente_Click"/>
     
 </asp:Content>

@@ -12,6 +12,13 @@ namespace DAO
     public class DAO_Funciones
     {
         AccesoDatos ad = new AccesoDatos();
+
+        public DataTable ObtenerTablaFunciones()
+        {
+            DataTable tabla = ad.ObtenerTabla("Funciones", "Select * From Funciones");
+            return tabla;
+        }
+
         public DataTable ObtenerTablaFunciones(string Consulta)
         {
             DataTable tabla = ad.ObtenerTabla("Funciones", Consulta);

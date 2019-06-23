@@ -22,30 +22,30 @@
     <!-- SUCURSAL -->
     <asp:Label ID="lbl_Sucursal" runat="server" Text="Sucursal: " style="position:absolute;top:461px;left:346px"></asp:Label>
     <asp:DropDownList ID="ddlCine" runat="server" style="position:absolute; top:460px;left:425px" AutoPostBack="True" OnSelectedIndexChanged="ddlCine_SelectedIndexChanged">
-        <asp:ListItem>-</asp:ListItem>
+        <asp:ListItem Value="-">-</asp:ListItem>
     </asp:DropDownList>
 
     <!-- FORMATO -->
     <asp:Label ID="lblFormato" runat="server" Text="Formato:" style="position:absolute;top:461px;left:567px"></asp:Label>  
     <asp:DropDownList ID="ddlFormato" runat="server" style="position:absolute;top:460px;left:653px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlFormato_SelectedIndexChanged">
-        <asp:ListItem>-</asp:ListItem>
+        <asp:ListItem Value="-">-</asp:ListItem>
     </asp:DropDownList>    
 
     <!-- DÍA -->
     <asp:Label ID="lblDía" runat="server" Text="Día:" style="position:absolute;top:461px;left:884px"></asp:Label>
     <asp:DropDownList ID="ddlDía" runat="server" style="position:absolute;top:460px;left:926px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlDía_SelectedIndexChanged">
-        <asp:ListItem>-</asp:ListItem>
+        <asp:ListItem Value="-">-</asp:ListItem>
     </asp:DropDownList>
 
     <!-- HORARIO -->
     <asp:Label ID="lblHorario" runat="server" Text="Horario:" style="position:absolute;top:461px;left:1086px"></asp:Label>
     <asp:DropDownList ID="ddlHorario" runat="server" style="position:absolute;top:460px;left:1157px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlHorario_SelectedIndexChanged">
-        <asp:ListItem>-</asp:ListItem>
+        <asp:ListItem Value="-">-</asp:ListItem>
     </asp:DropDownList>
    
     <!-- BOTONES -->
-    <asp:Button ID="btnSeleccionar" runat="server" Font-Bold="True" Text="COMPLETE LOS DATOS NECESARIOS" style="background-color:#b30000;position:absolute;top:527px;left:660px;width:577px;height:30px " OnClick="btnSeleccionar_Click" Enabled="False" />
-    <asp:Button ID="btnVolver" runat="server" Text="VOLVER" style="background-color:#b30000;position:absolute;top:527px;left:75px;width:577px;height:30px " />
+    <asp:Button ID="btnSeleccionar" runat="server" Font-Bold="True" Text="COMPLETE LOS DATOS NECESARIOS" style="background-color:#003d66;position:absolute;top:527px;left:660px;width:577px;height:30px " OnClick="btnSeleccionar_Click" Enabled="False" />
+    <asp:Button ID="btnVolver" runat="server" Text="VOLVER" style="background-color:#003d66;position:absolute;top:527px;left:75px;width:577px;height:30px " />
 
 </div>
 </asp:Content>

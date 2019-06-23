@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="n_BxF.cs" />
     <Compile Include="n_Formato.cs" />
+    <Compile Include="n_Funcion.cs" />
     <Compile Include="n_Pelicula.cs" />
     <Compile Include="n_Snack.cs" />
     <Compile Include="n_Usuario.cs" />

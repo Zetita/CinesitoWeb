@@ -59,7 +59,7 @@
     <asp:Label ID="lblTerm" runat="server" Text="He leido y acepto los " style="position:absolute;font-family:Calibri;color:white;font-size:medium;top:430px; left: 350px"></asp:Label>
 
     <!-- BOTONES -->
-    <asp:Button ID="btnVolver" runat="server" Height="26px" Text="VOLVER" style="background-color:#cc0000;position:absolute;width:500px;top:527px;left:170px;height:30px" OnClick="btnVolver_Click" />
-    <asp:Button ID="btnConfirmar" runat="server" Text="CONFIRMAR" style="background-color:#cc0000;position:absolute;top:527px;width:500px;height:30px;left:680px" Font-Bold="true"/>
+    <asp:Button ID="btnVolver" runat="server" Height="26px" Text="VOLVER" style="background-color:#003d66;position:absolute;width:500px;top:527px;left:170px;height:30px" OnClick="btnVolver_Click" />
+    <asp:Button ID="btnConfirmar" runat="server" Text="CONFIRMAR" style="background-color:#003d66;position:absolute;top:527px;width:500px;height:30px;left:680px" Font-Bold="true"/>
     
 </asp:Content>

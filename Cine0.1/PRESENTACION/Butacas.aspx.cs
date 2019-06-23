@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using DAO;
+using NEGOCIO;
 
 namespace PRESENTACION
 {
@@ -14,31 +16,30 @@ namespace PRESENTACION
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ////DAO.GestionDatos Datos = new DAO.GestionDatos();
-            ////string ID_Funcion = Application["ID_Funcion"].ToString();
+            DAO_BxF BxF = new DAO_BxF();
+            DAO_Funciones Funcion = new DAO_Funciones();
+            string ID_Funcion = Application["ID_Funcion"].ToString();
             //string ID_Funcion = "1";
-            ////string ID_Pelicula=Application["ID_Pelicula"].ToString();
-            //string Ruta = "Data Source=localhost\\sqlexpress2;Initial Catalog=CineFrenz; Integrated Security=true";
-            //string Consulta = "Select * from ButacasxFunciones where ID_Funcion=" + ID_Funcion;
-            //DataTable dt = Datos.ObtenerTodos("ButacasxFunciones", Consulta);
-            //DataSet ds = new DataSet();
-            //SqlConnection cn = new SqlConnection(Ruta);
+            string Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
+            DataTable dt = BxF.ObtenerTablaBxF(Consulta);
+            if(!IsPostBack) Application["CantEntradasT"] = Application["CantEntradas"] = 10;
 
-            //for (int x = 1; x <= 44; x++)
-            //{
-            //    for (int j = 0; j < dt.Rows.Count; j++)
-            //    {
-            //        if (x.ToString() == dt.Rows[j]["ID_Butaca"].ToString().Trim())
-            //        {
-            //            Colorear(x.ToString(), 0);
-            //        }
-            //    }
-            //}
-            //Consulta = ArmarConsultaHeavy(ID_Funcion);
-            //dt = Datos.ObtenerTodos("Funciones", Consulta);
-            //LlenarResumen(dt);
-            //Application["CantEntradas"] = 3;
-            //Application["CantEntradasT"] = Application["CantEntradas"];
+
+            for (int x = 1; x <= 44; x++)
+            {
+                for (int j = 0; j < dt.Rows.Count; j++)
+                {
+                    if (x.ToString() == dt.Rows[j]["ID_Butaca"].ToString().Trim())
+                    {
+                        Colorear(x.ToString(), 0);
+                    }
+                }
+            }
+
+            Consulta = ArmarConsultaHeavy(ID_Funcion);
+            dt = Funcion.ObtenerTablaFunciones(Consulta);
+            LlenarResumen(dt);
+            
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
@@ -54,7 +55,7 @@ namespace PRESENTACION
         public void LlenarResumen(DataTable dt)
         {
             imgPelicula.ImageUrl = dt.Rows[0]["ImagenURL"].ToString();
-            lblNombre.Text = dt.Rows[0]["Titulo_Pelicula"].ToString();
+            lblNombre.Text = dt.Rows[0]["Titulo_Pelicula"].ToString().ToUpper();
             if (dt.Rows[0]["Subtitulos_Formato"].ToString() == "False")
             {
                 lblFormato.Text = dt.Rows[0]["Nombre_Formato"] + " - Audio " + dt.Rows[0]["Idioma_Formato"];
@@ -78,7 +79,7 @@ namespace PRESENTACION
                 "Inner Join Formatos on PeliculasxFormatos.ID_Formato = Formatos.ID_Formato " +
                 "Inner Join Salas on Funciones.ID_Sala = Salas.ID_Sala " +
                 "Inner Join Sucursales on Funciones.ID_Sucursal = Sucursales.ID_Sucursal " +
-                "where Funciones.ID_PxF =" + ID;
+                "where Funciones.ID_Funcion = "+ID;
             return Consulta;
         }
 
@@ -98,14 +99,18 @@ namespace PRESENTACION
                     {
                         if (btn1.BackColor == Color.Green)
                         {
-                            btn1.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn1.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn1.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -120,14 +125,18 @@ namespace PRESENTACION
                     {
                         if (btn2.BackColor == Color.Green)
                         {
-                            btn2.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn2.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn2.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -142,14 +151,18 @@ namespace PRESENTACION
                     {
                         if (btn3.BackColor == Color.Green)
                         {
-                            btn3.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn3.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn3.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -164,14 +177,18 @@ namespace PRESENTACION
                     {
                         if (btn4.BackColor == Color.Green)
                         {
-                            btn4.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn4.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn4.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -186,14 +203,18 @@ namespace PRESENTACION
                     {
                         if (btn5.BackColor == Color.Green)
                         {
-                            btn5.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn5.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn5.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -208,14 +229,18 @@ namespace PRESENTACION
                     {
                         if (btn6.BackColor == Color.Green)
                         {
-                            btn6.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn6.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn6.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -230,14 +255,18 @@ namespace PRESENTACION
                     {
                         if (btn7.BackColor == Color.Green)
                         {
-                            btn7.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn7.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn7.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -252,14 +281,18 @@ namespace PRESENTACION
                     {
                         if (btn8.BackColor == Color.Green)
                         {
-                            btn8.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn8.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn8.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -274,14 +307,18 @@ namespace PRESENTACION
                     {
                         if (btn9.BackColor == Color.Green)
                         {
-                            btn9.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn9.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn9.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -296,14 +333,18 @@ namespace PRESENTACION
                     {
                         if (btn10.BackColor == Color.Green)
                         {
-                            btn10.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn10.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn10.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -318,14 +359,18 @@ namespace PRESENTACION
                     {
                         if (btn11.BackColor == Color.Green)
                         {
-                            btn11.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn11.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn11.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -340,14 +385,18 @@ namespace PRESENTACION
                     {
                         if (btn12.BackColor == Color.Green)
                         {
-                            btn12.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn12.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn12.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -362,14 +411,18 @@ namespace PRESENTACION
                     {
                         if (btn13.BackColor == Color.Green)
                         {
-                            btn13.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn13.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn13.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -384,14 +437,18 @@ namespace PRESENTACION
                     {
                         if (btn14.BackColor == Color.Green)
                         {
-                            btn14.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn14.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn14.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -406,14 +463,18 @@ namespace PRESENTACION
                     {
                         if (btn15.BackColor == Color.Green)
                         {
-                            btn15.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn15.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn15.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -428,14 +489,18 @@ namespace PRESENTACION
                     {
                         if (btn16.BackColor == Color.Green)
                         {
-                            btn16.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn16.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn16.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -450,14 +515,18 @@ namespace PRESENTACION
                     {
                         if (btn17.BackColor == Color.Green)
                         {
-                            btn17.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn17.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn17.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -472,14 +541,18 @@ namespace PRESENTACION
                     {
                         if (btn18.BackColor == Color.Green)
                         {
-                            btn18.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn18.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn18.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -494,14 +567,18 @@ namespace PRESENTACION
                     {
                         if (btn19.BackColor == Color.Green)
                         {
-                            btn19.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn19.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn19.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -516,14 +593,18 @@ namespace PRESENTACION
                     {
                         if (btn20.BackColor == Color.Green)
                         {
-                            btn20.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn20.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn20.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -538,14 +619,18 @@ namespace PRESENTACION
                     {
                         if (btn21.BackColor == Color.Green)
                         {
-                            btn21.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn21.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn21.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -560,14 +645,18 @@ namespace PRESENTACION
                     {
                         if (btn22.BackColor == Color.Green)
                         {
-                            btn22.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn22.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn22.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -582,14 +671,18 @@ namespace PRESENTACION
                     {
                         if (btn23.BackColor == Color.Green)
                         {
-                            btn23.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn23.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn23.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -604,14 +697,18 @@ namespace PRESENTACION
                     {
                         if (btn24.BackColor == Color.Green)
                         {
-                            btn24.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn24.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn24.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -626,14 +723,18 @@ namespace PRESENTACION
                     {
                         if (btn25.BackColor == Color.Green)
                         {
-                            btn25.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn25.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn25.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -648,14 +749,18 @@ namespace PRESENTACION
                     {
                         if (btn26.BackColor == Color.Green)
                         {
-                            btn26.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn26.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn26.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -670,14 +775,18 @@ namespace PRESENTACION
                     {
                         if (btn27.BackColor == Color.Green)
                         {
-                            btn27.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn27.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn27.BackColor = Color.Green;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                             }
                         }
                     }
@@ -692,12 +801,15 @@ namespace PRESENTACION
                     {
                         if (btn28.BackColor == Color.Green)
                         {
-                            btn28.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn28.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn28.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -715,12 +827,15 @@ namespace PRESENTACION
                     {
                         if (btn29.BackColor == Color.Green)
                         {
-                            btn29.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn29.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn29.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -738,12 +853,15 @@ namespace PRESENTACION
                     {
                         if (btn30.BackColor == Color.Green)
                         {
-                            btn30.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn30.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn30.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -761,12 +879,15 @@ namespace PRESENTACION
                     {
                         if (btn31.BackColor == Color.Green)
                         {
-                            btn31.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn31.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn31.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -784,12 +905,15 @@ namespace PRESENTACION
                     {
                         if (btn32.BackColor == Color.Green)
                         {
-                            btn32.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn32.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn32.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -807,12 +931,15 @@ namespace PRESENTACION
                     {
                         if (btn33.BackColor == Color.Green)
                         {
-                            btn33.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn33.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn33.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -830,12 +957,15 @@ namespace PRESENTACION
                     {
                         if (btn34.BackColor == Color.Green)
                         {
-                            btn34.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn34.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn34.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -853,12 +983,15 @@ namespace PRESENTACION
                     {
                         if (btn35.BackColor == Color.Green)
                         {
-                            btn35.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn35.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn35.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -876,12 +1009,15 @@ namespace PRESENTACION
                     {
                         if (btn36.BackColor == Color.Green)
                         {
-                            btn36.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn36.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn36.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -899,12 +1035,15 @@ namespace PRESENTACION
                     {
                         if (btn37.BackColor == Color.Green)
                         {
-                            btn37.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn37.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn37.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -922,12 +1061,15 @@ namespace PRESENTACION
                     {
                         if (btn38.BackColor == Color.Green)
                         {
-                            btn38.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn38.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn38.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -945,12 +1087,15 @@ namespace PRESENTACION
                     {
                         if (btn39.BackColor == Color.Green)
                         {
-                            btn39.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn39.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn39.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -968,12 +1113,15 @@ namespace PRESENTACION
                     {
                         if (btn40.BackColor == Color.Green)
                         {
-                            btn40.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn40.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn40.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -991,12 +1139,15 @@ namespace PRESENTACION
                     {
                         if (btn41.BackColor == Color.Green)
                         {
-                            btn41.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn41.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn41.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -1014,12 +1165,15 @@ namespace PRESENTACION
                     {
                         if (btn42.BackColor == Color.Green)
                         {
-                            btn42.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn42.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn42.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -1037,12 +1191,15 @@ namespace PRESENTACION
                     {
                         if (btn43.BackColor == Color.Green)
                         {
-                            btn43.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn43.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn43.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
@@ -1060,12 +1217,15 @@ namespace PRESENTACION
                     {
                         if (btn44.BackColor == Color.Green)
                         {
-                            btn44.BackColor = Color.Empty;
-                            Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
+                            {
+                                btn44.BackColor = Color.Empty;
+                                Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
+                            }
                         }
                         else
                         {
-                            if (Application["CantEntradasT"].ToString() != "0")
+                            if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                             {
                                 btn44.BackColor = Color.Green;
                                 Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;

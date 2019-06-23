@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
+    <Compile Include="DAO_BxF.cs" />
     <Compile Include="DAO_Formatos.cs" />
     <Compile Include="DAO_Funciones.cs" />
     <Compile Include="DAO_Peliculas.cs" />
