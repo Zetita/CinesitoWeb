@@ -19,7 +19,7 @@ namespace DAO
             return tabla;
         }
 
-        public void armarParametros(ref SqlCommand Comando, PeliculasxFormatos PxF)
+        public void armarParametros(ref SqlCommand Comando, PeliculasxFormato PxF)
         {
             SqlParameter SqlParametros = new SqlParameter();
 
@@ -43,14 +43,14 @@ namespace DAO
         //        return false;
         //}
 
-        public int eliminarSucursal(PeliculasxFormatos PxF)
+        public int eliminarSucursal(PeliculasxFormato PxF)
         {
             SqlCommand comando = new SqlCommand();
             armarParametros(ref comando, PxF);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarPxF");
         }
 
-        public bool insertarSucursal(PeliculasxFormatos PxF)
+        public bool insertarSucursal(PeliculasxFormato PxF)
         {
             SqlCommand Comando = new SqlCommand();
             armarParametros(ref Comando, PxF);

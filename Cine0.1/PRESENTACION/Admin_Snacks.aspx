@@ -8,6 +8,9 @@
         .auto-style2 {
             width: 313px;
         }
+        .auto-style3 {
+            width: 360px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -21,43 +24,69 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">Nombre Snack</td>
-                <td>
+                <td class="auto-style3">
                     <asp:TextBox ID="txtSnack" runat="server" Width="300px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtSnack" ErrorMessage="Campo requerido." ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Tipo de Snack</td>
-                <td>
+                <td class="auto-style3">
                     <asp:DropDownList ID="ddlTipoSnack" runat="server">
                     </asp:DropDownList>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="ddlTipoSnack" ErrorMessage="Campo requerido." ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Precio Unitario</td>
-                <td>
+                <td class="auto-style3">
                     <asp:TextBox ID="txtPrecio" runat="server" Width="300px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txtPrecio" ErrorMessage="Campo requerido." ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Imagen</td>
-                <td>
+                <td class="auto-style3">
                     <asp:FileUpload ID="FileImagen" runat="server" Width="300px" />
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="FileImagen" ErrorMessage="Campo requerido." ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Estado</td>
-                <td>
+                <td class="auto-style3">
                     <asp:RadioButtonList ID="rbtnEstado" runat="server">
                         <asp:ListItem Value="1">Disponible</asp:ListItem>
                         <asp:ListItem Value="0">No Disponible</asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="rbtnEstado" ErrorMessage="Campo requerido." ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
-                <td>
+                <td class="auto-style3">
                     <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
                 </td>
+                <td>
+                    <asp:Label ID="lblAg" runat="server" ForeColor="Red"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style3">
+                    <asp:Label ID="lblAgregado" runat="server" Text="Label"></asp:Label>
+                </td>
+                <td>
+                    &nbsp;</td>
             </tr>
         </table>
         <br />

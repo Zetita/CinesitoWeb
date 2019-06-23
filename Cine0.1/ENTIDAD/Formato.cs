@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENTIDAD
 {
-    public class Formatos
+    public class Formato
     {
         private String s_idFormato;
         private String s_Nombre;
@@ -14,7 +14,7 @@ namespace ENTIDAD
         private bool b_Subtitulos;
         private Double d_Precio;
 
-        public Formatos()
+        public Formato()
         {
 
         }
