@@ -76,8 +76,11 @@
     <Content Include="Butacas.aspx" />
     <Content Include="Compras.aspx" />
     <Content Include="CSS\Admin.css" />
-    <Content Include="CSS\Barra.css" />
+    <Content Include="CSS\Barras.css" />
     <Content Include="CSS\EstiloPag.css" />
+    <Content Include="img\portadas\1.jpg" />
+    <Content Include="img\portadas\2.jpg" />
+    <Content Include="img\portadas\3.jpg" />
     <Content Include="img\snacks\agua_bon_aqua.jpg" />
     <Content Include="img\snacks\balde_pochoclos_chico.jpg" />
     <Content Include="img\snacks\balde_pochoclos_grande.jpg" />
@@ -88,15 +91,22 @@
     <Content Include="img\snacks\vaso_gaseosa.jpg" />
     <Content Include="JS\Slider.js" />
     <Content Include="Peliculas.aspx" />
-    <Content Include="Recursos\linea.png" />
-    <Content Include="Recursos\search.png" />
+    <Content Include="Recursitos\linea.png" />
+    <Content Include="Recursitos\logo.png" />
+    <Content Include="Recursitos\logo1.png" />
+    <Content Include="Recursitos\logo_transparent.png" />
+    <Content Include="Recursitos\logo_transparent1.png" />
+    <Content Include="Recursitos\search.png" />
+    <Content Include="Recursitos\user.png" />
+    <Content Include="recursos\linea.png" />
+    <Content Include="recursos\logo.png" />
+    <Content Include="recursos\logo1.png" />
+    <Content Include="recursos\logo_transparent.png" />
+    <Content Include="recursos\logo_transparent1.png" />
+    <Content Include="recursos\search.png" />
+    <Content Include="recursos\user.png" />
     <Content Include="Slider\Future.jpg" />
     <Content Include="Slider\JohnWick.jpeg" />
-    <Content Include="Recursos\logo.png" />
-    <Content Include="Recursos\logo1.png" />
-    <Content Include="Recursos\logo_transparent.png" />
-    <Content Include="Recursos\logo_transparent1.png" />
-    <Content Include="Recursos\user.png" />
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
   </ItemGroup>
@@ -184,6 +194,8 @@
     <Content Include="Admin.Master" />
     <None Include="packages.config" />
     <Content Include="Visual.Master" />
+    <Content Include="recursos\GothamHTFLight.woff" />
+    <Content Include="Recursitos\GothamHTFLight.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -192,6 +204,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{dc5bd935-23c6-4fee-bf8d-81a83fe97a9a}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ENTIDAD\ENTIDAD.csproj">
       <Project>{d6144964-6d3d-4582-a02e-d0c7d4f195f6}</Project>
       <Name>ENTIDAD</Name>
@@ -201,6 +217,7 @@
       <Name>NEGOCIO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

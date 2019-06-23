@@ -15,7 +15,7 @@ namespace DAO
         AccesoDatos ad = new AccesoDatos();
         public DataTable ObtenerTablaPxF()
         {
-            DataTable tabla = ad.ObtenerTabla("PeliculasxFormatos", "Select * from PeliculasxFormatos");
+            DataTable tabla = ad.ObtenerTabla("PeliculasxFormatos", "Select * from PeliculasXFormatos");
             return tabla;
         }
 

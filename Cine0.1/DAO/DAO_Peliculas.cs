@@ -12,9 +12,9 @@ namespace DAO
     public class DAO_Peliculas
     {
             AccesoDatos ad = new AccesoDatos();
-            public DataTable ObtenerTablaPeliculas()
+            public DataTable ObtenerTablaPeliculas(string Consulta)
             {
-                DataTable tabla = ad.ObtenerTabla("Peliculas", "Select * from Peliculas");
+                DataTable tabla = ad.ObtenerTabla("Peliculas", Consulta);
                 return tabla;
             }
 
