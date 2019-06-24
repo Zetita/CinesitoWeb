@@ -84,7 +84,7 @@
                 <br /></td>
         </SelectedItemTemplate>
     </asp:ListView>
-        <asp:SqlDataSource ID="sqldsFuente" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString4 %>" SelectCommand="SELECT [ImagenURL], TRIM([Titulo_Pelicula]),[ID_Pelicula] FROM [Peliculas]" ProviderName="System.Data.SqlClient"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="sqldsFuente" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString5 %>" SelectCommand="SELECT [ImagenURL], TRIM([Titulo_Pelicula]),[ID_Pelicula] FROM [Peliculas]"></asp:SqlDataSource>
     </div>
     <div style="margin-top:70px"></div>
 </asp:Content>
