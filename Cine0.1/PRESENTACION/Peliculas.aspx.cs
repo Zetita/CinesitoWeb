@@ -72,7 +72,7 @@ namespace PRESENTACION
             
             n_PxF PxF = new n_PxF();
             n_Funcion Funcion = new n_Funcion();
-            string IDPelicula = Application["ID"].ToString();
+            string IDPelicula = Application["ID_Pelicula"].ToString();
             DataTable dt = PxF.ObtenerTabla();
             string IDPxF = SacarIDPxF(IDPelicula, ddlFormato.SelectedValue, dt);
             string IDSucursal = Application["ID_Sucursal"].ToString();
@@ -172,7 +172,7 @@ namespace PRESENTACION
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Inicio.aspx");
         }
 
         public void LlenarPelicula(DataTable dt)
