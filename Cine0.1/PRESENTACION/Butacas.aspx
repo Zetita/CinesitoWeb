@@ -71,13 +71,12 @@
     <asp:Label ID="lblPantalla" runat="server" style="position:absolute;color:white;font-family:Calibri;font-size:x-large; top: 168px; left: 384px;" Text="PANTALLA" Font-Bold="True"></asp:Label>
     
     <!-- INFO ENTRADA -->
-    <asp:Label ID="lblButacaReservada" runat="server" Text="(Butaca F-4)" style="position:absolute;font-family:Calibri;color:white;font-size:medium; top: 402px; left: 696px"></asp:Label>
     <asp:Label ID="lblFormato" runat="server"  style="position:absolute;font-family:Calibri;color:white; top: 187px; left: 905px; font-size:x-large" Font-Bold="False"></asp:Label>
     <asp:Label ID="lblFecha" runat="server" Text="Jueves 13 de Junio - 15:30" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 329px; left: 905px"></asp:Label>
-    <asp:Label ID="lblEntrada" runat="server" Text="Entrada General x1"  style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 369px; left: 696px"></asp:Label>
-    <asp:Label ID="lblPrecio" runat="server" Text="$330" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 369px; left: 1080px"></asp:Label>
-    <asp:Label ID="lblPrecioFinal" runat="server" Text="$330" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 457px; left: 1080px" Font-Bold="true"></asp:Label>
-    <asp:Label ID="lblTotal" runat="server" Text="TOTAL" style="position:absolute;font-family:Calibri;color:white;font-size:xx-large; top: 457px; left: 696px" Font-Bold="true"></asp:Label>
+    <asp:Label ID="lblEntrada" runat="server"  style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 384px; left: 696px"></asp:Label>
+    <asp:Label ID="lblPrecio" runat="server" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 384px; left: 1080px"></asp:Label>
+    <asp:Label ID="lblPrecioFinal" runat="server" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 428px; left: 1080px" Font-Bold="True"></asp:Label>
+    <asp:Label ID="lblTotal" runat="server" style="position:absolute;font-family:Calibri;color:white;font-size:xx-large; top: 428px; left: 696px" Font-Bold="True"></asp:Label>
 
     <!-- INFO LUGAR -->
     <asp:Label ID="lblSucursal" runat="server" style="position:absolute;font-family:Calibri;color:white; top: 227px; left: 905px; font-size:x-large" Font-Bold="true"></asp:Label>
@@ -92,6 +91,7 @@
 
     <!-- BOTONES -->
     <asp:Button ID="btnVolver" runat="server" Height="26px" Text="VOLVER" style="background-color:#003d66;position:absolute;width:500px;top:527px;left:170px;height:30px" OnClick="btnVolver_Click" />
-    <asp:Button ID="btnSiguiente" runat="server" Text="SIGUIENTE" style="background-color:#003d66;position:absolute;top:527px;width:500px;left:680px ;height:30px" Font-Bold="true" OnClick="btnSiguiente_Click"/>
+    <asp:Button ID="btnSiguiente" runat="server" Text="SIGUIENTE" style="background-color:#003d66;position:absolute;top:527px;width:500px;left:680px ;height:30px" Font-Bold="true" OnClick="btnSiguiente_Click" Enabled="False"/>
+    <asp:Button ID="btnConfirmar" runat="server" Text="CONFIRMAR SELECCIÓN" style="background-color:#003d66;position:absolute;top:490px; width:500px;left:680px;height:30px" Font-Bold="true" OnClick="btnConfirmar_Click"/>
     
 </asp:Content>
