@@ -186,8 +186,15 @@ namespace PRESENTACION
                         {
                             if (Boton.BackColor == Color.Green)
                             {
-                                Application["ButacasReservadas"] += Nombre + ",";
-                                return 1;
+                                for (int i = 1; i < 44; i++)
+                                {
+                                    if (Nombre.Contains(i.ToString()))
+                                    {
+                                        Application["ButacasReservadas"] += i.ToString() + ",";
+                                        return 1;
+                                    }
+                                }
+                                
                             }
                             return -1;
                         }
