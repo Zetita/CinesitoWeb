@@ -7,7 +7,6 @@ using System.Data.SqlClient;
 using System.Data;
 using ENTIDAD;
 
-
 namespace DAO
 {
     public class DAO_BxF
