@@ -7,13 +7,16 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using NEGOCIO;
+using System.Drawing;
 
 namespace PRESENTACION
 {
     public partial class Compras : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             n_BxF BxF = new n_BxF();
             n_Funcion Funcion = new n_Funcion();
 
@@ -26,11 +29,58 @@ namespace PRESENTACION
             DataTable dt = Funcion.ObtenerTabla(Consulta);
             LlenarResumen(dt);
 
-            
             lblEntrada.Text = "Precio Entrada x"+Cantidad;
             lblTotal.Text = "Total";
-            lblPrecioFinal.Text = "$" + Precio.ToString();
-            lblPrecio.Text = "$" + Convert.ToDouble(Application["PrecioTotal"].ToString());
+            lblPrecioFinal.Text ="$"+ Precio.ToString();
+            lblPrecio.Text = "$"+Application["PrecioTotal"].ToString();
+
+            if (IsPostBack)
+            {
+                if(TieneErrores(Page)&&cbTerm.Checked)
+                {
+                    Boton("1");
+                }
+                else
+                {
+                    Boton("2");
+                }
+            } 
+        }
+
+        protected void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (!txtEmail.Text.Contains("@"))
+            {
+                txtEmail.BorderColor = Color.Red;
+                Boton("2");
+            }
+            else
+            {
+                txtEmail.BorderColor = Color.Empty;
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "DoPostBack", "__doPostBack(sender, e)", true);
+            }
+
+        }
+
+        protected void btnConfirmar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Validar(object sender, EventArgs e)
+        {
+            TextBox txt;
+            txt = (TextBox)sender;
+            if (txt.Text == string.Empty)
+            {
+                txt.BorderColor = Color.Red;
+                Boton("2");
+            }
+            else
+            {
+                txt.BorderColor = Color.Empty;
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "DoPostBack", "__doPostBack(sender, e)", true);
+            }
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
@@ -69,6 +119,43 @@ namespace PRESENTACION
             lblDireccion.Text = dt.Rows[0]["Direccion_Sucursal"].ToString().TrimEnd() + ", " + dt.Rows[0]["Localidad_Sucursal"].ToString().TrimEnd() + ", " + dt.Rows[0]["Provincia_Sucursal"].ToString().TrimEnd();
             lblFecha.Text = dt.Rows[0]["DiaSemana"].ToString() + " " + dt.Rows[0]["Dia"].ToString() + " de " + dt.Rows[0]["Mes"].ToString() + " - " + dt.Rows[0]["Hora"] + ":" + dt.Rows[0]["Minuto"];
             Application["Precio"] = Convert.ToDouble(dt.Rows[0]["Precio_Formato"].ToString());
+        }
+
+        public void Boton(string Estado)
+        {
+            switch (Estado)
+            {
+                case "0":
+                    btnConfirmar.Text = " COMPLETE LOS DATOS NECESARIOS";
+                    btnConfirmar.Enabled = false;
+                    break;
+                case "1":
+                    btnConfirmar.Text = " CONFIRMAR COMPRA ";
+                    btnConfirmar.Enabled = true;
+                    break;
+                case "2":
+                    btnConfirmar.Text = "DATOS ERRONEOS INGRESADOS";
+                    btnConfirmar.Enabled = false;
+                    break;
+            }
+        }
+
+        public bool TieneErrores(Page Pagina)
+        {
+            TextBox txt;
+            foreach (Control ctrl in Pagina.Form.Controls)
+            {
+                foreach (Control Control in ctrl.Controls)
+                    if (Control is TextBox)
+                    {
+                        txt = (TextBox)Control;
+                        if (txt.BorderColor==Color.Red)
+                        {
+                            return false;
+                        }
+                    }
+            }
+            return true;
         }
     }
 }

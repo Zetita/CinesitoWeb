@@ -20,7 +20,7 @@ namespace PRESENTACION
             n_Sucursal Sucursal = new n_Sucursal();
             DataTable dt = new DataTable();
             //IDPelicula = Application["ID_Pelicula"].ToString();
-            Application["ID_Pelicula"]=IDPelicula = "2";
+            Application["ID_Pelicula"]=IDPelicula = "1";
 
 
             if (!IsPostBack) {
@@ -74,7 +74,7 @@ namespace PRESENTACION
             n_PxF PxF = new n_PxF();
             n_Funcion Funcion = new n_Funcion();
             //string IDPelicula = Application["ID"].ToString();
-            string IDPelicula = "2";
+            string IDPelicula = "1";
             DataTable dt = PxF.ObtenerTabla();
             string IDPxF = SacarIDPxF(IDPelicula, ddlFormato.SelectedValue, dt);
             string IDSucursal = Application["ID_Sucursal"].ToString();
@@ -86,7 +86,7 @@ namespace PRESENTACION
                 ddlHorario.Enabled = false;
                 Boton("0");
             }
-
+            
             ddlDía.Items.Clear();
             ddlDía.Items.Add("-");
 
