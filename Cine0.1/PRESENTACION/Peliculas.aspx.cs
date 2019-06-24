@@ -36,7 +36,6 @@ namespace PRESENTACION
             
             else Boton("0");
 
-
         }
 
         protected void ddlCine_SelectedIndexChanged(object sender, EventArgs e)

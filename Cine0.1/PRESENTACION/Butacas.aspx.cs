@@ -14,16 +14,24 @@ namespace PRESENTACION
 {
     public partial class Butacas : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             DAO_BxF BxF = new DAO_BxF();
             DAO_Funciones Funcion = new DAO_Funciones();
             //string ID_Funcion = Application["ID_Funcion"].ToString();
             string ID_Funcion = "1";
+            double Precio;
             string Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
             DataTable dt = BxF.ObtenerTablaBxF(Consulta);
-            if(!IsPostBack) Application["CantEntradasT"] = Application["CantEntradas"] = 10;
+            
+
+            if (!IsPostBack)
+            {
+                Application["CantEntradasT"] = Application["CantEntradas"] = 10;
+            }
             string NombreBoton;
+            
 
             for (int x = 1; x <= 44; x++)
             {
@@ -33,14 +41,14 @@ namespace PRESENTACION
                     {
                         NombreBoton = "btn" + x.ToString();
                         Colorear(Page, NombreBoton);
-                    }
-                }
-                
-            }
 
+                    }
+                } 
+            }
+               
             Consulta = ArmarConsultaHeavy(ID_Funcion);
             dt = Funcion.ObtenerTablaFunciones(Consulta);
-            LlenarResumen(dt);
+            LlenarResumen(dt);          
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
@@ -50,7 +58,25 @@ namespace PRESENTACION
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Compras.aspx");
+                Response.Redirect("Compras.aspx");
+        }
+
+        protected void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            int Cantidad = SacarCantidad();
+            double Precio = Convert.ToDouble(Application["Precio"].ToString()) * Cantidad;
+            if (Cantidad != 0)
+            {
+                lblEntrada.Text = "Precio unitario Entrada";
+                lblTotal.Text = "Total";
+                lblPrecioFinal.Text = "$" + Precio.ToString();
+                Application["PrecioTotal"] = lblPrecio.Text = "$" + Convert.ToDouble(Application["Precio"].ToString());
+                btnSiguiente.Enabled = true;
+            }
+            else
+            {
+                lblTotal.Text = "No se seleccionó ninguna butaca.";
+            }
         }
 
         public void LlenarResumen(DataTable dt)
@@ -67,12 +93,16 @@ namespace PRESENTACION
             }
             lblSucursal.Text = dt.Rows[0]["Nombre_Sucursal"].ToString().TrimEnd() + " - Sala " + dt.Rows[0]["Sala"].ToString().TrimEnd();
             lblDireccion.Text = dt.Rows[0]["Direccion_Sucursal"].ToString().TrimEnd() + ", " + dt.Rows[0]["Localidad_Sucursal"].ToString().TrimEnd() + ", " + dt.Rows[0]["Provincia_Sucursal"].ToString().TrimEnd();
+            lblFecha.Text = dt.Rows[0]["DiaSemana"].ToString() + " " + dt.Rows[0]["Dia"].ToString() + " de " + dt.Rows[0]["Mes"].ToString()+" - "+dt.Rows[0]["Hora"]+":"+dt.Rows[0]["Minuto"];
+            Application["Precio"] = Convert.ToDouble(dt.Rows[0]["Precio_Formato"].ToString());
         }
 
         public string ArmarConsultaHeavy(string ID)
         {
             string Consulta = "Select Peliculas.ImagenURL,Peliculas.Titulo_Pelicula,Formatos.Idioma_Formato,Formatos.Nombre_Formato,Formatos.Precio_Formato,Formatos.Subtitulos_Formato, " +
-                "Salas.Sala, Sucursales.Nombre_Sucursal,Sucursales.Direccion_Sucursal,Sucursales.Localidad_Sucursal,Sucursales.Provincia_Sucursal from Funciones " +
+                "Salas.Sala, Sucursales.Nombre_Sucursal,Sucursales.Direccion_Sucursal,Sucursales.Localidad_Sucursal,Sucursales.Provincia_Sucursal,datename(dw,Funciones.FechaHora_Funcion) as DiaSemana, " +
+                "DATEPART(dd,Funciones.FechaHora_Funcion) as Dia,DATENAME(mm,Funciones.FechaHora_Funcion) as Mes,DATEPART(hh,Funciones.FechaHora_Funcion) as Hora,DATEPART(n,Funciones.FechaHora_Funcion) as Minuto "+
+                "from Funciones " +
                 "Inner Join PeliculasxFormatos on Funciones.ID_PxF = PeliculasxFormatos.ID_PxF " +
                 "Inner Join Peliculas on PeliculasxFormatos.ID_Pelicula = Peliculas.ID_Pelicula " +
                 "Inner Join Formatos on PeliculasxFormatos.ID_Formato = Formatos.ID_Formato " +
@@ -94,9 +124,11 @@ namespace PRESENTACION
                         if (Boton.ID == Nombre)
                         {
                             Boton.BackColor = Color.Red;
+                            Boton.Enabled = false;
                         }
                     }
             }
+
         }
 
         protected void Colorear2(object sender, EventArgs e)
@@ -120,5 +152,49 @@ namespace PRESENTACION
             }
         }
 
+        public int SacarCantidad()
+        {
+           
+            int Cantidad=0;
+            string NombreBoton;
+            for (int i = 1; i <= 44; i++)
+            {
+                NombreBoton = "btn" + i.ToString();
+                if(VerificarClickeado(Page, NombreBoton) == 1)
+                {
+                    if(IsPostBack)
+                    Cantidad++;
+                }
+            }
+            if (Cantidad == 10)
+            {
+                return Cantidad - 1;
+            }
+            return Cantidad;
+        }
+
+        public static int VerificarClickeado(Page Pagina, string Nombre)
+        {
+            Button Boton;
+            foreach (Control ctrl in Pagina.Form.Controls)
+            {
+                foreach (Control Control in ctrl.Controls)
+                    if (Control is Button)
+                    {
+                        Boton = (Button)Control;
+                        if (Boton.ID == Nombre)
+                        {
+                            if (Boton.BackColor == Color.Green)
+                            {
+                                return 1;
+                            }
+                            return -1;
+                        }
+                    }
+            }
+            return 0;
+        }
+
+       
     }
 }
