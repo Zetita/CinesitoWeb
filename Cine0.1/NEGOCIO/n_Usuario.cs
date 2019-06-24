@@ -29,11 +29,11 @@ namespace NEGOCIO
             return da.ObtenerTablaAdmins();
         }
 
-        //public bool editarUsuario(Usuario usuario)
-        //{
-        //    DAO_Usuarios da = new DAO_Usuarios();
-        //    return da.ActualizarUsuario(usuario);
-        //}
+        public bool editarUsuario(Usuario usuario)
+        {
+            DAO_Usuarios da = new DAO_Usuarios();
+            return da.ActualizarUsuario(usuario);
+        }
 
         public int eliminarUsuario(Usuario usuario)
         {

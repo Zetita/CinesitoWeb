@@ -33,7 +33,7 @@ namespace DAO
             SqlParametros.Value = sala.IdSucursal;
             SqlParametros = Comando.Parameters.Add("@SALA", SqlDbType.Char, 20);
             SqlParametros.Value = sala.NomSala;
-            SqlParametros = Comando.Parameters.Add("@BUTACAS", SqlDbType.Bit);
+            SqlParametros = Comando.Parameters.Add("@BUTACAS", SqlDbType.Int);
             SqlParametros.Value = sala.Butacas;
 
         }
