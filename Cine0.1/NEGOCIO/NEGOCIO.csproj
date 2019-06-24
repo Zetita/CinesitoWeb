@@ -46,7 +46,10 @@
     <Compile Include="n_Formato.cs" />
     <Compile Include="n_Funcion.cs" />
     <Compile Include="n_Pelicula.cs" />
+    <Compile Include="n_PxF.cs" />
+    <Compile Include="n_Sala.cs" />
     <Compile Include="n_Snack.cs" />
+    <Compile Include="n_Sucursal.cs" />
     <Compile Include="n_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

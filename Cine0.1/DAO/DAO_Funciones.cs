@@ -18,7 +18,11 @@ namespace DAO
             DataTable tabla = ad.ObtenerTabla("Funciones", "Select * From Funciones");
             return tabla;
         }
-
+        //public DataTable ObtenerTablaFuncionesDisp()
+        //{
+        //    DataTable tabla = ad.ObtenerTabla("Funciones", "Select * From Funciones");
+        //    return tabla;
+        //}
         public DataTable ObtenerTablaFunciones(string Consulta)
         {
             DataTable tabla = ad.ObtenerTabla("Funciones", Consulta);
@@ -29,12 +33,14 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_FUNCION", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@ID_FUNCION", SqlDbType.Char, 10);
             SqlParametros.Value = funcion.IDFuncion;
-            SqlParametros = Comando.Parameters.Add("@ID_PXF", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@ID_PXF", SqlDbType.Char, 10);
             SqlParametros.Value = funcion.IDPxF;
-            SqlParametros = Comando.Parameters.Add("@ID_SALA", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@ID_SALA", SqlDbType.Char, 10);
             SqlParametros.Value = funcion.IDSala;
+            SqlParametros = Comando.Parameters.Add("@ID_SUCURSAL", SqlDbType.Char, 10);
+            SqlParametros.Value = funcion.IDSucursal;
             SqlParametros = Comando.Parameters.Add("@FECHA_HORA", SqlDbType.DateTime);
             SqlParametros.Value = funcion.FechaHora;
             
