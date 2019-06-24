@@ -25,8 +25,8 @@ namespace PRESENTACION
             if(rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && rfv6.IsValid && rfv7.IsValid && rfv8.IsValid)
             {
                 Usuario usuario = new Usuario();
-                DateTime CreatdDate = DateTime.ParseExact(txtNacimiento.Text, "d-M-yyyy", System.Globalization.CultureInfo.InvariantCulture);
-
+                DateTime CreatdDate = DateTime.ParseExact(txtNacimiento.Text, "dd/mm/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                
                 usuario.User = txtUsuario.Text;
                 usuario.Contrasenia = txtContrasenia.Text; 
                 usuario.Email = txtEmail.Text;

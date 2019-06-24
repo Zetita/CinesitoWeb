@@ -20,12 +20,12 @@
 
 
     <asp:Label ID="Label4" runat="server" Text="Fecha de Nacimiento" ForeColor="White" style="position:absolute; top:150px; left:720px; margin-left:50px;"></asp:Label>
-    <asp:TextBox ID="txtNacimiento" runat="server"  style="position:absolute; top:170px; left:720px; margin-left:50px;"></asp:TextBox>
+    <asp:TextBox ID="txtNacimiento" runat="server"  style="position:absolute; top:169px; left:720px; margin-left:50px;"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txtNacimiento" ErrorMessage="*" ForeColor="#CC3300" style="position:absolute; top:150px; left:920px;"></asp:RequiredFieldValidator>
 
 
      <asp:Label ID="Label5" runat="server" Text="Correo Electronico" ForeColor="White" style="position:absolute; top:200px; left:570px;"></asp:Label>
-    <asp:TextBox ID="txtEmail" runat="server"  style="position:absolute; top:220px; left:570px; width: 317px;"></asp:TextBox>
+    <asp:TextBox ID="txtEmail" runat="server"  style="position:absolute; top:220px; left:570px; width: 317px;" TextMode="Email"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ForeColor="#CC3300" style="position:absolute; top:200px; left:710px;"></asp:RequiredFieldValidator>
 
 
@@ -35,12 +35,12 @@
 
 
       <asp:Label ID="Label7" runat="server" Text="Contraseña" ForeColor="White" style="position:absolute; top:250px; left:720px; margin-left:50px;"></asp:Label>
-    <asp:TextBox ID="txtContrasenia" runat="server"  style="position:absolute; top:270px; left:720px; margin-left:50px;"></asp:TextBox>
+    <asp:TextBox ID="txtContrasenia" runat="server"  style="position:absolute; top:271px; left:720px; margin-left:50px;" TextMode="Password"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txtContrasenia" ErrorMessage="*" ForeColor="#CC3300" style="position:absolute; top:250px; left:860px;"></asp:RequiredFieldValidator>
 
 
         <asp:Label ID="Label8" runat="server" Text="Numero de Telefono" ForeColor="White" style="position:absolute; top:300px; left:570px;"></asp:Label>
-    <asp:TextBox ID="txtTelefono" runat="server"  style="position:absolute; top:320px; left:570px; width: 317px;"></asp:TextBox>
+    <asp:TextBox ID="txtTelefono" runat="server"  style="position:absolute; top:320px; left:570px; width: 317px;" TextMode="Phone"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rfv8" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ForeColor="#CC3300" style="position:absolute; top:300px; left:720px;"></asp:RequiredFieldValidator>
 
     <asp:Button ID="BtnRegistrar" runat="server" Text="REGISTRAR" style="position:absolute; top:370px; left:570px; width: 350px;" BackColor="Black" ForeColor="White" BorderColor="White" BorderStyle="Solid" OnClick="BtnRegistrar_Click" />
