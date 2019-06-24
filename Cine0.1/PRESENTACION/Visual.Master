@@ -17,7 +17,7 @@
         <div id="menu" style="text-align:center;color:white">
 		<ul>
             <li><asp:Image ID="ImageButton1" runat="server" ImageAlign="Left" style="position:absolute;left:0;top:13px" Width="240px" ImageUrl="~/Recursos/logo_transparent1.png"/></li>
-			<li><a href="#">CARTELERA</a></li>
+			<li><a href="Inicio.aspx">CARTELERA</a></li>
 			<li><a href="#">CINES</a></li>
             <li><a href="#">SNACKS</a></li>
 		    
