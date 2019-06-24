@@ -99,9 +99,9 @@ namespace DAO
             SqlParametros.Value = usuario.Contrasenia;
             SqlParametros = Comando.Parameters.Add("@EMAIL", SqlDbType.Char, 40);
             SqlParametros.Value = usuario.Email;
-            SqlParametros = Comando.Parameters.Add("@APELLIDO", SqlDbType.Char, 40);
+            SqlParametros = Comando.Parameters.Add("@APELLIDOS", SqlDbType.Char, 40);
             SqlParametros.Value = usuario.Apellido;
-            SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.Char, 40);
+            SqlParametros = Comando.Parameters.Add("@NOMBRES", SqlDbType.Char, 40);
             SqlParametros.Value = usuario.Nombre;
             SqlParametros = Comando.Parameters.Add("@DNI", SqlDbType.Char, 8);
             SqlParametros.Value = usuario.Dni;
