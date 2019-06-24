@@ -23,6 +23,12 @@ namespace DAO
             return tabla;
         }
 
+        public DataTable ObtenerTablaSnacks2(String Consulta)
+        {
+            DataTable tabla = ad.ObtenerTabla("Snacks", Consulta);
+            return tabla;
+        }
+
         public void armarParametros(ref SqlCommand Comando, Snack snack)
         {
             SqlParameter SqlParametros = new SqlParameter();

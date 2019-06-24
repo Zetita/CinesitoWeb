@@ -7,7 +7,18 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ListView ID="lstSnacks" runat="server" DataKeyNames="ID_Snack" DataSourceID="sqldsSnacks" GroupItemCount="3" >
+    </br>
+    <asp:Label ID="lblSnacks" runat="server" Font-Bold="True" style="position:absolute;text-align:center;left:602px" Font-Size="X-Large" ForeColor="White" Text="SNACKS"></asp:Label>
+    <asp:Label ID="lblDetalles" runat="server" Font-Bold="True" style="position:absolute;text-align:center;left:1000px;top:160px" Font-Size="Medium" ForeColor="White" Text="DETALLES"></asp:Label>
+    <asp:Image ID="imgProductoSelec" runat="server" style="position:absolute;text-align:center;left:1000px;top:200px" Height="300px" Width="300px"/>
+    <asp:Label ID="lblPrecio" runat="server" style="color:white;position:absolute;text-align:center;left:1000px;top:525px"></asp:Label>
+    <asp:Label ID="lblProducto" runat="server" style="color:white;position:absolute;text-align:center;left:1000px;top:550px"></asp:Label>
+    <asp:Label ID="lblID" runat="server" style="color:white;position:absolute;text-align:center;left:1000px;top:575px"></asp:Label>
+    </br>
+    <asp:Label ID="lblLinea" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="White" Text="_____________________________________________________________________________________________________"></asp:Label>
+    </br>
+    </br>
+    <asp:ListView ID="lstSnacks" runat="server" DataKeyNames="ID_Snack" DataSourceID="sqldsSnacks" GroupItemCount="4" >
         <EditItemTemplate>
             <td runat="server" style="background-color: #000; color: #000080;">ID_Snack:
                 <asp:Label ID="ID_SnackLabel1" runat="server" Text='<%# Eval("ID_Snack") %>' />
@@ -54,9 +65,9 @@
                 <br /></td>
         </InsertItemTemplate>
         <ItemTemplate>
-            <td runat="server" style="background-color: #000;">&nbsp;<asp:Label ID="lbl_Nombre" runat="server" style="color: #ffffff" Font-Bold="True" Text='<%# Eval("Nombre_Snack") %>' />
-                <br />
-                <asp:ImageButton ID="ImageButton2" runat="server" Horizontal-align="left" ImageUrl='<%# Eval("URLImagen_Snack") %>' Width="200px" Height="170px" />
+            <td runat="server" style="background-color: #000;"><asp:Label ID="lbl_Nombre" runat="server" style="color: #ffffff" Font-Bold="True" Text='<%# Eval("Nombre_Snack") %>' />
+                &nbsp;<br />
+                <asp:ImageButton ID="imgbtnSnack" runat="server" Horizontal-align="left" ImageUrl='<%# Eval("URLImagen_Snack") %>' Width="200px" Height="170px" CommandName='<%# Eval("ID_Snack") %>' OnCommand="imgbtnSnack_Command" />
                 <br />
                 <asp:Label ID="lbl_Precio" runat="server" style="position:relative;top:0px;color:white"  Font-Bold="True" Text='<%# Eval("Precio_Snack") %>' />
                 <br /></td>
@@ -88,5 +99,6 @@
                 <br /></td>
         </SelectedItemTemplate>
     </asp:ListView>
+    
     <asp:SqlDataSource ID="sqldsSnacks" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString %>" SelectCommand="SELECT [ID_Snack], [Nombre_Snack], [Precio_Snack], [URLImagen_Snack] FROM [Snacks]  WHERE [Estado_Snack] =1"></asp:SqlDataSource>
 </asp:Content>

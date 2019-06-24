@@ -17,6 +17,12 @@ namespace NEGOCIO
             return da.ObtenerTablaSnacks();
         }
 
+        public DataTable ObtenerTabla(string Consulta)
+        {
+            DAO_Snacks da = new DAO_Snacks();
+            return da.ObtenerTablaSnacks2(Consulta);
+        }
+
         public bool editarSnack(Snack snack)
         {
             DAO_Snacks da = new DAO_Snacks();

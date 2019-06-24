@@ -18,8 +18,8 @@
 		<ul>
             <li><asp:Image ID="ImageButton1" runat="server" ImageAlign="Left" style="position:absolute;left:0;top:13px" Width="240px" ImageUrl="~/Recursos/logo_transparent1.png"/></li>
 			<li><a href="Inicio.aspx">CARTELERA</a></li>
-			<li><a href="#">CINES</a></li>
-            <li><a href="#">SNACKS</a></li>
+			<li><a href="Sucursales.aspx">CINES</a></li>
+            <li><a href="Snacks.aspx">SNACKS</a></li>
 		    
             <li style="float:right; padding:13px 20px">
                 <asp:ImageButton ID="imgbtnUser" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/user.png" Height="32px" Width="35px" />
