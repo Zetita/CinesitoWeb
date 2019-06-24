@@ -44,7 +44,8 @@
     <asp:RequiredFieldValidator ID="rfv8" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ForeColor="#CC3300" style="position:absolute; top:300px; left:720px;"></asp:RequiredFieldValidator>
 
     <asp:Button ID="BtnRegistrar" runat="server" Text="REGISTRAR" style="position:absolute; top:370px; left:570px; width: 350px;" BackColor="Black" ForeColor="White" BorderColor="White" BorderStyle="Solid" OnClick="BtnRegistrar_Click" />
-      
+      <asp:Label ID="lblAdd" runat="server" Text="" ForeColor="White" style="position:absolute; top:400px; left:660px;"></asp:Label>
+    <asp:Label ID="lblAdv" runat="server" Text="" ForeColor="White" style="position:absolute; top:375px; left:950px;"></asp:Label>
 
    
 
