@@ -77,8 +77,9 @@ namespace PRESENTACION
                 pelicula.ImagenURL = rutaBase;
 
 
-
-                //pelicula.Duracion = txtDuracion.Text; fix that
+                String[] dur = txtDuracion.Text.Split(':');
+                DateTime durtime = new DateTime(1, 1, 1, Int32.Parse( dur[0]), Int32.Parse( dur[1]), 0);
+                pelicula.Duracion = durtime;
                 pelicula.TrailerURL = txtTrailerURL.Text;
                 pelicula.Estado = true;
 

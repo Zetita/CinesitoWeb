@@ -177,7 +177,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Fecha de Estreno">
                     <ItemTemplate>
-                        <asp:Label ID="lbl_it_Estreno" runat="server" Text='<%# Bind("Fecha_EstrenoPelicula) %>'></asp:Label>
+                        <asp:Label ID="lbl_it_Estreno" runat="server" Text='<%# Bind("FechaEstreno_Pelicula") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Director/es">
