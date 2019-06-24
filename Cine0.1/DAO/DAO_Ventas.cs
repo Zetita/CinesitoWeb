@@ -9,7 +9,7 @@ using ENTIDAD;
 
 namespace DAO
 {
-    class DAO_Ventas
+    public class DAO_Ventas
     {
         AccesoDatos ad = new AccesoDatos();
 
@@ -52,14 +52,14 @@ namespace DAO
                 return false;
         }
 
-        public int eliminarFormato(Venta venta)
+        public int eliminarVenta(Venta venta)
         {
             SqlCommand comando = new SqlCommand();
             armarParametros(ref comando, venta);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarVenta");
         }
 
-        public bool insertarFormato(Venta venta)
+        public bool insertarVenta(Venta venta)
         {
             SqlCommand Comando = new SqlCommand();
             armarParametros(ref Comando, venta);
