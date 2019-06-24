@@ -49,7 +49,7 @@ namespace DAO
         {
             SqlCommand Comando = new SqlCommand();
             armarParametros(ref Comando, detalleventa);
-            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarFormato");
+            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarDetalleVenta");
             if (filasInsertadas == 1)
                 return true;
             else
@@ -60,14 +60,14 @@ namespace DAO
         {
             SqlCommand comando = new SqlCommand();
             armarParametros(ref comando, detalleventa);
-            return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarFormato");
+            return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarDetalleVenta");
         }
 
         public bool insertarDetalleVenta(DetalleVenta detalleventa)
         {
             SqlCommand Comando = new SqlCommand();
             armarParametros(ref Comando, detalleventa);
-            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spInsertarFormato");
+            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spInsertarDetalleVenta");
             if (filasInsertadas == 1)
                 return true;
             else

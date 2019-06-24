@@ -4,125 +4,88 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-   
-    <div  style="text-align:center" >
-  <!-- Contenedor de Slideshow -->
-<div class="slideshow-container" style="text-align:center">
-    <br>
-  <!-- IMAGEN Y RESOLUCION DE LA IMAGEN -->
-  <div class="mySlides fade" style="text-align:center">
-   
-    <img src="Slider/JohnWick.jpeg" style="width:70%">
+    <link rel="stylesheet" type="text/css" href="CSS/Slider.css" />
+<div class="slider">
+<figure>
     
-  </div>
-
-  <div class="mySlides fade" style="text-align:center">
- 
-    <img src="Slider/Future.jpg" style="width:70%" >
     
-  </div>
-
-    <div id="Control" style="text-align:center">  <!-- Siguiente/Atras buttons -->
-      
-  <a class="prev" onclick="plusSlides(-1)"><label style="color:white;"><</label></a>
-  <a class="next" onclick="plusSlides(1)"><label style="color:white;">></label></a>
-</div style="text-align:center">
-    #L<br>
-
-
-    </div>
-    <div style="text-align:left; display:inline-block">
-
-
-    </div>
-        <div id="Peliculas">
-            <asp:Label ID="Label1" runat="server" Text="-PELICULAS"></asp:Label>
-        </div>
-        
-        <div id="Lista" style="text-align:center; align-items:center; margin-left:15%; margin-right:30%; ">
-    <div  >
-
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource2" GroupItemCount="4" OnSelectedIndexChanged="ListView1_SelectedIndexChanged1">
-            <AlternatingItemTemplate>
-                <td runat="server" style="border-color: #000000; background-color: #000000; color: #FFFFFF;  margin-right:3%; margin-left:3%;">
-                    <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl='<%# Eval("ImagenURL") %>' />
-                    &nbsp;<br />
-                    <asp:Label ID="Titulo_PeliculaLabel" runat="server" Text='<%# Eval("Titulo_Pelicula") %>'></asp:Label>
-                    <br /></td>
-            </AlternatingItemTemplate>
-            <EditItemTemplate>
-                <td runat="server" style="background-color: #FFCC66;color: #000080;">Titulo_Pelicula:
-                    <asp:TextBox ID="Titulo_PeliculaTextBox" runat="server" Text='<%# Bind("Titulo_Pelicula") %>' />
-                    <br />ImagenURL:
-                    <asp:TextBox ID="ImagenURLTextBox" runat="server" Text='<%# Bind("ImagenURL") %>' />
-                    <br />
-                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
-                    <br />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                    <br /></td>
-            </EditItemTemplate>
-            <EmptyDataTemplate>
-                <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
-                    <tr>
-                        <td>No se han devuelto datos.</td>
-                    </tr>
-                </table>
-            </EmptyDataTemplate>
-            <EmptyItemTemplate>
-<td runat="server" />
-            </EmptyItemTemplate>
-            <GroupTemplate>
-                <tr id="itemPlaceholderContainer" runat="server">
-                    <td id="itemPlaceholder" runat="server"></td>
+<asp:Image ID="ImageButton1" runat="server" ImageUrl="~/img/slider/1.jpg"/>
+<asp:Image ID="Image1" runat="server" ImageUrl="~/img/slider/2.jpg"/>
+<asp:Image ID="Image2" runat="server" ImageUrl="~/img/slider/3.png"/>
+</figure>
+</div>
+    <div>
+        <asp:ListView ID="lstPeliculas" runat="server" DataSourceID="sqldsFuente" GroupItemCount="3">
+    
+        <EditItemTemplate>
+            <td runat="server" style="background-color: #FFCC66;color: #000080;">ImagenURL:
+                <asp:TextBox ID="ImagenURLTextBox" runat="server" Text='<%# Bind("ImagenURL") %>' />
+                <br />Column1:
+                <asp:TextBox ID="Column1TextBox" runat="server" Text='<%# Bind("Column1") %>' />
+                <br />
+                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
+                <br />
+                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
+                <br /></td>
+        </EditItemTemplate>
+        <EmptyDataTemplate>
+            <table runat="server" style="background-color: #000;border-collapse: collapse;border-color: #000;border-style:none;border-width:1px;">
+                <tr>
+                    <td>No se han devuelto datos.</td>
                 </tr>
-            </GroupTemplate>
-            <InsertItemTemplate>
-                <td runat="server" style="">Titulo_Pelicula:
-                    <asp:TextBox ID="Titulo_PeliculaTextBox" runat="server" Text='<%# Bind("Titulo_Pelicula") %>' />
-                    <br />ImagenURL:
-                    <asp:TextBox ID="ImagenURLTextBox" runat="server" Text='<%# Bind("ImagenURL") %>' />
-                    <br />
-                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                    <br />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
-                    <br /></td>
-            </InsertItemTemplate>
-            <ItemTemplate>
-                <td runat="server" style="border-color: #000000; background-color: #000000; color: #FFFFFF; margin-right:3%; margin-left:3%;">
-                    <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl='<%# Eval("ImagenURL") %>' />
-                    &nbsp;<br />
-                    <asp:Label ID="Titulo_PeliculaLabel" runat="server" Text='<%# Eval("Titulo_Pelicula") %>'></asp:Label>
-                    <br /></td>
-            </ItemTemplate>
-            <LayoutTemplate>
-                <table runat="server">
-                    <tr runat="server">
-                        <td runat="server">
-                            <table id="groupPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                <tr id="groupPlaceholder" runat="server">
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr runat="server">
-                        <td runat="server" style="border-color: #000000; text-align: center;background-color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; color: #333333;"></td>
-                    </tr>
-                </table>
-            </LayoutTemplate>
-            <SelectedItemTemplate>
-                <td runat="server" style="background-color: #FFCC66;font-weight: bold;color: #000080;">Titulo_Pelicula:
-                    <asp:Label ID="Titulo_PeliculaLabel" runat="server" Text='<%# Eval("Titulo_Pelicula") %>' />
-                    <br />ImagenURL:
-                    <asp:Label ID="ImagenURLLabel" runat="server" Text='<%# Eval("ImagenURL") %>' />
-                    <br /></td>
-            </SelectedItemTemplate>
-        </asp:ListView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString3 %>" SelectCommand="SELECT [Titulo_Pelicula], [ImagenURL] FROM [Peliculas]"></asp:SqlDataSource>
-
+            </table>
+        </EmptyDataTemplate>
+        <EmptyItemTemplate>
+<td runat="server" />
+        </EmptyItemTemplate>
+        <GroupTemplate>
+            <tr id="itemPlaceholderContainer" runat="server">
+                <td id="itemPlaceholder" runat="server"></td>
+            </tr>
+        </GroupTemplate>
+        <InsertItemTemplate>
+            <td runat="server" style="">ImagenURL:
+                <asp:TextBox ID="ImagenURLTextBox" runat="server" Text='<%# Bind("ImagenURL") %>' />
+                <br />Column1:
+                <asp:TextBox ID="Column1TextBox" runat="server" Text='<%# Bind("Column1") %>' />
+                <br />
+                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
+                <br />
+                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
+                <br /></td>
+        </InsertItemTemplate>
+        <ItemTemplate>
+            <td runat="server" style="background-color: #000; color: #000">
+                <asp:ImageButton ID="imgbtn_Pelicula" runat="server" Height="500px" ImageUrl='<%# Bind("ImagenURL") %>' Width="433px" CommandName='<%# Eval("ID_Pelicula") %>' OnCommand="imgbtn_Pelicula_Command1"/>
+                <asp:Label ID="lbl_Titulo" runat="server" style="text-align:center;color:white;float:right;width:100%" Font-Bold="True" Text='<%# Eval("Column1") %>'  />
+                <br /></td>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <table runat="server">
+                <tr runat="server">
+                    <td runat="server">
+                        <table id="groupPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                            <tr id="groupPlaceholder" runat="server">
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr runat="server">
+                    <td runat="server" style="text-align: center;background-color: #000;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000;">
+                    </td>
+                </tr>
+            </table>
+        </LayoutTemplate>
+        <SelectedItemTemplate>
+            <td runat="server" style="background-color: #000;font-weight: bold;color: #000080;">ImagenURL:
+                <asp:Label ID="ImagenURLLabel" runat="server" Text='<%# Eval("ImagenURL") %>' />
+                <br />Column1:
+                <asp:Label ID="Column1Label" runat="server" Text='<%# Eval("Column1") %>' />
+                <br /></td>
+        </SelectedItemTemplate>
+    </asp:ListView>
+        <asp:SqlDataSource ID="sqldsFuente" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString4 %>" SelectCommand="SELECT [ImagenURL], TRIM([Titulo_Pelicula]),[ID_Pelicula] FROM [Peliculas]" ProviderName="System.Data.SqlClient"></asp:SqlDataSource>
     </div>
-            </div>
-
-    </div>
+    <div style="margin-top:70px"></div>
 </asp:Content>
 

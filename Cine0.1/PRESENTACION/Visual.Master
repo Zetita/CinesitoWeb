@@ -34,7 +34,7 @@
                
             </asp:ContentPlaceHolder>
 
-       <ul style="background-color:#595959;padding:20px 20px; margin-top:550px; text-align:center;color:white" >
+       <ul style="background-color:#595959;padding:20px 20px; position:fixed;margin:0;bottom:0;left:0;right:0; text-align:center;color:white" >
 
                 <li> <b>Derechos Reservados, Grupo 5 ©</b></li>
 

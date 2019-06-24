@@ -14,19 +14,10 @@ namespace PRESENTACION
 
         }
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void imgbtn_Pelicula_Command1(object sender, CommandEventArgs e)
         {
-
-        }
-
-        protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void ListView1_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-
+            Application["ID_Pelicula"] = e.CommandName.Trim();
+            Response.Redirect("Peliculas.aspx");
         }
     }
 }

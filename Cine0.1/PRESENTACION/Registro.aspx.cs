@@ -26,20 +26,18 @@ namespace PRESENTACION
             {
                 Usuario usuario = new Usuario();
                 DateTime CreatdDate = DateTime.ParseExact(txtNacimiento.Text, "d-M-yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                usuario.Nombre = txtNombre.Text;
-                usuario.Apellido = txtApellido.Text;
-                usuario.Dni = txtDni.Text;
-                usuario.FechaNac = CreatdDate;
-                usuario.Email = txtEmail.Text;
-                usuario.User = txtUsuario.Text;
-                usuario.Contrasenia = txtContrasenia.Text; ///System.Data.SqlClient.SqlException: 'No se permite la conversión implícita del tipo de datos char a varbinary(max). Utilice la función CONVERT para ejecutar esta consulta.'
 
+                usuario.User = txtUsuario.Text;
+                usuario.Contrasenia = txtContrasenia.Text; 
+                usuario.Email = txtEmail.Text;
+                usuario.Apellido = txtApellido.Text;
+                usuario.Nombre = txtNombre.Text;
+                usuario.Dni = txtDni.Text;
                 usuario.Telefono = txtTelefono.Text;
+                usuario.FechaNac = CreatdDate;
+
                 usuario.Activo = true;
                 usuario.Administrador = false;
-
-                
-
 
 
                 n_Usuario n_usuario = new n_Usuario();
