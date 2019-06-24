@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using DAO;
 using NEGOCIO;
 
 namespace PRESENTACION
@@ -17,10 +16,11 @@ namespace PRESENTACION
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             n_BxF BxF = new n_BxF();
             n_Funcion Funcion = new n_Funcion();
-            string ID_Funcion = Application["ID_Funcion"].ToString();
-            //string ID_Funcion = "1";
+            //string ID_Funcion = Application["ID_Funcion"].ToString();
+            string ID_Funcion = "1";
             string Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
             DataTable dt = BxF.ObtenerTabla(Consulta);
 
@@ -55,7 +55,7 @@ namespace PRESENTACION
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-                Response.Redirect("Compras.aspx");
+            Response.Redirect("Compras.aspx");
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
@@ -68,8 +68,9 @@ namespace PRESENTACION
             {
                 lblEntrada.Text = "Precio unitario Entrada";
                 lblTotal.Text = "Total";
+                Application["PrecioTotal"] = Precio.ToString();
                 lblPrecioFinal.Text = "$" + Precio.ToString();
-                Application["PrecioTotal"] = lblPrecio.Text = "$" + Convert.ToDouble(Application["Precio"].ToString());
+                lblPrecio.Text = "$" + Convert.ToDouble(Application["Precio"].ToString());
                 btnSiguiente.Enabled = true;
             }
             else
