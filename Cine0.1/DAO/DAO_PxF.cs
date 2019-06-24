@@ -47,14 +47,14 @@ namespace DAO
                 return false;
         }
 
-        public int eliminarSucursal(PeliculasxFormato pxf)
+        public int eliminarPxF(PeliculasxFormato pxf)
         {
             SqlCommand comando = new SqlCommand();
             armarParametros(ref comando, pxf);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarPxF");
         }
 
-        public bool insertarSucursal(PeliculasxFormato pxf)
+        public bool insertarPxF(PeliculasxFormato pxf)
         {
             SqlCommand Comando = new SqlCommand();
             armarParametros(ref Comando, pxf);

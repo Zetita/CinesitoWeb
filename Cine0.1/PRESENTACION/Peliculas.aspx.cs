@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
-using DAO;
 using NEGOCIO;
 using System.Drawing;
 
@@ -18,7 +17,7 @@ namespace PRESENTACION
         {
             string IDPelicula;
             n_Pelicula Pelicula = new n_Pelicula();
-            DAO_Sucursales Sucursal = new DAO_Sucursales();
+            n_Sucursal Sucursal = new n_Sucursal();
             DataTable dt = new DataTable();
             //IDPelicula = Application["ID_Pelicula"].ToString();
             Application["ID_Pelicula"]=IDPelicula = "2";
@@ -30,7 +29,7 @@ namespace PRESENTACION
             dt = Pelicula.ObtenerTabla(Consulta);
             LlenarPelicula(dt);
 
-            dt = Sucursal.ObtenerTablaSucursales();
+            dt = Sucursal.ObtenerTabla();
             LlenarDDLSucursal(dt);
             }
             
@@ -40,8 +39,8 @@ namespace PRESENTACION
 
         protected void ddlCine_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DAO_Formatos Datos = new DAO_Formatos();
-            DataTable dt = Datos.ObtenerTablaFormatos();    
+            n_Formato Datos = new n_Formato();
+            DataTable dt = Datos.ObtenerTabla();    
            
             ddlFormato.Enabled = true;
             ddlDía.Enabled = false;
@@ -72,11 +71,11 @@ namespace PRESENTACION
         protected void ddlFormato_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            DAO_PxF PxF = new DAO_PxF();
-            DAO_Funciones Funcion = new DAO_Funciones();
+            n_PxF PxF = new n_PxF();
+            n_Funcion Funcion = new n_Funcion();
             //string IDPelicula = Application["ID"].ToString();
             string IDPelicula = "2";
-            DataTable dt = PxF.ObtenerTablaPxF();
+            DataTable dt = PxF.ObtenerTabla();
             string IDPxF = SacarIDPxF(IDPelicula, ddlFormato.SelectedValue, dt);
             string IDSucursal = Application["ID_Sucursal"].ToString();
 
@@ -94,7 +93,7 @@ namespace PRESENTACION
             try
             {
                 string Consulta = "Select * from Funciones where ID_PxF = " + IDPxF + " and ID_Sucursal = " + IDSucursal;
-                dt = Funcion.ObtenerTablaFunciones(Consulta);
+                dt = Funcion.ObtenerTabla(Consulta);
                 if (dt.Rows.Count > 0)
                 {
                     LlenarDDLDia(dt);
@@ -121,7 +120,7 @@ namespace PRESENTACION
         protected void ddlDía_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            DAO_Funciones Datos = new DAO_Funciones();
+            n_Funcion Datos = new n_Funcion();
             string Dia = ddlDía.SelectedItem.ToString();
             string ID_Sucursal = Application["ID_Sucursal"].ToString();
             string IDPxF = Application["ID_PxF"].ToString();
@@ -137,7 +136,7 @@ namespace PRESENTACION
                 string Consulta = "Select * from Funciones where ID_PxF = " + IDPxF + " and ID_Sucursal = " + ID_Sucursal + " and ";
                 Consulta += ArmarConsulta(Dia);
 
-                DataTable dt = Datos.ObtenerTablaFunciones(Consulta);
+                DataTable dt = Datos.ObtenerTabla(Consulta);
                 LlenarDDLHora(dt, Dia, IDPxF);
                 Application["Dia"] = PrepararDia(ddlDía.SelectedItem.ToString());
                 Boton("0");
@@ -263,13 +262,13 @@ namespace PRESENTACION
 
         public string SacarFuncion()
         {
-            DAO_Funciones Datos = new DAO_Funciones();
+            n_Funcion Datos = new n_Funcion();
             string FechaHora = Application["Dia"].ToString();
             string Sucursal = Application["ID_Sucursal"].ToString();
             string PxF = Application["ID_PxF"].ToString();
 
             string Consulta = "Select * from Funciones where ID_Sucursal = " + Sucursal + " and ID_PxF = " + PxF + "and DATEDIFF(second,FechaHora_Funcion,'" + FechaHora+"') = 0";
-            DataTable dt = Datos.ObtenerTablaFunciones(Consulta);
+            DataTable dt = Datos.ObtenerTabla(Consulta);
             string ID_Funcion = dt.Rows[0]["ID_Funcion"].ToString();
             return ID_Funcion;
         }

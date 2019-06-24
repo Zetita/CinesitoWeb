@@ -17,14 +17,12 @@ namespace PRESENTACION
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DAO_BxF BxF = new DAO_BxF();
-            DAO_Funciones Funcion = new DAO_Funciones();
-            //string ID_Funcion = Application["ID_Funcion"].ToString();
-            string ID_Funcion = "1";
-            double Precio;
+            n_BxF BxF = new n_BxF();
+            n_Funcion Funcion = new n_Funcion();
+            string ID_Funcion = Application["ID_Funcion"].ToString();
+            //string ID_Funcion = "1";
             string Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
-            DataTable dt = BxF.ObtenerTablaBxF(Consulta);
-            
+            DataTable dt = BxF.ObtenerTabla(Consulta);
 
             if (!IsPostBack)
             {
@@ -41,13 +39,12 @@ namespace PRESENTACION
                     {
                         NombreBoton = "btn" + x.ToString();
                         Colorear(Page, NombreBoton);
-
                     }
                 } 
             }
                
             Consulta = ArmarConsultaHeavy(ID_Funcion);
-            dt = Funcion.ObtenerTablaFunciones(Consulta);
+            dt = Funcion.ObtenerTabla(Consulta);
             LlenarResumen(dt);          
         }
 
@@ -63,7 +60,9 @@ namespace PRESENTACION
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
-            int Cantidad = SacarCantidad();
+            Application["ButacasReservadas"] = null;
+            int Cantidad;
+            Application["Cantidad"]= Cantidad = SacarCantidad();
             double Precio = Convert.ToDouble(Application["Precio"].ToString()) * Cantidad;
             if (Cantidad != 0)
             {
@@ -154,7 +153,7 @@ namespace PRESENTACION
 
         public int SacarCantidad()
         {
-           
+            
             int Cantidad=0;
             string NombreBoton;
             for (int i = 1; i <= 44; i++)
@@ -173,7 +172,7 @@ namespace PRESENTACION
             return Cantidad;
         }
 
-        public static int VerificarClickeado(Page Pagina, string Nombre)
+        public int VerificarClickeado(Page Pagina, string Nombre)
         {
             Button Boton;
             foreach (Control ctrl in Pagina.Form.Controls)
@@ -186,6 +185,7 @@ namespace PRESENTACION
                         {
                             if (Boton.BackColor == Color.Green)
                             {
+                                Application["ButacasReservadas"] += Nombre + ",";
                                 return 1;
                             }
                             return -1;
