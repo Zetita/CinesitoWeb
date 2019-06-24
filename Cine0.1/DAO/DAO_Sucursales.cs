@@ -22,7 +22,7 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_SUCURSAL", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@ID_SUCURSAL", SqlDbType.Char, 10);
             SqlParametros.Value = sucursal.idSucursal;
             SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.Char, 20);
             SqlParametros.Value = sucursal.Nombre;

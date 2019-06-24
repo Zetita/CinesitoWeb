@@ -27,7 +27,7 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_PELICULA", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@ID_PELICULA", SqlDbType.Char, 10);
             SqlParametros.Value = pelicula.idPelicula;
             SqlParametros = Comando.Parameters.Add("@TITULO", SqlDbType.Char, 40);
             SqlParametros.Value = pelicula.Titulo;

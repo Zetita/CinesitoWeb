@@ -22,7 +22,7 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_FORMATO", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@ID_FORMATO", SqlDbType.Char, 10);
             SqlParametros.Value = formato.IdFormato;
             SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.Char, 20);
             SqlParametros.Value = formato.Nombre;
