@@ -63,9 +63,7 @@ namespace DAO
             cmd.Connection = Conexion;
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = NombreSP;
-            int FilasCambiadas = cmd.ExecuteNonQuery(); ///System.Data.SqlClient.SqlException: 
-            ///'No se permite la conversión implícita del tipo de datos char a varbinary(max). Utilice la función CONVERT para ejecutar esta consulta.'
-
+            int FilasCambiadas = cmd.ExecuteNonQuery(); 
             Conexion.Close();
             return FilasCambiadas;
         }
