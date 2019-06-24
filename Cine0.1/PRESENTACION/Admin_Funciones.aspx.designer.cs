@@ -40,6 +40,24 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.DropDownList ddlPXF;
         
         /// <summary>
+        /// Control lblPeliculaFormato.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPeliculaFormato;
+        
+        /// <summary>
+        /// Control rfv1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv1;
+        
+        /// <summary>
         /// Control ddlSucursal.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,15 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.DropDownList ddlSucursal;
         
         /// <summary>
+        /// Control rfv2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv2;
+        
+        /// <summary>
         /// Control ddlSala.
         /// </summary>
         /// <remarks>
@@ -56,6 +83,15 @@ namespace PRESENTACION {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSala;
+        
+        /// <summary>
+        /// Control rfv3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv3;
         
         /// <summary>
         /// Control calFecha.
@@ -76,6 +112,15 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.TextBox txtHorario;
         
         /// <summary>
+        /// Control rfv5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv5;
+        
+        /// <summary>
         /// Control btnAgregarFuncion.
         /// </summary>
         /// <remarks>
@@ -83,5 +128,41 @@ namespace PRESENTACION {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarFuncion;
+        
+        /// <summary>
+        /// Control lblAg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAg;
+        
+        /// <summary>
+        /// Control lblAgregado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAgregado;
+        
+        /// <summary>
+        /// Control Label3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// Control grdFunciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdFunciones;
     }
 }

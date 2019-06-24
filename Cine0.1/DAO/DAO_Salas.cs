@@ -20,14 +20,10 @@ namespace DAO
         }
         public DataTable ObtenerTablaSalas(String id_suc)
         {
-            DataTable tabla = ad.ObtenerTabla("Salas", "Select * from Salas Where ID_Sucursal='" + id_suc + "'");
+            DataTable tabla = ad.ObtenerTabla("Salas", "Select * from Salas Where ID_Sucursal like '" + id_suc + "%'");
             return tabla;
         }
-        public DataTable ObtenerTablaBxF(String Consulta)
-        {
-            DataTable tabla = ad.ObtenerTabla("Salas", Consulta);
-            return tabla;
-        }
+       
         public void armarParametros(ref SqlCommand Comando, Sala sala)
         {
             SqlParameter SqlParametros = new SqlParameter();

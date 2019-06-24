@@ -18,6 +18,7 @@ namespace ENTIDAD
         private String s_ImagenURL;
         private DateTime dt_Duracion;
         private String s_TrailerURL;
+        private bool b_Estado;
 
         public Pelicula()
         {
@@ -75,6 +76,10 @@ namespace ENTIDAD
             set { s_TrailerURL = value; }
             get { return s_TrailerURL; }
         }
-
+        public bool Estado
+        {
+            set { b_Estado = value; }
+            get { return b_Estado; }
+        }
     }
 }

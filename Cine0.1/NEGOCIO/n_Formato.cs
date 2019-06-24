@@ -17,11 +17,11 @@ namespace NEGOCIO
             return da.ObtenerTablaFormatos();
         }
 
-        //public bool editarFormato(Formato formato)
-        //{
-        //    DAO_Formatos da = new DAO_Formatos();
-        //    return da.ActualizarFormato(formato);
-        //}
+        public bool editarFormato(Formato formato)
+        {
+            DAO_Formatos da = new DAO_Formatos();
+            return da.ActualizarFormato(formato);
+        }
         public int eliminarFormato(Formato formato)
         {
             DAO_Formatos da = new DAO_Formatos();

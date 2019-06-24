@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.SqlClient;
 using DAO;
 using ENTIDAD;
 
@@ -18,20 +17,21 @@ namespace NEGOCIO
             return da.ObtenerTablaSucursales();
         }
 
-        //public bool editarFormato(Formato formato)
-        //{
-        //     DAO_Sucursales da = new DAO_Sucursales();
-        //    return da.ActualizarSucursal(formato);
-        //}
-        public int eliminarFormato(Sucursal Sucursal)
+        public bool editarSucursal(Sucursal sucursal)
         {
             DAO_Sucursales da = new DAO_Sucursales();
-            return da.eliminarSucursal(Sucursal);
+            return da.ActualizarSucursal(sucursal);
         }
-        public bool insertarFormato(Sucursal Sucursal)
+        public int eliminarSucursal(Sucursal sucursal)
         {
             DAO_Sucursales da = new DAO_Sucursales();
-            return da.insertarSucursal(Sucursal);
+            return da.eliminarSucursal(sucursal);
         }
+        public bool insertarSucursal(Sucursal sucursal)
+        {
+            DAO_Sucursales da = new DAO_Sucursales();
+            return da.insertarSucursal(sucursal);
+        }
+
     }
 }
