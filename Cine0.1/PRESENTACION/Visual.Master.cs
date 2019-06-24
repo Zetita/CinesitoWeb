@@ -19,6 +19,10 @@ namespace PRESENTACION
             Response.Redirect("Inicio.aspx");
         }
 
+        protected void imgbtnUser_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Registro.aspx");
+        }
 
     }
 }

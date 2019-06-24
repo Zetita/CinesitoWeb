@@ -21,10 +21,10 @@ namespace PRESENTACION
             n_BxF BxF = new n_BxF();
             n_Funcion Funcion = new n_Funcion();
 
-            //string ID_Funcion = Application["ID_Funcion"].ToString();
+            string ID_Funcion = Application["ID_Funcion"].ToString();
             int Cantidad = Convert.ToInt32(Application["Cantidad"].ToString());
             double Precio = Convert.ToDouble(Application["Precio"].ToString()) * Cantidad;
-            string ID_Funcion = "1";
+            //string ID_Funcion = "1";
             string Consulta = ArmarConsultaHeavy(ID_Funcion);
 
             DataTable dt = Funcion.ObtenerTabla(Consulta);
@@ -70,7 +70,7 @@ namespace PRESENTACION
             int Cantidad = 0;
             n_BxF ButxFun = new n_BxF();
             ButacasxFunciones BxF = new ButacasxFunciones();
-            for (int i = 0; i < Butacas.Length; i++)
+            for (int i = 0; i < Butacas.Length-1; i++)
             {
                 BxF.IDButaca = Butacas[i];
                 BxF.IDFuncion = IDFuncion;

@@ -18,6 +18,13 @@
             width: 137px;
             height: 29px;
         }
+        .auto-style8 {
+            width: 69px;
+            height: 29px;
+        }
+        .auto-style9 {
+            width: 69px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -30,19 +37,25 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">Titulo</td>
-                <td class="auto-style3">
+                <td class="auto-style9">
                     <asp:TextBox ID="txtTitulo" runat="server" Width="300px"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtTitulo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Genero/s</td>
-                <td class="auto-style3">
+                <td class="auto-style9">
                     <asp:TextBox ID="txtGeneros" runat="server" Width="300px"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtGeneros" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Clasificación</td>
-                <td class="auto-style3">
+                <td class="auto-style9">
                     <asp:DropDownList ID="ddlClasificacion" runat="server">
                         <asp:ListItem></asp:ListItem>
                         <asp:ListItem>ATP</asp:ListItem>
@@ -51,10 +64,13 @@
                         <asp:ListItem>SAM18</asp:ListItem>
                     </asp:DropDownList>
                 </td>
+                <td class="auto-style3">
+                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="ddlClasificacion" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2">Fecha Estreno</td>
-                <td class="auto-style3">
+                <td class="auto-style9">
                     <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
                         <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
                         <NextPrevStyle VerticalAlign="Bottom" />
@@ -66,42 +82,70 @@
                         <WeekendDayStyle BackColor="#FFFFCC" />
                     </asp:Calendar>
                 </td>
+                <td class="auto-style3">
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">Director/es</td>
-                <td class="auto-style3">
+                <td class="auto-style9">
                     <asp:TextBox ID="txtDirector" runat="server" Width="300px"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txtDirector" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Sinopsis</td>
+                <td class="auto-style9">
+                    <asp:TextBox ID="txtSinopsis" runat="server" Height="67px" Width="300px"></asp:TextBox>
+                </td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="TextBox1" runat="server" Height="67px" Width="300px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtSinopsis" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Imagen</td>
-                <td class="auto-style3">
+                <td class="auto-style9">
                     <asp:FileUpload ID="fileImagen" runat="server" Width="300px" />
+                </td>
+                <td class="auto-style3">
+                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="fileImagen" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Duración</td>
-                <td class="auto-style3">
-                    <asp:TextBox ID="txtDuracion" runat="server" Width="300px"></asp:TextBox>
+                <td class="auto-style5">Duración</td>
+                <td class="auto-style8">
+                    <asp:TextBox ID="txtDuracion" runat="server" Width="300px" TextMode="Time"></asp:TextBox>
+                </td>
+                <td class="auto-style6">
+                    <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txtDuracion" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style5">TrailerURL</td>
-                <td class="auto-style6">
+                <td class="auto-style8">
                     <asp:TextBox ID="txtTrailerURL" runat="server" Width="300px"></asp:TextBox>
+                </td>
+                <td class="auto-style6">
+                    <asp:RequiredFieldValidator ID="rfv8" runat="server" ControlToValidate="txtTrailerURL" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style3">
+                <td class="auto-style9">
                     <asp:Button ID="btnAgregar" runat="server" Text="Agregar" />
                 </td>
+                <td class="auto-style3">
+                    <asp:Label ID="lblAg" runat="server" ForeColor="Red"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style9">
+                    <asp:Label ID="lblAgregado" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style3">
+                    &nbsp;</td>
             </tr>
         </table>
         </div>

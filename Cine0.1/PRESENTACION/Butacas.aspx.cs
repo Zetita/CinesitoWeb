@@ -19,8 +19,8 @@ namespace PRESENTACION
 
             n_BxF BxF = new n_BxF();
             n_Funcion Funcion = new n_Funcion();
-            //string ID_Funcion = Application["ID_Funcion"].ToString();
-            string ID_Funcion = "1";
+            string ID_Funcion = Application["ID_Funcion"].ToString();
+            //string ID_Funcion = "1";
             string Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
             DataTable dt = BxF.ObtenerTabla(Consulta);
 
