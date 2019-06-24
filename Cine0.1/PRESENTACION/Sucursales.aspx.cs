@@ -46,7 +46,9 @@ namespace PRESENTACION
             lblDireccion.Text = dt.Rows[DdlSucursal.SelectedIndex]["Direccion_Sucursal"].ToString();
             lblLocalidad.Text = dt.Rows[DdlSucursal.SelectedIndex]["Localidad_Sucursal"].ToString();
             lblProvincia.Text = dt.Rows[DdlSucursal.SelectedIndex]["Provincia_Sucursal"].ToString();
-            
+            lblMapita.Text= "<iframe src ="+dt.Rows[DdlSucursal.SelectedIndex]["DireccionURL"]+"width = '300' height = '300' frameborder = '0' style = 'border:0' allowfullscreen ></iframe>";
+
+
 
         }
     }
