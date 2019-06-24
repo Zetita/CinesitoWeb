@@ -91,6 +91,7 @@
     <Content Include="Registro.aspx" />
     <Content Include="Slider\Future.jpg" />
     <Content Include="Slider\JohnWick.jpeg" />
+    <Content Include="Sucursales.aspx" />
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
   </ItemGroup>
@@ -165,6 +166,13 @@
     </Compile>
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sucursales.aspx.cs">
+      <DependentUpon>Sucursales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sucursales.aspx.designer.cs">
+      <DependentUpon>Sucursales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visual.Master.cs">
       <DependentUpon>Visual.Master</DependentUpon>
