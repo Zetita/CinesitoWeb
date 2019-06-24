@@ -76,6 +76,7 @@
     <Content Include="img\portadas\1.jpg" />
     <Content Include="img\portadas\2.jpg" />
     <Content Include="img\portadas\3.jpg" />
+    <Content Include="img\snacks\balde_pochoclos_grande.jpg" />
     <Content Include="JS\Slider.js" />
     <Content Include="Peliculas.aspx" />
     <Content Include="Recursos\linea.png" />
@@ -88,6 +89,7 @@
     <Content Include="Registro.aspx" />
     <Content Include="Slider\Future.jpg" />
     <Content Include="Slider\JohnWick.jpeg" />
+    <Content Include="Snacks.aspx" />
     <Content Include="Sucursales.aspx" />
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
@@ -171,6 +173,13 @@
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Snacks.aspx.cs">
+      <DependentUpon>Snacks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Snacks.aspx.designer.cs">
+      <DependentUpon>Snacks.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sucursales.aspx.cs">
       <DependentUpon>Sucursales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,9 +227,7 @@
       <Name>NEGOCIO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="img\snacks\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
