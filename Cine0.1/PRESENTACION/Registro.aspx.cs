@@ -60,5 +60,7 @@ namespace PRESENTACION
                 lblAdv.ForeColor = System.Drawing.Color.Red;
             }
         }
+
+      
     }
 }
