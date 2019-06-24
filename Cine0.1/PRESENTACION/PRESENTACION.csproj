@@ -88,6 +88,7 @@
     <Content Include="Recursos\logo_transparent1.png" />
     <Content Include="Recursos\search.png" />
     <Content Include="Recursos\user.png" />
+    <Content Include="Registro.aspx" />
     <Content Include="Slider\Future.jpg" />
     <Content Include="Slider\JohnWick.jpeg" />
     <Content Include="Web.config" />
@@ -158,6 +159,13 @@
       <DependentUpon>Peliculas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Visual.Master.cs">
       <DependentUpon>Visual.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
