@@ -9,9 +9,9 @@
 <figure>
     
     
-<asp:Image ID="ImageButton1" runat="server" ImageUrl="~/img/slider/1.jpg"/>
-<asp:Image ID="Image1" runat="server" ImageUrl="~/img/slider/2.jpg"/>
-<asp:Image ID="Image2" runat="server" ImageUrl="~/img/slider/3.png"/>
+<asp:Image ID="imgSlider1" runat="server" ImageUrl="~/img/slider/1.jpg"/>
+<asp:Image ID="imgSlider2" runat="server" ImageUrl="~/img/slider/2.jpg"/>
+<asp:Image ID="imgSlider3" runat="server" ImageUrl="~/img/slider/3.png"/>
 </figure>
 </div>
     <div>
@@ -56,7 +56,7 @@
         </InsertItemTemplate>
         <ItemTemplate>
             <td runat="server" style="background-color: #000; color: #000">
-                <asp:ImageButton ID="imgbtn_Pelicula" runat="server" Height="500px" ImageUrl='<%# Bind("ImagenURL") %>' Width="433px" CommandName='<%# Eval("ID_Pelicula") %>' OnCommand="imgbtn_Pelicula_Command1"/>
+                <asp:ImageButton ID="imgbtn_Pelicula" runat="server" Height="500px" ImageUrl='<%# Bind("ImagenURL") %>' Width="400px" CommandName='<%# Eval("ID_Pelicula") %>' OnCommand="imgbtn_Pelicula_Command1"/>
                 <asp:Label ID="lbl_Titulo" runat="server" style="text-align:center;color:white;float:right;width:100%" Font-Bold="True" Text='<%# Eval("Column1") %>'  />
                 <br /></td>
         </ItemTemplate>

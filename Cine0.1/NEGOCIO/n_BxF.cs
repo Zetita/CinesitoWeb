@@ -33,7 +33,7 @@ namespace NEGOCIO
             DAO_BxF da = new DAO_BxF();
             return da.eliminarBxF(BxF);
         }
-        public bool insertarPelicula(ButacasxFunciones BxF)
+        public bool insertarBxF(ButacasxFunciones BxF)
         {
             DAO_BxF da = new DAO_BxF();
             return da.insertarBxF(BxF);

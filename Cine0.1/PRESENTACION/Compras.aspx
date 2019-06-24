@@ -72,9 +72,7 @@
     <asp:Label ID="lblFormato" runat="server" Text="3D - Audio Español" style="position:absolute;font-family:Calibri;color:white; top: 187px; left: 905px; font-size:x-large" Font-Bold="False"></asp:Label>
     <asp:Label ID="lblFecha" runat="server" Text="Jueves 13 de Junio - 15:30" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 329px; left: 905px"></asp:Label>
     <asp:Label ID="lblTotal" runat="server" Text="TOTAL" style="position:absolute;font-family:Calibri;color:white;font-size:xx-large; top: 457px; left: 696px" Font-Bold="true"></asp:Label>
-    <asp:Label ID="lblPrecioFinal" runat="server" Text="$530" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 457px; left: 1080px" Font-Bold="true"></asp:Label>
-    <asp:Label ID="lblPrecioSnack" runat="server" Text="$200" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 409px; left: 1080px"></asp:Label>
-    <asp:Label ID="lblSnack" runat="server" Text="Balde de Pochoclos x1" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 409px; left: 696px"></asp:Label>
+    <asp:Label ID="lblPrecioFinal" runat="server"  style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 457px; left: 1080px" Font-Bold="true"></asp:Label>
     
     <!-- INFO SUCURSAL -->
     <asp:Label ID="lblSucursal" runat="server" Text="Unicenter - Sala 8" style="position:absolute;font-family:Calibri;color:white; top: 227px; left: 905px; font-size:x-large" Font-Bold="true"></asp:Label>

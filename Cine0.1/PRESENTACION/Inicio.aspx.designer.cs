@@ -13,31 +13,31 @@ namespace PRESENTACION {
     public partial class Inicio {
         
         /// <summary>
-        /// Control ImageButton1.
+        /// Control imgSlider1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImageButton1;
+        protected global::System.Web.UI.WebControls.Image imgSlider1;
         
         /// <summary>
-        /// Control Image1.
+        /// Control imgSlider2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image imgSlider2;
         
         /// <summary>
-        /// Control Image2.
+        /// Control imgSlider3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.Image imgSlider3;
         
         /// <summary>
         /// Control lstPeliculas.

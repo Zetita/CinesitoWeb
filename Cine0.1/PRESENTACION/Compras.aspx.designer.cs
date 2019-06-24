@@ -220,24 +220,6 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Label lblPrecioFinal;
         
         /// <summary>
-        /// Control lblPrecioSnack.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrecioSnack;
-        
-        /// <summary>
-        /// Control lblSnack.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSnack;
-        
-        /// <summary>
         /// Control lblSucursal.
         /// </summary>
         /// <remarks>

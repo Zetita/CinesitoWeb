@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using NEGOCIO;
+using ENTIDAD;
 using System.Drawing;
 
 namespace PRESENTACION
@@ -64,7 +65,31 @@ namespace PRESENTACION
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
-
+            string[] Butacas = Application["ButacasReservadas"].ToString().Split(',');
+            string IDFuncion = Application["ID_Funcion"].ToString();
+            int Cantidad = 0;
+            n_BxF ButxFun = new n_BxF();
+            ButacasxFunciones BxF = new ButacasxFunciones();
+            for (int i = 0; i < Butacas.Length; i++)
+            {
+                BxF.IDButaca = Butacas[i];
+                BxF.IDFuncion = IDFuncion;
+                BxF.Fila = "1";
+                BxF.Butaca = "1";
+                if (ButxFun.insertarBxF(BxF))
+                {
+                    Cantidad++;
+                }
+            }
+            if (Cantidad == Butacas.Length)
+            {
+                Response.Write("<script>window.alert('Butacas reservadas con exito.');</script>");
+            }
+            else
+            {
+                Response.Write("<script>window.alert('Error al reservar butacas.');</script>");
+            }
+            Response.Redirect("Inicio.aspx");
         }
 
         protected void Validar(object sender, EventArgs e)

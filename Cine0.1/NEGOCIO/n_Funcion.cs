@@ -29,7 +29,7 @@ namespace NEGOCIO
         //    DAO_Funciones da = new DAO_Funciones();
         //    return da.ActualizarFuncion(Funcion);
         //}
-        public int eliminarPelicula(Funcion Funcion)
+        public int eliminarFuncion(Funcion Funcion)
         {
             DAO_Funciones da = new DAO_Funciones();
             return da.eliminarFuncion(Funcion);
