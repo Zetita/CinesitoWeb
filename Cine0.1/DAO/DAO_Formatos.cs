@@ -36,16 +36,16 @@ namespace DAO
 
         }
 
-        //public bool ActualizarFormato(Formato formato)
-        //{
-        //    SqlCommand Comando = new SqlCommand();
-        //    armarParametros(ref Comando, formato);
-        //    int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarFormato");
-        //    if (filasInsertadas == 1)
-        //        return true;
-        //    else
-        //        return false;
-        //}
+        public bool ActualizarFormato(Formato formato)
+        {
+            SqlCommand Comando = new SqlCommand();
+            armarParametros(ref Comando, formato);
+            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarFormato");
+            if (filasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
 
         public int eliminarFormato(Formato formato)
         {

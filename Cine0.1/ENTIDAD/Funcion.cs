@@ -20,50 +20,26 @@ namespace ENTIDAD
 
         public string IDFuncion
         {
-            get
-            {
-                return s_IDFuncion;
-            }
-            set
-            {
-                s_IDFuncion = value;
-            }
+            get { return s_IDFuncion; }
+            set { s_IDFuncion = value; }
         }
 
         public string IDPxF
         {
-            get
-            {
-                return s_IDPxF;
-            }
-            set
-            {
-                s_IDPxF = value;
-            }
+            get { return s_IDPxF; }
+            set { s_IDPxF = value; }
         }
 
         public string IDSala
         {
-            get
-            {
-                return s_IDSala;
-            }
-            set
-            {
-                s_IDSala = value;
-            }
+            get { return s_IDSala; }
+            set { s_IDSala = value; }
         }
 
         public string FechaHora
         {
-            get
-            {
-                return s_FechaHora;
-            }
-            set
-            {
-                s_FechaHora = value;
-            }
+            get { return s_FechaHora; }
+            set { s_FechaHora = value; }
         }
 
     }

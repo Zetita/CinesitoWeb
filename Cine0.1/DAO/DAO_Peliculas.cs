@@ -19,48 +19,47 @@ namespace DAO
         }
         public DataTable ObtenerTablaPeliculas(String Consulta)
         {
-            DataTable tabla = 
-                ad.ObtenerTabla("Peliculas",Consulta );
+            DataTable tabla = ad.ObtenerTabla("Peliculas", Consulta );
             return tabla;
         }
 
-        public void armarParametros(ref SqlCommand Comando, Pelicula Pelicula)
+        public void armarParametros(ref SqlCommand Comando, Pelicula pelicula)
         {
             SqlParameter SqlParametros = new SqlParameter();
 
             SqlParametros = Comando.Parameters.Add("@ID_PELICULA", SqlDbType.Char, 20);
-            SqlParametros.Value = Pelicula.idPelicula;
+            SqlParametros.Value = pelicula.idPelicula;
             SqlParametros = Comando.Parameters.Add("@TITULO", SqlDbType.Char, 40);
-            SqlParametros.Value = Pelicula.Titulo;
+            SqlParametros.Value = pelicula.Titulo;
             SqlParametros = Comando.Parameters.Add("@GENERO", SqlDbType.Text);
-            SqlParametros.Value = Pelicula.Generos;
+            SqlParametros.Value = pelicula.Generos;
             SqlParametros = Comando.Parameters.Add("@CLASIFICACION", SqlDbType.Char, 10);
-            SqlParametros.Value = Pelicula.Clasificacion;
+            SqlParametros.Value = pelicula.Clasificacion;
             SqlParametros = Comando.Parameters.Add("@FECESTRENO", SqlDbType.Date);
-            SqlParametros.Value = Pelicula.FecEstreno;
+            SqlParametros.Value = pelicula.FecEstreno;
             SqlParametros = Comando.Parameters.Add("@DIRECTOR", SqlDbType.Char, 40);
-            SqlParametros.Value = Pelicula.Director;
+            SqlParametros.Value = pelicula.Director;
             SqlParametros = Comando.Parameters.Add("@SINOPSIS", SqlDbType.Text);
-            SqlParametros.Value = Pelicula.Sinopsis;
+            SqlParametros.Value = pelicula.Sinopsis;
             SqlParametros = Comando.Parameters.Add("@IMAGEN_URL", SqlDbType.Text);
-            SqlParametros.Value = Pelicula.ImagenURL;
+            SqlParametros.Value = pelicula.ImagenURL;
             SqlParametros = Comando.Parameters.Add("@DURACION", SqlDbType.Bit);
-            SqlParametros.Value = Pelicula.Duracion;
+            SqlParametros.Value = pelicula.Duracion;
             SqlParametros = Comando.Parameters.Add("@TRAILER_URL", SqlDbType.Time, 7);
-            SqlParametros.Value = Pelicula.TrailerURL;
+            SqlParametros.Value = pelicula.TrailerURL;
 
         }
 
-        //public bool ActualizarPeliculas(Peliculas pelicula)
-        //{
-        //    SqlCommand Comando = new SqlCommand();
-        //    armarParametros(ref Comando, pelicula);
-        //    int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarPelicula");
-        //    if (filasInsertadas == 1)
-        //        return true;
-        //    else
-        //        return false;
-        //}
+        public bool ActualizarPeliculas(Pelicula pelicula)
+        {
+            SqlCommand Comando = new SqlCommand();
+            armarParametros(ref Comando, pelicula);
+            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarPelicula");
+            if (filasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
 
         public int eliminarPeliculas(Pelicula pelicula)
         {
