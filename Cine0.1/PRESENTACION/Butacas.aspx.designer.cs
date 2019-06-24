@@ -481,15 +481,6 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Label lblPantalla;
         
         /// <summary>
-        /// Control lblButacaReservada.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblButacaReservada;
-        
-        /// <summary>
         /// Control lblFormato.
         /// </summary>
         /// <remarks>
@@ -605,5 +596,14 @@ namespace PRESENTACION {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSiguiente;
+        
+        /// <summary>
+        /// Control btnConfirmar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConfirmar;
     }
 }

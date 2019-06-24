@@ -13,6 +13,7 @@ namespace ENTIDAD
         private String s_Direccion;
         private String s_Localidad;
         private String s_Provincia;
+        private String s_DireccionURL;
 
         public Sucursal()
         {
@@ -43,6 +44,11 @@ namespace ENTIDAD
         {
             set { s_Provincia = value; }
             get { return s_Provincia; }
+        }
+        public String DireccionURL
+        {
+            set { s_DireccionURL = value; }
+            get { return s_DireccionURL; }
         }
     }
 }

@@ -10,8 +10,9 @@ namespace ENTIDAD
     {
         private string s_IDFuncion;
         private string s_IDPxF;
+        private string s_IDSucursal;
         private string s_IDSala;
-        private string s_FechaHora;
+        private DateTime dt_FechaHora;
 
         public Funcion()
         {
@@ -35,11 +36,15 @@ namespace ENTIDAD
             get { return s_IDSala; }
             set { s_IDSala = value; }
         }
-
-        public string FechaHora
+        public string IDSucursal
         {
-            get { return s_FechaHora; }
-            set { s_FechaHora = value; }
+            get { return s_IDSucursal; }
+            set { s_IDSucursal = value; }
+        }
+        public DateTime FechaHora
+        {
+            get { return dt_FechaHora; }
+            set { dt_FechaHora = value; }
         }
 
     }

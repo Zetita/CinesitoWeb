@@ -23,6 +23,15 @@ namespace DAO
             DataTable tabla = ad.ObtenerTabla("PeliculasxFormatos", "Select * from PeliculasXFormatos Where ID_Pelicula='" + id_pel + "'");
             return tabla;
         }
+        public DataTable ObtenerTituloFormato(String id)
+        {
+            DataTable tabla =
+                ad.ObtenerTabla("TituloFormato", "SELECT Titulo_Pelicula, Nombre_Formato FROM PeliculasXFormatos " +
+                "INNER JOIN Peliculas ON PeliculasxFormatos.ID_Pelicula=Peliculas.ID_Pelicula " +
+                "INNER JOIN Formatos ON PeliculasxFormatos.ID_Formato=Formatos.ID_Formato WHERE " +
+                "PeliculasxFormatos.ID_PxF='" + id + "'");
+            return tabla;
+        }
         public void armarParametros(ref SqlCommand Comando, PeliculasxFormato pxf)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -47,14 +56,14 @@ namespace DAO
                 return false;
         }
 
-        public int eliminarSucursal(PeliculasxFormato pxf)
+        public int eliminarPxF(PeliculasxFormato pxf)
         {
             SqlCommand comando = new SqlCommand();
             armarParametros(ref comando, pxf);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarPxF");
         }
 
-        public bool insertarSucursal(PeliculasxFormato pxf)
+        public bool insertarPxF(PeliculasxFormato pxf)
         {
             SqlCommand Comando = new SqlCommand();
             armarParametros(ref Comando, pxf);

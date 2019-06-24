@@ -79,14 +79,6 @@
     <Content Include="img\portadas\1.jpg" />
     <Content Include="img\portadas\2.jpg" />
     <Content Include="img\portadas\3.jpg" />
-    <Content Include="img\snacks\agua_bon_aqua.jpg" />
-    <Content Include="img\snacks\balde_pochoclos_chico.jpg" />
-    <Content Include="img\snacks\balde_pochoclos_grande.jpg" />
-    <Content Include="img\snacks\nachos_con_queso.png" />
-    <Content Include="img\snacks\pancho.png" />
-    <Content Include="img\snacks\pizzeta.png" />
-    <Content Include="img\snacks\skittles.jpg" />
-    <Content Include="img\snacks\vaso_gaseosa.jpg" />
     <Content Include="JS\Slider.js" />
     <Content Include="Peliculas.aspx" />
     <Content Include="Recursos\linea.png" />
@@ -215,7 +207,9 @@
       <Name>NEGOCIO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="img\snacks\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

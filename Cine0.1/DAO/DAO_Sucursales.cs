@@ -32,7 +32,8 @@ namespace DAO
             SqlParametros.Value = sucursal.Localidad;
             SqlParametros = Comando.Parameters.Add("@PROVINCIA", SqlDbType.Char, 40);
             SqlParametros.Value = sucursal.Provincia;
-            
+            SqlParametros = Comando.Parameters.Add("@DIRECCIONURL", SqlDbType.Text);
+            SqlParametros.Value = sucursal.DireccionURL;
 
         }
 

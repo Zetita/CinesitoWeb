@@ -47,6 +47,8 @@ namespace DAO
             SqlParametros.Value = pelicula.Duracion;
             SqlParametros = Comando.Parameters.Add("@TRAILER_URL", SqlDbType.Time, 7);
             SqlParametros.Value = pelicula.TrailerURL;
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = pelicula.Estado;
 
         }
 
