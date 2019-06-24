@@ -67,6 +67,7 @@
     <Content Include="Admin_Peliculas.aspx" />
     <Content Include="Admin_Snacks.aspx" />
     <Content Include="Admin_Sucursales.aspx" />
+    <Content Include="Admin_Ventas.aspx" />
     <Content Include="Butacas.aspx" />
     <Content Include="Compras.aspx" />
     <Content Include="CSS\Admin.css" />
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="Admin_Sucursales.aspx.designer.cs">
       <DependentUpon>Admin_Sucursales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Ventas.aspx.cs">
+      <DependentUpon>Admin_Ventas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Ventas.aspx.designer.cs">
+      <DependentUpon>Admin_Ventas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Butacas.aspx.cs">
       <DependentUpon>Butacas.aspx</DependentUpon>
