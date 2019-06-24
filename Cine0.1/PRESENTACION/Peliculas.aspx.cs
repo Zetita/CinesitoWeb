@@ -19,8 +19,7 @@ namespace PRESENTACION
             n_Pelicula Pelicula = new n_Pelicula();
             n_Sucursal Sucursal = new n_Sucursal();
             DataTable dt = new DataTable();
-            //IDPelicula = Application["ID_Pelicula"].ToString();
-            Application["ID_Pelicula"]=IDPelicula = "1";
+            IDPelicula = Application["ID_Pelicula"].ToString();
 
 
             if (!IsPostBack) {
@@ -73,8 +72,7 @@ namespace PRESENTACION
             
             n_PxF PxF = new n_PxF();
             n_Funcion Funcion = new n_Funcion();
-            //string IDPelicula = Application["ID"].ToString();
-            string IDPelicula = "1";
+            string IDPelicula = Application["ID"].ToString();
             DataTable dt = PxF.ObtenerTabla();
             string IDPxF = SacarIDPxF(IDPelicula, ddlFormato.SelectedValue, dt);
             string IDSucursal = Application["ID_Sucursal"].ToString();

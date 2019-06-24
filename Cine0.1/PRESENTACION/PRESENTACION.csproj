@@ -76,10 +76,13 @@
     <Content Include="CSS\Admin.css" />
     <Content Include="CSS\Barras.css" />
     <Content Include="CSS\EstiloPag.css" />
+    <Content Include="CSS\Slider.css" />
     <Content Include="img\portadas\1.jpg" />
     <Content Include="img\portadas\2.jpg" />
     <Content Include="img\portadas\3.jpg" />
-    <Content Include="JS\Slider.js" />
+    <Content Include="img\slider\1.jpg" />
+    <Content Include="img\slider\2.jpg" />
+    <Content Include="img\slider\3.png" />
     <Content Include="Peliculas.aspx" />
     <Content Include="Recursos\linea.png" />
     <Content Include="Recursos\logo.png" />
@@ -88,8 +91,6 @@
     <Content Include="Recursos\logo_transparent1.png" />
     <Content Include="Recursos\search.png" />
     <Content Include="Recursos\user.png" />
-    <Content Include="Slider\Future.jpg" />
-    <Content Include="Slider\JohnWick.jpeg" />
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
   </ItemGroup>

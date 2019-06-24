@@ -38,4 +38,5 @@ namespace NEGOCIO
             return da.insertarVenta(venta);
 
         }
+    }
 }
