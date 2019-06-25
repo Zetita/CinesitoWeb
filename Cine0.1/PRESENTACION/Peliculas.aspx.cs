@@ -26,7 +26,7 @@ namespace PRESENTACION
 
             string Consulta = "Select * from Peliculas where ID_Pelicula = " + IDPelicula + "And Estado=1";
             dt = Pelicula.ObtenerTabla(Consulta);
-            LlenarPelicula(dt);
+            if(!IsPostBack)LlenarPelicula(dt);
 
             dt = Sucursal.ObtenerTabla();
             LlenarDDLSucursal(dt);
@@ -133,10 +133,9 @@ namespace PRESENTACION
             {
                 string Consulta = "Select * from Funciones where ID_PxF = " + IDPxF + " and ID_Sucursal = " + ID_Sucursal + " and ";
                 Consulta += ArmarConsulta(Dia);
-
+                Application["Dia"] = ddlDía.SelectedItem.ToString();
                 DataTable dt = Datos.ObtenerTabla(Consulta);
                 LlenarDDLHora(dt, Dia, IDPxF);
-                Application["Dia"] = PrepararDia(ddlDía.SelectedItem.ToString());
                 Boton("0");
             }
             catch
@@ -155,6 +154,7 @@ namespace PRESENTACION
             {
 
                 Application["Dia"] += " " + ddlHorario.SelectedItem.ToString();
+               
                 ID_Funcion = SacarFuncion();
                 Application["ID_Funcion"] = ID_Funcion;
                 Boton("1");
@@ -222,6 +222,7 @@ namespace PRESENTACION
                 
                 if (dt.Rows[i]["FechaHora_Funcion"].ToString().Contains(Fecha[0]))
                 {
+                    if(!FechaRepetida(Fecha[0]))
                     ddlDía.Items.Add(Fecha[0]);
                 }
             }
@@ -234,10 +235,14 @@ namespace PRESENTACION
             {
                 
                 Fecha = dt.Rows[i]["FechaHora_Funcion"].ToString().Split(' ');
-
+                if (Fecha[2]!=null)
+                {
+                    Fecha[1] = Fecha[1] + " " + Fecha[2];
+                }
                 if (dt.Rows[i]["FechaHora_Funcion"].ToString().Contains(Dia))
                 {
                     ddlHorario.Items.Add(Fecha[1]);
+                    btnSeleccionar.Text = Fecha[1];
                 }
             }
         }
@@ -265,7 +270,7 @@ namespace PRESENTACION
             string Sucursal = Application["ID_Sucursal"].ToString();
             string PxF = Application["ID_PxF"].ToString();
 
-            string Consulta = "Select * from Funciones where ID_Sucursal = " + Sucursal + " and ID_PxF = " + PxF + "and DATEDIFF(second,FechaHora_Funcion,'" + FechaHora+"') = 0";
+            string Consulta = "Select * from Funciones where ID_Sucursal = " + Sucursal + " and ID_PxF = " + PxF + " and DATEDIFF(n,FechaHora_Funcion,'" + FechaHora+"') = 0";
             DataTable dt = Datos.ObtenerTabla(Consulta);
             string ID_Funcion = dt.Rows[0]["ID_Funcion"].ToString();
             return ID_Funcion;
@@ -274,7 +279,7 @@ namespace PRESENTACION
         public string ArmarConsulta(string Dia)
         {
             string[] Fecha = Dia.Split('/');
-            string Consulta= "(DATEPART(yy, FechaHora_Funcion) = "+Fecha[2]+" and DATEPART(mm, FechaHora_Funcion) = "+Fecha[1]+" and DATEPART(dd, FechaHora_Funcion)= "+Fecha[0]+" )";
+            string Consulta= "(DATEPART(yy, FechaHora_Funcion) = "+Fecha[2]+" and DATEPART(mm, FechaHora_Funcion) = "+Fecha[0]+" and DATEPART(dd, FechaHora_Funcion)= "+Fecha[1]+" )";
             return Consulta;
         }
 
@@ -302,6 +307,18 @@ namespace PRESENTACION
                     btnSeleccionar.Enabled = false;
                     break;
             }
+        }
+
+        public bool FechaRepetida(string Fecha)
+        {
+            for (int i = 0; i < ddlDía.Items.Count; i++)
+            {
+                if (ddlDía.Items[i].ToString() == Fecha)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         
