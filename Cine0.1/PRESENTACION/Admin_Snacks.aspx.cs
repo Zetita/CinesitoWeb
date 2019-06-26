@@ -72,7 +72,7 @@ namespace PRESENTACION
 
                 if (n_snack.insertarSnack(snack))
                 {
-                    lblAgregado.Text = "Exito al agregar";
+                    lblAgregado.Text = "Cargado exitosamente.";
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
 

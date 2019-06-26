@@ -94,7 +94,7 @@ namespace PRESENTACION
                 n_Funcion n_funcion = new n_Funcion();
                 if (n_funcion.insertarFuncion(funcion))
                 {
-                    lblAgregado.Text = "Exito al agregar";
+                    lblAgregado.Text = "Cargado exitosamente.";
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
 

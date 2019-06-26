@@ -80,7 +80,7 @@ namespace PRESENTACION
                 n_Usuario n_usuario = new n_Usuario();
                 if (n_usuario.agregarUsuario(usuario))
                 {
-                    lblAgregado.Text = "Exito al agregar";
+                    lblAgregado.Text = "Cargado exitosamente.";
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
 
@@ -95,6 +95,25 @@ namespace PRESENTACION
             {
                 lblAg.Text = "Complete los campos necesarios!";
             }
+        }
+
+        protected void grdUsuarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int codigo = Int32.Parse(((Label)grdUsuarios.Rows[e.RowIndex].FindControl("lbl_IdUsuario")).ToString());
+
+            Usuario usuario = new Usuario();
+            usuario.idUsuario = codigo;
+            usuario.Activo = false;
+
+            n_Usuario n_usuario = new n_Usuario();
+            n_usuario.eliminarUsuario(usuario);
+           
+            cargarGrilla();
+        }
+        protected void grdUsuarios_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            grdUsuarios.EditIndex = e.NewEditIndex;
+            cargarGrilla();
         }
     }
 }
