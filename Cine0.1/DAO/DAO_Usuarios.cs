@@ -12,21 +12,24 @@ namespace DAO
     public class DAO_Usuarios
     {
         AccesoDatos ad = new AccesoDatos();
-        public DataTable ObtenerTablaUsuarios()
+        public DataTable ObtenerTablaTodos()
         {
             DataTable tabla = ad.ObtenerTabla("Usuarios", "Select * from Usuarios where Activo='True'");
             return tabla;
         }
-        public DataTable ObtenerTablaUsuarios(String usuario)
+        public DataTable ObtenerTablaUsuario(String usuario)
         {
-            DataTable tabla = ad.ObtenerTabla("Usuarios", "Select * from Usuarios where Usuario='" + usuario + "' and Activo='True'");
+            DataTable tabla = ad.ObtenerTabla("Usuario", "Select * from Usuarios where Usuario='" + usuario + "' and Activo='True'");
             return tabla;
         }
         public DataTable ObtenerTablaAdmins()
         {
-            return ad.ObtenerTabla("Administradores", "Select * from Usuarios Where Administrador=1 ");
+            return ad.ObtenerTabla("Administradores", "Select * from Usuarios Where Administrador=1");
         }
-
+        public DataTable ObtenerTablaUsuarios()
+        {
+            return ad.ObtenerTabla("Usuarios", "Select * from Usuarios where Administrador=0");
+        }
         
         public bool estaRegistrado(String usuario, String pass)
         {

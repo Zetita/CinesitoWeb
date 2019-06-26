@@ -13,22 +13,27 @@ namespace NEGOCIO
     public class n_Usuario
     {
 
-        public DataTable getTabla()
+        public DataTable ObtenerTablaTodos()
         {
             DAO_Usuarios da = new DAO_Usuarios();
-            return da.ObtenerTablaUsuarios();
-        }
-        public DataTable getTabla(String usuario)
-        {
-            DAO_Usuarios da = new DAO_Usuarios();
-            return da.ObtenerTablaUsuarios(usuario);
+            return da.ObtenerTablaTodos();
         }
         public DataTable ObtenerTablaAdmins()
         {
             DAO_Usuarios da = new DAO_Usuarios();
             return da.ObtenerTablaAdmins();
         }
+        public DataTable ObtenerTablaUsuarios()
+        {
+            DAO_Usuarios da = new DAO_Usuarios();
+            return da.ObtenerTablaUsuarios();
+        }
 
+        public DataTable ObtenerUsuario(String usuario)
+        {
+            DAO_Usuarios da = new DAO_Usuarios();
+            return da.ObtenerTablaUsuario(usuario);
+        }
         public bool editarUsuario(Usuario usuario)
         {
             DAO_Usuarios da = new DAO_Usuarios();

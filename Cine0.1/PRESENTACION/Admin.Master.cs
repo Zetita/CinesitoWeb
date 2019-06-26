@@ -14,21 +14,21 @@ namespace PRESENTACION
 
         }
 
-        protected void LinkPeliculas_Click(object sender, EventArgs e)
+        protected void LinkUsuarios_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Admin_Peliculas.aspx");
-        }
-
-        protected void LinkSnacks_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Admin_Snacks.aspx");
+            Response.Redirect("Admin_Usuarios.aspx");
         }
 
         protected void LinkSucursales_Click(object sender, EventArgs e)
         {
             Response.Redirect("Admin_Sucursales.aspx");
-
         }
+
+        protected void LinkPeliculas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Peliculas.aspx");
+        }
+
 
         protected void LinkFormatos_Click(object sender, EventArgs e)
         {
@@ -39,5 +39,12 @@ namespace PRESENTACION
         {
             Response.Redirect("Admin_Funciones.aspx");
         }
+
+        protected void LinkSnacks_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Snacks.aspx");
+        }
+
+        
     }
 }

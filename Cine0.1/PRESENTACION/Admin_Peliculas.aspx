@@ -18,12 +18,12 @@
             width: 137px;
             height: 29px;
         }
-        .auto-style8 {
-            width: 69px;
-            height: 29px;
+        .auto-style7 {
+            width: 18px;
         }
-        .auto-style9 {
-            width: 69px;
+        .auto-style8 {
+            width: 18px;
+            height: 29px;
         }
     </style>
 </asp:Content>
@@ -33,11 +33,12 @@
     </div>
     <div class="Label">
     <asp:Label ID="Label2" runat="server" Text="Cargar Pelicula"></asp:Label>
+        <br />
         <div class="tabla">
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">Titulo</td>
-                <td class="auto-style9">
+                <td class="auto-style7">
                     <asp:TextBox ID="txtTitulo" runat="server" Width="300px"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
@@ -46,7 +47,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">Genero/s</td>
-                <td class="auto-style9">
+                <td class="auto-style7">
                     <asp:TextBox ID="txtGeneros" runat="server" Width="300px"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
@@ -55,7 +56,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">Clasificación</td>
-                <td class="auto-style9">
+                <td class="auto-style7">
                     <asp:DropDownList ID="ddlClasificacion" runat="server">
                         <asp:ListItem></asp:ListItem>
                         <asp:ListItem>ATP</asp:ListItem>
@@ -70,7 +71,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">Fecha Estreno</td>
-                <td class="auto-style9">
+                <td class="auto-style7">
                     <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
                         <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
                         <NextPrevStyle VerticalAlign="Bottom" />
@@ -87,7 +88,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">Director/es</td>
-                <td class="auto-style9">
+                <td class="auto-style7">
                     <asp:TextBox ID="txtDirector" runat="server" Width="300px"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
@@ -96,7 +97,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">Sinopsis</td>
-                <td class="auto-style9">
+                <td class="auto-style7">
                     <asp:TextBox ID="txtSinopsis" runat="server" Height="67px" Width="300px"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
@@ -105,7 +106,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">Imagen</td>
-                <td class="auto-style9">
+                <td class="auto-style7">
                     <asp:FileUpload ID="fileImagen" runat="server" Width="300px" />
                 </td>
                 <td class="auto-style3">
@@ -132,7 +133,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style9">
+                <td class="auto-style7">
                     <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
                 </td>
                 <td class="auto-style3">
@@ -141,7 +142,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style9">
+                <td class="auto-style7">
                     <asp:Label ID="lblAgregado" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style3">

@@ -30,6 +30,7 @@
     <div class="Label">
         <asp:Label ID="Label2" runat="server" Text="Cargar Funcion"></asp:Label>
         <br />
+        <br />
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">Pelicula-Formato</td>

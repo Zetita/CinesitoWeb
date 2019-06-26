@@ -31,23 +31,26 @@ namespace PRESENTACION
            
             n_Sucursal n_sucursal = new n_Sucursal();
             DataTable dt = n_sucursal.ObtenerTabla();
-
+            
             DdlSucursal.DataTextField = "Nombre_Sucursal";
             DdlSucursal.DataValueField = "ID_Sucursal";
             DdlSucursal.DataSource = n_sucursal.ObtenerTabla();
             DdlSucursal.DataBind();
+            DdlSucursal.Items.Insert(0, "Seleccione Sucursal");
 
         }
 
         protected void DdlSucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            n_Sucursal n_sucursal = new n_Sucursal();
-            DataTable dt = n_sucursal.ObtenerTabla();
-            lblDireccion.Text = dt.Rows[DdlSucursal.SelectedIndex]["Direccion_Sucursal"].ToString();
-            lblLocalidad.Text = dt.Rows[DdlSucursal.SelectedIndex]["Localidad_Sucursal"].ToString();
-            lblProvincia.Text = dt.Rows[DdlSucursal.SelectedIndex]["Provincia_Sucursal"].ToString();
-            lblMapita.Text= "<iframe src ="+dt.Rows[DdlSucursal.SelectedIndex]["DireccionURL"]+"width = '300' height = '300' frameborder = '0' style = 'border:0' allowfullscreen ></iframe>";
 
+            n_Sucursal n_sucursal = new n_Sucursal();
+            DataTable dt = n_sucursal.ObtenerTabla(); 
+            if (DdlSucursal.SelectedIndex != 0) { 
+            lblDireccion.Text = dt.Rows[DdlSucursal.SelectedIndex-1]["Direccion_Sucursal"].ToString();
+            lblLocalidad.Text = dt.Rows[DdlSucursal.SelectedIndex-1]["Localidad_Sucursal"].ToString();
+            lblProvincia.Text = dt.Rows[DdlSucursal.SelectedIndex-1]["Provincia_Sucursal"].ToString();
+            lblMapita.Text= "<iframe src ="+dt.Rows[DdlSucursal.SelectedIndex-1]["DireccionURL"]+"width = '300' height = '300' frameborder = '0' style = 'border:0' allowfullscreen ></iframe>";
+            }
 
 
         }

@@ -26,6 +26,7 @@
     <div class="Label">
         <asp:Label ID="Label2" runat="server" Text="Cargar Sucursal"></asp:Label>
         <br />
+        <br />
         <div>
         <table class="auto-style1">
             <tr>
@@ -50,6 +51,12 @@
                 <td class="auto-style2">Provincia</td>
                 <td>
                     <asp:TextBox ID="txtProvincia" runat="server" Width="315px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">DireccionURL</td>
+                <td>
+                    <asp:TextBox ID="txtDireccionURL" runat="server" Width="313px"></asp:TextBox>
                 </td>
             </tr>
             <tr>

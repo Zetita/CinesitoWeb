@@ -19,6 +19,8 @@
     </div>
     <div class="Label">
     <asp:Label ID="Label2" runat="server" Text="Cargar Snack"></asp:Label>
+        <br />
+        <br />
     </div>
     <div class="tabla">
         <table class="auto-style1">
