@@ -61,6 +61,13 @@ namespace PRESENTACION
             }
         }
 
-      
+        protected void btnIniciar_Click(object sender, EventArgs e)
+        {
+            //if (rfv9.IsValid && rfv10.IsValid)
+            //{
+            //    if()
+            //    //Session["NivelUser"]="1";
+            //}
+        }
     }
 }
