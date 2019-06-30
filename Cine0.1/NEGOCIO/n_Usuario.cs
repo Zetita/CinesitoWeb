@@ -56,5 +56,10 @@ namespace NEGOCIO
             DAO_Usuarios da = new DAO_Usuarios();
             return da.estaRegistrado(usuario, pass);
         }
+        public bool esAdministrador(String usuario)
+        {
+            DAO_Usuarios da = new DAO_Usuarios();
+            return da.esAdministrador(usuario);
+        }
     }
 }

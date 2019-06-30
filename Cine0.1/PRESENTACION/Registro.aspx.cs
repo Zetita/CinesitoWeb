@@ -63,11 +63,31 @@ namespace PRESENTACION
 
         protected void btnIniciar_Click(object sender, EventArgs e)
         {
-            //if (rfv9.IsValid && rfv10.IsValid)
-            //{
-            //    if()
-            //    //Session["NivelUser"]="1";
-            //}
+            if (rfv9.IsValid && rfv10.IsValid)
+            {
+                n_Usuario n_usuario = new n_Usuario();
+                
+                if (n_usuario.estaRegistrado(txtUsuario2.Text, txtContrasenia2.Text)==true)
+                {
+                    Session["UserLogeado"] = txtUsuario2.Text;
+
+                    if (n_usuario.esAdministrador(Session["UserLogeado"].ToString()))
+                    {
+                        Session["NivelUser"] = "1";
+                        Response.Redirect("Admin_Peliculas.aspx");
+                    }
+                    else
+                    {
+                        Session["NivelUser"] = "0";
+                        Response.Redirect("Inicio.aspx");
+                    }
+                }
+                else
+                {
+                    lblAdv2.Text = "USUARIO Y/O CONTRASEÑA INCORRECTOS.";
+                    lblAdv.ForeColor = System.Drawing.Color.Red;
+                }
+            }
         }
     }
 }
