@@ -62,13 +62,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin_Formatos.aspx" />
-    <Content Include="Admin_Funciones.aspx" />
-    <Content Include="Admin_Peliculas.aspx" />
-    <Content Include="Admin_Snacks.aspx" />
-    <Content Include="Admin_Sucursales.aspx" />
-    <Content Include="Admin_Usuarios.aspx" />
-    <Content Include="Admin_Ventas.aspx" />
+    <Content Include="Admin\Admin_Formatos.aspx" />
+    <Content Include="Admin\Admin_Funciones.aspx" />
+    <Content Include="Admin\Admin_Peliculas.aspx" />
+    <Content Include="Admin\Admin_Snacks.aspx" />
+    <Content Include="Admin\Admin_Sucursales.aspx" />
+    <Content Include="Admin\Admin_Usuarios.aspx" />
+    <Content Include="Admin\Admin_Ventas.aspx" />
     <Content Include="Butacas.aspx" />
     <Content Include="Compras.aspx" />
     <Content Include="CSS\Admin.css" />
@@ -103,53 +103,53 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Formatos.aspx.cs">
+    <Compile Include="Admin\Admin_Formatos.aspx.cs">
       <DependentUpon>Admin_Formatos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Formatos.aspx.designer.cs">
+    <Compile Include="Admin\Admin_Formatos.aspx.designer.cs">
       <DependentUpon>Admin_Formatos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Funciones.aspx.cs">
+    <Compile Include="Admin\Admin_Funciones.aspx.cs">
       <DependentUpon>Admin_Funciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Funciones.aspx.designer.cs">
+    <Compile Include="Admin\Admin_Funciones.aspx.designer.cs">
       <DependentUpon>Admin_Funciones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Peliculas.aspx.cs">
+    <Compile Include="Admin\Admin_Peliculas.aspx.cs">
       <DependentUpon>Admin_Peliculas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Peliculas.aspx.designer.cs">
+    <Compile Include="Admin\Admin_Peliculas.aspx.designer.cs">
       <DependentUpon>Admin_Peliculas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Snacks.aspx.cs">
+    <Compile Include="Admin\Admin_Snacks.aspx.cs">
       <DependentUpon>Admin_Snacks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Snacks.aspx.designer.cs">
+    <Compile Include="Admin\Admin_Snacks.aspx.designer.cs">
       <DependentUpon>Admin_Snacks.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Sucursales.aspx.cs">
+    <Compile Include="Admin\Admin_Sucursales.aspx.cs">
       <DependentUpon>Admin_Sucursales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Sucursales.aspx.designer.cs">
+    <Compile Include="Admin\Admin_Sucursales.aspx.designer.cs">
       <DependentUpon>Admin_Sucursales.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Usuarios.aspx.cs">
+    <Compile Include="Admin\Admin_Usuarios.aspx.cs">
       <DependentUpon>Admin_Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Usuarios.aspx.designer.cs">
+    <Compile Include="Admin\Admin_Usuarios.aspx.designer.cs">
       <DependentUpon>Admin_Usuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Ventas.aspx.cs">
+    <Compile Include="Admin\Admin_Ventas.aspx.cs">
       <DependentUpon>Admin_Ventas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Ventas.aspx.designer.cs">
+    <Compile Include="Admin\Admin_Ventas.aspx.designer.cs">
       <DependentUpon>Admin_Ventas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Butacas.aspx.cs">

@@ -16,33 +16,33 @@ namespace PRESENTACION
 
         protected void LinkUsuarios_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Admin_Usuarios.aspx");
+            Response.Redirect("/Admin/Admin_Usuarios.aspx");
         }
 
         protected void LinkSucursales_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Admin_Sucursales.aspx");
+            Response.Redirect("/Admin/Admin_Sucursales.aspx");
         }
 
         protected void LinkPeliculas_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Admin_Peliculas.aspx");
+            Response.Redirect("/Admin/Admin_Peliculas.aspx");
         }
 
 
         protected void LinkFormatos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Admin_Formatos.aspx");
+            Response.Redirect("/Admin/Admin_Formatos.aspx");
         }
 
         protected void LinkFunciones_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Admin_Funciones.aspx");
+            Response.Redirect("/Admin/Admin_Funciones.aspx");
         }
 
         protected void LinkSnacks_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Admin_Snacks.aspx");
+            Response.Redirect("/Admin/Admin_Snacks.aspx");
         }
 
         
