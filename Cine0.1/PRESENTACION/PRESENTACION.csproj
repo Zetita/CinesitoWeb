@@ -74,6 +74,7 @@
     <Content Include="CSS\Admin.css" />
     <Content Include="CSS\Barras.css" />
     <Content Include="CSS\EstiloPag.css" />
+    <Content Include="CSS\User.css" />
     <Content Include="img\portadas\1.jpg" />
     <Content Include="img\portadas\2.jpg" />
     <Content Include="img\portadas\3.jpg" />
@@ -92,6 +93,8 @@
     <Content Include="Slider\JohnWick.jpeg" />
     <Content Include="Snacks.aspx" />
     <Content Include="Sucursales.aspx" />
+    <Content Include="User\User.aspx" />
+    <Content Include="User\User_Perfil.aspx" />
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
   </ItemGroup>
@@ -194,6 +197,20 @@
     </Compile>
     <Compile Include="Sucursales.aspx.designer.cs">
       <DependentUpon>Sucursales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User_Perfil.aspx.cs">
+      <DependentUpon>User_Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\User_Perfil.aspx.designer.cs">
+      <DependentUpon>User_Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visual.Master.cs">
       <DependentUpon>Visual.Master</DependentUpon>
