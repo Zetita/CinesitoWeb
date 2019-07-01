@@ -1,9 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Visual.Master" AutoEventWireup="true" CodeBehind="User_Perfil.aspx.cs" Inherits="PRESENTACION.User_Perfil" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
+        
         .auto-style3 {
             width: 290px;
             height: 92px;
@@ -44,7 +42,7 @@
     <td class="auto-style4">
      <div class="contenido">
 
-         <asp:Label ID="Titulos" runat="server" Text="Mis datos"></asp:Label>
+         <asp:Label ID="Titulos" runat="server" Text="Mis datos" CssClass="Titulos"></asp:Label>
          <hr class="auto-style8" />
          <br />
          <table class="tabla">
@@ -86,7 +84,22 @@
              <tr>
                  <td class="auto-style7">TELEFONO</td>
                  <td class="auto-style6">
-                     <asp:TextBox ID="txtTelefono" runat="server" BackColor="#303030" TextMode="Email" Width="274px" ForeColor="Silver"></asp:TextBox>
+                     <asp:TextBox ID="txtTelefono" runat="server" BackColor="#303030" TextMode="Phone" Width="274px" ForeColor="Silver"></asp:TextBox>
+                 </td>
+                 <td class="auto-style5">&nbsp;</td>
+             </tr>
+             <tr>
+                 <td class="auto-style7">&nbsp;</td>
+                 <td class="auto-style6">
+                     &nbsp;</td>
+                 <td class="auto-style5">
+                     <asp:Button ID="btnGuardar" runat="server" BackColor="#303030" Font-Bold="True" ForeColor="White" OnClick="btnGuardar_Click" Text="GUARDAR" />
+                 </td>
+             </tr>
+             <tr>
+                 <td class="auto-style7">&nbsp;</td>
+                 <td class="auto-style6">
+                     <asp:Label ID="lblEd" runat="server" Text="Label"></asp:Label>
                  </td>
                  <td class="auto-style5">&nbsp;</td>
              </tr>

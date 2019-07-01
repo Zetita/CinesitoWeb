@@ -38,8 +38,8 @@
     <td class="auto-style4">
      <div class="contenido">
 
-         <asp:Label ID="Titulos" runat="server" Text="Mis compras"></asp:Label>
-         <hr />
+         <asp:Label ID="Titulos" runat="server" Text="Mis compras" CssClass="Titulos"></asp:Label>
+         <hr class="auto-style8" />
 
          <asp:Label ID="lblSinCompras" runat="server"></asp:Label>
          <br />

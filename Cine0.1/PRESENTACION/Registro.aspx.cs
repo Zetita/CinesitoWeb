@@ -79,7 +79,7 @@ namespace PRESENTACION
                     else
                     {
                         Session["NivelUser"] = "0";
-                        Response.Redirect("Inicio.aspx");
+                        Response.Redirect("~/Inicio.aspx");
                     }
                 }
                 else

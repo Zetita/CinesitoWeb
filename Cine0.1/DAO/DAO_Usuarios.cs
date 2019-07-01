@@ -19,7 +19,7 @@ namespace DAO
         }
         public DataTable ObtenerTablaUsuario(String usuario)
         {
-            DataTable tabla = ad.ObtenerTabla("Usuario", "Select * from Usuarios where Usuario='" + usuario + "' and Activo='True'");
+            DataTable tabla = ad.ObtenerTabla("Usuario", "Select * from Usuarios where Usuario='" + usuario + "'");
             return tabla;
         }
         public DataTable ObtenerTablaAdmins()

@@ -16,12 +16,15 @@ namespace PRESENTACION
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("Inicio.aspx");
+            Response.Redirect("/Inicio.aspx");
         }
 
         protected void imgbtnUser_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("Registro.aspx");
+            if (Session["UserLogeado"] == null)
+                Response.Redirect("/Registro.aspx");
+            else
+                Response.Redirect("/User/User.aspx");
         }
 
     }
