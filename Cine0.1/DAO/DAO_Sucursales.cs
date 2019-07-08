@@ -59,7 +59,7 @@ namespace DAO
         {
             SqlCommand Comando = new SqlCommand();
             armarParametros(ref Comando, sucursal);
-            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spInsertarSucursal");
+            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spInsertarSucursales");
             if (filasInsertadas == 1)
                 return true;
             else

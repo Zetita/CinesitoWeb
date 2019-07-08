@@ -130,6 +130,24 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Button btnAgregarSuc;
         
         /// <summary>
+        /// Control lblAg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAg;
+        
+        /// <summary>
+        /// Control lblAgregado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAgregado;
+        
+        /// <summary>
         /// Control Label3.
         /// </summary>
         /// <remarks>
@@ -193,6 +211,15 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv8;
         
         /// <summary>
+        /// Control cv1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cv1;
+        
+        /// <summary>
         /// Control btnAgregarSala.
         /// </summary>
         /// <remarks>
@@ -202,22 +229,22 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Button btnAgregarSala;
         
         /// <summary>
-        /// Control lblAg.
+        /// Control lblAg2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAg;
+        protected global::System.Web.UI.WebControls.Label lblAg2;
         
         /// <summary>
-        /// Control lblAgregado.
+        /// Control lblAgregado2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAgregado;
+        protected global::System.Web.UI.WebControls.Label lblAgregado2;
         
         /// <summary>
         /// Control Label4.

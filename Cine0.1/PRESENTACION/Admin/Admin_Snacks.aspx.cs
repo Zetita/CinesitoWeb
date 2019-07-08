@@ -49,9 +49,8 @@ namespace PRESENTACION
         }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (ddlTipoSnack.SelectedIndex == 0)
-                rfv2.IsValid = false;
-            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid)
+            
+            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && cv1.IsValid)
             {
                 String pathCarpeta = @"img\snacks\";
                 String savePath = Server.MapPath("~") + pathCarpeta;
@@ -143,5 +142,7 @@ namespace PRESENTACION
             grdSnacks.EditIndex = -1;
             cargarGrilla();
         }
+
+       
     }
 }

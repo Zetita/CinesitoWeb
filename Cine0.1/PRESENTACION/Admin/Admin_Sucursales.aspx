@@ -24,6 +24,17 @@
         .auto-style8 {
             width: 312px;
         }
+        .auto-style9 {
+            width: 311px;
+            height: 29px;
+        }
+        .auto-style10 {
+            width: 359px;
+            height: 29px;
+        }
+        .auto-style11 {
+            height: 29px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -37,12 +48,12 @@
         <div>
         <table class="auto-style1">
             <tr>
-                <td class="auto-style2">Nombre</td>
-                <td class="auto-style6">
-                    <asp:TextBox ID="txtNombre" runat="server" Width="315px"></asp:TextBox>
+                <td class="auto-style9">Nombre</td>
+                <td class="auto-style10">
+                    <asp:TextBox ID="txtNombre" runat="server" Width="315px" ValidationGroup="Grupo1"></asp:TextBox>
                 </td>
-                <td>
-                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                <td class="auto-style11">
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red" ValidationGroup="Grupo1"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -51,7 +62,7 @@
                     <asp:TextBox ID="txtDireccion" runat="server" Width="315px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtDireccion" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtDireccion" ErrorMessage="*" ForeColor="Red" ValidationGroup="Grupo1"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -60,7 +71,7 @@
                     <asp:TextBox ID="txtLocalidad" runat="server" Width="315px"></asp:TextBox>
                 </td>
                 <td class="auto-style4">
-                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txtLocalidad" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txtLocalidad" ErrorMessage="*" ForeColor="Red" ValidationGroup="Grupo1"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -69,7 +80,7 @@
                     <asp:TextBox ID="txtProvincia" runat="server" Width="315px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txtProvincia" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txtProvincia" ErrorMessage="*" ForeColor="Red" ValidationGroup="Grupo1"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -78,7 +89,7 @@
                     <asp:TextBox ID="txtDireccionURL" runat="server" Width="313px" TextMode="Url"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtDireccionURL" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtDireccionURL" ErrorMessage="*" ForeColor="Red" ValidationGroup="Grupo1"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -87,12 +98,14 @@
                     <asp:Button ID="btnAgregarSuc" runat="server" Text="Agregar" OnClick="btnAgregarSuc_Click" />
                 </td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblAg" runat="server" ForeColor="Red"></asp:Label>
+                    </td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style6">
-                    &nbsp;</td>
+                    <asp:Label ID="lblAgregado" runat="server"></asp:Label>
+                    </td>
                 <td>
                     &nbsp;</td>
             </tr>
@@ -109,11 +122,11 @@
                 <tr>
                     <td class="auto-style8">Sucursal</td>
                     <td class="auto-style6">
-                        <asp:DropDownList ID="ddlSucursales" runat="server">
+                        <asp:DropDownList ID="ddlSucursales" runat="server" AutoPostBack="True">
                         </asp:DropDownList>
                     </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="ddlSucursales" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="ddlSucursales" ErrorMessage="*" ForeColor="Red" InitialValue="0" ValidationGroup="Grupo2"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -132,21 +145,22 @@
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv8" runat="server" ControlToValidate="txtButacas" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="cv1" runat="server" ControlToValidate="txtButacas" ErrorMessage="Ingrese un valor numerico valido." ForeColor="Red" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style8">&nbsp;</td>
                     <td class="auto-style6">
-                    <asp:Button ID="btnAgregarSala" runat="server" Text="Agregar" />
+                    <asp:Button ID="btnAgregarSala" runat="server" Text="Agregar" OnClick="btnAgregarSala_Click" />
                     </td>
                     <td>
-                    <asp:Label ID="lblAg" runat="server" ForeColor="Red"></asp:Label>
+                    <asp:Label ID="lblAg2" runat="server" ForeColor="Red"></asp:Label>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style8">&nbsp;</td>
                     <td class="auto-style6">
-                    <asp:Label ID="lblAgregado" runat="server"></asp:Label>
+                    <asp:Label ID="lblAgregado2" runat="server"></asp:Label>
                     </td>
                     <td>
                         &nbsp;</td>
@@ -156,7 +170,7 @@
             <br />
         <asp:Label ID="Label4" runat="server" Text="Listado de Sucursales y Salas"></asp:Label>
             <br />
-            <asp:GridView ID="grdSucursales" runat="server" AllowCustomPaging="True" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" CssClass="tablalistado" PageSize="5">
+            <asp:GridView ID="grdSucursales" runat="server" AllowCustomPaging="True" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" CssClass="tablalistado" PageSize="5" OnRowDeleting="grdSucursales_RowDeleting">
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
                         <EditItemTemplate>

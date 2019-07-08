@@ -85,6 +85,15 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv3;
         
         /// <summary>
+        /// Control cv1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cv1;
+        
+        /// <summary>
         /// Control FileImagen.
         /// </summary>
         /// <remarks>
