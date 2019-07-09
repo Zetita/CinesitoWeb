@@ -22,13 +22,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control DdpPelicula.
+        /// Control ddlPelicula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdpPelicula;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPelicula;
         
         /// <summary>
         /// Control Label2.
@@ -40,13 +40,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control DdpFormato.
+        /// Control ddlFormato.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdpFormato;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFormato;
         
         /// <summary>
         /// Control Label3.
@@ -58,13 +58,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control DdpFecha.
+        /// Control ddlDia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdpFecha;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDia;
         
         /// <summary>
         /// Control Label4.
@@ -76,13 +76,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// Control DdpHorario.
+        /// Control ddlHorario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdpHorario;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHorario;
         
         /// <summary>
         /// Control Label5.
@@ -94,13 +94,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Control TxtCantidad.
+        /// Control txtCantidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCantidad;
+        protected global::System.Web.UI.WebControls.TextBox txtCantidad;
         
         /// <summary>
         /// Control Label6.
@@ -112,13 +112,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// Control Txtprecio.
+        /// Control txtPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txtprecio;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecio;
         
         /// <summary>
         /// Control Label7.
@@ -130,13 +130,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// Control TextBox7.
+        /// Control txtButacas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.TextBox txtButacas;
         
         /// <summary>
         /// Control Button1.

@@ -28,7 +28,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn1;
+        protected global::System.Web.UI.WebControls.ImageButton btn1;
         
         /// <summary>
         /// Control btn2.
@@ -37,7 +37,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn2;
+        protected global::System.Web.UI.WebControls.ImageButton btn2;
         
         /// <summary>
         /// Control btn3.
@@ -46,7 +46,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn3;
+        protected global::System.Web.UI.WebControls.ImageButton btn3;
         
         /// <summary>
         /// Control btn4.
@@ -55,7 +55,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn4;
+        protected global::System.Web.UI.WebControls.ImageButton btn4;
         
         /// <summary>
         /// Control btn5.
@@ -64,7 +64,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn5;
+        protected global::System.Web.UI.WebControls.ImageButton btn5;
         
         /// <summary>
         /// Control btn6.
@@ -73,7 +73,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn6;
+        protected global::System.Web.UI.WebControls.ImageButton btn6;
         
         /// <summary>
         /// Control btn7.
@@ -82,7 +82,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn7;
+        protected global::System.Web.UI.WebControls.ImageButton btn7;
         
         /// <summary>
         /// Control lblE.
@@ -100,7 +100,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn8;
+        protected global::System.Web.UI.WebControls.ImageButton btn8;
         
         /// <summary>
         /// Control btn9.
@@ -109,7 +109,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn9;
+        protected global::System.Web.UI.WebControls.ImageButton btn9;
         
         /// <summary>
         /// Control btn10.
@@ -118,7 +118,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn10;
+        protected global::System.Web.UI.WebControls.ImageButton btn10;
         
         /// <summary>
         /// Control btn11.
@@ -127,7 +127,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn11;
+        protected global::System.Web.UI.WebControls.ImageButton btn11;
         
         /// <summary>
         /// Control btn12.
@@ -136,7 +136,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn12;
+        protected global::System.Web.UI.WebControls.ImageButton btn12;
         
         /// <summary>
         /// Control btn13.
@@ -145,7 +145,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn13;
+        protected global::System.Web.UI.WebControls.ImageButton btn13;
         
         /// <summary>
         /// Control btn14.
@@ -154,7 +154,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn14;
+        protected global::System.Web.UI.WebControls.ImageButton btn14;
         
         /// <summary>
         /// Control lblD.
@@ -172,7 +172,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn15;
+        protected global::System.Web.UI.WebControls.ImageButton btn15;
         
         /// <summary>
         /// Control btn16.
@@ -181,7 +181,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn16;
+        protected global::System.Web.UI.WebControls.ImageButton btn16;
         
         /// <summary>
         /// Control btn17.
@@ -190,7 +190,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn17;
+        protected global::System.Web.UI.WebControls.ImageButton btn17;
         
         /// <summary>
         /// Control btn18.
@@ -199,7 +199,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn18;
+        protected global::System.Web.UI.WebControls.ImageButton btn18;
         
         /// <summary>
         /// Control btn19.
@@ -208,7 +208,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn19;
+        protected global::System.Web.UI.WebControls.ImageButton btn19;
         
         /// <summary>
         /// Control btn20.
@@ -217,7 +217,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn20;
+        protected global::System.Web.UI.WebControls.ImageButton btn20;
         
         /// <summary>
         /// Control btn21.
@@ -226,7 +226,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn21;
+        protected global::System.Web.UI.WebControls.ImageButton btn21;
         
         /// <summary>
         /// Control lblC.
@@ -244,7 +244,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn22;
+        protected global::System.Web.UI.WebControls.ImageButton btn22;
         
         /// <summary>
         /// Control btn23.
@@ -253,7 +253,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn23;
+        protected global::System.Web.UI.WebControls.ImageButton btn23;
         
         /// <summary>
         /// Control btn24.
@@ -262,7 +262,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn24;
+        protected global::System.Web.UI.WebControls.ImageButton btn24;
         
         /// <summary>
         /// Control btn25.
@@ -271,7 +271,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn25;
+        protected global::System.Web.UI.WebControls.ImageButton btn25;
         
         /// <summary>
         /// Control btn26.
@@ -280,7 +280,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn26;
+        protected global::System.Web.UI.WebControls.ImageButton btn26;
         
         /// <summary>
         /// Control btn27.
@@ -289,7 +289,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn27;
+        protected global::System.Web.UI.WebControls.ImageButton btn27;
         
         /// <summary>
         /// Control btn28.
@@ -298,7 +298,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn28;
+        protected global::System.Web.UI.WebControls.ImageButton btn28;
         
         /// <summary>
         /// Control lblB.
@@ -316,7 +316,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn29;
+        protected global::System.Web.UI.WebControls.ImageButton btn29;
         
         /// <summary>
         /// Control btn30.
@@ -325,7 +325,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn30;
+        protected global::System.Web.UI.WebControls.ImageButton btn30;
         
         /// <summary>
         /// Control btn31.
@@ -334,7 +334,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn31;
+        protected global::System.Web.UI.WebControls.ImageButton btn31;
         
         /// <summary>
         /// Control btn32.
@@ -343,7 +343,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn32;
+        protected global::System.Web.UI.WebControls.ImageButton btn32;
         
         /// <summary>
         /// Control btn33.
@@ -352,7 +352,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn33;
+        protected global::System.Web.UI.WebControls.ImageButton btn33;
         
         /// <summary>
         /// Control btn34.
@@ -361,7 +361,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn34;
+        protected global::System.Web.UI.WebControls.ImageButton btn34;
         
         /// <summary>
         /// Control btn35.
@@ -370,7 +370,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn35;
+        protected global::System.Web.UI.WebControls.ImageButton btn35;
         
         /// <summary>
         /// Control lblA.
@@ -388,7 +388,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn36;
+        protected global::System.Web.UI.WebControls.ImageButton btn36;
         
         /// <summary>
         /// Control btn37.
@@ -397,7 +397,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn37;
+        protected global::System.Web.UI.WebControls.ImageButton btn37;
         
         /// <summary>
         /// Control btn38.
@@ -406,7 +406,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn38;
+        protected global::System.Web.UI.WebControls.ImageButton btn38;
         
         /// <summary>
         /// Control btn39.
@@ -415,7 +415,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn39;
+        protected global::System.Web.UI.WebControls.ImageButton btn39;
         
         /// <summary>
         /// Control btn40.
@@ -424,7 +424,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn40;
+        protected global::System.Web.UI.WebControls.ImageButton btn40;
         
         /// <summary>
         /// Control btn41.
@@ -433,7 +433,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn41;
+        protected global::System.Web.UI.WebControls.ImageButton btn41;
         
         /// <summary>
         /// Control btn42.
@@ -442,7 +442,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn42;
+        protected global::System.Web.UI.WebControls.ImageButton btn42;
         
         /// <summary>
         /// Control btn43.
@@ -451,7 +451,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn43;
+        protected global::System.Web.UI.WebControls.ImageButton btn43;
         
         /// <summary>
         /// Control btn44.
@@ -460,7 +460,7 @@ namespace PRESENTACION {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn44;
+        protected global::System.Web.UI.WebControls.ImageButton btn44;
         
         /// <summary>
         /// Control imgPantalla.

@@ -16,13 +16,14 @@ namespace PRESENTACION
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserLogeado"] != null)
-            {
+
+            //if (Session["UserLogeado"] != null)
+            //{
                 n_BxF BxF = new n_BxF();
                 n_Funcion Funcion = new n_Funcion();
-                string ID_Funcion = Application["ID_Funcion"].ToString();
-                //string ID_Funcion = "1";
-                string Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
+                //string ID_Funcion = Application["ID_Funcion"].ToString();
+            string ID_Funcion = "1";
+            string Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
                 DataTable dt = BxF.ObtenerTabla(Consulta);
 
                 if (!IsPostBack)
@@ -47,13 +48,13 @@ namespace PRESENTACION
                 Consulta = ArmarConsultaHeavy(ID_Funcion);
                 dt = Funcion.ObtenerTabla(Consulta);
                 LlenarResumen(dt);
-            }
-            else
-            {
-                Response.Cookies["Error"].Value = "1";
-                Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
-                Response.Redirect("Inicio.aspx");
-            }
+            //}
+            //else
+            //{
+            //    Response.Cookies["Error"].Value = "1";
+            //    Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
+            //    Response.Redirect("Inicio.aspx");
+            //}
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
@@ -122,16 +123,16 @@ namespace PRESENTACION
 
         public static void Colorear(Page Pagina, string Nombre)
         {
-            Button Boton;
+            ImageButton Boton;
             foreach (Control ctrl in Pagina.Form.Controls)
             {
                 foreach (Control Control in ctrl.Controls)
-                    if (Control is Button)
+                    if (Control is ImageButton)
                     {
-                        Boton = (Button)Control;
+                        Boton = (ImageButton)Control;
                         if (Boton.ID == Nombre)
                         {
-                            Boton.BackColor = Color.Red;
+                            Boton.ImageUrl = "~/Recursos/Asiento-Ocupado.png";
                             Boton.Enabled = false;
                         }
                     }
@@ -141,12 +142,12 @@ namespace PRESENTACION
 
         protected void Colorear2(object sender, EventArgs e)
         {
-            Button Clickeado = (Button)sender;
-            if (Clickeado.BackColor == Color.Green)
+            ImageButton Clickeado = (ImageButton)sender;
+            if (Clickeado.ImageUrl == "~/Recursos/Asiento-Seleccionado.png")
             {
                 if (Convert.ToInt32(Application["CantEntradasT"].ToString()) < 10)
                 {
-                    Clickeado.BackColor = Color.Empty;
+                    Clickeado.ImageUrl = "~/Recursos/Asiento-Libre.png";
                     Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) + 1;
                 }
             }
@@ -154,7 +155,7 @@ namespace PRESENTACION
             {
                 if (Convert.ToInt32(Application["CantEntradasT"].ToString()) > 0)
                 {
-                    Clickeado.BackColor = Color.Green;
+                    Clickeado.ImageUrl = "~/Recursos/Asiento-Seleccionado.png";
                     Application["CantEntradasT"] = Convert.ToInt32(Application["CantEntradasT"]) - 1;
                 }
             }

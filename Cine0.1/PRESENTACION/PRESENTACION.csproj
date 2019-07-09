@@ -81,6 +81,9 @@
     <Content Include="img\snacks\balde_pochoclos_grande.jpg" />
     <Content Include="JS\Slider.js" />
     <Content Include="Peliculas.aspx" />
+    <Content Include="Recursos\Asiento-Libre.png" />
+    <Content Include="Recursos\Asiento-Ocupado.png" />
+    <Content Include="Recursos\Asiento-Seleccionado.png" />
     <Content Include="Recursos\linea.png" />
     <Content Include="Recursos\logo.png" />
     <Content Include="Recursos\logo1.png" />
