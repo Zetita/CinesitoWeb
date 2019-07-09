@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <asp:Label ID="Label1" runat="server" Text="Pelicula"  style="position:absolute; top:150px; "></asp:Label>
-    <asp:DropDownList ID="DdpPelicula" runat="server" style="position:absolute; top:150px; left:800px; "></asp:DropDownList>
+    <asp:DropDownList ID="DdpPelicula" runat="server" style="position:absolute; top:150px; left:800px; " OnSelectedIndexChanged="DdpPelicula_SelectedIndexChanged"></asp:DropDownList>
 
     <asp:Label ID="Label2" runat="server" Text="Formato"  style="position:absolute; top:210px;"></asp:Label>
     <asp:DropDownList ID="DdpFormato" runat="server" style="position:absolute; top:210px; left:800px; "></asp:DropDownList>

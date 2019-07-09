@@ -31,7 +31,7 @@
            <a href="/User/User.aspx" class="active">Historial de compras</a>
            <a href="/User/User_Perfil.aspx">Editar datos personales</a>
            <a href="#">Cambiar contraseña</a>
-           <a href="#" onclick="cerrarSesion_Click">Cerrar Sesion</a>
+           <asp:LinkButton ID="lbCerrar" runat="server" OnClick="lbCerrar_Click" >Cerrar Sesión</asp:LinkButton>
 
         </div>
     </td>

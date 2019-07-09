@@ -24,7 +24,7 @@ namespace PRESENTACION
             if (Session["UserLogeado"] == null)
                 Response.Redirect("/Registro.aspx");
             else
-                Response.Redirect("/User/User.aspx");
+                Response.Redirect("/User.aspx");
         }
 
     }

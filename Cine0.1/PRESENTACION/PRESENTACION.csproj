@@ -93,8 +93,8 @@
     <Content Include="Slider\JohnWick.jpeg" />
     <Content Include="Snacks.aspx" />
     <Content Include="Sucursales.aspx" />
-    <Content Include="User\User.aspx" />
-    <Content Include="User\User_Perfil.aspx" />
+    <Content Include="User.aspx" />
+    <Content Include="User_Perfil.aspx" />
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
   </ItemGroup>
@@ -198,18 +198,18 @@
     <Compile Include="Sucursales.aspx.designer.cs">
       <DependentUpon>Sucursales.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\User.aspx.cs">
+    <Compile Include="User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User\User.aspx.designer.cs">
+    <Compile Include="User.aspx.designer.cs">
       <DependentUpon>User.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\User_Perfil.aspx.cs">
+    <Compile Include="User_Perfil.aspx.cs">
       <DependentUpon>User_Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User\User_Perfil.aspx.designer.cs">
+    <Compile Include="User_Perfil.aspx.designer.cs">
       <DependentUpon>User_Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visual.Master.cs">
@@ -252,7 +252,9 @@
       <Name>NEGOCIO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="User\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

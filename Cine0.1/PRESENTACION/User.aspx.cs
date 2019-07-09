@@ -20,10 +20,10 @@ namespace PRESENTACION.User
                 lblSinCompras.Text = "Aun no has comprado entradas, revisa la cartelera para comprar.";
         }
 
-        public void cerrarSesion_Click()
+        protected void lbCerrar_Click(object sender, EventArgs e)
         {
             Session["UserLogeado"] = null;
-            Response.Redirect("/Inicio.aspx");
+            Response.Redirect("Inicio.aspx");
         }
     }
 }
