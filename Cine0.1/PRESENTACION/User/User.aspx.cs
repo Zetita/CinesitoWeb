@@ -13,7 +13,7 @@ namespace PRESENTACION.User
         protected void Page_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = Session["UserLogeado"].ToString();
-
+            
             n_Venta n_venta = new n_Venta();
 
             if(n_venta.ObtenerTablaVenta(lblUsuario.Text)==null)
