@@ -16,36 +16,44 @@ namespace PRESENTACION
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            n_BxF BxF = new n_BxF();
-            n_Funcion Funcion = new n_Funcion();
-            string ID_Funcion = Application["ID_Funcion"].ToString();
-            //string ID_Funcion = "1";
-            string Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
-            DataTable dt = BxF.ObtenerTabla(Consulta);
-
-            if (!IsPostBack)
+            if (Session["UserLogeado"] != null)
             {
-                Application["CantEntradasT"] = Application["CantEntradas"] = 10;
-            }
-            string NombreBoton;
-            
+                n_BxF BxF = new n_BxF();
+                n_Funcion Funcion = new n_Funcion();
+                string ID_Funcion = Application["ID_Funcion"].ToString();
+                //string ID_Funcion = "1";
+                string Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
+                DataTable dt = BxF.ObtenerTabla(Consulta);
 
-            for (int x = 1; x <= 44; x++)
-            {
-                for (int j = 0; j < dt.Rows.Count; j++)
+                if (!IsPostBack)
                 {
-                    if (x.ToString() == dt.Rows[j]["ID_Butaca"].ToString().Trim())
+                    Application["CantEntradasT"] = Application["CantEntradas"] = 10;
+                }
+                string NombreBoton;
+
+
+                for (int x = 1; x <= 44; x++)
+                {
+                    for (int j = 0; j < dt.Rows.Count; j++)
                     {
-                        NombreBoton = "btn" + x.ToString();
-                        Colorear(Page, NombreBoton);
+                        if (x.ToString() == dt.Rows[j]["ID_Butaca"].ToString().Trim())
+                        {
+                            NombreBoton = "btn" + x.ToString();
+                            Colorear(Page, NombreBoton);
+                        }
                     }
-                } 
+                }
+
+                Consulta = ArmarConsultaHeavy(ID_Funcion);
+                dt = Funcion.ObtenerTabla(Consulta);
+                LlenarResumen(dt);
             }
-               
-            Consulta = ArmarConsultaHeavy(ID_Funcion);
-            dt = Funcion.ObtenerTabla(Consulta);
-            LlenarResumen(dt);          
+            else
+            {
+                Response.Cookies["Error"].Value = "1";
+                Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
+                Response.Redirect("Inicio.aspx");
+            }
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)

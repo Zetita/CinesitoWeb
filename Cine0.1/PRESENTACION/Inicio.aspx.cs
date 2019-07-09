@@ -11,6 +11,14 @@ namespace PRESENTACION
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Request.Cookies["Error"] != null&& Request.Cookies["Error"].Value.ToString() == "1")
+            {
+                
+                    Response.Write("<script>window.alert('Para comprar, primero debe haber iniciado sesión');</script>");
+                    Request.Cookies["Error"].Expires = DateTime.Now.AddDays(-1);
+                    this.Response.Cookies.Add(Request.Cookies["Error"]);
+                
+            }
 
         }
 

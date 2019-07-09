@@ -15,25 +15,34 @@ namespace PRESENTACION
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string IDPelicula;
-            n_Pelicula Pelicula = new n_Pelicula();
-            n_Sucursal Sucursal = new n_Sucursal();
-            DataTable dt = new DataTable();
-            IDPelicula = Application["ID_Pelicula"].ToString();
+            if (Session["UserLogeado"] != null)
+            {
+                string IDPelicula;
+                n_Pelicula Pelicula = new n_Pelicula();
+                n_Sucursal Sucursal = new n_Sucursal();
+                DataTable dt = new DataTable();
+                IDPelicula = Application["ID_Pelicula"].ToString();
 
 
-            if (!IsPostBack) {
+                if (!IsPostBack)
+                {
 
-            string Consulta = "Select * from Peliculas where ID_Pelicula = " + IDPelicula + "And Estado=1";
-            dt = Pelicula.ObtenerTabla(Consulta);
-            if(!IsPostBack)LlenarPelicula(dt);
+                    string Consulta = "Select * from Peliculas where ID_Pelicula = " + IDPelicula + "And Estado=1";
+                    dt = Pelicula.ObtenerTabla(Consulta);
+                    if (!IsPostBack) LlenarPelicula(dt);
 
-            dt = Sucursal.ObtenerTabla();
-            LlenarDDLSucursal(dt);
+                    dt = Sucursal.ObtenerTabla();
+                    LlenarDDLSucursal(dt);
+                }
+
+                else Boton("0");
             }
-            
-            else Boton("0");
-
+            else
+            {
+                Response.Cookies["Error"].Value = "1";
+                Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
+                Response.Redirect("Inicio.aspx");
+            }
         }
 
         protected void ddlCine_SelectedIndexChanged(object sender, EventArgs e)

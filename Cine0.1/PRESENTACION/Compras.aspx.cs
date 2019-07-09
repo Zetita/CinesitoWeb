@@ -17,35 +17,44 @@ namespace PRESENTACION
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            n_BxF BxF = new n_BxF();
-            n_Funcion Funcion = new n_Funcion();
-
-            string ID_Funcion = Application["ID_Funcion"].ToString();
-            int Cantidad = Convert.ToInt32(Application["Cantidad"].ToString());
-            double Precio = Convert.ToDouble(Application["Precio"].ToString()) * Cantidad;
-            //string ID_Funcion = "1";
-            string Consulta = ArmarConsultaHeavy(ID_Funcion);
-
-            DataTable dt = Funcion.ObtenerTabla(Consulta);
-            LlenarResumen(dt);
-
-            lblEntrada.Text = "Precio Entrada x"+Cantidad;
-            lblTotal.Text = "Total";
-            lblPrecioFinal.Text ="$"+ Precio.ToString();
-            lblPrecio.Text = "$"+Application["PrecioTotal"].ToString();
-
-            if (IsPostBack)
+            if (Session["UserLogeado"] != null)
             {
-                if(TieneErrores(Page)&&cbTerm.Checked)
+                n_BxF BxF = new n_BxF();
+                n_Funcion Funcion = new n_Funcion();
+
+                string ID_Funcion = Application["ID_Funcion"].ToString();
+                int Cantidad = Convert.ToInt32(Application["Cantidad"].ToString());
+                double Precio = Convert.ToDouble(Application["Precio"].ToString()) * Cantidad;
+                //string ID_Funcion = "1";
+                string Consulta = ArmarConsultaHeavy(ID_Funcion);
+
+                DataTable dt = Funcion.ObtenerTabla(Consulta);
+                LlenarResumen(dt);
+
+                lblEntrada.Text = "Precio Entrada x" + Cantidad;
+                lblTotal.Text = "Total";
+                lblPrecioFinal.Text = "$" + Precio.ToString();
+                lblPrecio.Text = "$" + Application["PrecioTotal"].ToString();
+
+                if (IsPostBack)
                 {
-                    Boton("1");
+                    if (TieneErrores(Page) && cbTerm.Checked)
+                    {
+                        Boton("1");
+                    }
+                    else
+                    {
+                        Boton("2");
+                    }
                 }
-                else
-                {
-                    Boton("2");
-                }
-            } 
+            }
+            else
+            {
+
+                Response.Cookies["Error"].Value = "1";
+                Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
+                Response.Redirect("Inicio.aspx");
+            }
         }
 
         protected void txtEmail_TextChanged(object sender, EventArgs e)
