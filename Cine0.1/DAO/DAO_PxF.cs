@@ -23,6 +23,11 @@ namespace DAO
             DataTable tabla = ad.ObtenerTabla("PeliculasxFormatos", "Select * from PeliculasXFormatos Where ID_Pelicula='" + id_pel + "'");
             return tabla;
         }
+        public DataTable ObtenerTablaPxF(string id_pel,string id_for)
+        {
+            DataTable tabla = ad.ObtenerTabla("PeliculasxFormatos", "Select * from PeliculasXFormatos Where ID_Pelicula='" + id_pel + "' and ID_Formato='" + id_for + "'");
+            return tabla;
+        }
         public DataTable ObtenerTituloFormato(String id)
         {
             DataTable tabla =
