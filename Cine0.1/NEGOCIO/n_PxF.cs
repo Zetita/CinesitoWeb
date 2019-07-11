@@ -16,6 +16,11 @@ namespace NEGOCIO
             DAO_PxF da = new DAO_PxF();
             return da.ObtenerTablaPxF();
         }
+        public DataTable ObtenerTabla(string id_pel,string id_for)
+        {
+            DAO_PxF da = new DAO_PxF();
+            return da.ObtenerTablaPxF(id_pel,id_for);
+        }
         public DataTable ObtenerTituloFormato(String id)
         {
             DAO_PxF da = new DAO_PxF();
