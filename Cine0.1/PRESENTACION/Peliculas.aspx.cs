@@ -144,7 +144,7 @@ namespace PRESENTACION
                 Consulta += ArmarConsulta(Dia);
                 Application["Dia"] = ddlDía.SelectedItem.ToString();
                 DataTable dt = Datos.ObtenerTabla(Consulta);
-                LlenarDDLHora(dt, Dia, IDPxF);
+                LlenarDDLHora(dt, Dia);
                 Boton("0");
             }
             catch
@@ -237,7 +237,7 @@ namespace PRESENTACION
             }
         }
 
-        public void LlenarDDLHora(DataTable dt, string Dia, string IDPxF)
+        public void LlenarDDLHora(DataTable dt, string Dia)
         {
             string[] Fecha;
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -251,7 +251,6 @@ namespace PRESENTACION
                 if (dt.Rows[i]["FechaHora_Funcion"].ToString().Contains(Dia))
                 {
                     ddlHorario.Items.Add(Fecha[1]);
-                    btnSeleccionar.Text = Fecha[1];
                 }
             }
         }
@@ -290,13 +289,6 @@ namespace PRESENTACION
             string[] Fecha = Dia.Split('/');
             string Consulta= "(DATEPART(yy, FechaHora_Funcion) = "+Fecha[2]+" and DATEPART(mm, FechaHora_Funcion) = "+Fecha[0]+" and DATEPART(dd, FechaHora_Funcion)= "+Fecha[1]+" )";
             return Consulta;
-        }
-
-        public string PrepararDia(string Dia)
-        {
-            string[] Fecha = Dia.Split('/');
-            Dia = Fecha[2] + "-" + Fecha[1] + "-" + Fecha[0];
-            return Dia;
         }
        
         public void Boton(string Estado)

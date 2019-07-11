@@ -14,7 +14,7 @@
         <asp:Label ID="lblDuracion" runat="server" style="position:absolute; top:360px; left:346px"></asp:Label>
         <asp:Label ID="lblTrailer" runat="server" Text="TRAILER" style="position:absolute;top:86px;left:800px;font-size:xx-large" Font-Bold="True"></asp:Label>
         <asp:Label ID="lblDirector" runat="server" style="position:absolute; top:386px; left:346px"></asp:Label>
-        <asp:Label ID="lblVideo" runat="server"  ></asp:Label>
+        <asp:Label ID="lblVideo" runat="server"></asp:Label>
     
     <!-- VENTA DE ENTRADAS -->
     <b><asp:Label ID="lblVenta" runat="server" Text="VENTA DE ENTRADAS" style="position:absolute;top:436px;left: 346px" Font-Underline="True"></asp:Label></b>
