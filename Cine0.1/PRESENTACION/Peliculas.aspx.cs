@@ -27,7 +27,7 @@ namespace PRESENTACION
                 if (!IsPostBack)
                 {
 
-                    string Consulta = "Select * from Peliculas where ID_Pelicula = " + IDPelicula + "And Estado=1";
+                    string Consulta = "Select * from Peliculas where ID_Pelicula = '" + IDPelicula + "' And Estado='True'";
                     dt = Pelicula.ObtenerTabla(Consulta);
                     if (!IsPostBack) LlenarPelicula(dt);
 
@@ -81,9 +81,10 @@ namespace PRESENTACION
             
             n_PxF PxF = new n_PxF();
             n_Funcion Funcion = new n_Funcion();
-            string IDPelicula = Application["ID_Pelicula"].ToString();
+            string IDPel = Application["ID_Pelicula"].ToString();
+            string IDFor = ddlFormato.SelectedValue.ToString();
+            Application["ID_Formato"] = IDFor;
             DataTable dt = PxF.ObtenerTabla();
-            string IDPxF = SacarIDPxF(IDPelicula, ddlFormato.SelectedValue, dt);
             string IDSucursal = Application["ID_Sucursal"].ToString();
 
             if (ddlFormato.SelectedItem.ToString() != "-") ddlDía.Enabled = true;
@@ -99,12 +100,11 @@ namespace PRESENTACION
 
             try
             {
-                string Consulta = "Select * from Funciones where ID_PxF = " + IDPxF + " and ID_Sucursal = " + IDSucursal;
+                string Consulta = "Select * from Funciones where ID_Pelicula='" + IDPel + "' and ID_Formato='" + IDFor + "' and ID_Sucursal = '" + IDSucursal+"'";
                 dt = Funcion.ObtenerTabla(Consulta);
                 if (dt.Rows.Count > 0)
                 {
                     LlenarDDLDia(dt);
-                    Application["ID_PxF"] = IDPxF;
                     Boton("0");
                 }
                 else
@@ -130,7 +130,8 @@ namespace PRESENTACION
             n_Funcion Datos = new n_Funcion();
             string Dia = ddlDía.SelectedItem.ToString();
             string ID_Sucursal = Application["ID_Sucursal"].ToString();
-            string IDPxF = Application["ID_PxF"].ToString();
+            string IDPel = Application["ID_Pelicula"].ToString();
+            string IDFor = Application["ID_Formato"].ToString();
 
             if (ddlDía.SelectedItem.ToString() != "-"&& ddlFormato.SelectedItem.ToString() != "-") ddlHorario.Enabled = true;
             else ddlHorario.Enabled = false;
@@ -140,7 +141,7 @@ namespace PRESENTACION
 
             try
             {
-                string Consulta = "Select * from Funciones where ID_PxF = " + IDPxF + " and ID_Sucursal = " + ID_Sucursal + " and ";
+                string Consulta = "Select * from Funciones where ID_Pelicula='" + IDPel + "' and ID_Formato='" + IDFor + "' and ID_Sucursal = '" + ID_Sucursal + "' and ";
                 Consulta += ArmarConsulta(Dia);
                 Application["Dia"] = ddlDía.SelectedItem.ToString();
                 DataTable dt = Datos.ObtenerTabla(Consulta);
@@ -255,30 +256,15 @@ namespace PRESENTACION
             }
         }
 
-        public string SacarIDPxF(string IDPelicula, string IDFormato, DataTable dt)
-        {
-            string IDPxF=string.Empty;            
-            for (int i=0;i<dt.Rows.Count;i++)
-            {
-                
-                if (dt.Rows[i]["ID_Pelicula"].ToString().TrimEnd() == IDPelicula && dt.Rows[i]["ID_Formato"].ToString() == IDFormato)
-                {
-                    
-                    IDPxF = dt.Rows[i]["ID_PxF"].ToString();
-                    
-                }
-            }
-            return IDPxF;
-        }
-
         public string SacarFuncion()
         {
             n_Funcion Datos = new n_Funcion();
             string FechaHora = Application["Dia"].ToString();
             string Sucursal = Application["ID_Sucursal"].ToString();
-            string PxF = Application["ID_PxF"].ToString();
+            string IDPel = Application["ID_Pelicula"].ToString();
+            string IDFor = Application["ID_Formato"].ToString();
 
-            string Consulta = "Select * from Funciones where ID_Sucursal = " + Sucursal + " and ID_PxF = " + PxF + " and DATEDIFF(n,FechaHora_Funcion,'" + FechaHora+"') = 0";
+            string Consulta = "Select * from Funciones where ID_Sucursal = '" + Sucursal + "' and  ID_Pelicula='" + IDPel + "' and ID_Formato='" + IDFor + "' and DATEDIFF(n,FechaHora_Funcion,'" + FechaHora+"') = 0";
             DataTable dt = Datos.ObtenerTabla(Consulta);
             string ID_Funcion = dt.Rows[0]["ID_Funcion"].ToString();
             return ID_Funcion;
@@ -321,7 +307,5 @@ namespace PRESENTACION
             }
             return false;
         }
-
-        
     }
 }

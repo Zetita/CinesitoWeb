@@ -128,12 +128,11 @@ namespace PRESENTACION
                 "Salas.Sala, Sucursales.Nombre_Sucursal,Sucursales.Direccion_Sucursal,Sucursales.Localidad_Sucursal,Sucursales.Provincia_Sucursal,datename(dw,Funciones.FechaHora_Funcion) as DiaSemana, " +
                 "DATEPART(dd,Funciones.FechaHora_Funcion) as Dia,DATENAME(mm,Funciones.FechaHora_Funcion) as Mes,DATEPART(hh,Funciones.FechaHora_Funcion) as Hora,DATEPART(n,Funciones.FechaHora_Funcion) as Minuto " +
                 "from Funciones " +
-                "Inner Join PeliculasxFormatos on Funciones.ID_PxF = PeliculasxFormatos.ID_PxF " +
-                "Inner Join Peliculas on PeliculasxFormatos.ID_Pelicula = Peliculas.ID_Pelicula " +
-                "Inner Join Formatos on PeliculasxFormatos.ID_Formato = Formatos.ID_Formato " +
+                "Inner Join Peliculas on Funciones.ID_Pelicula = Peliculas.ID_Pelicula " +
+                "Inner Join Formatos on Funciones.ID_Formato = Formatos.ID_Formato " +
                 "Inner Join Salas on Funciones.ID_Sala = Salas.ID_Sala " +
                 "Inner Join Sucursales on Funciones.ID_Sucursal = Sucursales.ID_Sucursal " +
-                "where Funciones.ID_Funcion = " + ID;
+                "where Funciones.ID_Funcion = '" + ID+"'";
             return Consulta;
         }
 

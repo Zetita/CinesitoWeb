@@ -23,7 +23,7 @@ namespace PRESENTACION
                 n_Funcion Funcion = new n_Funcion();
                 string ID_Funcion = Application["ID_Funcion"].ToString();
             //string ID_Funcion = "1";
-            string Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
+            string Consulta = "Select * from ButacaxFunciones where ID_Funcion='" + ID_Funcion+"'";
                 DataTable dt = BxF.ObtenerTabla(Consulta);
 
                 if (!IsPostBack)
@@ -112,12 +112,11 @@ namespace PRESENTACION
                 "Salas.Sala, Sucursales.Nombre_Sucursal,Sucursales.Direccion_Sucursal,Sucursales.Localidad_Sucursal,Sucursales.Provincia_Sucursal,datename(dw,Funciones.FechaHora_Funcion) as DiaSemana, " +
                 "DATEPART(dd,Funciones.FechaHora_Funcion) as Dia,DATENAME(mm,Funciones.FechaHora_Funcion) as Mes,DATEPART(hh,Funciones.FechaHora_Funcion) as Hora,DATEPART(n,Funciones.FechaHora_Funcion) as Minuto "+
                 "from Funciones " +
-                "Inner Join PeliculasxFormatos on Funciones.ID_PxF = PeliculasxFormatos.ID_PxF " +
-                "Inner Join Peliculas on PeliculasxFormatos.ID_Pelicula = Peliculas.ID_Pelicula " +
-                "Inner Join Formatos on PeliculasxFormatos.ID_Formato = Formatos.ID_Formato " +
+                "Inner Join Peliculas on Funciones.ID_Pelicula = Peliculas.ID_Pelicula " +
+                "Inner Join Formatos on Funciones.ID_Formato = Formatos.ID_Formato " +
                 "Inner Join Salas on Funciones.ID_Sala = Salas.ID_Sala " +
                 "Inner Join Sucursales on Funciones.ID_Sucursal = Sucursales.ID_Sucursal " +
-                "where Funciones.ID_Funcion = "+ID;
+                "where Funciones.ID_Funcion = '"+ID+"'";
             return Consulta;
         }
 
@@ -169,7 +168,7 @@ namespace PRESENTACION
             for (int i = 1; i <= 44; i++)
             {
                 NombreBoton = "btn" + i.ToString();
-                if(VerificarClickeado(Page, NombreBoton) == 1)
+                if(VerificarClickeado(Page, NombreBoton,i) == 1)
                 {
                     if(IsPostBack)
                     Cantidad++;
@@ -182,27 +181,23 @@ namespace PRESENTACION
             return Cantidad;
         }
 
-        public int VerificarClickeado(Page Pagina, string Nombre)
+        public int VerificarClickeado(Page Pagina, string Nombre,int num)
         {
-            Button Boton;
+            ImageButton Boton;
             foreach (Control ctrl in Pagina.Form.Controls)
             {
                 foreach (Control Control in ctrl.Controls)
-                    if (Control is Button)
+                    if (Control is ImageButton)
                     {
-                        Boton = (Button)Control;
+                        Boton = (ImageButton)Control;
                         if (Boton.ID == Nombre)
                         {
-                            if (Boton.BackColor == Color.Green)
+                            if (Boton.ImageUrl == "~/Recursos/Asiento-Seleccionado.png")
                             {
-                                for (int i = 1; i < 44; i++)
-                                {
-                                    if (Nombre.Contains(i.ToString()))
-                                    {
-                                        Application["ButacasReservadas"] += i.ToString() + ",";
+
+                                        Application["ButacasReservadas"] += num.ToString() + ",";
                                         return 1;
-                                    }
-                                }
+                                
                                 
                             }
                             return -1;
