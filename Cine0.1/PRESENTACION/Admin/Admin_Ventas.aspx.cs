@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using NEGOCIO;
+using System.Drawing;
 
 namespace PRESENTACION
 {
@@ -19,7 +20,9 @@ namespace PRESENTACION
 
             if (!IsPostBack)
             {
+                Butacas(0);
                 LlenarDDLPeliculas(dt);
+                Session["ButacasDisp"] = 10;
             }
         }
 
@@ -33,10 +36,18 @@ namespace PRESENTACION
                 ddlSucursal.Items.Clear();
                 ddlSucursal.Items.Add("-");
                 LlenarDDLSucursales(dt);
+
+                Limpiar(0);
+
             }
             else
             {
                 ddlSucursal.Enabled = false;
+                ddlSucursal.Items.Clear();
+                ddlSucursal.Items.Add("-");
+
+                Limpiar(0);
+
             }
            
         }
@@ -51,10 +62,20 @@ namespace PRESENTACION
                 ddlFormato.Items.Clear();
                 ddlFormato.Items.Add("-");
                 LlenarDDLFormato(dt);
+
+                Limpiar(1);
+
+                Butacas(0);
             }
             else
             {
                 ddlFormato.Enabled = false;
+                ddlFormato.Items.Clear();
+                ddlFormato.Items.Add("-");
+
+                Limpiar(1);
+
+                Butacas(0);
             }
         }
 
@@ -66,25 +87,42 @@ namespace PRESENTACION
             string IDPxF = string.Empty;
             if(ddlFormato.SelectedItem.ToString() != "-" && ddlSucursal.SelectedItem.ToString() != "-" && ddlPelicula.SelectedItem.ToString() != "-")
             {
-                IDPxF = ArmarIDPxF();
-                Session["IDPxF"] = IDPxF;
-                Consulta = ArmarConsulta(IDPxF,ddlSucursal.SelectedValue.ToString(),0);
-
-                dt = Funcion.ObtenerTabla(Consulta);
-
-                ddlDia.Items.Clear();
-                ddlDia.Items.Add("-");
-
-                if (dt.Rows.Count > 0)
+                try
                 {
-                    ddlDia.Enabled = true;
-                    LlenarDDLDia(dt);
+                    IDPxF = ArmarIDPxF();
+                    Session["IDPxF"] = IDPxF;
+                    Consulta = ArmarConsulta(IDPxF, ddlSucursal.SelectedValue.ToString(), 0);
+
+                    dt = Funcion.ObtenerTabla(Consulta);
+
+                    ddlDia.Items.Clear();
+                    ddlDia.Items.Add("-");
+
+                    Limpiar(2);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        ddlDia.Enabled = true;
+                        LlenarDDLDia(dt);
+                    }
+                    else
+                    {
+
+                        Limpiar(1);
+
+                    }
                 }
-                else ddlDia.Enabled = false;
+                catch
+                {
+                    Boton(2);
+                }
             }
             else
             {
-                ddlDia.Enabled = false;
+
+                Limpiar(1);
+
+                Butacas(0);
             }
         }
 
@@ -109,11 +147,15 @@ namespace PRESENTACION
                     ddlHorario.Enabled = true;
                     LlenarDDLHorario(dt);
                 }
-                else ddlHorario.Enabled = false;
+                else
+                {
+                    Limpiar(2);
+
+                }
             }
             else
             {
-                ddlHorario.Enabled = false;
+                Limpiar(2);
             }
         }
 
@@ -130,7 +172,18 @@ namespace PRESENTACION
                 Consulta = ArmarConsulta(IDPxF, ddlSucursal.SelectedValue.ToString(), 2);
                 dt = Funcion.ObtenerTabla(Consulta);
                 IDFuncion = dt.Rows[0]["ID_Funcion"].ToString();
+                Session["IDFuncion"] = IDFuncion;
+                Butacas(1);
             }
+            else
+            {
+                Butacas(0);
+            }
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+
         }
 
         public void LlenarDDLPeliculas(DataTable dt)
@@ -254,9 +307,169 @@ namespace PRESENTACION
             }
         }
 
+        public void Butacas(int Origen)
+        {
+            string ID_Funcion;
+            string Consulta;
+            n_BxF BxF = new n_BxF();
+            DataTable dt = new DataTable();
+        
+            if (Origen == 1)
+            {
+                ID_Funcion = Session["IDFuncion"].ToString();
+                Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
+                dt = BxF.ObtenerTabla(Consulta);
+            }
+
+            for (int i = 1; i <= 44; i++)
+            {
+                if (Origen == 0)
+                {
+                    Colorear(Page,"btn" + i, 0);
+                }
+                else
+                {
+                    Colorear(Page, "btn" + i, 2);
+                    for (int x = 0; x < dt.Rows.Count; x++)
+                    {
+                        if (i.ToString() == dt.Rows[x]["ID_Butaca"].ToString().Trim())
+                            Colorear(Page, "btn" + i, 1);
+                    }
+                }
+            }
+        }
+
+        public void Limpiar(int Origen)
+        {
+            if (Origen == 2 || Origen == 1 || Origen == 0)
+            {
+                ddlHorario.Enabled = false;
+                ddlHorario.Items.Clear();
+                ddlHorario.Items.Add("-");
+
+                if (Origen == 1 || Origen == 0)
+                {
+                    ddlDia.Enabled = false;
+                    ddlDia.Items.Clear();
+                    ddlDia.Items.Add("-");
+
+                    if (Origen == 0)
+                    {
+                        ddlFormato.Enabled = false;
+                        ddlFormato.Items.Clear();
+                        ddlFormato.Items.Add("-");
+                    }
+                }
+                Boton(0);
+                Butacas(0);
+            }
+        }
+
+            public void Colorear(Page Pagina, string IDBoton, int Origen)
+            {
+                Button Boton;
+                foreach (Control ctrl in Pagina.Form.Controls)
+                {
+                    foreach (Control Control in ctrl.Controls)
+                        if (Control is Button)
+                        {
+                            Boton = (Button)Control;
+                            if (Boton.ID == IDBoton)
+                            {
+                                if (Origen == 0)
+                                {
+                                    Boton.BackColor = Color.Empty;
+                                    Boton.Enabled = false;
+                                }
+                                else if (Origen == 1)
+                                {
+                                    Boton.BackColor = Color.Red;
+                                    Boton.Enabled = false;
+                                }
+                                else
+                                {
+                                    Boton.BackColor = Color.Empty;
+                                    Boton.Enabled = true;
+                                }
+                            }
+                        }
+                }
+            }
+        
         public void Colorear2(object sender, EventArgs e)
         {
+            Button IDBoton;
+            IDBoton = (Button)sender;
+            if (IDBoton.BackColor == Color.Empty)
+            {
+                if (Convert.ToInt32(Session["ButacasDisp"].ToString()) > 0){
+                    IDBoton.BackColor = Color.Green;
+                    Session["ButacasDisp"] = Convert.ToInt32(Session["ButacasDisp"].ToString()) - 1;
+                    Boton(1);
+                }
+            }
+            else
+            {
+                if (Convert.ToInt32(Session["ButacasDisp"].ToString()) < 10)
+                {
+                    Session["ButacasDisp"] = Convert.ToInt32(Session["ButacasDisp"].ToString()) + 1;
+                    IDBoton.BackColor = Color.Empty;
+                    
+                }
+            }
+            if (ContarSeleccionados(Page) == 0)
+            {
+                Boton(0);
+            }
+        }
 
+       public void Boton(int Origen)
+        {
+            switch (Origen)
+            {
+                case 0:
+                    btnAgregar.Text = "Complete los datos.";
+                    btnAgregar.Enabled = false;
+                    break;
+                case 1:
+                    btnAgregar.Text = "Agregar venta.";
+                    btnAgregar.Enabled = true;
+                    break;
+                case 2:
+                    btnAgregar.Text = "No existe función para ese día.";
+                    btnAgregar.Enabled = false;
+                    break;
+            }
+        }
+
+        public int ContarSeleccionados(Page Pagina,int Origen)
+        {
+            Button Boton;
+            string Butacas=string.Empty;
+            int Contador = 0;
+            for (int i = 1; i <= 44; i++)
+            {
+                foreach (Control ctrl in Pagina.Form.Controls)
+                {
+                    foreach (Control Control in ctrl.Controls)
+                        if (Control is Button)
+                        {
+                            Boton = (Button)Control;
+                            if (Boton.ID == "btn"+i)
+                            {
+                                if (Boton.BackColor == Color.Green)
+                                {
+                                    Contador++;
+                                    if (Origen == 1)
+                                    {
+                                        Butacas = "btn" + i + "-";
+                                    }
+                                }
+                            }
+                        }
+                }
+            }
+            return Contador;
         }
 
         
