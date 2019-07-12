@@ -28,12 +28,19 @@ namespace NEGOCIO
             DAO_Usuarios da = new DAO_Usuarios();
             return da.ObtenerTablaUsuarios();
         }
-
+        
         public DataTable ObtenerUsuario(String usuario)
         {
             DAO_Usuarios da = new DAO_Usuarios();
             return da.ObtenerTablaUsuario(usuario);
         }
+
+        public DataTable ObtenerTablaIDUsuarios(int ID)
+        {
+            DAO_Usuarios da = new DAO_Usuarios();
+            return da.ObtenerTablaIDUsuario(ID);
+        }
+
         public bool editarUsuario(Usuario usuario)
         {
             DAO_Usuarios da = new DAO_Usuarios();

@@ -17,6 +17,12 @@ namespace NEGOCIO
             return da.ObtenerTablaFormatos();
         }
 
+        public DataTable ObtenerTabla(string ID)
+        {
+            DAO_Formatos da = new DAO_Formatos();
+            return da.ObtenerTablaFormatos(ID);
+        }
+
         public bool editarFormato(Formato formato)
         {
             DAO_Formatos da = new DAO_Formatos();
