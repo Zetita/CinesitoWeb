@@ -15,7 +15,6 @@ namespace ENTIDAD
         private String s_IdButaca;
         private String s_FilaButaca;
         private String s_Butaca;
-        private bool b_BenMenoromayor;
         private Double d_PrecioEntrada;
 
         public DetalleVenta()
@@ -46,11 +45,6 @@ namespace ENTIDAD
         {
             set { s_Butaca = value; }
             get { return s_Butaca; }
-        }
-        public bool BenMenoromayor
-        {
-            set { b_BenMenoromayor = value; }
-            get { return b_BenMenoromayor; }
         }
         public Double PrecioEntrada
         {
