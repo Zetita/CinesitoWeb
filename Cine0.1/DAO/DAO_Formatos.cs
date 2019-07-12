@@ -18,6 +18,12 @@ namespace DAO
             return tabla;
         }
 
+        public DataTable ObtenerTablaFormatos(string ID)
+        {
+            DataTable tabla = ad.ObtenerTabla("Formatos", "Select * from Formatos Where ID_Formato='"+ID+"'");
+            return tabla;
+        }
+
         public void armarParametros(ref SqlCommand Comando, Formato formato)
         {
             SqlParameter SqlParametros = new SqlParameter();

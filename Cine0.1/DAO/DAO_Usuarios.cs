@@ -22,6 +22,11 @@ namespace DAO
             DataTable tabla = ad.ObtenerTabla("Usuario", "Select * from Usuarios where Usuario='" + usuario + "'");
             return tabla;
         }
+        public DataTable ObtenerTablaIDUsuario(int ID)
+        {
+            DataTable tabla = ad.ObtenerTabla("Usuario", "Select * from Usuarios where ID_Usuario='" + ID + "'");
+            return tabla;
+        }
         public DataTable ObtenerTablaAdmins()
         {
             return ad.ObtenerTabla("Administradores", "Select * from Usuarios Where Administrador=1");

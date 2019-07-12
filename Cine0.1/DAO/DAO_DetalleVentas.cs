@@ -39,8 +39,6 @@ namespace DAO
             SqlParametros.Value = detalleventa.FilaButaca;
             SqlParametros = Comando.Parameters.Add("@BUTACA", SqlDbType.Char, 20);
             SqlParametros.Value = detalleventa.Butaca;
-            SqlParametros = Comando.Parameters.Add("@BEN_MENOROMAYOR", SqlDbType.Bit);
-            SqlParametros.Value = detalleventa.BenMenoromayor;
             SqlParametros = Comando.Parameters.Add("@PRECIO", SqlDbType.SmallMoney);
             SqlParametros.Value = detalleventa.PrecioEntrada;
         }
