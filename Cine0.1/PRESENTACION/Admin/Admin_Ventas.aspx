@@ -94,5 +94,5 @@
         <asp:ListItem Value="-1">-</asp:ListItem>
         </asp:DropDownList>
 
-    <asp:Button ID="btnAgregar" runat="server" Text="Complete los datos."  style="position:absolute; top:540px; width:400px" Enabled="False"/>
+    <asp:Button ID="btnAgregar" runat="server" Text="Complete los datos."  style="position:absolute; top:540px; width:400px" Enabled="False" OnClick="btnAgregar_Click"/>
 </asp:Content>

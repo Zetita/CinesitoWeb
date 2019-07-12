@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using NEGOCIO;
+using ENTIDAD;
 using System.Drawing;
 
 namespace PRESENTACION
@@ -15,15 +16,15 @@ namespace PRESENTACION
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            n_Pelicula Pelicula = new n_Pelicula();
-            DataTable dt = Pelicula.ObtenerTabla();
+                n_Pelicula Pelicula = new n_Pelicula();
+                DataTable dt = Pelicula.ObtenerTabla();
 
-            if (!IsPostBack)
-            {
-                Butacas(0);
-                LlenarDDLPeliculas(dt);
-                Session["ButacasDisp"] = 10;
-            }
+                if (!IsPostBack)
+                {
+                    Butacas(0);
+                    LlenarDDLPeliculas(dt);
+                    Session["ButacasDisp"] = 10;
+                }
         }
 
         protected void ddlPelicula_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,14 +85,15 @@ namespace PRESENTACION
             n_Funcion Funcion = new n_Funcion();
             DataTable dt = new DataTable();
             string Consulta = string.Empty;
-            string IDPxF = string.Empty;
-            if(ddlFormato.SelectedItem.ToString() != "-" && ddlSucursal.SelectedItem.ToString() != "-" && ddlPelicula.SelectedItem.ToString() != "-")
+            string IDPel = string.Empty;
+            string IDFor = string.Empty;
+            if (ddlFormato.SelectedItem.ToString() != "-" && ddlSucursal.SelectedItem.ToString() != "-" && ddlPelicula.SelectedItem.ToString() != "-")
             {
                 try
                 {
-                    IDPxF = ArmarIDPxF();
-                    Session["IDPxF"] = IDPxF;
-                    Consulta = ArmarConsulta(IDPxF, ddlSucursal.SelectedValue.ToString(), 0);
+                    IDPel = ddlPelicula.SelectedValue.ToString();
+                    IDFor = ddlFormato.SelectedValue.ToString();
+                    Consulta = ArmarConsulta(IDPel,IDFor, ddlSucursal.SelectedValue.ToString(), 0);
 
                     dt = Funcion.ObtenerTabla(Consulta);
 
@@ -104,24 +106,24 @@ namespace PRESENTACION
                     {
                         ddlDia.Enabled = true;
                         LlenarDDLDia(dt);
+                        Boton(0);
                     }
                     else
                     {
-
+                        Boton(2);
                         Limpiar(1);
-
                     }
                 }
                 catch
                 {
                     Boton(2);
+                    Limpiar(1);
                 }
             }
             else
             {
 
                 Limpiar(1);
-
                 Butacas(0);
             }
         }
@@ -131,11 +133,11 @@ namespace PRESENTACION
             n_Funcion Funcion = new n_Funcion();
             DataTable dt = new DataTable();
             string Consulta = string.Empty;
-            string IDPxF = string.Empty;
+            string IDPel = ddlPelicula.SelectedValue.ToString();
+            string IDFor = ddlFormato.SelectedValue.ToString();
             if (ddlDia.SelectedItem.ToString() != "-" && ddlFormato.SelectedItem.ToString() != "-" && ddlSucursal.SelectedItem.ToString() != "-" && ddlPelicula.SelectedItem.ToString() != "-")
             {
-                IDPxF = Session["IDPxF"].ToString();
-                Consulta = ArmarConsulta(IDPxF, ddlSucursal.SelectedValue.ToString(),1);
+                Consulta = ArmarConsulta(IDPel,IDFor, ddlSucursal.SelectedValue.ToString(),1);
 
                 dt = Funcion.ObtenerTabla(Consulta);
 
@@ -165,11 +167,11 @@ namespace PRESENTACION
             DataTable dt = new DataTable();
             string IDFuncion = string.Empty;
             string Consulta = string.Empty;
-            string IDPxF = string.Empty;
-            if(ddlHorario.SelectedItem.ToString() !="-" && ddlDia.SelectedItem.ToString() != "-" && ddlFormato.SelectedItem.ToString() != "-" && ddlSucursal.SelectedItem.ToString() != "-" && ddlPelicula.SelectedItem.ToString() != "-")
+            string IDPel = ddlPelicula.SelectedValue.ToString();
+            string IDFor = ddlFormato.SelectedValue.ToString();
+            if (ddlHorario.SelectedItem.ToString() !="-" && ddlDia.SelectedItem.ToString() != "-" && ddlFormato.SelectedItem.ToString() != "-" && ddlSucursal.SelectedItem.ToString() != "-" && ddlPelicula.SelectedItem.ToString() != "-")
             {
-                IDPxF= Session["IDPxF"].ToString();
-                Consulta = ArmarConsulta(IDPxF, ddlSucursal.SelectedValue.ToString(), 2);
+                Consulta = ArmarConsulta(IDPel,IDFor, ddlSucursal.SelectedValue.ToString(), 2);
                 dt = Funcion.ObtenerTabla(Consulta);
                 IDFuncion = dt.Rows[0]["ID_Funcion"].ToString();
                 Session["IDFuncion"] = IDFuncion;
@@ -183,11 +185,16 @@ namespace PRESENTACION
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            AgregarBxF();
+            AgregarVenta();
+            AgregarDetalleVenta();
+            Reiniciar();
         }
 
         public void LlenarDDLPeliculas(DataTable dt)
         {
+            ddlPelicula.Items.Clear();
+            ddlPelicula.Items.Add("-");
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 ddlPelicula.Items.Add(dt.Rows[i]["Titulo_Pelicula"].ToString());
@@ -245,29 +252,21 @@ namespace PRESENTACION
             }
         }
 
-        public string ArmarIDPxF()
-        {
-            n_PxF PxF = new n_PxF();
-            DataTable dt = PxF.ObtenerTabla(ddlPelicula.SelectedValue.ToString(), ddlFormato.SelectedValue.ToString());
-            string IDPxF = dt.Rows[0]["ID_PxF"].ToString();
-            return IDPxF;
-        }
-
-        public string ArmarConsulta(string IDPxF,string IDSuc,int Origen)
+        public string ArmarConsulta(string IDPel,string IDFor,string IDSuc,int Origen)
         {
             if (Origen == 0)
             {
-                string Consulta = "Select * from Funciones where ID_PxF='" + IDPxF + "' and ID_Sucursal='" + IDSuc + "'";
+                string Consulta = "Select * from Funciones where ID_Pelicula='" + IDPel + "' and ID_Formato='"+ IDFor +"' and ID_Sucursal='" + IDSuc + "'";
                 return Consulta;
             }
             else if(Origen==1)
             {
-                string Consulta = "Select * from Funciones where ID_PxF='" + IDPxF + "' and ID_Sucursal='" + IDSuc + "' and " + ArmarConsultaFecha();
+                string Consulta = "Select * from Funciones where ID_Pelicula='" + IDPel + "' and ID_Formato='" + IDFor + "' and ID_Sucursal='" + IDSuc + "' and " + ArmarConsultaFecha();
                 return Consulta;
             }
             else
             {
-                string Consulta = "Select * from Funciones where ID_PxF='"+IDPxF+"' and ID_Sucursal='"+IDSuc+"' and DATEDIFF(n, FechaHora_Funcion,'" + ddlDia.SelectedItem.ToString() + " " + ddlHorario.SelectedItem.ToString() +"') = 0";
+                string Consulta = "Select * from Funciones where ID_Pelicula='" + IDPel + "' and ID_Formato='" + IDFor + "' and ID_Sucursal='" + IDSuc+"' and DATEDIFF(n, FechaHora_Funcion,'" + ddlDia.SelectedItem.ToString() + " " + ddlHorario.SelectedItem.ToString() +"') = 0";
                 return Consulta;
             }
         }
@@ -317,7 +316,7 @@ namespace PRESENTACION
             if (Origen == 1)
             {
                 ID_Funcion = Session["IDFuncion"].ToString();
-                Consulta = "Select * from ButacaxFunciones where ID_Funcion=" + ID_Funcion;
+                Consulta = "Select * from ButacaxFunciones where ID_Funcion='" + ID_Funcion+"'";
                 dt = BxF.ObtenerTabla(Consulta);
             }
 
@@ -360,7 +359,6 @@ namespace PRESENTACION
                         ddlFormato.Items.Add("-");
                     }
                 }
-                Boton(0);
                 Butacas(0);
             }
         }
@@ -398,6 +396,7 @@ namespace PRESENTACION
         
         public void Colorear2(object sender, EventArgs e)
         {
+            int Seleccionados;
             Button IDBoton;
             IDBoton = (Button)sender;
             if (IDBoton.BackColor == Color.Empty)
@@ -417,7 +416,9 @@ namespace PRESENTACION
                     
                 }
             }
-            if (ContarSeleccionados(Page) == 0)
+            ContarSeleccionados(Page,0);
+            Seleccionados = Convert.ToInt32(Session["ButacasContadas"].ToString());
+            if (Seleccionados == 0)
             {
                 Boton(0);
             }
@@ -442,11 +443,11 @@ namespace PRESENTACION
             }
         }
 
-        public int ContarSeleccionados(Page Pagina,int Origen)
+        public void ContarSeleccionados(Page Pagina,int Origen)
         {
             Button Boton;
-            string Butacas=string.Empty;
             int Contador = 0;
+            string Butaca = string.Empty;
             for (int i = 1; i <= 44; i++)
             {
                 foreach (Control ctrl in Pagina.Form.Controls)
@@ -460,18 +461,128 @@ namespace PRESENTACION
                                 if (Boton.BackColor == Color.Green)
                                 {
                                     Contador++;
-                                    if (Origen == 1)
-                                    {
-                                        Butacas = "btn" + i + "-";
-                                    }
+                                    if(Origen==1) Butaca += i + "-";
                                 }
                             }
                         }
                 }
             }
-            return Contador;
+            if (Origen == 1) Butaca= Butaca.Remove(Butaca.Length-1);
+            Session["ButacasContadas"]= Contador;
+            Session["ButacasSeleccionadas"] = Butaca;
         }
 
-        
+        public void AgregarBxF()
+        {
+            ContarSeleccionados(Page, 1);
+            string[] Butacas = Session["ButacasSeleccionadas"].ToString().Split('-');
+            string IDFuncion = Session["IDFuncion"].ToString();
+            ButacasxFunciones e_BxF = new ButacasxFunciones();
+            n_BxF BxF = new n_BxF();
+            for (int i = 0; i < Butacas.Length; i++)
+            {
+                e_BxF.IDButaca = Butacas[i];
+                e_BxF.IDFuncion = IDFuncion;
+                e_BxF.Butaca = "1";
+                e_BxF.Fila = "1";
+                BxF.insertarBxF(e_BxF);
+            }
+        }
+
+        public void AgregarVenta()
+        {
+            //int IDUser = Convert.ToInt32(Session["IDUser"].ToString());
+            int IDUser = 2;
+            string NombreUser = SacarNombreUser(IDUser);
+            DateTime FechaHora = DateTime.Now;
+            string[] Butacas = Session["ButacasSeleccionadas"].ToString().Split('-');
+            int CantEntradas = Butacas.Length;
+            double PrecioTotal = SacarPrecio(CantEntradas);
+            string IDVenta = SacarIDVenta();
+            Session["IDVenta"] = IDVenta;
+
+            n_Venta n_Ven = new n_Venta();
+            Venta Ven = new Venta();
+            Ven.IdVenta = IDVenta;
+            Ven.IdUsuario = IDUser;
+            Ven.Usuario = NombreUser;
+            Ven.FechaHora = FechaHora;
+            Ven.CantidadEntradas = CantEntradas;
+            Ven.PrecioFinal = PrecioTotal;
+            n_Ven.insertarVenta(Ven);
+        }
+
+        public string SacarNombreUser(int ID)
+        {
+            n_Usuario User = new n_Usuario();
+            DataTable dt = User.ObtenerTablaIDUsuarios(ID);
+            return dt.Rows[0]["Usuario"].ToString();
+        }
+
+        public double SacarPrecio(int Cant)
+        {
+            double Precio;
+            n_Formato Formato = new n_Formato();
+            DataTable dt = Formato.ObtenerTabla(ddlFormato.SelectedValue.ToString());
+            Precio = Convert.ToDouble(dt.Rows[0]["Precio_Formato"].ToString());
+            return Precio * Cant;
+        }
+
+        public string SacarIDVenta()
+        {
+            n_Venta Venta = new n_Venta();
+            DataTable dt = Venta.ObtenerTablaVenta();
+           
+            if (dt.Rows.Count > 0)
+            {
+                if (dt.Rows.Count >= 9)
+                {
+                    if (dt.Rows.Count >= 99) return "VEN" + dt.Rows.Count + 1;
+                    else return "VEN0" + (dt.Rows.Count + 1).ToString();
+                }
+                else return "VEN00" + (dt.Rows.Count + 1).ToString();
+            }
+            else
+            {
+                return "VEN001";
+            }
+        }
+
+        public void AgregarDetalleVenta()
+        {
+            string IDVenta = Session["IDVenta"].ToString();
+            string IDFuncion = Session["IDFuncion"].ToString();
+            string[] Butacas = Session["ButacasSeleccionadas"].ToString().Split('-');
+            int Cant = Butacas.Length;
+            double PrecioU = SacarPrecio(Cant) / Cant;
+            n_DetalleVenta n_Det = new n_DetalleVenta();
+            DetalleVenta Det = new DetalleVenta();
+
+            for (int i = 0; i < Cant; i++)
+            {
+                Det.IdVenta = IDVenta;
+                Det.IdFuncion = IDFuncion;
+                Det.IdButaca = Butacas[i];
+                Det.FilaButaca = "1";
+                Det.Butaca = "1";
+                Det.PrecioEntrada = PrecioU;
+                n_Det.insertarDetalleVenta(Det);
+            }
+        }
+
+        public void Reiniciar()
+        {
+            n_Pelicula n_Pel = new n_Pelicula();
+            DataTable dt = n_Pel.ObtenerTabla();
+            LlenarDDLPeliculas(dt);
+            ddlSucursal.Enabled = false;
+            ddlSucursal.Items.Clear();
+            ddlSucursal.Items.Add("-");
+            Limpiar(0);
+            Butacas(0);
+            Boton(0);
+            Response.Write("<script>window.alert('Venta agregada exitosamente');</script>");
+        }
+
     }
 }
