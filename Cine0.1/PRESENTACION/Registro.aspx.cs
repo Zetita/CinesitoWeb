@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using ENTIDAD;
 using NEGOCIO;
 
@@ -42,31 +43,39 @@ namespace PRESENTACION
 
                 n_Usuario n_usuario = new n_Usuario();
 
-                if (n_usuario.agregarUsuario(usuario))
+
+                if (!(n_usuario.estaRegistrado(txtUsuario.Text)))
                 {
-                    lblAdd.Text = "USUARIO REGISTRADO";
-                    lblAdd.ForeColor = System.Drawing.Color.Blue;
+                    if (n_usuario.agregarUsuario(usuario))
+                    {
+                        lblAdd.Text = "USUARIO REGISTRADO.";
+                        lblAdd.ForeColor = System.Drawing.Color.Blue;
+                    }
+                    else
+                    {
+                        lblAdd.Text = "ERROR AL REGISTRAR, INTENTELO NUEVAMENTE.";
+                        lblAdd.ForeColor = System.Drawing.Color.Red;
+                    }
                 }
                 else
                 {
-                    lblAdd.Text = "ERROR AL REGISTRAR, INTENTELO NUEVAMENTE";
+                    lblAdd.Text = "NOMBRE DE USUARIO EXISTENTE.";
                     lblAdd.ForeColor = System.Drawing.Color.Red;
                 }
-
             }
             else
             {
-                lblAdv.Text = "COMPLETE LOS CAMPOS MARCADOS";
+                lblAdv.Text = "COMPLETE LOS CAMPOS MARCADOS.";
                 lblAdv.ForeColor = System.Drawing.Color.Red;
             }
         }
 
         protected void btnIniciar_Click(object sender, EventArgs e)
-        {
+        { 
             if (rfv9.IsValid && rfv10.IsValid)
             {
                 n_Usuario n_usuario = new n_Usuario();
-                
+                DataTable dt = new DataTable();
                 if (n_usuario.estaRegistrado(txtUsuario2.Text, txtContrasenia2.Text)==true)
                 {
                     Session["UserLogeado"] = txtUsuario2.Text;

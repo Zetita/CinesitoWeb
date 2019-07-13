@@ -28,24 +28,16 @@ namespace PRESENTACION
                 //string ID_Funcion = "1";
                 string Consulta = ArmarConsultaHeavy(ID_Funcion);
 
-                DataTable dt = Funcion.ObtenerTabla(Consulta);
-                LlenarResumen(dt);
-
-                lblEntrada.Text = "Precio Entrada x" + Cantidad;
-                lblTotal.Text = "Total";
-                lblPrecioFinal.Text = "$" + Precio.ToString();
-                lblPrecio.Text = "$" + Application["PrecioTotal"].ToString();
-
-                if (IsPostBack)
+                if (!IsPostBack)
                 {
-                    if (TieneErrores(Page) && cbTerm.Checked)
-                    {
-                        Boton("1");
-                    }
-                    else
-                    {
-                        Boton("2");
-                    }
+                    DataTable dt = Funcion.ObtenerTabla(Consulta);
+                    LlenarResumen(dt);
+                    LlenarDDL();
+
+                    lblEntrada.Text = "Precio Entrada x" + Cantidad;
+                    lblTotal.Text = "Total";
+                    lblPrecioFinal.Text = "$" + Precio.ToString();
+                    lblPrecio.Text = "$" + Application["PrecioTotal"].ToString();
                 }
             }
             else
@@ -57,63 +49,20 @@ namespace PRESENTACION
             }
         }
 
-        protected void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-            if (!txtEmail.Text.Contains("@"))
-            {
-                txtEmail.BorderColor = Color.Red;
-                Boton("2");
-            }
-            else
-            {
-                txtEmail.BorderColor = Color.Empty;
-                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "DoPostBack", "__doPostBack(sender, e)", true);
-            }
-
-        }
-
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
-            string[] Butacas = Application["ButacasReservadas"].ToString().Split(',');
-            string IDFuncion = Application["ID_Funcion"].ToString();
-            int Cantidad = 0;
-            n_BxF ButxFun = new n_BxF();
-            ButacasxFunciones BxF = new ButacasxFunciones();
-            for (int i = 0; i < Butacas.Length-1; i++)
+            if (TieneErrores(Page))
             {
-                BxF.IDButaca = Butacas[i];
-                BxF.IDFuncion = IDFuncion;
-                BxF.Fila = "1";
-                BxF.Butaca = "1";
-                if (ButxFun.insertarBxF(BxF))
-                {
-                    Cantidad++;
-                }
-            }
-            if (Cantidad == Butacas.Length)
-            {
-                Response.Write("<script>window.alert('Butacas reservadas con exito.');</script>");
+                AgregarBxF();
+                AgregarVenta();
+                AgregarDetalleVenta();
+                Response.Cookies["Compra"].Value = "1";
+                Response.Cookies["Compra"].Expires = DateTime.Now.AddHours(1);
+                Response.Redirect("Inicio.aspx");
             }
             else
             {
-                Response.Write("<script>window.alert('Error al reservar butacas.');</script>");
-            }
-            Response.Redirect("Inicio.aspx");
-        }
-
-        protected void Validar(object sender, EventArgs e)
-        {
-            TextBox txt;
-            txt = (TextBox)sender;
-            if (txt.Text == string.Empty)
-            {
-                txt.BorderColor = Color.Red;
-                Boton("2");
-            }
-            else
-            {
-                txt.BorderColor = Color.Empty;
-                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "DoPostBack", "__doPostBack(sender, e)", true);
+                Response.Write("<script>window.alert('Faltan completar datos.');</script>");
             }
         }
 
@@ -154,41 +103,196 @@ namespace PRESENTACION
             Application["Precio"] = Convert.ToDouble(dt.Rows[0]["Precio_Formato"].ToString());
         }
 
-        public void Boton(string Estado)
+        public void LlenarDDL()
         {
-            switch (Estado)
+            string[] AnioyHora = DateTime.Today.ToString().Split('/');
+            string[] Anio = AnioyHora[2].Split(' ');
+            int Item= Convert.ToInt32(Anio[0]);
+            ddlFechaVenc1.Items.Add("-");
+            for (int i = 0; i < 10; i++)
             {
-                case "0":
-                    btnConfirmar.Text = " COMPLETE LOS DATOS NECESARIOS";
-                    btnConfirmar.Enabled = false;
-                    break;
-                case "1":
-                    btnConfirmar.Text = " CONFIRMAR COMPRA ";
-                    btnConfirmar.Enabled = true;
-                    break;
-                case "2":
-                    btnConfirmar.Text = "DATOS ERRONEOS INGRESADOS";
-                    btnConfirmar.Enabled = false;
-                    break;
+                ddlFechaVenc1.Items.Add((Item + i).ToString());
             }
         }
 
         public bool TieneErrores(Page Pagina)
         {
             TextBox txt;
+            DropDownList ddl;
+            CheckBox cb;
+            bool Completo = true;
             foreach (Control ctrl in Pagina.Form.Controls)
             {
                 foreach (Control Control in ctrl.Controls)
+                {
                     if (Control is TextBox)
                     {
                         txt = (TextBox)Control;
-                        if (txt.BorderColor==Color.Red)
+                        if (txt.Text == string.Empty)
                         {
-                            return false;
+                            txt.BorderColor = Color.Red;
+                            Completo = false;
+                        }
+                        else if (txt.ID == "txtEmail")
+                        {
+                            if (!(txt.Text.Contains('@')))
+                            {
+                                txt.BorderColor = Color.Red;
+                                Completo = false;
+                            }
+                            else
+                            {
+                                txt.BorderColor = Color.Empty;
+                            }
+                        }
+                        else
+                        {
+                            txt.BorderColor = Color.Empty;
                         }
                     }
+                    else if (Control is DropDownList)
+                    {
+                        ddl = (DropDownList)Control;
+                        if (ddl.SelectedItem.ToString() == "-")
+                        {
+                            ddl.BorderColor = Color.Red;
+                            Completo = false;
+                        }
+                        else
+                        {
+                            ddl.BorderColor = Color.Empty;
+                        }
+                    }
+                    else if(Control is CheckBox)
+                    {
+                        cb = (CheckBox)Control;
+                        if (!cb.Checked)
+                        {
+                            cb.BorderColor = Color.Red;
+                            Completo = false;
+                        }
+                        else
+                        {
+                            cb.BorderColor = Color.Empty;
+                        }
+                    }
+                }
             }
-            return true;
+            return Completo;
+        }
+
+        public void AgregarBxF()
+        {
+            string[] Butacas = Application["ButacasReservadas"].ToString().TrimEnd(',').Split(',');
+            string IDFuncion = Application["ID_Funcion"].ToString();
+            n_BxF ButxFun = new n_BxF();
+            ButacasxFunciones BxF = new ButacasxFunciones();
+            for (int i = 0; i < Butacas.Length; i++)
+            {
+                BxF.IDButaca = Butacas[i];
+                BxF.IDFuncion = IDFuncion;
+                BxF.Fila = "1";
+                BxF.Butaca = "1";
+                ButxFun.insertarBxF(BxF);
+            }
+        }
+
+        public void AgregarVenta()
+        {
+            n_Venta n_Ven = new n_Venta();
+            Venta Ven = new Venta();
+            string[] Butacas = Application["ButacasReservadas"].ToString().TrimEnd(',').Split(',');
+
+            Ven.IdVenta = SacarIDVenta();
+            Ven.Usuario = Session["UserLogeado"].ToString();
+            Ven.IdUsuario = SacarIDUser(Ven.Usuario);
+            Ven.FechaHora = DateTime.Now;
+            Ven.PrecioFinal = Convert.ToDouble(lblPrecioFinal.Text.TrimStart('$'));
+            Ven.CantidadEntradas = Butacas.Length;
+
+            n_Ven.insertarVenta(Ven);
+
+            Session["IDVenta"] = Ven.IdVenta;
+            Session["PrecioU"] = Ven.PrecioFinal / Butacas.Length;
+        }
+
+        public string SacarIDVenta()
+        {
+            n_Venta Venta = new n_Venta();
+            DataTable dt = Venta.ObtenerTablaVenta();
+
+            if (dt.Rows.Count > 0)
+            {
+                if (dt.Rows.Count >= 9)
+                {
+                    if (dt.Rows.Count >= 99) return "VEN" + dt.Rows.Count + 1;
+                    else return "VEN0" + (dt.Rows.Count + 1).ToString();
+                }
+                else return "VEN00" + (dt.Rows.Count + 1).ToString();
+            }
+            else
+            {
+                return "VEN001";
+            }
+        }
+
+        public int SacarIDUser(string Nombre)
+        {
+            n_Usuario User = new n_Usuario();
+            DataTable dt = User.ObtenerUsuario(Nombre);
+            return Convert.ToInt32(dt.Rows[0]["ID_Usuario"].ToString());
+        }
+
+        public void AgregarDetalleVenta()
+        {
+            n_DetalleVenta n_Det = new n_DetalleVenta();
+            DetalleVenta Det = new DetalleVenta();
+            string[] Butacas= Application["ButacasReservadas"].ToString().TrimEnd(',').Split(',');
+
+            for (int i = 0; i < Butacas.Length; i++)
+            {
+                Det.IdFuncion = Application["ID_Funcion"].ToString();
+                Det.IdVenta = Session["IDVenta"].ToString();
+                Det.PrecioEntrada = Convert.ToDouble(Session["PrecioU"].ToString());
+                Det.IdButaca = Butacas[i];
+                Det.FilaButaca = "2";
+                Det.Butaca = "2";
+                n_Det.insertarDetalleVenta(Det);
+            }
+        }
+
+        protected void ddlFechaVenc1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string[] AnioyHora = DateTime.Today.ToString().Split('/');
+            string[] Anio = AnioyHora[2].Split(' ');
+            int Item = Convert.ToInt32(AnioyHora[0]);
+            if (ddlFechaVenc1.SelectedItem.ToString() != "-")
+            {
+                ddlFechaVenc2.Enabled = true;
+                ddlFechaVenc2.Items.Clear();
+                ddlFechaVenc2.Items.Add("-");
+                if (ddlFechaVenc1.SelectedItem.ToString() == Anio[0])
+                {
+                    while (Item < 12)
+                    {
+                        Item = Item + 1;
+                        ddlFechaVenc2.Items.Add(Item.ToString());
+                    }
+                }
+                else
+                {
+                    for (int i = 1; i <= 12; i++)
+                    {
+                        ddlFechaVenc2.Items.Add(i.ToString());
+                    }
+                }
+            }
+            else
+            {
+                ddlFechaVenc2.Enabled = false;
+                ddlFechaVenc2.Items.Clear();
+                ddlFechaVenc2.Items.Add("-");
+            }
         }
     }
 }

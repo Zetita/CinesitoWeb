@@ -6,52 +6,29 @@
     <!-- LBLS, TXTS Y DDLS DE PAGO -->
     <!-- EMAIL -->
     <asp:Label ID="lblEmail" runat="server" Text="EMAIL" style="position:absolute;font-family:Calibri;color:white;font-size:medium;top: 86px; left: 300px" Font-Bold="true"></asp:Label>
-    <asp:TextBox ID="txtEmail" runat="server" style="position:absolute;width:350px;left:300px;top:107px" AutoPostBack="True" OnTextChanged="txtEmail_TextChanged"></asp:TextBox>
+    <asp:TextBox ID="txtEmail" runat="server" style="position:absolute;width:350px;left:300px;top:107px" AutoPostBack="False"></asp:TextBox>
     
     <!-- TITULAR DE LA TARJETA -->
     <asp:Label ID="lblNombreTarjeta" runat="server" Text="NOMBRE DEL TITULAR" style="position:absolute;font-family:Calibri;color:white;font-size:medium; top: 137px; left: 300px" Font-Bold="true"></asp:Label>
-    <asp:TextBox ID="txtNombreTarjeta" runat="server" style="position:absolute;width:150px;left:300px;top:167px" AutoPostBack="True" OnTextChanged="Validar"></asp:TextBox>
+    <asp:TextBox ID="txtNombreTarjeta" runat="server" style="position:absolute;width:150px;left:300px;top:167px"></asp:TextBox>
     
     <!-- DNI DE TITULAR -->
     <asp:Label ID="lblDni" runat="server" Text="DNI DEL TITULAR" style="position:absolute;font-family:Calibri;color:white;font-size:medium; top: 137px; left: 500px" Font-Bold="true"></asp:Label>
-    <asp:TextBox ID="txtDni" runat="server" style="position:absolute;width:150px;left:500px;top:167px" AutoPostBack="True" OnTextChanged="Validar"></asp:TextBox>
+    <asp:TextBox ID="txtDni" runat="server" style="position:absolute;width:150px;left:500px;top:167px" ></asp:TextBox>
     
     <!-- NUMERO DE LA TARJETA -->
     <asp:Label ID="lblNumeroTarjeta" runat="server" Text="NÚMERO DE TARJETA" style="position:absolute;font-family:Calibri;color:white;font-size:medium; top: 197px; left: 300px" Font-Bold="true"></asp:Label>
-    <asp:TextBox ID="txtNumeroTarjeta" runat="server" style="position:absolute;width:150px;left:300px;top:226px" AutoPostBack="True" OnTextChanged="Validar"></asp:TextBox>
+    <asp:TextBox ID="txtNumeroTarjeta" runat="server" style="position:absolute;width:150px;left:300px;top:226px" ></asp:TextBox>
     
     <!-- CODIGO DE LA TARJETA -->
     <asp:Label ID="lblCodigo" runat="server" Text="CODIGO DE SEGURIDAD" style="position:absolute;font-family:Calibri;color:white;font-size:medium; top: 197px; left: 500px" Font-Bold="true"></asp:Label>
-    <asp:TextBox ID="txtCodigo" runat="server" style="position:absolute;width:150px;left:500px;top:226px" AutoPostBack="True" OnTextChanged="Validar"></asp:TextBox>
+    <asp:TextBox ID="txtCodigo" runat="server" style="position:absolute;width:150px;left:500px;top:226px" ></asp:TextBox>
     
     <!-- FECHA DE VENCIMIENTO -->
     <asp:Label ID="lblFechaVenc" runat="server" Text="FECHA DE VENCIMIENTO" style="position:absolute;font-family:Calibri;color:white;font-size:medium; top: 255px; left: 300px" Font-Bold="true"></asp:Label>
-    <asp:DropDownList ID="ddlFechaVenc1" runat="server" style="position:absolute;width:156px;left:301px;top:284px" AutoPostBack="True">
-        <asp:ListItem>1</asp:ListItem>
-        <asp:ListItem>2</asp:ListItem>
-        <asp:ListItem>3</asp:ListItem>
-        <asp:ListItem>4</asp:ListItem>
-        <asp:ListItem>5</asp:ListItem>
-        <asp:ListItem>6</asp:ListItem>
-        <asp:ListItem>7</asp:ListItem>
-        <asp:ListItem>8</asp:ListItem>
-        <asp:ListItem>9</asp:ListItem>
-        <asp:ListItem>10</asp:ListItem>
-        <asp:ListItem>11</asp:ListItem>
-        <asp:ListItem>12</asp:ListItem>
-    </asp:DropDownList>
-    <asp:DropDownList ID="ddlFechaVenc2" runat="server" style="position:absolute;width:156px;left:501px;top:284px" AutoPostBack="True">
-        <asp:ListItem>2020</asp:ListItem>
-        <asp:ListItem>2021</asp:ListItem>
-        <asp:ListItem>2022</asp:ListItem>
-        <asp:ListItem>2023</asp:ListItem>
-        <asp:ListItem>2024</asp:ListItem>
-        <asp:ListItem>2025</asp:ListItem>
-        <asp:ListItem>2026</asp:ListItem>
-        <asp:ListItem>2027</asp:ListItem>
-        <asp:ListItem>2028</asp:ListItem>
-        <asp:ListItem>2029</asp:ListItem>
-        <asp:ListItem>2030</asp:ListItem>
+    <asp:DropDownList ID="ddlFechaVenc1" runat="server" style="position:absolute;width:156px;left:301px;top:284px" AutoPostBack="True" OnSelectedIndexChanged="ddlFechaVenc1_SelectedIndexChanged" ></asp:DropDownList>
+    <asp:DropDownList ID="ddlFechaVenc2" runat="server" style="position:absolute;width:156px;left:501px;top:284px" AutoPostBack="True" Enabled="False">
+        <asp:ListItem>-</asp:ListItem>
     </asp:DropDownList>
     
     <!-- MEDIO DE PAGO -->
@@ -64,19 +41,19 @@
 
     <!-- INFO PELICULA -->
     <asp:Image ID="imgPelicula" runat="server" ImageUrl="~/Recursos/1.jpg" style="position:absolute; top: 86px; left: 696px; height: 272px; width: 196px;" />
-    <asp:Label ID="lblNombre" runat="server" Text="JOHN WICK 3: PARABELLUM" style="position:absolute;font-family:Calibri;color:white; top: 86px; left: 905px; margin-right:1000px;font-size:x-large" Font-Bold="True"></asp:Label>
+    <asp:Label ID="lblNombre" runat="server" style="position:absolute;font-family:Calibri;color:white; top: 86px; left: 905px; margin-right:1000px;font-size:x-large" Font-Bold="True"></asp:Label>
     
     <!-- INFO COMPRA -->
-    <asp:Label ID="lblEntrada" runat="server" Text="Entrada General x1"  style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 369px; left: 696px"></asp:Label>
-    <asp:Label ID="lblPrecio" runat="server" Text="$330" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 369px; left: 1080px"></asp:Label>
-    <asp:Label ID="lblFormato" runat="server" Text="3D - Audio Español" style="position:absolute;font-family:Calibri;color:white; top: 187px; left: 905px; font-size:x-large" Font-Bold="False"></asp:Label>
-    <asp:Label ID="lblFecha" runat="server" Text="Jueves 13 de Junio - 15:30" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 329px; left: 905px"></asp:Label>
+    <asp:Label ID="lblEntrada" runat="server"  style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 369px; left: 696px"></asp:Label>
+    <asp:Label ID="lblPrecio" runat="server" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 369px; left: 1080px"></asp:Label>
+    <asp:Label ID="lblFormato" runat="server" style="position:absolute;font-family:Calibri;color:white; top: 187px; left: 905px; font-size:x-large" Font-Bold="False"></asp:Label>
+    <asp:Label ID="lblFecha" runat="server" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 329px; left: 905px"></asp:Label>
     <asp:Label ID="lblTotal" runat="server" Text="TOTAL" style="position:absolute;font-family:Calibri;color:white;font-size:xx-large; top: 457px; left: 696px" Font-Bold="true"></asp:Label>
     <asp:Label ID="lblPrecioFinal" runat="server"  style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 457px; left: 1080px" Font-Bold="true"></asp:Label>
     
     <!-- INFO SUCURSAL -->
-    <asp:Label ID="lblSucursal" runat="server" Text="Unicenter - Sala 8" style="position:absolute;font-family:Calibri;color:white; top: 227px; left: 905px; font-size:x-large" Font-Bold="true"></asp:Label>
-    <asp:Label ID="lblDireccion" runat="server" Text="Paraná 3745, Martínez, Buenos Aires" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 267px; left: 905px; margin-right:200px"></asp:Label>
+    <asp:Label ID="lblSucursal" runat="server" style="position:absolute;font-family:Calibri;color:white; top: 227px; left: 905px; font-size:x-large" Font-Bold="true"></asp:Label>
+    <asp:Label ID="lblDireccion" runat="server" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 267px; left: 905px; margin-right:150px"></asp:Label>
     
     <!-- BOLUDECES -->
     <asp:Label ID="lblLinea" runat="server" Text="________________________________________" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 337px; left: 696px"></asp:Label>
@@ -86,6 +63,6 @@
 
     <!-- BOTONES -->
     <asp:Button ID="btnVolver" runat="server" Height="26px" Text="VOLVER" style="background-color:#003d66;position:absolute;width:500px;top:527px;left:170px;height:30px" OnClick="btnVolver_Click" />
-    <asp:Button ID="btnConfirmar" runat="server" Text="CONFIRMAR" style="background-color:#003d66;position:absolute;top:527px;width:500px;height:30px;left:680px" Font-Bold="true" Enabled="False" OnClick="btnConfirmar_Click"/>
+    <asp:Button ID="btnConfirmar" runat="server" Text="CONFIRMAR" style="background-color:#003d66;position:absolute;top:527px;width:500px;height:30px;left:680px" Font-Bold="true" OnClick="btnConfirmar_Click"/>
     
 </asp:Content>

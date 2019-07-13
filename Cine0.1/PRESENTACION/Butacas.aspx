@@ -92,7 +92,7 @@
 
     <!-- INFO LUGAR -->
     <asp:Label ID="lblSucursal" runat="server" style="position:absolute;font-family:Calibri;color:white; top: 227px; left: 905px; font-size:x-large" Font-Bold="true"></asp:Label>
-    <asp:Label ID="lblDireccion" runat="server"  style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 267px; left: 905px; margin-right:200px"></asp:Label>
+    <asp:Label ID="lblDireccion" runat="server"  style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 267px; left: 905px; margin-right:150px"></asp:Label>
 
     <!-- PELICULA -->
     <asp:Image ID="imgPelicula" runat="server" style="position:absolute; top: 86px; left: 696px; height: 272px; width: 196px;" />

@@ -14,10 +14,16 @@ namespace PRESENTACION
             if(Request.Cookies["Error"] != null&& Request.Cookies["Error"].Value.ToString() == "1")
             {
                 
-                    Response.Write("<script>window.alert('Para comprar, primero debe haber iniciado sesión');</script>");
+                    Response.Write("<script>window.alert('Para comprar, primero debe haber iniciado sesión.');</script>");
                     Request.Cookies["Error"].Expires = DateTime.Now.AddDays(-1);
                     this.Response.Cookies.Add(Request.Cookies["Error"]);
                 
+            }
+            else if(Request.Cookies["Compra"] != null && Request.Cookies["Compra"].Value.ToString() == "1")
+            {
+                Response.Write("<script>window.alert('Compra realizada con exito.');</script>");
+                Request.Cookies["Compra"].Expires = DateTime.Now.AddDays(-1);
+                this.Response.Cookies.Add(Request.Cookies["Compra"]);
             }
 
         }
