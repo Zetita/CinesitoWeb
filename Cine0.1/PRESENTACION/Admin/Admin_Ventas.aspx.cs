@@ -491,32 +491,29 @@ namespace PRESENTACION
 
         public void AgregarVenta()
         {
-            //int IDUser = Convert.ToInt32(Session["IDUser"].ToString());
-            int IDUser = 2;
-            string NombreUser = SacarNombreUser(IDUser);
-            DateTime FechaHora = DateTime.Now;
+
             string[] Butacas = Session["ButacasSeleccionadas"].ToString().Split('-');
-            int CantEntradas = Butacas.Length;
-            double PrecioTotal = SacarPrecio(CantEntradas);
-            string IDVenta = SacarIDVenta();
-            Session["IDVenta"] = IDVenta;
+            double PrecioTotal = SacarPrecio(Butacas.Length);
 
             n_Venta n_Ven = new n_Venta();
             Venta Ven = new Venta();
-            Ven.IdVenta = IDVenta;
-            Ven.IdUsuario = IDUser;
-            Ven.Usuario = NombreUser;
-            Ven.FechaHora = FechaHora;
-            Ven.CantidadEntradas = CantEntradas;
+            Ven.IdVenta = SacarIDVenta();
+            Ven.Usuario = Session["UserLogeado"].ToString();
+            Ven.IdUsuario = SacarIDUser(Ven.Usuario);
+            Ven.FechaHora = DateTime.Now;
+            Ven.CantidadEntradas = Butacas.Length;
             Ven.PrecioFinal = PrecioTotal;
+
             n_Ven.insertarVenta(Ven);
+
+            Session["IDVenta"] = Ven.IdVenta;
         }
 
-        public string SacarNombreUser(int ID)
+        public int SacarIDUser(string Nombre)
         {
             n_Usuario User = new n_Usuario();
-            DataTable dt = User.ObtenerTablaIDUsuarios(ID);
-            return dt.Rows[0]["Usuario"].ToString();
+            DataTable dt = User.ObtenerUsuario(Nombre);
+            return Convert.ToInt32(dt.Rows[0]["ID_Usuario"].ToString());
         }
 
         public double SacarPrecio(int Cant)
