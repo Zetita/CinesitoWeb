@@ -15,6 +15,11 @@
 </figure>
 </div>
     <div>
+        <br />
+        <asp:Label ID="lbl_Cartelera" runat="server" style="position:absolute;text-align:center;color:white;font-size:xx-large;width:100%" Font-Bold="True" Text="CARTELERA" Font-Underline="True" />
+        <br />
+        <br />
+        <br />
         <asp:ListView ID="lstPeliculas" runat="server" DataSourceID="sqldsFuente" GroupItemCount="3">
     
         <EditItemTemplate>
