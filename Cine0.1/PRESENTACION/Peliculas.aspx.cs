@@ -105,7 +105,6 @@ namespace PRESENTACION
                 if (dt.Rows.Count > 0)
                 {
                     LlenarDDLDia(dt);
-                    Boton("0");
                 }
                 else
                 {
@@ -232,9 +231,23 @@ namespace PRESENTACION
                 
                 if (dt.Rows[i]["FechaHora_Funcion"].ToString().Contains(Fecha[0]))
                 {
-                    if(!FechaRepetida(Fecha[0]))
-                    ddlDía.Items.Add(Fecha[0]);
+                    if (DateTime.Now < Convert.ToDateTime(dt.Rows[i]["FechaHora_Funcion"].ToString()))
+                    {
+                        if (!FechaRepetida(Fecha[0]))
+                            ddlDía.Items.Add(Fecha[0]);
+                    }
                 }
+            }
+            if (ddlDía.Items.Count > 1)
+            {
+                ddlDía.Enabled = true;
+                Boton("0");
+            }
+            else
+            {
+                ddlDía.Enabled = false;
+                ddlHorario.Enabled = false;
+                Boton("2");
             }
         }
 
