@@ -120,6 +120,8 @@ namespace PRESENTACION
             String s_Nombre = ((TextBox)grdSnacks.Rows[e.RowIndex].FindControl("txt_eit_Nombre")).Text;
             String s_Tipo = ((Label)grdSnacks.Rows[e.RowIndex].FindControl("lbl_eit_Tipo")).Text;
             Double d_Precio = Double.Parse(((TextBox)grdSnacks.Rows[e.RowIndex].FindControl("txt_eit_Precio")).Text);
+            
+
             String s_urlImagen = ((Label)grdSnacks.Rows[e.RowIndex].FindControl("img_eit_Imagen.ImagenURL")).Text; //arreglar
             bool b_Estado;
 

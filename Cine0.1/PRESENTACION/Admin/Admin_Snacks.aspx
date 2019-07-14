@@ -30,7 +30,7 @@
                     <asp:TextBox ID="txtSnack" runat="server" Width="300px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtSnack" ErrorMessage="Ingrese un nombre." ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtSnack" ErrorMessage="Ingrese un nombre." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -40,7 +40,7 @@
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="ddlTipoSnack" ErrorMessage="Elija un tipo." ForeColor="Red" InitialValue="-Seleccione algun tipo-">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="ddlTipoSnack" ErrorMessage="Elija un tipo." ForeColor="Red" InitialValue="-Seleccione algun tipo-" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -49,8 +49,8 @@
                     <asp:TextBox ID="txtPrecio" runat="server" Width="300px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txtPrecio" ErrorMessage="Ingrese un precio." ForeColor="Red">*</asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="cv1" runat="server" ControlToValidate="txtPrecio" ErrorMessage="¡Ingrese un valor numerico positivo!" ForeColor="Red" Operator="GreaterThan" Type="Integer" ValueToCompare="0"> </asp:CompareValidator>
+                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txtPrecio" ErrorMessage="Ingrese un precio." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="cv1" runat="server" ControlToValidate="txtPrecio" ErrorMessage="¡Ingrese un valor numerico positivo!" ForeColor="Red" Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="add"> </asp:CompareValidator>
                 </td>
             </tr>
             <tr>
@@ -59,7 +59,7 @@
                     <asp:FileUpload ID="FileImagen" runat="server" Width="300px" />
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="FileImagen" ErrorMessage="Ingrese una imagen." ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="FileImagen" ErrorMessage="Ingrese una imagen." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -71,7 +71,7 @@
                     </asp:RadioButtonList>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="rbtnEstado" ErrorMessage="Seleccione un estado." ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="rbtnEstado" ErrorMessage="Seleccione un estado." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -134,9 +134,6 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="IMAGEN">
-                    <EditItemTemplate>
-                        <asp:ImageButton ID="img_eit_Imagen" runat="server" ImageUrl='<%# Bind("URLImagen_Snack") %>' />
-                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:ImageButton ID="ImageButton1" runat="server" Height="100px" ImageUrl='<%# Bind("URLImagen_Snack") %>' />
                     </ItemTemplate>

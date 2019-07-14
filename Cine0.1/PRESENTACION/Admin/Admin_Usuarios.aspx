@@ -5,7 +5,7 @@
             width: 100%;
         }
         .auto-style2 {
-            width: 313px;
+            width: 337px;
         }
         .auto-style3 {
             width: 378px;
@@ -26,7 +26,7 @@
                     <asp:TextBox ID="txtUsuario" runat="server" Width="302px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtUsuario" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtUsuario" ErrorMessage="Ingrese un usuario" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -35,7 +35,7 @@
                     <asp:TextBox ID="txtContrasenia" runat="server" Width="302px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtContrasenia" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtContrasenia" ErrorMessage="Ingrese una contraseña" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -44,7 +44,7 @@
                     <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" Width="302px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txtEmail" ErrorMessage="Ingrese un email" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -53,7 +53,7 @@
                     <asp:TextBox ID="txtApellidos" runat="server" Width="302px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txtApellidos" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txtApellidos" ErrorMessage="Ingrese un apellido" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -62,7 +62,7 @@
                     <asp:TextBox ID="txtNombres" runat="server" Width="302px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtNombres" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtNombres" ErrorMessage="Ingrese un nombre" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -71,7 +71,7 @@
                     <asp:TextBox ID="txtDni" runat="server" TextMode="Number" Width="300px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txtDni" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txtDni" ErrorMessage="Ingrese un DNI" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -80,16 +80,16 @@
                     <asp:TextBox ID="txtTelefono" runat="server" TextMode="Phone" Width="161px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Ingrese un telefono" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Fecha de nacimiento(01/12/1990)</td>
+                <td class="auto-style2">Fecha de nacimiento(MM/DD/AAAA)</td>
                 <td class="auto-style3">
                     <asp:TextBox ID="txtFecNac" runat="server" TextMode="DateTime" Width="161px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv8" runat="server" ControlToValidate="txtFecNac" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv8" runat="server" ControlToValidate="txtFecNac" ErrorMessage="Ingrese una fecha" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -101,7 +101,7 @@
                     </asp:RadioButtonList>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv9" runat="server" ControlToValidate="rbtnAdmin" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv9" runat="server" ControlToValidate="rbtnAdmin" ErrorMessage="Seleccione una opción" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -130,7 +130,7 @@
 &nbsp;&nbsp;
         <asp:Button ID="btnAdmins" runat="server" OnClick="btnAdmins_Click" Text="Administradores" />
         <br />
-        <asp:GridView ID="grdUsuarios" runat="server" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" CssClass="tablalistado" PageSize="5" OnRowDeleting="grdUsuarios_RowDeleting" OnRowEditing="grdUsuarios_RowEditing">
+        <asp:GridView ID="grdUsuarios" runat="server" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" CssClass="tablalistado" PageSize="5" OnRowDeleting="grdUsuarios_RowDeleting" OnRowEditing="grdUsuarios_RowEditing" OnRowCancelingEdit="grdUsuarios_RowCancelingEdit" OnRowUpdating="grdUsuarios_RowUpdating" OnPageIndexChanging="grdUsuarios_PageIndexChanging">
             <Columns>
                 <asp:TemplateField HeaderText="ID">
                     <EditItemTemplate>
@@ -149,8 +149,11 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="CONTRASEÑA">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_eit_Contrasenia" runat="server" Text='<%# Bind("Contrasenia") %>'></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lbl_it_Contra" runat="server" Text='<%# Bind("Contrasenia") %>'></asp:Label>
+                        <asp:Label ID="lbl_it_Contrasenia" runat="server" Text='<%# Bind("Contrasenia") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="EMAIL">
@@ -162,38 +165,59 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="APELLIDOS">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_eit_Apellidos" runat="server" Text='<%# Bind("Apellidos_Usuario") %>'></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_Apellidos" runat="server" Text='<%# Bind("Apellidos_Usuario") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="NOMBRES">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_eit_Nombres" runat="server" Text='<%# Bind("Nombres_Usuario") %>'></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_Nombres" runat="server" Text='<%# Bind("Nombres_Usuario") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="DNI">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_eit_DNI" runat="server" Text='<%# Bind("DNI_Usuario") %>'></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Usuario") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="TELEFONO">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_eit_Telefono" runat="server" Text='<%# Bind("Telefono_Usuario") %>'></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_Telefono" runat="server" Text='<%# Bind("Telefono_Usuario") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="FECHA DE NAC">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_eit_FecNac" runat="server" Text='<%# Bind("FechaNac_Usuario") %>' TextMode="DateTime" Width="161px"></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lbl_it_FecNac" runat="server" Text='<%# Bind("FechaNac_Usuario") %>'></asp:Label>
+                        <asp:Label ID="lbl_it_FecNac" runat="server" Text='<%# Bind("FechaNac_Usuario", "{0:d}" ) %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="ADMINISTRADOR">
+                    <EditItemTemplate>
+                        <asp:CheckBox ID="cb_eit_Admin" runat="server" Checked='<%# Bind("Administrador") %>' />
+                    </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:CheckBox ID="cbox_it_Admin" runat="server" Checked='<%# Bind("Administrador") %>' />
+                        <asp:CheckBox ID="cbox_it_Admin" runat="server" Checked='<%# Bind("Administrador") %>' Enabled="False" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="ESTADO">
+                    <EditItemTemplate>
+                        <asp:CheckBox ID="cb_eit_Activo" runat="server" Checked='<%# Bind("Activo") %>' />
+                    </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:CheckBox ID="cbox_it_Activo" runat="server" Checked='<%# Bind("Activo") %>' />
+                        <asp:CheckBox ID="cbox_it_Activo" runat="server" Checked='<%# Bind("Activo") %>' Enabled="False" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

@@ -71,6 +71,9 @@ namespace PRESENTACION
                 usuario.Nombre = txtNombres.Text;
                 usuario.Dni = txtDni.Text;
                 usuario.Telefono = txtTelefono.Text;
+                DateTime dt = DateTime.Parse(txtFecNac.Text);
+                usuario.FechaNac = dt;
+
                 if (rbtnAdmin.SelectedValue.ToString() == "1")
                     usuario.Administrador = true;
                 else
@@ -113,6 +116,58 @@ namespace PRESENTACION
         protected void grdUsuarios_RowEditing(object sender, GridViewEditEventArgs e)
         {
             grdUsuarios.EditIndex = e.NewEditIndex;
+            cargarGrilla();
+        }
+
+        protected void grdUsuarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            String s_Usuario = ((Label)grdUsuarios.Rows[e.RowIndex].FindControl("lbl_eit_Usuario")).Text;
+            String s_Contrasenia = ((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_Contrasenia")).Text;
+            String s_Email = ((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_Email")).Text;
+            String s_Apellidos = ((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_Apellidos")).Text;
+            String s_Nombres = ((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_Nombres")).Text;
+            String s_DNI = ((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_DNI")).Text;
+            String s_Telefono = ((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_Telefono")).Text;
+            DateTime dt_FechaNac = DateTime.Parse(((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_FecNac")).Text);
+            bool b_Activo, b_Admin;
+            if (((CheckBox)grdUsuarios.Rows[e.RowIndex].FindControl("cb_eit_Activo")).Checked == true)
+                b_Activo = true;
+            else
+                b_Activo = false;
+
+            if (((CheckBox)grdUsuarios.Rows[e.RowIndex].FindControl("cb_eit_Admin")).Checked == true)
+                b_Admin = true;
+            else
+                b_Admin = false;
+
+            Usuario usuario = new Usuario();
+            usuario.User = s_Usuario;
+            usuario.Contrasenia = s_Contrasenia;
+            usuario.Email = s_Email;
+            usuario.Apellido = s_Apellidos;
+            usuario.Nombre = s_Nombres;
+            usuario.Dni = s_DNI;
+            usuario.Telefono = s_Telefono;
+            usuario.FechaNac = dt_FechaNac;
+            usuario.Activo = b_Activo;
+            usuario.Administrador = b_Admin;
+
+            n_Usuario n_usuario = new n_Usuario();
+            n_usuario.editarUsuario(usuario);
+
+            grdUsuarios.EditIndex = -1;
+            cargarGrilla();
+        }
+
+        protected void grdUsuarios_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grdUsuarios.EditIndex = -1;
+            cargarGrilla();
+        }
+
+        protected void grdUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdUsuarios.PageIndex = e.NewPageIndex;
             cargarGrilla();
         }
     }
