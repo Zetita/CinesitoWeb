@@ -134,8 +134,11 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="IMAGEN">
+                    <EditItemTemplate>
+                        <asp:ImageButton ID="img_it_Imagen" runat="server" Height="100px" ImageUrl='<%# Bind("URLImagen_Snack") %>' />
+                    </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:ImageButton ID="ImageButton1" runat="server" Height="100px" ImageUrl='<%# Bind("URLImagen_Snack") %>' />
+                        <asp:ImageButton ID="img_it_Imagen" runat="server" Height="100px" ImageUrl='<%# Bind("URLImagen_Snack") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="ESTADO">
