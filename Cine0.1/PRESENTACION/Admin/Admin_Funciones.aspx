@@ -37,10 +37,9 @@
                 <td class="auto-style3">
                     <asp:DropDownList ID="ddlPXF" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPXF_SelectedIndexChanged">
                     </asp:DropDownList>
-                    <asp:Label ID="lblPeliculaFormato" runat="server"></asp:Label>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="ddlPXF" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="ddlPXF" ErrorMessage="*" ForeColor="Red" InitialValue="0" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -50,7 +49,7 @@
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="ddlSucursal" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="ddlSucursal" ErrorMessage="*" ForeColor="Red" InitialValue="0" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -60,7 +59,7 @@
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="ddlSala" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="ddlSala" ErrorMessage="*" ForeColor="Red" InitialValue="0" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -77,7 +76,7 @@
                     <asp:TextBox ID="txtHorario" runat="server"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtHorario" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtHorario" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -111,14 +110,12 @@
                         <asp:Label ID="lbl_it_IdFuncion" runat="server" Text='<%# Bind("ID_Funcion") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Pelicula-Formato">
+                <asp:TemplateField HeaderText="Pelicula">
                     <EditItemTemplate>
                         <asp:Label ID="lbl_eit_idpxf" runat="server" Text='<%# Bind("ID_PxF") %>'></asp:Label>
                     </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="lbl_it_idpxf" runat="server" Text='<%# Bind("ID_PxF") %>'></asp:Label>
-                    </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="Formato"></asp:TemplateField>
                 <asp:TemplateField HeaderText="Sucursal">
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_idsuc" runat="server" Text='<%# Bind("ID_Sucursal") %>'></asp:Label>

@@ -36,11 +36,12 @@ namespace PRESENTACION
         }
         public void cargarDDL()
         {
-            n_PxF n_pxf = new n_PxF();
-            ddlPXF.DataTextField = "ID_PxF";
-            ddlPXF.DataValueField = "ID_PxF";
-            ddlPXF.DataSource = n_pxf.ObtenerTabla();
-            ddlPXF.DataBind();
+            //ESTO HAY QUE CAMBIAR XQ ID_PXF NO ESTA MAS
+            //n_PxF n_pxf = new n_PxF();
+            //ddlPXF.DataTextField = "ID_PxF";
+            //ddlPXF.DataValueField = "ID_PxF";
+            //ddlPXF.DataSource = n_pxf.ObtenerTabla();
+            //ddlPXF.DataBind();
 
             //ddlPXF.Items.Insert(0, "---Nada selecionado---");
             n_Sucursal n_sucursal = new n_Sucursal();
@@ -80,7 +81,8 @@ namespace PRESENTACION
             {
                 Funcion funcion = new Funcion();
                 funcion.IDFuncion = "FN00" + (grdFunciones.Rows.Count + 1);
-                funcion.IDPxF = ddlPXF.SelectedValue.ToString();
+                
+                //funcion.IDPxF = ddlPXF.SelectedValue.ToString();
                 funcion.IDSucursal = ddlSucursal.SelectedValue.ToString();
                 funcion.IDSala = ddlSala.SelectedValue.ToString();
                 String[] hor = txtHorario.Text.Split(':');

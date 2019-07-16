@@ -74,6 +74,8 @@ namespace PRESENTACION
                     lblAgregado.Text = "Cargado exitosamente.";
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrillaSuc();
+                    cargarGrillaSalas();
+                    cargarDDLSucs();
                 }
                 else
                 {
