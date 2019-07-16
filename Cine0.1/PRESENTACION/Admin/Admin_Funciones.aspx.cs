@@ -80,7 +80,7 @@ namespace PRESENTACION
             {
                 Funcion funcion = new Funcion();
                 funcion.IDFuncion = "FN00" + (grdFunciones.Rows.Count + 1);
-                funcion.IDPxF = ddlPXF.SelectedValue.ToString();
+                //funcion.IDPxF = ddlPXF.SelectedValue.ToString();
                 funcion.IDSucursal = ddlSucursal.SelectedValue.ToString();
                 funcion.IDSala = ddlSala.SelectedValue.ToString();
                 String[] hor = txtHorario.Text.Split(':');

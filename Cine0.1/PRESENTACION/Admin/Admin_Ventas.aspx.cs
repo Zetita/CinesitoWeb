@@ -16,10 +16,10 @@ namespace PRESENTACION
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["UserLogeado"] != null)
-            //{
-            //    if (Session["NivelUser"].ToString() == "1")
-            //    {
+            if (Session["UserLogeado"] != null)
+            {
+                if (Session["NivelUser"].ToString() == "1")
+                {
                     n_Pelicula Pelicula = new n_Pelicula();
                     DataTable dt = Pelicula.ObtenerTabla();
 
@@ -29,20 +29,20 @@ namespace PRESENTACION
                         LlenarDDLPeliculas(dt);
                         Session["ButacasDisp"] = 10;
                     }
-            //    }
-            //    else
-            //    {
-            //        Response.Cookies["Error"].Value = "2";
-            //        Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
-            //        Response.Redirect("Inicio.aspx");
-            //    }
-            //}
-            //else
-            //{
-            //    Response.Cookies["Error"].Value = "1";
-            //    Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
-            //    Response.Redirect("Inicio.aspx");
-            //}
+                }
+                else
+                {
+                    Response.Cookies["Error"].Value = "2";
+                    Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
+                    Response.Redirect("Inicio.aspx");
+                }
+}
+            else
+            {
+                Response.Cookies["Error"].Value = "1";
+                Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
+                Response.Redirect("Inicio.aspx");
+            }
         }
 
         protected void ddlPelicula_SelectedIndexChanged(object sender, EventArgs e)
@@ -506,7 +506,7 @@ namespace PRESENTACION
             if (Origen == 1)
             {
                 Butaca = Butaca.Remove(Butaca.Length - 1);
-                FyC = FyC.Remove(Butaca.Length - 1);
+                FyC = FyC.Remove(FyC.Length - 1);
             }
             Session["ButacasContadas"]= Contador;
             Session["ButacasSeleccionadas"] = Butaca;
@@ -519,11 +519,12 @@ namespace PRESENTACION
             string[] Butacas = Session["ButacasSeleccionadas"].ToString().Split('-');
             string[] FilaYButaca = Session["FilaYButaca"].ToString().Split(',');
             string IDFuncion = Session["IDFuncion"].ToString();
+            string[] FYB;
             ButacasxFunciones e_BxF = new ButacasxFunciones();
             n_BxF BxF = new n_BxF();
             for (int i = 0; i < Butacas.Length; i++)
             {
-                string[] FYB = FilaYButaca[i].Split('-');
+                FYB = FilaYButaca[i].Split('-');
                 e_BxF.IDButaca = Butacas[i];
                 e_BxF.IDFuncion = IDFuncion;
                 e_BxF.Butaca = FYB[1];
@@ -541,8 +542,7 @@ namespace PRESENTACION
             n_Venta n_Ven = new n_Venta();
             Venta Ven = new Venta();
             Ven.IdVenta = SacarIDVenta();
-            //Ven.Usuario = Session["UserLogeado"].ToString();
-            Ven.Usuario = "admin";
+            Ven.Usuario = Session["UserLogeado"].ToString();
             Ven.IdUsuario = SacarIDUser(Ven.Usuario);
             Ven.FechaHora = DateTime.Now;
             Ven.CantidadEntradas = Butacas.Length;
