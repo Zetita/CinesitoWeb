@@ -16,15 +16,33 @@ namespace PRESENTACION
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-                n_Pelicula Pelicula = new n_Pelicula();
-                DataTable dt = Pelicula.ObtenerTabla();
+            //if (Session["UserLogeado"] != null)
+            //{
+            //    if (Session["NivelUser"].ToString() == "1")
+            //    {
+                    n_Pelicula Pelicula = new n_Pelicula();
+                    DataTable dt = Pelicula.ObtenerTabla();
 
-                if (!IsPostBack)
-                {
-                    Butacas(0);
-                    LlenarDDLPeliculas(dt);
-                    Session["ButacasDisp"] = 10;
-                }
+                    if (!IsPostBack)
+                    {
+                        Butacas(0);
+                        LlenarDDLPeliculas(dt);
+                        Session["ButacasDisp"] = 10;
+                    }
+            //    }
+            //    else
+            //    {
+            //        Response.Cookies["Error"].Value = "2";
+            //        Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
+            //        Response.Redirect("Inicio.aspx");
+            //    }
+            //}
+            //else
+            //{
+            //    Response.Cookies["Error"].Value = "1";
+            //    Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
+            //    Response.Redirect("Inicio.aspx");
+            //}
         }
 
         protected void ddlPelicula_SelectedIndexChanged(object sender, EventArgs e)
@@ -461,6 +479,7 @@ namespace PRESENTACION
             Button Boton;
             int Contador = 0;
             string Butaca = string.Empty;
+            string FyC = string.Empty;
             for (int i = 1; i <= 44; i++)
             {
                 foreach (Control ctrl in Pagina.Form.Controls)
@@ -474,30 +493,41 @@ namespace PRESENTACION
                                 if (Boton.BackColor == Color.Green)
                                 {
                                     Contador++;
-                                    if(Origen==1) Butaca += i + "-";
+                                    if (Origen == 1)
+                                    {
+                                        Butaca += i + "-";
+                                        FyC += Boton.CommandName.ToString() + ",";
+                                    }
                                 }
                             }
                         }
                 }
             }
-            if (Origen == 1) Butaca= Butaca.Remove(Butaca.Length-1);
+            if (Origen == 1)
+            {
+                Butaca = Butaca.Remove(Butaca.Length - 1);
+                FyC = FyC.Remove(Butaca.Length - 1);
+            }
             Session["ButacasContadas"]= Contador;
             Session["ButacasSeleccionadas"] = Butaca;
+            Session["FilaYButaca"] = FyC;
         }
 
         public void AgregarBxF()
         {
             ContarSeleccionados(Page, 1);
             string[] Butacas = Session["ButacasSeleccionadas"].ToString().Split('-');
+            string[] FilaYButaca = Session["FilaYButaca"].ToString().Split(',');
             string IDFuncion = Session["IDFuncion"].ToString();
             ButacasxFunciones e_BxF = new ButacasxFunciones();
             n_BxF BxF = new n_BxF();
             for (int i = 0; i < Butacas.Length; i++)
             {
+                string[] FYB = FilaYButaca[i].Split('-');
                 e_BxF.IDButaca = Butacas[i];
                 e_BxF.IDFuncion = IDFuncion;
-                e_BxF.Butaca = "1";
-                e_BxF.Fila = "1";
+                e_BxF.Butaca = FYB[1];
+                e_BxF.Fila = FYB[0];
                 BxF.insertarBxF(e_BxF);
             }
         }
@@ -511,7 +541,8 @@ namespace PRESENTACION
             n_Venta n_Ven = new n_Venta();
             Venta Ven = new Venta();
             Ven.IdVenta = SacarIDVenta();
-            Ven.Usuario = Session["UserLogeado"].ToString();
+            //Ven.Usuario = Session["UserLogeado"].ToString();
+            Ven.Usuario = "admin";
             Ven.IdUsuario = SacarIDUser(Ven.Usuario);
             Ven.FechaHora = DateTime.Now;
             Ven.CantidadEntradas = Butacas.Length;
