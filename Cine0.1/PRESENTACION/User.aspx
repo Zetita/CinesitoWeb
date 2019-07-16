@@ -28,8 +28,8 @@
         </div>
         <div class="menu_user">
     
-           <a href="/User/User.aspx" class="active">Historial de compras</a>
-           <a href="/User/User_Perfil.aspx">Editar datos personales</a>
+           <a href="User.aspx" class="active">Historial de compras</a>
+           <a href="User_Perfil.aspx">Editar datos personales</a>
            <a href="#">Cambiar contraseña</a>
            <asp:LinkButton ID="lbCerrar" runat="server" OnClick="lbCerrar_Click" >Cerrar Sesión</asp:LinkButton>
 
@@ -39,6 +39,9 @@
      <div class="contenido">
 
          <asp:Label ID="Titulos" runat="server" Text="Mis compras" CssClass="Titulos"></asp:Label>
+         <asp:GridView ID="grdCompras" runat="server" AllowPaging="True" CellPadding="4" ForeColor="#FFFFFF" GridLines="Both" PageSize="8" BackColor="#000000" style="position:absolute;top:150px;right:75px;width:970px;text-align:center" OnPageIndexChanging="grdCompras_PageIndexChanging">
+           
+         </asp:GridView>
          <hr class="auto-style8" />
 
          <asp:Label ID="lblSinCompras" runat="server"></asp:Label>

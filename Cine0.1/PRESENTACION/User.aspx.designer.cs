@@ -49,6 +49,15 @@ namespace PRESENTACION.User {
         protected global::System.Web.UI.WebControls.Label Titulos;
         
         /// <summary>
+        /// Control grdCompras.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdCompras;
+        
+        /// <summary>
         /// Control lblSinCompras.
         /// </summary>
         /// <remarks>

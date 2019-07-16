@@ -598,14 +598,17 @@ namespace PRESENTACION
             double PrecioU = SacarPrecio(Cant) / Cant;
             n_DetalleVenta n_Det = new n_DetalleVenta();
             DetalleVenta Det = new DetalleVenta();
+            string[] FilayColumna = Session["FilaYButaca"].ToString().Split(',');
+            string[] FyC;
 
             for (int i = 0; i < Cant; i++)
             {
+                FyC = FilayColumna[i].Split('-');
                 Det.IdVenta = IDVenta;
                 Det.IdFuncion = IDFuncion;
                 Det.IdButaca = Butacas[i];
-                Det.FilaButaca = "1";
-                Det.Butaca = "1";
+                Det.FilaButaca = FyC[0];
+                Det.Butaca = FyC[1];
                 Det.PrecioEntrada = PrecioU;
                 n_Det.insertarDetalleVenta(Det);
             }

@@ -30,13 +30,13 @@ namespace PRESENTACION
                 txtNombre.Text = user.Nombre;
                 txtApellido.Text = user.Apellido;
                 txtDNI.Text = user.Dni;
-                txtFecNac.Text = user.FechaNac.ToString();
+                txtFecNac.Text = "07/03/2000";
                 txtEmail.Text = user.Email;
                 txtTelefono.Text = user.Telefono;
                                
             }
         }
-        public void cerrarSesion_Click()
+        protected void lbCerrar_Click(object sender, EventArgs e)
         {
             Session["UserLogeado"] = null;
             Response.Redirect("Inicio.aspx");

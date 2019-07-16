@@ -32,10 +32,10 @@
         </div>
         <div class="menu_user">
     
-           <a href="/User/User.aspx">Historial de compras</a>
-           <a href="/User/User_Perfil.aspx" class="active">Editar datos personales</a>
+           <a href="User.aspx">Historial de compras</a>
+           <a href="User_Perfil.aspx" class="active">Editar datos personales</a>
            <a href="#">Cambiar contraseña</a>
-           <a href="#" onclick="cerrarSesion_Click">Cerrar Sesion</a>
+           <asp:LinkButton ID="lbCerrar" runat="server" OnClick="lbCerrar_Click" >Cerrar Sesión</asp:LinkButton>
 
         </div>
     </td>

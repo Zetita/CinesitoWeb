@@ -249,16 +249,19 @@ namespace PRESENTACION
         {
             n_DetalleVenta n_Det = new n_DetalleVenta();
             DetalleVenta Det = new DetalleVenta();
+            string[] FilayColumna = Application["FyC"].ToString().TrimEnd(',').Split(',');
+            string[] FyC;
             string[] Butacas= Application["ButacasReservadas"].ToString().TrimEnd(',').Split(',');
 
             for (int i = 0; i < Butacas.Length; i++)
             {
+                FyC = FilayColumna[i].ToString().Split('-');
                 Det.IdFuncion = Application["ID_Funcion"].ToString();
                 Det.IdVenta = Session["IDVenta"].ToString();
                 Det.PrecioEntrada = Convert.ToDouble(Session["PrecioU"].ToString());
                 Det.IdButaca = Butacas[i];
-                Det.FilaButaca = "2";
-                Det.Butaca = "2";
+                Det.FilaButaca = FyC[0];
+                Det.Butaca = FyC[1];
                 n_Det.insertarDetalleVenta(Det);
             }
         }

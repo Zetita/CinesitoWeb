@@ -23,6 +23,11 @@ namespace DAO
             DataTable tabla = ad.ObtenerTabla("Ventas", "Select * from Ventas Where Usuario_Venta='" + usuario + "'");
             return tabla;
         }
+        public DataTable ObtenerTabla(string Consulta)
+        {
+            DataTable tabla = ad.ObtenerTabla("Ventas",Consulta);
+            return tabla;
+        }
         public void armarParametros(ref SqlCommand Comando, Venta venta)
         {
             SqlParameter SqlParametros = new SqlParameter();

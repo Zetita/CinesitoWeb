@@ -174,10 +174,6 @@ namespace PRESENTACION
                         Cantidad++;  
                 }
             }
-            if (Cantidad == 10)
-            {
-                return Cantidad - 1;
-            }
             return Cantidad;
         }
 

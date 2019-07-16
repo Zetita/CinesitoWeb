@@ -21,7 +21,11 @@ namespace NEGOCIO
             DAO_Ventas da = new DAO_Ventas();
             return da.ObtenerTablaVentas(usuario);
         }
-
+        public DataTable ObtenerTabla(string Consulta)
+        {
+            DAO_Ventas da = new DAO_Ventas();
+            return da.ObtenerTabla(Consulta);
+        }
         public bool editarVenta(Venta venta)
         {
             DAO_Ventas da = new DAO_Ventas();
