@@ -75,6 +75,9 @@
     <Content Include="CSS\Barras.css" />
     <Content Include="CSS\EstiloPag.css" />
     <Content Include="CSS\User.css" />
+    <Content Include="img\portadas\1.jpg" />
+    <Content Include="img\portadas\2.jpg" />
+    <Content Include="img\portadas\3.jpg" />
     <Content Include="img\snacks\balde_pochoclos_chico.jpg" />
     <Content Include="img\snacks\balde_pochoclos_grande.jpg" />
     <Content Include="JS\Slider.js" />
@@ -254,7 +257,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="img\portadas\" />
     <Folder Include="User\" />
   </ItemGroup>
   <PropertyGroup>

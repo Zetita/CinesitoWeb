@@ -14,16 +14,11 @@ namespace PRESENTACION.User
         protected void Page_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = Session["UserLogeado"].ToString();
-
-            try
-            {
-                CargarGridView();
-            }
-            catch
+            CargarGridView();
+            if (!(grdCompras.Rows.Count > 0))
             {
                 lblSinCompras.Text = "Aun no has comprado entradas, revisa la cartelera para comprar.";
             }
-                
         }
 
         protected void lbCerrar_Click(object sender, EventArgs e)

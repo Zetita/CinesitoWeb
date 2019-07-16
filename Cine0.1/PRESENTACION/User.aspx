@@ -44,7 +44,7 @@
          </asp:GridView>
          <hr class="auto-style8" />
 
-         <asp:Label ID="lblSinCompras" runat="server"></asp:Label>
+         <asp:Label ID="lblSinCompras" runat="server" ForeColor="White" style="position:absolute;top:150px;left:330px;font-size:xx-large"></asp:Label>
          <br />
          <asp:DataList ID="dlistCompras" runat="server">
          </asp:DataList>
