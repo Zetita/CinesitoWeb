@@ -3,9 +3,9 @@ GO
 
 CREATE PROCEDURE spInsertarSnacksxVenta
 (
-@ID_VENTA char(10),
-@ID_SNACK char(10),
-@NOMBRE char(30),
+@ID_VENTA char(6),
+@ID_SNACK char(6),
+@NOMBRE varchar(30),
 @PRECIO smallmoney,
 @CANTIDAD int
 )
@@ -18,12 +18,10 @@ Nombre_Snack,
 Precio_Snack,
 Cantidad_Snack
 )
-VALUES
-(
+SELECT
 @ID_VENTA,
 @ID_SNACK,
 @NOMBRE,
 @PRECIO,
 @CANTIDAD
-)
 RETURN

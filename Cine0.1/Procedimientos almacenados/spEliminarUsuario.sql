@@ -3,7 +3,7 @@ go
 
 CREATE PROCEDURE spEliminarUsuario
 (
-@USUARIO char(40),
+@USUARIO varchar(40),
 @ACTIVO bit
 )
 AS 

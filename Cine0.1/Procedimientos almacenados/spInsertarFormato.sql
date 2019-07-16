@@ -3,12 +3,11 @@ GO
 
 CREATE PROCEDURE spInsertarFormato
 (
-@ID_FORMATO char(10),
-@NOMBRE char(20),
-@IDIOMA char(40),
+@ID_FORMATO char(6),
+@NOMBRE varchar(20),
+@IDIOMA varchar(40),
 @SUBTITULOS bit,
 @PRECIO float
-
 )
 AS
 INSERT INTO Formatos
@@ -19,12 +18,10 @@ Idioma_Formato,
 Subtitulos_Formato,
 Precio_Formato
 )
-VALUES
-(
+SELECT
 @ID_FORMATO,
 @NOMBRE,
 @IDIOMA,
 @SUBTITULOS,
 @PRECIO
-)
 RETURN

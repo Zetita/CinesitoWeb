@@ -3,7 +3,7 @@ go
 
 CREATE PROCEDURE spEliminarSnack
 (
-@ID_SNACK char(10),
+@ID_SNACK char(6),
 @ESTADO bit
 )
 AS 

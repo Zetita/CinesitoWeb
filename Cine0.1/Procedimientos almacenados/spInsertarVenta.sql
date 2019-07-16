@@ -3,9 +3,9 @@ GO
 
 CREATE PROCEDURE spInsertarVenta
 (
-@IDVENTA char(10),
+@IDVENTA char(6),
 @IDUSUARIO int,
-@USUARIO char(40),
+@USUARIO varchar(40),
 @FECHA_HORA datetime,
 @CANT_ENTRADAS int, 
 @PRECIO_FINAL smallmoney
@@ -20,13 +20,11 @@ FechaHora_Venta,
 CantEntradas_Venta,
 PrecioFinal_Venta
 )
-VALUES
-(
+SELECT
 @IDVENTA,
 @IDUSUARIO,
 @USUARIO,
 @FECHA_HORA,
 @CANT_ENTRADAS,
 @PRECIO_FINAL
-)
 RETURN

@@ -3,11 +3,11 @@ GO
 
 CREATE PROCEDURE spInsertarSucursales
 (
-@ID_SUCURSAL char(10),
-@NOMBRE char(20),
-@DIRECCION char(60),
-@LOCALIDAD char(40),
-@PROVINCIA char(40),
+@ID_SUCURSAL char(6),
+@NOMBRE varchar(20),
+@DIRECCION varchar(60),
+@LOCALIDAD varchar(40),
+@PROVINCIA varchar(40),
 @DIRECCIONURL text
 )
 AS
@@ -20,13 +20,11 @@ Localidad_Sucursal,
 Provincia_Sucursal,
 DireccionURL
 )
-VALUES
-(
+SELECT
 @ID_SUCURSAL,
 @NOMBRE,
 @DIRECCION,
 @LOCALIDAD,
 @PROVINCIA,
 @DIRECCIONURL
-)
 RETURN

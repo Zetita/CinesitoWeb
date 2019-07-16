@@ -3,10 +3,10 @@ GO
 
 CREATE PROCEDURE spInsertarBxF
 (
-@ID_BUTACA char(10),
-@ID_FUNCION char(10),
-@FILA char(20),
-@BUTACA char(20)
+@ID_BUTACA char(6),
+@ID_FUNCION char(6),
+@FILA varchar(20),
+@BUTACA varchar(20)
 )
 AS
 INSERT INTO ButacaXFunciones
@@ -16,11 +16,9 @@ ID_Funcion,
 Fila_Butaca,
 Butaca
 )
-VALUES
-(
+SELECT
 @ID_BUTACA,
 @ID_FUNCION,
 @FILA,
 @BUTACA
-)
 RETURN

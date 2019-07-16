@@ -3,12 +3,11 @@ GO
 
 CREATE PROCEDURE spInsertarDetalleVenta
 (
-@ID_VENTA char(10),
-@ID_FUNCION char(10),
-@ID_BUTACA char(10),
-@FILA_BUTACA char(20),
-@BUTACA char(20),
-@BEN_MENOROMAYOR bit,
+@ID_VENTA char(6),
+@ID_FUNCION char(6),
+@ID_BUTACA char(6),
+@FILA_BUTACA varchar(20),
+@BUTACA varchar(20),
 @PRECIO smallmoney
 )
 AS
@@ -19,17 +18,14 @@ ID_Funcion,
 ID_Butaca,
 Fila_Butaca,
 Butaca,
-Ben_MenorOMayor,
 PrecioEntrada
 )
-VALUES
-(
+SELECT
 @ID_VENTA,
 @ID_FUNCION,
 @ID_BUTACA,
 @FILA_BUTACA,
 @BUTACA,
-@BEN_MENOROMAYOR,
 @PRECIO
-)
+
 RETURN
