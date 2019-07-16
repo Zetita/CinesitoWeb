@@ -25,7 +25,6 @@ namespace PRESENTACION
                 string ID_Funcion = Application["ID_Funcion"].ToString();
                 int Cantidad = Convert.ToInt32(Application["Cantidad"].ToString());
                 double Precio = Convert.ToDouble(Application["Precio"].ToString()) * Cantidad;
-                //string ID_Funcion = "1";
                 string Consulta = ArmarConsultaHeavy(ID_Funcion);
 
                 if (!IsPostBack)
@@ -184,15 +183,18 @@ namespace PRESENTACION
         public void AgregarBxF()
         {
             string[] Butacas = Application["ButacasReservadas"].ToString().TrimEnd(',').Split(',');
+            string[] FilayColumna = Application["FyC"].ToString().TrimEnd(',').Split(',');
+            string[] FyC;
             string IDFuncion = Application["ID_Funcion"].ToString();
             n_BxF ButxFun = new n_BxF();
             ButacasxFunciones BxF = new ButacasxFunciones();
             for (int i = 0; i < Butacas.Length; i++)
             {
+                FyC = FilayColumna[i].ToString().Split('-');
                 BxF.IDButaca = Butacas[i];
                 BxF.IDFuncion = IDFuncion;
-                BxF.Fila = "1";
-                BxF.Butaca = "1";
+                BxF.Fila = FyC[0];
+                BxF.Butaca = FyC[1];
                 ButxFun.insertarBxF(BxF);
             }
         }

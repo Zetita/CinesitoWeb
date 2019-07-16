@@ -22,8 +22,7 @@ namespace PRESENTACION
                 n_BxF BxF = new n_BxF();
                 n_Funcion Funcion = new n_Funcion();
                 string ID_Funcion = Application["ID_Funcion"].ToString();
-            //string ID_Funcion = "1";
-            string Consulta = "Select * from ButacaxFunciones where ID_Funcion='" + ID_Funcion+"'";
+                string Consulta = "Select * from ButacaxFunciones where ID_Funcion='" + ID_Funcion+"'";
                 DataTable dt = BxF.ObtenerTabla(Consulta);
 
                 if (!IsPostBack)
@@ -69,8 +68,9 @@ namespace PRESENTACION
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
-            Application["ButacasReservadas"] = null;
             int Cantidad;
+            Application["ButacasReservadas"] = null;
+            Application["FyC"] = null;
             Application["Cantidad"]= Cantidad = SacarCantidad();
             double Precio = Convert.ToDouble(Application["Precio"].ToString()) * Cantidad;
             if (Cantidad != 0)
@@ -165,13 +165,13 @@ namespace PRESENTACION
             
             int Cantidad=0;
             string NombreBoton;
+            string FyC = string.Empty;
             for (int i = 1; i <= 44; i++)
             {
                 NombreBoton = "btn" + i.ToString();
                 if(VerificarClickeado(Page, NombreBoton,i) == 1)
                 {
-                    if(IsPostBack)
-                    Cantidad++;
+                        Cantidad++;  
                 }
             }
             if (Cantidad == 10)
@@ -194,11 +194,9 @@ namespace PRESENTACION
                         {
                             if (Boton.ImageUrl == "~/Recursos/Asiento-Seleccionado.png")
                             {
-
-                                        Application["ButacasReservadas"] += num.ToString() + ",";
-                                        return 1;
-                                
-                                
+                                Application["ButacasReservadas"] += num.ToString() + ",";
+                                Application["FyC"] += Boton.CommandName.ToString() + ",";
+                                return 1;
                             }
                             return -1;
                         }

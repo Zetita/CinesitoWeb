@@ -45,6 +45,9 @@ namespace PRESENTACION
             Response.Redirect("/Admin/Admin_Snacks.aspx");
         }
 
-        
+        protected void LinkVentas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin/Admin_Ventas.aspx");
+        }
     }
 }
