@@ -68,7 +68,11 @@ namespace PRESENTACION
                 snack.Nombre = txtSnack.Text;
                 snack.Tipo = ddlTipoSnack.Text;
                 snack.Precio = Double.Parse(txtPrecio.Text);
-                snack.Estado = true;
+
+                if (rbtnEstado.SelectedValue == "1")
+                    snack.Estado = true;
+                else
+                    snack.Estado = false;
                 String rutaBase = "~/img/snacks/" + fileName;
                 snack.ImagenURL = rutaBase;
 
@@ -96,7 +100,7 @@ namespace PRESENTACION
 
         protected void grdSnacks_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            String codigo = ((Label)grdSnacks.Rows[e.RowIndex].FindControl("lbl_IdSnack")).Text;
+            String codigo = ((Label)grdSnacks.Rows[e.RowIndex].FindControl("lbl_it_IdSnack")).Text;
 
             Snack snack = new Snack();
             snack.idSnack = codigo;

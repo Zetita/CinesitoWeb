@@ -19,6 +19,7 @@ namespace PRESENTACION
             {
                 Path = "/Scripts/jquery-1.8.0.js"
             });
+            txtUsuario2.Focus();
         }
 
         protected void BtnRegistrar_Click(object sender, EventArgs e)

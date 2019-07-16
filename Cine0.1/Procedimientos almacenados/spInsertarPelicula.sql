@@ -18,6 +18,7 @@ CREATE PROCEDURE spInsertarPelicula
 AS
 INSERT INTO Peliculas
 (
+ID_Pelicula,
 Titulo_Pelicula,
 Genero_Pelicula,
 Clasificacion_Pelicula,
@@ -30,6 +31,7 @@ TrailerURL,
 Estado
 )
 SELECT
+@ID_PELICULA,
 @TITULO,
 @GENERO,
 @CLASIFICACION,

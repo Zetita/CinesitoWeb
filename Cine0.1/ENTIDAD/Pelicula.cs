@@ -16,7 +16,7 @@ namespace ENTIDAD
         private String s_Director;
         private String s_Sinopsis;
         private String s_ImagenURL;
-        private DateTime dt_Duracion;
+        private TimeSpan ts_Duracion;
         private String s_TrailerURL;
         private bool b_Estado;
 
@@ -66,10 +66,10 @@ namespace ENTIDAD
             set { s_ImagenURL = value; }
             get { return s_ImagenURL; }
         }
-        public DateTime Duracion
+        public TimeSpan Duracion
         {
-            set { dt_Duracion = value; }
-            get { return dt_Duracion; }
+            set { ts_Duracion = value; }
+            get { return ts_Duracion; }
         }
         public String TrailerURL
         {

@@ -4,15 +4,9 @@
         .auto-style1 {
             width: 100%;
         }
-        .auto-style2 {
-            width: 133px;
-        }
         .auto-style3 {
             width: 137px;
-        }
-        .auto-style5 {
-            width: 133px;
-            height: 29px;
+            color: #FF0000;
         }
         .auto-style6 {
             width: 137px;
@@ -23,6 +17,13 @@
         }
         .auto-style8 {
             width: 18px;
+            height: 29px;
+        }
+        .auto-style9 {
+            width: 166px;
+        }
+        .auto-style10 {
+            width: 166px;
             height: 29px;
         }
     </style>
@@ -37,7 +38,7 @@
         <div class="tabla">
         <table class="auto-style1">
             <tr>
-                <td class="auto-style2">Titulo</td>
+                <td class="auto-style9">Titulo</td>
                 <td class="auto-style7">
                     <asp:TextBox ID="txtTitulo" runat="server" Width="300px"></asp:TextBox>
                 </td>
@@ -46,7 +47,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Genero/s</td>
+                <td class="auto-style9">Genero/s</td>
                 <td class="auto-style7">
                     <asp:TextBox ID="txtGeneros" runat="server" Width="300px"></asp:TextBox>
                 </td>
@@ -55,14 +56,9 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Clasificación</td>
+                <td class="auto-style9">Clasificación</td>
                 <td class="auto-style7">
-                    <asp:DropDownList ID="ddlClasificacion" runat="server">
-                        <asp:ListItem></asp:ListItem>
-                        <asp:ListItem>ATP</asp:ListItem>
-                        <asp:ListItem>SAM13</asp:ListItem>
-                        <asp:ListItem>SAM16</asp:ListItem>
-                        <asp:ListItem>SAM18</asp:ListItem>
+                    <asp:DropDownList ID="ddlClasificacion" runat="server" AutoPostBack="True">
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
@@ -70,9 +66,9 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Fecha Estreno</td>
+                <td class="auto-style9">Fecha Estreno</td>
                 <td class="auto-style7">
-                    <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
+                    <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" SelectedDate="2010-10-10">
                         <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
                         <NextPrevStyle VerticalAlign="Bottom" />
                         <OtherMonthDayStyle ForeColor="#808080" />
@@ -84,10 +80,10 @@
                     </asp:Calendar>
                 </td>
                 <td class="auto-style3">
-                    &nbsp;</td>
+                    *</td>
             </tr>
             <tr>
-                <td class="auto-style2">Director/es</td>
+                <td class="auto-style9">Director/es</td>
                 <td class="auto-style7">
                     <asp:TextBox ID="txtDirector" runat="server" Width="300px"></asp:TextBox>
                 </td>
@@ -96,16 +92,16 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Sinopsis</td>
+                <td class="auto-style9">Sinopsis</td>
                 <td class="auto-style7">
-                    <asp:TextBox ID="txtSinopsis" runat="server" Height="67px" Width="300px"></asp:TextBox>
+                    <asp:TextBox ID="txtSinopsis" runat="server" Height="67px" Width="300px" TextMode="MultiLine"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtSinopsis" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Imagen</td>
+                <td class="auto-style9">Imagen</td>
                 <td class="auto-style7">
                     <asp:FileUpload ID="fileImagen" runat="server" Width="300px" />
                 </td>
@@ -114,16 +110,16 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5">Duración</td>
+                <td class="auto-style10">Duración(HH:MM)</td>
                 <td class="auto-style8">
-                    <asp:TextBox ID="txtDuracion" runat="server" Width="300px" TextMode="Time"></asp:TextBox>
+                    <asp:TextBox ID="txtDuracion" runat="server" Width="300px"></asp:TextBox>
                 </td>
                 <td class="auto-style6">
                     <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txtDuracion" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5">TrailerURL</td>
+                <td class="auto-style10">TrailerURL</td>
                 <td class="auto-style8">
                     <asp:TextBox ID="txtTrailerURL" runat="server" Width="300px"></asp:TextBox>
                 </td>
@@ -132,7 +128,19 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style10">Estado</td>
+                <td class="auto-style8">
+                    <asp:RadioButtonList ID="rbtnEstado" runat="server" Width="182px">
+                        <asp:ListItem Value="1">Disponible</asp:ListItem>
+                        <asp:ListItem Value="0">No Disponible</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+                <td class="auto-style6">
+                    <asp:RequiredFieldValidator ID="rfv9" runat="server" ControlToValidate="rbtnEstado" ErrorMessage="Seleccione un estado." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style9">&nbsp;</td>
                 <td class="auto-style7">
                     <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
                 </td>
@@ -141,7 +149,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style9">&nbsp;</td>
                 <td class="auto-style7">
                     <asp:Label ID="lblAgregado" runat="server"></asp:Label>
                 </td>
@@ -154,19 +162,28 @@
     <div class="Label">
     <asp:Label ID="Label3" runat="server" Text="Listado de Peliculas"></asp:Label>
         <br />
-        <asp:GridView ID="grdPeliculas" runat="server" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" CssClass="tablalistado">
+        <asp:GridView ID="grdPeliculas" runat="server" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" CssClass="tablalistado" OnPageIndexChanging="grdPeliculas_PageIndexChanging" OnRowDeleting="grdPeliculas_RowDeleting" OnRowCancelingEdit="grdPeliculas_RowCancelingEdit" OnRowEditing="grdPeliculas_RowEditing" OnRowUpdating="grdPeliculas_RowUpdating">
             <Columns>
-                <asp:TemplateField HeaderText="ID Titulo">
+                <asp:TemplateField HeaderText="ID">
+                    <EditItemTemplate>
+                        <asp:Label ID="lbl_eit_IDPelicula" runat="server" Text='<%# Bind("ID_Pelicula") %>'></asp:Label>
+                    </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lbl_it_IDTitulo" runat="server" Text='<%# Bind("ID_Pelicula") %>'></asp:Label>
+                        <asp:Label ID="lbl_it_IDPelicula" runat="server" Text='<%# Bind("ID_Pelicula") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Titulo">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_eit_Titulo" runat="server" Text='<%# Bind("Titulo_Pelicula") %>'></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_Titulo" runat="server" Text='<%# Bind("Titulo_Pelicula") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Genero/s">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_eit_Genero" runat="server" Text='<%# Bind("Genero_Pelicula") %>'></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_Generos" runat="server" Text='<%# Bind("Genero_Pelicula") %>'></asp:Label>
                     </ItemTemplate>
@@ -192,8 +209,11 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Imagen">
+                    <EditItemTemplate>
+                        <asp:ImageButton ID="img_eit_Imagen" runat="server" Height="100px" ImageUrl='<%# Bind("ImagenURL") %>' />
+                    </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lbl_it_Imagen" runat="server" Text='<%# Bind("ImagenURL") %>'></asp:Label>
+                        <asp:ImageButton ID="img_it_Imagen" runat="server" Height="100px" ImageUrl='<%# Bind("ImagenURL") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Duración">

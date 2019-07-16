@@ -54,7 +54,7 @@ namespace PRESENTACION
         {
             if (ddlClasificacion.SelectedIndex == 0)
                 rfv2.IsValid = false;
-            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && rfv6.IsValid && rfv7.IsValid && rfv8.IsValid)
+            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && rfv6.IsValid && rfv7.IsValid && rfv8.IsValid && Calendar1.SelectedDate!=null)
             {
                 String pathCarpeta = @"img\portadas\";
                 String savePath = Server.MapPath("~") + pathCarpeta;
@@ -63,9 +63,19 @@ namespace PRESENTACION
                 DateTime datetime = new DateTime(Calendar1.SelectedDate.Year, Calendar1.SelectedDate.Month,
                    Calendar1.SelectedDate.Day);
 
-               Pelicula pelicula = new Pelicula();
+                Pelicula pelicula = new Pelicula();
                 
                 pelicula.idPelicula = (grdPeliculas.Rows.Count + 1).ToString();
+
+                if (grdPeliculas.Rows.Count < 10)
+                    pelicula.idPelicula = "PEL00" + (grdPeliculas.Rows.Count + 1);
+                if (grdPeliculas.Rows.Count > 10 && grdPeliculas.Rows.Count < 100)
+                    pelicula.idPelicula = "PELC0" + (grdPeliculas.Rows.Count + 1);
+                if (grdPeliculas.Rows.Count > 100)
+                    pelicula.idPelicula = "PEL" + (grdPeliculas.Rows.Count + 1);
+
+
+
                 pelicula.Titulo = txtTitulo.Text;
                 pelicula.Generos = txtGeneros.Text;
                 pelicula.Clasificacion = ddlClasificacion.SelectedValue.ToString();
@@ -73,12 +83,17 @@ namespace PRESENTACION
                 pelicula.Director = txtDirector.Text;
                 pelicula.Sinopsis = txtSinopsis.Text;
 
+                if (rbtnEstado.SelectedValue == "1")
+                    pelicula.Estado = true;
+                else
+                    pelicula.Estado = false;
+
                 String rutaBase = "~/img/portadas/" + fileName;
                 pelicula.ImagenURL = rutaBase;
 
 
                 String[] dur = txtDuracion.Text.Split(':');
-                DateTime durtime = new DateTime(1, 1, 1, Int32.Parse( dur[0]), Int32.Parse( dur[1]), 0);
+                TimeSpan durtime = new TimeSpan(Int32.Parse(dur[0]), Int32.Parse(dur[1]), 0);
                 pelicula.Duracion = durtime;
                 pelicula.TrailerURL = txtTrailerURL.Text;
                 pelicula.Estado = true;
@@ -103,6 +118,43 @@ namespace PRESENTACION
             {
                 lblAg.Text = "Complete los campos necesarios!";
             }
+        }
+
+        protected void grdPeliculas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdPeliculas.PageIndex = e.NewPageIndex;
+            cargarGrilla();
+        }
+
+        protected void grdPeliculas_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            String codigo = ((Label)grdPeliculas.Rows[e.RowIndex].FindControl("lbl_it_IDPelicula")).Text;
+
+            Pelicula pelicula = new Pelicula();
+            pelicula.idPelicula = codigo;
+            pelicula.Estado = false;
+
+            n_Pelicula n_pelicula = new n_Pelicula();
+            n_pelicula.eliminarPelicula(pelicula);
+            
+            cargarGrilla();
+        }
+
+        protected void grdPeliculas_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            grdPeliculas.EditIndex = e.NewEditIndex;
+            cargarGrilla();
+        }
+
+        protected void grdPeliculas_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grdPeliculas.EditIndex = -1;
+            cargarGrilla();
+        }
+
+        protected void grdPeliculas_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
         }
     }
 }

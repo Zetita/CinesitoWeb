@@ -11,6 +11,17 @@
         .auto-style3 {
             width: 360px;
         }
+        .auto-style4 {
+            width: 313px;
+            height: 39px;
+        }
+        .auto-style5 {
+            width: 360px;
+            height: 39px;
+        }
+        .auto-style6 {
+            height: 39px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -63,14 +74,14 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Estado</td>
-                <td class="auto-style3">
+                <td class="auto-style4">Estado</td>
+                <td class="auto-style5">
                     <asp:RadioButtonList ID="rbtnEstado" runat="server">
                         <asp:ListItem Value="1">Disponible</asp:ListItem>
                         <asp:ListItem Value="0">No Disponible</asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
-                <td>
+                <td class="auto-style6">
                     <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="rbtnEstado" ErrorMessage="Seleccione un estado." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
