@@ -99,7 +99,7 @@
              <tr>
                  <td class="auto-style7">&nbsp;</td>
                  <td class="auto-style6">
-                     <asp:Label ID="lblEd" runat="server" Text="Label"></asp:Label>
+                     <asp:Label ID="lblEd" runat="server"></asp:Label>
                  </td>
                  <td class="auto-style5">&nbsp;</td>
              </tr>

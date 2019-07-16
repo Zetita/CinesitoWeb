@@ -1,4 +1,6 @@
-﻿.usuario{
+﻿@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+
+.usuario{
     width:250px;
     padding-bottom:10px;
     margin-top:10px;
@@ -18,11 +20,11 @@
 }
 
 .menu_user a:hover {
-    background-color: #ccc; /* Dark grey background on mouse-over */
+    background-color: #ccc; /* Color para el mouse-over */
 }
 
 .menu_user a.active {
-    background-color: #032d74; /* Add a green color to the "active/current" link */
+    background-color: #032d74; /* Para marcar el link activo */
     color: white;
 }
 .contenido{
@@ -31,10 +33,11 @@
     background-color:#303030;
     width:1000px;
 }
-.Titulos{
-    color:white;
-    margin:10px 10px 10px 10px;
-    font-size:larger;
+.Titulos {
+    color: white;
+    margin: 10px 10px 10px 10px;
+    font-size: larger;
+    font-family: 'Kanit', sans-serif;
 }
 #lblSinCompras{
     color:#808080;
@@ -46,5 +49,6 @@
     
 }
 hr.auto-style8 {
-    margin: 10px 10px 10px 10px;
+    margin-top:15px;
+    border-color: darkgray;
 }
