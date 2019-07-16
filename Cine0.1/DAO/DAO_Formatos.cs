@@ -28,11 +28,11 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_FORMATO", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_FORMATO", SqlDbType.Char, 6);
             SqlParametros.Value = formato.IdFormato;
-            SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.VarChar, 20);
             SqlParametros.Value = formato.Nombre;
-            SqlParametros = Comando.Parameters.Add("@IDIOMA", SqlDbType.Char, 40);
+            SqlParametros = Comando.Parameters.Add("@IDIOMA", SqlDbType.VarChar, 40);
             SqlParametros.Value = formato.Idioma;
             SqlParametros = Comando.Parameters.Add("@SUBTITULOS", SqlDbType.Bit);
             SqlParametros.Value = formato.Subtitulos;

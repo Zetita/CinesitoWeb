@@ -40,12 +40,10 @@ namespace DAO
         public void armarParametros(ref SqlCommand Comando, PeliculasxFormato pxf)
         {
             SqlParameter SqlParametros = new SqlParameter();
-
-            SqlParametros = Comando.Parameters.Add("@ID_PXF", SqlDbType.Char, 10);
-            SqlParametros.Value = pxf.IDPxF;
-            SqlParametros = Comando.Parameters.Add("@ID_PELICULA", SqlDbType.Char, 10);
+            
+            SqlParametros = Comando.Parameters.Add("@ID_PELICULA", SqlDbType.Char, 6);
             SqlParametros.Value = pxf.IDPelicula;
-            SqlParametros = Comando.Parameters.Add("@ID_FORMATO", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_FORMATO", SqlDbType.Char, 6);
             SqlParametros.Value = pxf.IDFormato;
 
         }

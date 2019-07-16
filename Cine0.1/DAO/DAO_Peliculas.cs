@@ -27,17 +27,17 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_PELICULA", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_PELICULA", SqlDbType.Char, 6);
             SqlParametros.Value = pelicula.idPelicula;
-            SqlParametros = Comando.Parameters.Add("@TITULO", SqlDbType.Char, 40);
+            SqlParametros = Comando.Parameters.Add("@TITULO", SqlDbType.VarChar, 40);
             SqlParametros.Value = pelicula.Titulo;
             SqlParametros = Comando.Parameters.Add("@GENERO", SqlDbType.Text);
             SqlParametros.Value = pelicula.Generos;
-            SqlParametros = Comando.Parameters.Add("@CLASIFICACION", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@CLASIFICACION", SqlDbType.VarChar, 10);
             SqlParametros.Value = pelicula.Clasificacion;
             SqlParametros = Comando.Parameters.Add("@FECESTRENO", SqlDbType.Date);
             SqlParametros.Value = pelicula.FecEstreno;
-            SqlParametros = Comando.Parameters.Add("@DIRECTOR", SqlDbType.Char, 40);
+            SqlParametros = Comando.Parameters.Add("@DIRECTOR", SqlDbType.VarChar, 40);
             SqlParametros.Value = pelicula.Director;
             SqlParametros = Comando.Parameters.Add("@SINOPSIS", SqlDbType.Text);
             SqlParametros.Value = pelicula.Sinopsis;

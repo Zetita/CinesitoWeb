@@ -9,10 +9,12 @@ namespace ENTIDAD
     public class Funcion
     {
         private string s_IDFuncion;
-        private string s_IDPxF;
+        private string s_IDPelicula;
+        private string s_IDFormato;
         private string s_IDSucursal;
         private string s_IDSala;
         private DateTime dt_FechaHora;
+        private bool b_Estado;
 
         public Funcion()
         {
@@ -25,10 +27,15 @@ namespace ENTIDAD
             set { s_IDFuncion = value; }
         }
 
-        public string IDPxF
+        public string IDPelicula
         {
-            get { return s_IDPxF; }
-            set { s_IDPxF = value; }
+            get { return s_IDPelicula; }
+            set { s_IDPelicula = value; }
+        }
+        public string IDFormato
+        {
+            get { return s_IDFormato; }
+            set { s_IDFormato = value; }
         }
 
         public string IDSala
@@ -46,6 +53,10 @@ namespace ENTIDAD
             get { return dt_FechaHora; }
             set { dt_FechaHora = value; }
         }
-
+        public bool Estado
+        {
+            set { b_Estado = value; }
+            get { return b_Estado; }
+        }
     }
 }

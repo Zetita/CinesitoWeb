@@ -27,11 +27,11 @@ namespace DAO
         public void armarParametros(ref SqlCommand Comando, Sala sala)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@ID_SALA", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_SALA", SqlDbType.Char, 6);
             SqlParametros.Value = sala.IdSala;
-            SqlParametros = Comando.Parameters.Add("@ID_SUCURSAL", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_SUCURSAL", SqlDbType.Char, 6);
             SqlParametros.Value = sala.IdSucursal;
-            SqlParametros = Comando.Parameters.Add("@SALA", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@SALA", SqlDbType.VarChar, 20);
             SqlParametros.Value = sala.NomSala;
             SqlParametros = Comando.Parameters.Add("@BUTACAS", SqlDbType.Int);
             SqlParametros.Value = sala.Butacas;

@@ -132,19 +132,19 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@USUARIO", SqlDbType.Char, 40);
+            SqlParametros = Comando.Parameters.Add("@USUARIO", SqlDbType.VarChar, 40);
             SqlParametros.Value = usuario.User;
-            SqlParametros = Comando.Parameters.Add("@CONTRASENIA", SqlDbType.Char,16);
+            SqlParametros = Comando.Parameters.Add("@CONTRASENIA", SqlDbType.VarChar, 16);
             SqlParametros.Value = usuario.Contrasenia;
-            SqlParametros = Comando.Parameters.Add("@EMAIL", SqlDbType.Char, 40);
+            SqlParametros = Comando.Parameters.Add("@EMAIL", SqlDbType.VarChar, 40);
             SqlParametros.Value = usuario.Email;
-            SqlParametros = Comando.Parameters.Add("@APELLIDOS", SqlDbType.Char, 40);
+            SqlParametros = Comando.Parameters.Add("@APELLIDOS", SqlDbType.VarChar, 40);
             SqlParametros.Value = usuario.Apellido;
-            SqlParametros = Comando.Parameters.Add("@NOMBRES", SqlDbType.Char, 40);
+            SqlParametros = Comando.Parameters.Add("@NOMBRES", SqlDbType.VarChar, 40);
             SqlParametros.Value = usuario.Nombre;
-            SqlParametros = Comando.Parameters.Add("@DNI", SqlDbType.Char, 8);
+            SqlParametros = Comando.Parameters.Add("@DNI", SqlDbType.VarChar, 8);
             SqlParametros.Value = usuario.Dni;
-            SqlParametros = Comando.Parameters.Add("@TELEFONO", SqlDbType.Char, 15);
+            SqlParametros = Comando.Parameters.Add("@TELEFONO", SqlDbType.VarChar, 15);
             SqlParametros.Value = usuario.Telefono;
             SqlParametros = Comando.Parameters.Add("@FECHANAC", SqlDbType.Date);
             SqlParametros.Value = usuario.FechaNac;

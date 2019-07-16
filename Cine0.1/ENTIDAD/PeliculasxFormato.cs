@@ -8,19 +8,12 @@ namespace ENTIDAD
 {
     public class PeliculasxFormato
     {
-        private string s_IDPxF;
         private string s_IDPelicula;
         private string s_IDFormato;
 
         public PeliculasxFormato()
         {
 
-        }
-
-        public string IDPxF
-        {
-            get { return s_IDPxF; }
-            set { s_IDPxF = value; }
         }
 
         public string IDPelicula

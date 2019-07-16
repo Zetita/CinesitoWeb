@@ -22,15 +22,15 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_SUCURSAL", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_SUCURSAL", SqlDbType.Char, 6);
             SqlParametros.Value = sucursal.idSucursal;
-            SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.VarChar, 20);
             SqlParametros.Value = sucursal.Nombre;
-            SqlParametros = Comando.Parameters.Add("@DIRECCION", SqlDbType.Char, 60);
+            SqlParametros = Comando.Parameters.Add("@DIRECCION", SqlDbType.VarChar, 60);
             SqlParametros.Value = sucursal.Direccion;
-            SqlParametros = Comando.Parameters.Add("@LOCALIDAD", SqlDbType.Char, 40);
+            SqlParametros = Comando.Parameters.Add("@LOCALIDAD", SqlDbType.VarChar, 40);
             SqlParametros.Value = sucursal.Localidad;
-            SqlParametros = Comando.Parameters.Add("@PROVINCIA", SqlDbType.Char, 40);
+            SqlParametros = Comando.Parameters.Add("@PROVINCIA", SqlDbType.VarChar, 40);
             SqlParametros.Value = sucursal.Provincia;
             SqlParametros = Comando.Parameters.Add("@DIRECCIONURL", SqlDbType.Text);
             SqlParametros.Value = sucursal.DireccionURL;

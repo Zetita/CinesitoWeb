@@ -33,16 +33,20 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_FUNCION", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_FUNCION", SqlDbType.Char, 6);
             SqlParametros.Value = funcion.IDFuncion;
-            SqlParametros = Comando.Parameters.Add("@ID_PXF", SqlDbType.Char, 10);
-            SqlParametros.Value = funcion.IDPxF;
-            SqlParametros = Comando.Parameters.Add("@ID_SALA", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_PELICULA", SqlDbType.Char, 6);
+            SqlParametros.Value = funcion.IDPelicula;
+            SqlParametros = Comando.Parameters.Add("@ID_FORMATO", SqlDbType.Char, 6);
+            SqlParametros.Value = funcion.IDFormato;
+            SqlParametros = Comando.Parameters.Add("@ID_SALA", SqlDbType.Char, 6);
             SqlParametros.Value = funcion.IDSala;
-            SqlParametros = Comando.Parameters.Add("@ID_SUCURSAL", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_SUCURSAL", SqlDbType.Char, 6);
             SqlParametros.Value = funcion.IDSucursal;
             SqlParametros = Comando.Parameters.Add("@FECHA_HORA", SqlDbType.DateTime);
             SqlParametros.Value = funcion.FechaHora;
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = funcion.Estado;
             
         }
 

@@ -26,11 +26,11 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_VENTA", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_VENTA", SqlDbType.Char, 6);
             SqlParametros.Value = sxv.IdVenta;
-            SqlParametros = Comando.Parameters.Add("@ID_SNACK", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_SNACK", SqlDbType.Char, 6);
             SqlParametros.Value = sxv.IdSnack;
-            SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.Char, 30);
+            SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.VarChar, 30);
             SqlParametros.Value = sxv.Nombre;
             SqlParametros = Comando.Parameters.Add("@PRECIO", SqlDbType.SmallMoney);
             SqlParametros.Value = sxv.Precio;

@@ -29,15 +29,15 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_VENTA", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_VENTA", SqlDbType.Char, 6);
             SqlParametros.Value = detalleventa.IdVenta;
-            SqlParametros = Comando.Parameters.Add("@ID_FUNCION", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_FUNCION", SqlDbType.Char, 6);
             SqlParametros.Value = detalleventa.IdFuncion;
-            SqlParametros = Comando.Parameters.Add("@ID_BUTACA", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_BUTACA", SqlDbType.Char, 6);
             SqlParametros.Value = detalleventa.IdButaca;
-            SqlParametros = Comando.Parameters.Add("@FILA_BUTACA", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@FILA_BUTACA", SqlDbType.VarChar, 20);
             SqlParametros.Value = detalleventa.FilaButaca;
-            SqlParametros = Comando.Parameters.Add("@BUTACA", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@BUTACA", SqlDbType.VarChar, 20);
             SqlParametros.Value = detalleventa.Butaca;
             SqlParametros = Comando.Parameters.Add("@PRECIO", SqlDbType.SmallMoney);
             SqlParametros.Value = detalleventa.PrecioEntrada;

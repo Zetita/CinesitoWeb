@@ -29,13 +29,13 @@ namespace DAO
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = Comando.Parameters.Add("@ID_BUTACA", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_BUTACA", SqlDbType.Char, 6);
             SqlParametros.Value = bxf.IDButaca;
-            SqlParametros = Comando.Parameters.Add("@ID_FUNCION", SqlDbType.Char, 10);
+            SqlParametros = Comando.Parameters.Add("@ID_FUNCION", SqlDbType.Char, 6);
             SqlParametros.Value = bxf.IDFuncion;
-            SqlParametros = Comando.Parameters.Add("@FILA", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@FILA", SqlDbType.VarChar, 20);
             SqlParametros.Value = bxf.Fila;
-            SqlParametros = Comando.Parameters.Add("@BUTACA", SqlDbType.Char, 20);
+            SqlParametros = Comando.Parameters.Add("@BUTACA", SqlDbType.VarChar, 20);
             SqlParametros.Value = bxf.Butaca;
 
         }
