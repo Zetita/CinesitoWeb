@@ -83,7 +83,7 @@ namespace PRESENTACION
                     if (n_usuario.esAdministrador(Session["UserLogeado"].ToString()))
                     {
                         Session["NivelUser"] = "1";
-                        Response.Redirect("~/Admin/Admin_Peliculas.aspx");
+                        Response.Redirect("/Admin/Admin_Peliculas.aspx");
                     }
                     else
                     {
