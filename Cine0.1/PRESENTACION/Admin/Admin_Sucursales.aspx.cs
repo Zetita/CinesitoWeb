@@ -48,6 +48,17 @@ namespace PRESENTACION
             ddlSucursales.DataBind();
             ddlSucursales.Items.Insert(0, "--Seleccione una sucursal--");
         }
+        void ClearInputs(ControlCollection ctrls)
+        {
+            foreach (Control ctrl in ctrls)
+            {
+                if (ctrl is TextBox)
+                    ((TextBox)ctrl).Text = string.Empty;
+                if (ctrl is DropDownList)
+                    ((DropDownList)ctrl).SelectedIndex = 0;
+                ClearInputs(ctrl.Controls);
+            }
+        }
         protected void btnAgregarSuc_Click(object sender, EventArgs e)
         {
             if(rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid)
@@ -76,6 +87,7 @@ namespace PRESENTACION
                     cargarGrillaSuc();
                     cargarGrillaSalas();
                     cargarDDLSucs();
+                    ClearInputs(Page.Controls);
                 }
                 else
                 {
@@ -112,13 +124,13 @@ namespace PRESENTACION
                     lblAgregado2.Text = "Cargado exitosamente.";
                     lblAgregado2.ForeColor = System.Drawing.Color.Green;
                     cargarGrillaSalas();
+                    ClearInputs(Page.Controls);
                 }
                 else
                 {
                     lblAgregado2.Text = "Error al cargar.";
                     lblAgregado.ForeColor = System.Drawing.Color.Red;
                 }
-
             }
             else
             {

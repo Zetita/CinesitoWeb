@@ -27,7 +27,15 @@ namespace PRESENTACION
             grdFormatos.DataBind();
             
         }
-
+        void ClearInputs(ControlCollection ctrls)
+        {
+            foreach (Control ctrl in ctrls)
+            {
+                if (ctrl is TextBox)
+                    ((TextBox)ctrl).Text = string.Empty;
+                ClearInputs(ctrl.Controls);
+            }
+        }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && cv1.IsValid)
@@ -57,6 +65,7 @@ namespace PRESENTACION
                     lblAgregado.Text = "Cargado exitosamente.";
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
+                    ClearInputs(Page.Controls);
 
                 }
                 else

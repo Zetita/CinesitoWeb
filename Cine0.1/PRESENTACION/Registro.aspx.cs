@@ -21,7 +21,15 @@ namespace PRESENTACION
             });
             txtUsuario2.Focus();
         }
-
+        void ClearInputs(ControlCollection ctrls)
+        {
+            foreach (Control ctrl in ctrls)
+            {
+                if (ctrl is TextBox)
+                    ((TextBox)ctrl).Text = string.Empty;
+                ClearInputs(ctrl.Controls);
+            }
+        }
         protected void BtnRegistrar_Click(object sender, EventArgs e)
         {
             if(rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && rfv6.IsValid && rfv7.IsValid && rfv8.IsValid)
@@ -37,13 +45,10 @@ namespace PRESENTACION
                 usuario.Dni = txtDni.Text;
                 usuario.Telefono = txtTelefono.Text;
                 usuario.FechaNac = CreatdDate;
-
                 usuario.Activo = true;
                 usuario.Administrador = false;
 
-
                 n_Usuario n_usuario = new n_Usuario();
-
 
                 if (!(n_usuario.estaRegistrado(txtUsuario.Text)))
                 {
@@ -51,6 +56,7 @@ namespace PRESENTACION
                     {
                         lblAdd.Text = "USUARIO REGISTRADO.";
                         lblAdd.ForeColor = System.Drawing.Color.Blue;
+                        ClearInputs(Page.Controls);
                     }
                     else
                     {

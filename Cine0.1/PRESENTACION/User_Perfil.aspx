@@ -28,7 +28,6 @@
         <div class="usuario">
             <asp:Label ID="lblUsuario" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="White"></asp:Label> 
             <br />
-            <asp:Label ID="lblEmail" runat="server" ForeColor="Gray"></asp:Label>
         </div>
         <div class="menu_user">
     
@@ -39,9 +38,10 @@
 
         </div>
     </td>
+    
     <td class="auto-style4">
-     <div class="contenido">
 
+     <div class="contenido">
          <asp:Label ID="Titulos" runat="server" Text="Mis datos" CssClass="Titulos"></asp:Label>
          <hr class="auto-style8" />
          <br />
@@ -49,42 +49,42 @@
              <tr>
                  <td class="auto-style7">NOMBRE</td>
                  <td class="auto-style6">
-                     <asp:TextBox ID="txtNombre" runat="server" BackColor="#303030" Width="274px" ForeColor="Silver"></asp:TextBox>
+                     <asp:TextBox ID="txtNombre" runat="server" BackColor="#03285B" Width="274px" ForeColor="Silver"></asp:TextBox>
                  </td>
                  <td class="auto-style5">&nbsp;</td>
              </tr>
              <tr>
                  <td class="auto-style7">APELLIDO</td>
                  <td class="auto-style6">
-                     <asp:TextBox ID="txtApellido" runat="server" BackColor="#303030" Width="274px" ForeColor="Silver"></asp:TextBox>
+                     <asp:TextBox ID="txtApellido" runat="server" BackColor="#03285b" Width="274px" ForeColor="Silver"></asp:TextBox>
                  </td>
                  <td class="auto-style5">&nbsp;</td>
              </tr>
              <tr>
                  <td class="auto-style7">DNI</td>
                  <td class="auto-style6">
-                     <asp:TextBox ID="txtDNI" runat="server" BackColor="#303030" Width="274px" ForeColor="Silver"></asp:TextBox>
+                     <asp:TextBox ID="txtDNI" runat="server" BackColor="#03285b" Width="274px" ForeColor="Silver"></asp:TextBox>
                  </td>
                  <td class="auto-style5">&nbsp;</td>
              </tr>
              <tr>
                  <td class="auto-style7">FECHA DE NACIMIENTO</td>
                  <td class="auto-style6">
-                     <asp:TextBox ID="txtFecNac" runat="server" BackColor="#303030" Width="274px" ForeColor="Silver" TextMode="Date"></asp:TextBox>
+                     <asp:TextBox ID="txtFecNac" runat="server" BackColor="#03285b" Width="274px" ForeColor="Silver" TextMode="Date"></asp:TextBox>
                  </td>
                  <td class="auto-style5">&nbsp;</td>
              </tr>
              <tr>
                  <td class="auto-style7">CORREO ELECTRONICO</td>
                  <td class="auto-style6">
-                     <asp:TextBox ID="txtEmail" runat="server" BackColor="#303030" TextMode="Email" Width="274px" ForeColor="Silver"></asp:TextBox>
+                     <asp:TextBox ID="txtEmail" runat="server" BackColor="#03285b" TextMode="Email" Width="274px" ForeColor="Silver"></asp:TextBox>
                  </td>
                  <td class="auto-style5">&nbsp;</td>
              </tr>
              <tr>
                  <td class="auto-style7">TELEFONO</td>
                  <td class="auto-style6">
-                     <asp:TextBox ID="txtTelefono" runat="server" BackColor="#303030" TextMode="Phone" Width="274px" ForeColor="Silver"></asp:TextBox>
+                     <asp:TextBox ID="txtTelefono" runat="server" BackColor="#03285b" TextMode="Phone" Width="274px" ForeColor="Silver"></asp:TextBox>
                  </td>
                  <td class="auto-style5">&nbsp;</td>
              </tr>

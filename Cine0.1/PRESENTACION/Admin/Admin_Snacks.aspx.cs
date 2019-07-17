@@ -23,7 +23,6 @@ namespace PRESENTACION
             {
                 cargarGrilla();
                 cargarDDL();
-
             }
         }
         public void cargarGrilla()
@@ -41,7 +40,17 @@ namespace PRESENTACION
             ddlTipoSnack.Items.Add("Golosinas");
             ddlTipoSnack.Items.Insert(0, "-Seleccione algun tipo-");
         }
-
+        void ClearInputs(ControlCollection ctrls)
+        {
+            foreach (Control ctrl in ctrls)
+            {
+                if (ctrl is TextBox)
+                    ((TextBox)ctrl).Text = string.Empty;
+                if (ctrl is DropDownList)
+                    ((DropDownList)ctrl).SelectedIndex = 0;
+                ClearInputs(ctrl.Controls);
+            }
+        }
         protected void grdSnacks_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdSnacks.PageIndex = e.NewPageIndex;
@@ -78,12 +87,12 @@ namespace PRESENTACION
 
                 n_Snack n_snack = new n_Snack();
 
-
                 if (n_snack.insertarSnack(snack))
                 {
                     lblAgregado.Text = "Cargado exitosamente.";
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
+                    ClearInputs(Page.Controls);
 
                 }
                 else

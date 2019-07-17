@@ -57,7 +57,17 @@ namespace PRESENTACION
             ddlSala.DataBind();
 
         }
-
+        void ClearInputs(ControlCollection ctrls)
+        {
+            foreach (Control ctrl in ctrls)
+            {
+                if (ctrl is TextBox)
+                    ((TextBox)ctrl).Text = string.Empty;
+                if (ctrl is DropDownList)
+                    ((DropDownList)ctrl).SelectedIndex = 0;
+                ClearInputs(ctrl.Controls);
+            }
+        }
         protected void ddlSucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
             n_Sala n_sala = new n_Sala();
@@ -99,6 +109,7 @@ namespace PRESENTACION
                     lblAgregado.Text = "Cargado exitosamente.";
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
+
 
                 }
                 else

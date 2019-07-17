@@ -35,14 +35,20 @@ namespace PRESENTACION
 
         public void cargarDDL()
         {
-
             ddlClasificacion.Items.Add("ATP");
             ddlClasificacion.Items.Add("SAMP13");
             ddlClasificacion.Items.Add("SAMP16");
             ddlClasificacion.Items.Add("SAMP18");
-            ddlClasificacion.Items.Insert(0, "Seleccione Clasificacion");
-           
-            
+            ddlClasificacion.Items.Insert(0, "-Seleccione Clasificacion-");          
+        }
+        void ClearInputs(ControlCollection ctrls)
+        {
+            foreach (Control ctrl in ctrls)
+            {
+                if (ctrl is TextBox)
+                    ((TextBox)ctrl).Text = string.Empty;
+                ClearInputs(ctrl.Controls);
+            }
         }
         protected void grdSnacks_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -106,6 +112,7 @@ namespace PRESENTACION
                     lblAgregado.Text = "Cargado exitosamente.";
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
+                    ClearInputs(Page.Controls);
 
                 }
                 else

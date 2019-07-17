@@ -1,9 +1,11 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
-.usuario{
-    width:250px;
-    padding-bottom:10px;
-    margin-top:10px;
+
+.usuario {
+    width: 250px;
+    padding-bottom: 10px;
+    margin-top: 10px;
 }
 
 .menu_user {
@@ -27,17 +29,19 @@
     background-color: #032d74; /* Para marcar el link activo */
     color: white;
 }
-.contenido{
-    margin-top:30px;
-    height:350px;
-    background-color:#303030;
-    width:1000px;
+.contenido {
+    margin-top: 30px;
+    height: 350px;
+    background-color: #03285b;
+    width: 1000px;
 }
 .Titulos {
     color: white;
-    margin: 10px 10px 10px 10px;
-    font-size: larger;
-    font-family: 'Kanit', sans-serif;
+    margin: 50px 10px 10px 20px;
+    font-size: x-large;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight:bold;
+    top: 30px;
 }
 #lblSinCompras{
     color:#808080;
@@ -51,4 +55,5 @@
 hr.auto-style8 {
     margin-top:15px;
     border-color: darkgray;
+    border:10px 10px 10px 10px;
 }

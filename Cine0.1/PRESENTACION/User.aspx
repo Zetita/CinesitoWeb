@@ -4,9 +4,6 @@
         .auto-style1 {
             width: 100%;
         }
-        .auto-style2 {
-            width: 290px;
-        }
         .auto-style3 {
             width: 290px;
             height: 92px;
@@ -24,7 +21,6 @@
         <div class="usuario">
             <asp:Label ID="lblUsuario" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="White"></asp:Label> 
             <br />
-            <asp:Label ID="lblEmail" runat="server" ForeColor="Gray"></asp:Label>
         </div>
         <div class="menu_user">
     
@@ -44,7 +40,7 @@
          </asp:GridView>
          <hr class="auto-style8" />
 
-         <asp:Label ID="lblSinCompras" runat="server" ForeColor="White" style="position:absolute;top:150px;left:330px;font-size:xx-large"></asp:Label>
+         <asp:Label ID="lblSinCompras" runat="server" ForeColor="White" style="position:absolute;top:160px;left:330px;font-size:xx-large"></asp:Label>
          <br />
          <asp:DataList ID="dlistCompras" runat="server">
          </asp:DataList>

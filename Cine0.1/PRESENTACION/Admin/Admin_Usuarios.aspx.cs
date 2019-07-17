@@ -31,7 +31,15 @@ namespace PRESENTACION
             grdUsuarios.DataSource = n_usuario.ObtenerTablaTodos();
             grdUsuarios.DataBind();
         }
-
+        void ClearInputs(ControlCollection ctrls)
+        {
+            foreach (Control ctrl in ctrls)
+            {
+                if (ctrl is TextBox)
+                    ((TextBox)ctrl).Text = string.Empty;
+                ClearInputs(ctrl.Controls);
+            }
+        }
         protected void btnCargarTodos_Click(object sender, EventArgs e)
         {
             n_Usuario n_usuario = new n_Usuario();
@@ -86,6 +94,7 @@ namespace PRESENTACION
                     lblAgregado.Text = "Cargado exitosamente.";
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
+                    ClearInputs(Page.Controls);
 
                 }
                 else
