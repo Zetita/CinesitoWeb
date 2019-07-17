@@ -16,7 +16,7 @@
 </div>
     <div>
         <br />
-        <asp:Label ID="lbl_Cartelera" runat="server" style="position:absolute;text-align:center;color:white;font-size:xx-large;width:100%" Font-Bold="True" Text="CARTELERA" Font-Underline="True" />
+        <asp:Label ID="lbl_Cartelera" runat="server" class="Cartelera" Font-Bold="True" Text="CARTELERA" Font-Underline="True" />
         <br />
         <br />
         <br />

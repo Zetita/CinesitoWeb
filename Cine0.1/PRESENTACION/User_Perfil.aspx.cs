@@ -41,6 +41,10 @@ namespace PRESENTACION
             Session["UserLogeado"] = null;
             Response.Redirect("Inicio.aspx");
         }
+        protected void lbConfig_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin/Admin_Peliculas.aspx");
+        }
         public Usuario LlenarUsuario(DataTable dt)
         {
             Usuario user = new Usuario();

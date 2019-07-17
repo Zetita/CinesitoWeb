@@ -13,6 +13,11 @@ namespace PRESENTACION.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["NivelUser"].ToString() == "1")
+                lbConfig.Visible = true;
+            else
+                lbConfig.Visible = false;
+
             lblUsuario.Text = Session["UserLogeado"].ToString();
             CargarGridView();
             if (!(grdCompras.Rows.Count > 0))
@@ -57,6 +62,11 @@ namespace PRESENTACION.User
             dt = n_venta.ObtenerTabla(Consulta);
             grdCompras.DataSource = dt;
             grdCompras.DataBind();
+        }
+
+        protected void lbConfig_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin/Admin_Peliculas.aspx");
         }
     }
 }
