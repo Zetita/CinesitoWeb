@@ -2,8 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lblResultado" runat="server" Font-Size="XX-Large" style="position:absolute;top:90px;left:20px" ForeColor="White"></asp:Label>
-
+    
+    <asp:Label ID="lblResultado" runat="server" Font-Size="XX-Large" style="position:absolute;top:90px;left:20px" ForeColor="White" Font-Bold="True"></asp:Label>
+    <br />
+    <br />
+    <br />
+    <br />
     <asp:ListView ID="lstPeliculas" runat="server" DataSourceID="sqldsFuente" GroupItemCount="3" style="position:absolute;top:150px">
     
         <EditItemTemplate>
@@ -44,8 +48,8 @@
                 <br /></td>
         </InsertItemTemplate>
         <ItemTemplate>
-            <td runat="server" style="background-color: #000; color: #000;width:470px">
-                <asp:ImageButton ID="imgbtn_Pelicula" runat="server" Height="500px" ImageUrl='<%# Bind("ImagenURL") %>' Width="400px" ImageAlign="Middle" CommandName='<%# Eval("ID_Pelicula") %>' OnCommand="imgbtn_Pelicula_Command1"/>
+            <td runat="server" style="background-color: #000; color: #000;width:270px">
+                <asp:ImageButton ID="imgbtn_Pelicula" runat="server" Height="300px" ImageUrl='<%# Bind("ImagenURL") %>' Width="200px" style="position:relative;align-items:center; top: 0px; left: 0px; width: 270px;" ImageAlign="AbsMiddle" CommandName='<%# Eval("ID_Pelicula") %>' OnCommand="imgbtn_Pelicula_Command1"/>
                 <asp:Label ID="lbl_Titulo" runat="server" style="text-align:center;color:white;float:right;width:100%" Font-Bold="True" Text='<%# Eval("Column1") %>'  />
                 <br /></td>
         </ItemTemplate>
@@ -73,6 +77,6 @@
                 <br /></td>
         </SelectedItemTemplate>
     </asp:ListView>
-        <asp:SqlDataSource ID="sqldsFuente" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString5 %>" SelectCommand="SELECT [ImagenURL], LTRIM(RTRIM([Titulo_Pelicula])),[ID_Pelicula] FROM [Peliculas]"></asp:SqlDataSource>
-
+        <asp:SqlDataSource ID="sqldsFuente" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString5 %>" ></asp:SqlDataSource>
+    
 </asp:Content>
