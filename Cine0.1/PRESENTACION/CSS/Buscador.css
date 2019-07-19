@@ -1,0 +1,14 @@
+﻿.search-box input[type="text"] {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 2px solid #808080;
+    padding: 0 10px 0 10px;
+    background-color: #003d66;
+    width: 220px;
+    font-size: medium;
+    position: absolute;
+    top: 26px;
+    right: 130px;
+    color: white;
+}
