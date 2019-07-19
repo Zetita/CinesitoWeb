@@ -8,6 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" type="text/css" href="CSS/User.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <link rel="stylesheet" type="text/css" href="CSS/Buscador.css" />
+
 
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -26,14 +28,19 @@
 		    
             <li style="float:right; padding:13px 20px">
                 <asp:ImageButton ID="imgbtnUser" href="Registro.aspx" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/user.png" Height="32px" Width="35px" OnClick="imgbtnUser_Click" />
-                <asp:ImageButton ID="imgbtnSearch" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/search.png" Height="32px" Width="35px" style="position:absolute;right:68px;" OnClick="imgbtnSearch_Click" />                   
-                <asp:TextBox ID="txtSearch" runat="server" style="width:200px;position:absolute;right:130px;top:29px;font-size:medium;color:white" BackColor="#003D66" BorderStyle="None"></asp:TextBox>
-                <asp:Image ID="imgLinea" runat="server" style="position:absolute;right:130px;top:50px; font-size:x-large; width:203px;height:2px;" ImageUrl="~/Recursos/Linea txt.png" Enabled="False" Visible="False"></asp:Image>
+                <asp:ImageButton ID="imgbtnSearch" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/search.png" Height="32px" Width="35px" style="position:absolute;right:68px;" OnClick="imgbtnSearch_Click" />  
+                <div class="search-box">
+                <input type="text" id="txtSearch" runat="server"/>
+                </div>
+               
                 </li> 
+            
                     
            
 		</ul>
             
+            
+                
 </div>
               
 

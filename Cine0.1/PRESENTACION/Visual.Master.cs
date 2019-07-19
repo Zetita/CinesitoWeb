@@ -14,7 +14,6 @@ namespace PRESENTACION
             if (!IsPostBack)
             {
                 txtSearch.Visible = false;
-                imgLinea.Visible = false;
             }
         }
 
@@ -35,31 +34,28 @@ namespace PRESENTACION
         {
             if (txtSearch.Visible == true)
             {
-                if (txtSearch.Text.Trim() != string.Empty)
+                if (txtSearch.Value.ToString().Trim() != string.Empty)
                 {
                     txtSearch.Visible = false;
-                    imgLinea.Visible = false;
                     Redirigir();
                 }
                 else
                 {
-                    txtSearch.Text = string.Empty;
+                    txtSearch.Value = string.Empty;
                     txtSearch.Visible = false;
-                    imgLinea.Visible = false;
-                }    
+                }
             }
             else
             {
-                txtSearch.Text = string.Empty;
+                txtSearch.Value = string.Empty;
                 txtSearch.Visible = true;
-                imgLinea.Visible = true;
             }
         }
 
         public void Redirigir()
         {
-            Session["Filtro"] = txtSearch.Text;
-            txtSearch.Text = string.Empty;
+            Session["Filtro"] = txtSearch.Value.ToString();
+            txtSearch.Value = string.Empty;
             Response.Redirect("Resultados.aspx");
         }
 
