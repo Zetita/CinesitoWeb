@@ -154,12 +154,31 @@ namespace DAO
             SqlParametros.Value = usuario.Activo;
   
         }
+        public void armarCambioContrasenia(ref SqlCommand Comando, Usuario usuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = Comando.Parameters.Add("@USUARIO", SqlDbType.VarChar, 40);
+            SqlParametros.Value = usuario.User;
+            SqlParametros = Comando.Parameters.Add("@CONTRASENIA", SqlDbType.VarChar, 16);
+            SqlParametros.Value = usuario.Contrasenia;
+        }
 
         public bool ActualizarUsuario(Usuario usuario)
         {
             SqlCommand Comando = new SqlCommand();
             armarParametros(ref Comando, usuario);
             int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarUsuario");
+            if (filasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
+        public bool ActualizarContraseniaUsuario(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            armarCambioContrasenia(ref Comando, usuario);
+            int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarContraseniaUsuario");
             if (filasInsertadas == 1)
                 return true;
             else

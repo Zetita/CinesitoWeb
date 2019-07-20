@@ -64,22 +64,32 @@ namespace PRESENTACION
                
                 if(txtNueva.Text==txtConfirmar.Text)
                 {
-                    //guardarlo
-                    lblGuardado.Visible = true;
-                    lblGuardado.Text = "Se ha cambiado la contraseña exitosamente.";
+                    Usuario user = new Usuario();
+                    user.User = Session["UserLogeado"].ToString();
+                    user.Contrasenia = txtNueva.Text;
+
+
+                    if (n_usuario.cambiarContraseniaUsuario(user))
+                    {
+                        lblGuardado.ForeColor = System.Drawing.Color.Green;
+                        lblGuardado.Visible = true;
+                        lblGuardado.Text = "Se ha cambiado la contraseña exitosamente.";
+                    }
+                    else
+                    {
+                        lblGuardado.ForeColor = System.Drawing.Color.Red;
+                        lblGuardado.Visible = true;
+                        lblGuardado.Text = "Error al actualizar contraseña, intentelo de nuevo.";
+                    }
+                    
                 }
                 else
                 {
                     lblNewPassDiferente.Visible = true;
                     lblNewPassDiferente.Text = "Los campos confirmación de nueva contraseña y nueva contraseña no coinciden.";
 
-                }
-              
-
-            }
-
-               
+                }           
+            }               
         }
-
     }
 }

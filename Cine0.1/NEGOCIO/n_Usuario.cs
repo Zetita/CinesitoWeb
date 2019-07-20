@@ -46,6 +46,11 @@ namespace NEGOCIO
             DAO_Usuarios da = new DAO_Usuarios();
             return da.ActualizarUsuario(usuario);
         }
+        public bool cambiarContraseniaUsuario(Usuario usuario)
+        {
+            DAO_Usuarios da = new DAO_Usuarios();
+            return da.ActualizarContraseniaUsuario(usuario);
+        }
 
         public int eliminarUsuario(Usuario usuario)
         {

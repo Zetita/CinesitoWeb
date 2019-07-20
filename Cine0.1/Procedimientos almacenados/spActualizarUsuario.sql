@@ -3,7 +3,7 @@ GO
 
 CREATE PROCEDURE spActualizarUsuario
 (
-@USUARIO char(40),
+@USUARIO varchar(40),
 @CONTRASENIA varchar(16),
 @EMAIL varchar(40),
 @APELLIDOS varchar(40),
