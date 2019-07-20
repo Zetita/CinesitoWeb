@@ -198,7 +198,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="FECHA DE NAC">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txt_eit_FecNac" runat="server" Text='<%# Bind("FechaNac_Usuario") %>' TextMode="DateTime" Width="161px"></asp:TextBox>
+                        <asp:Label ID="txt_eit_FecNac" runat="server" Text='<%# Bind("FechaNac_Usuario", "{0:d}" ) %>'></asp:Label>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_FecNac" runat="server" Text='<%# Bind("FechaNac_Usuario", "{0:d}" ) %>'></asp:Label>
