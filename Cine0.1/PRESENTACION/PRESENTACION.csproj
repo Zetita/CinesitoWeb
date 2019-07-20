@@ -73,14 +73,18 @@
     <Content Include="Compras.aspx" />
     <Content Include="CSS\Admin.css" />
     <Content Include="CSS\Barras.css" />
+    <Content Include="CSS\Buscador.css" />
     <Content Include="CSS\EstiloPag.css" />
+    <Content Include="CSS\Slider.css" />
     <Content Include="CSS\User.css" />
     <Content Include="img\portadas\1.jpg" />
     <Content Include="img\portadas\2.jpg" />
     <Content Include="img\portadas\3.jpg" />
+    <Content Include="img\slider\1.jpg" />
+    <Content Include="img\slider\2.jpg" />
+    <Content Include="img\slider\3.png" />
     <Content Include="img\snacks\balde_pochoclos_chico.jpg" />
     <Content Include="img\snacks\balde_pochoclos_grande.jpg" />
-    <Content Include="JS\Slider.js" />
     <Content Include="Peliculas.aspx" />
     <Content Include="Recursos\Asiento-Libre.png" />
     <Content Include="Recursos\Asiento-Ocupado.png" />
@@ -94,8 +98,7 @@
     <Content Include="Recursos\search.png" />
     <Content Include="Recursos\user.png" />
     <Content Include="Registro.aspx" />
-    <Content Include="Slider\Future.jpg" />
-    <Content Include="Slider\JohnWick.jpeg" />
+    <Content Include="Resultados.aspx" />
     <Content Include="Snacks.aspx" />
     <Content Include="Sucursales.aspx" />
     <Content Include="User.aspx" />
@@ -189,6 +192,13 @@
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Resultados.aspx.cs">
+      <DependentUpon>Resultados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resultados.aspx.designer.cs">
+      <DependentUpon>Resultados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Snacks.aspx.cs">
       <DependentUpon>Snacks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -257,7 +267,9 @@
       <Name>NEGOCIO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="JS\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
