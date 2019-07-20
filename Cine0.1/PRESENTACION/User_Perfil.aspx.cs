@@ -14,6 +14,12 @@ namespace PRESENTACION
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["NivelUser"].ToString() == "1")
+                lbConfig.Visible = true;
+            else
+                lbConfig.Visible = false;
+
+
             lblUsuario.Text = Session["UserLogeado"].ToString();
             if (Session["NivelUser"].ToString() == "0")
             {

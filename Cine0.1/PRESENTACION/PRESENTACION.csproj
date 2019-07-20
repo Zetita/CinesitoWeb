@@ -102,6 +102,7 @@
     <Content Include="Snacks.aspx" />
     <Content Include="Sucursales.aspx" />
     <Content Include="User.aspx" />
+    <Content Include="User_Contrasenia.aspx" />
     <Content Include="User_Perfil.aspx" />
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
@@ -219,6 +220,13 @@
     </Compile>
     <Compile Include="User.aspx.designer.cs">
       <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Contrasenia.aspx.cs">
+      <DependentUpon>User_Contrasenia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Contrasenia.aspx.designer.cs">
+      <DependentUpon>User_Contrasenia.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Perfil.aspx.cs">
       <DependentUpon>User_Perfil.aspx</DependentUpon>

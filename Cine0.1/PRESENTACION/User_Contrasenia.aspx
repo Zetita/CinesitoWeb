@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Visual.Master" AutoEventWireup="true" CodeBehind="User_Contrasenia.aspx.cs" Inherits="PRESENTACION.User_Contrasenia" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
 <style type="text/css">
         .auto-style1 {
             width: 100%;
@@ -38,14 +36,25 @@
     </td>
     <td class="auto-style4">
      <div class="contenido">
-         <asp:Label ID="Titulo" runat="server" Text="Cambio de Contraseña" CssClass="Titulos"></asp:Label>
-         <asp:Label ID="lblVieja" runat="server" Text="Contraseña Vieja: " style="color:white;font-size:x-large;position:relative;top:100px;right:112px"></asp:Label>
-         <asp:Label ID="lblNueva" runat="server" Text="Contraseña Nueva: " style="color:white;font-size:x-large;position:relative;top:150px;right:300px"></asp:Label>
-         <asp:Label ID="lblConfirmar" runat="server" Text="Confirmar Contraseña: "  style="color:white;font-size:x-large;position:relative;top:200px;right:502px"></asp:Label></asp:Label>
-         <asp:Button ID="btnGuardar" runat="server" BackColor="#303030" Font-Bold="True" ForeColor="White" Text="GUARDAR" style="position:relative;top:270px;left:850px" />
-         <asp:TextBox ID="txtVieja" runat="server" style="font-size:x-large;position:relative;top:60px;left:420px" TextMode="Password"></asp:TextBox>
-         <asp:TextBox ID="txtNueva" runat="server" style="font-size:x-large;position:relative;top:110px;left:155px" TextMode="Password"></asp:TextBox>
-         <asp:TextBox ID="txtConfirmar" runat="server" style="font-size:x-large;position:relative;top:160px;right:109px" TextMode="Password"></asp:TextBox>
+         <asp:Label ID="Titulos" runat="server" Text="Cambiar contraseña" CssClass="Titulos"></asp:Label>
+         <hr class="auto-style8" />
+         <br />
+
+         <asp:TextBox ID="txtVieja" runat="server" TextMode="Password" CssClass="Contrasenias"></asp:TextBox>
+         <br />
+         <asp:Label ID="lblOldPassIncorrecta" runat="server" CssClass="Error"></asp:Label>
+         <br />
+         <asp:TextBox ID="txtNueva" runat="server" TextMode="Password" CssClass="Contrasenias"></asp:TextBox>
+         <br />
+         <asp:Label ID="lblNewPassRepetida" runat="server" CssClass="Error"></asp:Label>
+         <br />
+         <asp:TextBox ID="txtConfirmar" runat="server" TextMode="Password" CssClass="Contrasenias"></asp:TextBox>
+         <br />
+         <asp:Label ID="lblNewPassDiferente" runat="server" CssClass="Error"></asp:Label>
+         <br />
+         <asp:Button ID="btnGuardar" runat="server" BackColor="#303030" Font-Bold="True" ForeColor="White" Text="GUARDAR" CssClass="Guardar" OnClick="btnGuardar_Click" />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <asp:Label ID="lblGuardado" runat="server" Text="" Visible="false" ></asp:Label>
      </div>   
     </td>
 </tr>

@@ -8,7 +8,6 @@
 <div class="slider" >
 <figure>
     
-    
 <asp:Image ID="imgSlider1" runat="server" ImageUrl="~/img/slider/1.jpg"/>
 <asp:Image ID="imgSlider2" runat="server" ImageUrl="~/img/slider/2.jpg"/>
 <asp:Image ID="imgSlider3" runat="server" ImageUrl="~/img/slider/3.png"/>

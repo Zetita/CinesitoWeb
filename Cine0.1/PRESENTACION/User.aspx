@@ -11,7 +11,14 @@
         .auto-style4 {
             height: 92px;
         }
+        .auto-style5 {
+            position: absolute;
+            top: 150px;
+            right: 75px;
+            width: 970px;
+        }
     </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
@@ -35,14 +42,15 @@
     </td>
     <td class="auto-style4">
      <div class="contenido">
-
          <asp:Label ID="Titulos" runat="server" Text="Mis compras" CssClass="Titulos"></asp:Label>
-         <asp:GridView ID="grdCompras" runat="server" AllowPaging="True" CellPadding="4" ForeColor="#FFFFFF" GridLines="Both" PageSize="8" BackColor="#000000" style="position:absolute;top:150px;right:75px;width:970px;text-align:center" OnPageIndexChanging="grdCompras_PageIndexChanging">
+         <hr class="auto-style8" />
+         <br />
+         <asp:GridView ID="grdCompras" runat="server" AllowPaging="True" CellPadding="4" ForeColor="#FFFFFF" GridLines="Both" PageSize="8" BackColor="#000000" style="text-align:center" OnPageIndexChanging="grdCompras_PageIndexChanging" CssClass="auto-style5">
            
          </asp:GridView>
-         <hr class="auto-style8" />
+     
 
-         <asp:Label ID="lblSinCompras" runat="server" ForeColor="White" style="position:absolute;top:160px;left:330px;font-size:xx-large"></asp:Label>
+         <asp:Label ID="lblSinCompras" runat="server" ForeColor="White" Style="color:#808080;padding-left: 10px; margin: 10px 0px 0px 10px; font-size: xx-large;" ></asp:Label>
          <br />
          <asp:DataList ID="dlistCompras" runat="server">
          </asp:DataList>
