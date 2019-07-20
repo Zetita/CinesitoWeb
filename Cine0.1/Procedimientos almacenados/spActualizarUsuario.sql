@@ -23,7 +23,6 @@ Apellidos_Usuario=@APELLIDOS,
 Nombres_Usuario=@NOMBRES,
 DNI_Usuario=@DNI,
 Telefono_Usuario=@TELEFONO,
-FechaNac_Usuario=@FECHANAC,
 Administrador=@ADMINISTRADOR
 WHERE Usuario=@USUARIO
 RETURN

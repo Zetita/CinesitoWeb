@@ -42,7 +42,7 @@ namespace PRESENTACION
                 txtDNI.Text = user.Dni;
                 txtEmail.Text = user.Email;
                 txtTelefono.Text = user.Telefono;
-                               
+               
             }
         }
         protected void lbCerrar_Click(object sender, EventArgs e)
@@ -83,6 +83,8 @@ namespace PRESENTACION
             Usuario userbk = new Usuario();
             n_Usuario n_usuario = new n_Usuario();
             DataTable dt = new DataTable();
+            DateTime fecha = new DateTime(2000, 01, 01);
+
             dt = n_usuario.ObtenerUsuario(lblUsuario.Text);
 
             userbk = LlenarUsuario(dt);
@@ -95,6 +97,7 @@ namespace PRESENTACION
             user.Nombre = txtNombre.Text;
             user.Dni = txtDNI.Text;
             user.Telefono = txtTelefono.Text;
+            user.FechaNac = fecha;
             user.Administrador = userbk.Administrador;
             user.Activo = userbk.Activo;
 

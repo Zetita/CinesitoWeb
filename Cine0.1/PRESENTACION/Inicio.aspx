@@ -2,6 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     
+    <style type="text/css">
+        .auto-style1 {
+            width: 420px;
+        }
+    </style>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" type="text/css" href="CSS/Slider.css" />
@@ -19,7 +25,7 @@
         <br />
         <br />
         <br />
-        <asp:ListView ID="lstPeliculas" runat="server" DataSourceID="sqldsFuente" GroupItemCount="3">
+        <asp:ListView ID="lstPeliculas" runat="server" DataSourceID="sqldsFuente" GroupItemCount="4">
     
         <EditItemTemplate>
             <td runat="server" style="background-color: #FFCC66;color: #000080;">ImagenURL:
@@ -60,14 +66,15 @@
         </InsertItemTemplate>
         <ItemTemplate>
             <td runat="server" style="background-color: #000; color: #000;width:470px">
-                <asp:ImageButton ID="imgbtn_Pelicula" runat="server" Height="500px" ImageUrl='<%# Bind("ImagenURL") %>' Width="400px" ImageAlign="Middle" CommandName='<%# Eval("ID_Pelicula") %>' OnCommand="imgbtn_Pelicula_Command1"/>
-                <asp:Label ID="lbl_Titulo" runat="server" style="text-align:center;color:white;float:right;width:100%" Font-Bold="True" Text='<%# Eval("Column1") %>'  />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:ImageButton ID="imgbtn_Pelicula" runat="server" Height="400px" ImageUrl='<%# Bind("ImagenURL") %>' Width="300px" ImageAlign="Middle" CommandName='<%# Eval("ID_Pelicula") %>' OnCommand="imgbtn_Pelicula_Command1"/>
+                &nbsp;<br />
+                <asp:Label ID="lbl_Titulo" runat="server" Font-Bold="True" style="text-align:center;color:white;float:right;width:100%" Text='<%# Eval("Column1") %>'></asp:Label>
                 <br /></td>
         </ItemTemplate>
         <LayoutTemplate>
             <table runat="server">
                 <tr runat="server">
-                    <td runat="server">
+                    <td runat="server" class="auto-style1">
                         <table id="groupPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
                             <tr id="groupPlaceholder" runat="server">
                             </tr>
@@ -75,7 +82,7 @@
                     </td>
                 </tr>
                 <tr runat="server">
-                    <td runat="server" style="text-align: center;background-color: #000;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000;">
+                    <td runat="server" style="text-align: center;background-color: #000;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000;" class="auto-style1">
                     </td>
                 </tr>
             </table>
