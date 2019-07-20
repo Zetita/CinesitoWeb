@@ -30,7 +30,7 @@
                 <asp:ImageButton ID="imgbtnUser" href="Registro.aspx" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/user.png" Height="32px" Width="35px" OnClick="imgbtnUser_Click" />
                 <asp:ImageButton ID="imgbtnSearch" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/search.png" Height="32px" Width="35px" style="position:absolute;right:68px;" OnClick="imgbtnSearch_Click" />  
                 <div class="search-box">
-                <input type="text" id="txtSearch" runat="server"/>
+                <input type="text" id="txtSearch" runat="server" placeholder="Titulo de la Película..."/>
                 </div>
                
                 </li> 

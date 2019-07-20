@@ -39,8 +39,8 @@ namespace PRESENTACION
             }
             else
             {
-                Response.Cookies["Error"].Value = "1";
-                Response.Cookies["Error"].Expires = DateTime.Now.AddHours(1);
+                Response.Cookies["Mensaje"].Value = "1";
+                Response.Cookies["Mensaje"].Expires = DateTime.Now.AddHours(1);
                 Response.Redirect("Inicio.aspx");
             }
         }

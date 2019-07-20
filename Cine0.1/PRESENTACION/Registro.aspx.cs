@@ -95,6 +95,8 @@ namespace PRESENTACION
                     else
                     {
                         Session["NivelUser"] = "0";
+                        Response.Cookies["Mensaje"].Value = "4";
+                        Response.Cookies["Mensaje"].Expires = DateTime.Now.AddHours(1);
                         Response.Redirect("~/Inicio.aspx");
                     }
                 }

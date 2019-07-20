@@ -11,21 +11,28 @@ namespace PRESENTACION
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.Cookies["Error"] != null&& Request.Cookies["Error"].Value.ToString() == "1")
+            int Mensaje;
+            if(Request.Cookies["Mensaje"] != null)
             {
-                
-                    Response.Write("<script>window.alert('Para comprar, primero debe haber iniciado sesión.');</script>");
-                    Request.Cookies["Error"].Expires = DateTime.Now.AddDays(-1);
-                    this.Response.Cookies.Add(Request.Cookies["Error"]);
-                
+                Mensaje = Convert.ToInt32(Request.Cookies["Mensaje"].Value.ToString());
+                switch (Mensaje)
+                {
+                    case 1:
+                        Response.Write("<script>window.alert('Para comprar, primero debe haber iniciado sesión.');</script>");
+                        break;
+                    case 2:
+                        Response.Write("<script>window.alert('Compra realizada con exito.');</script>");
+                        break;
+                    case 3:
+                        Response.Write("<script>window.alert('Se cerró la sesión.');</script>");
+                        break;
+                    case 4:
+                        Response.Write("<script>window.alert('Sesión iniciada.');</script>");
+                        break;
+                }
+                Request.Cookies["Mensaje"].Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(Request.Cookies["Mensaje"]);
             }
-            else if(Request.Cookies["Compra"] != null && Request.Cookies["Compra"].Value.ToString() == "1")
-            {
-                Response.Write("<script>window.alert('Compra realizada con exito.');</script>");
-                Request.Cookies["Compra"].Expires = DateTime.Now.AddDays(-1);
-                this.Response.Cookies.Add(Request.Cookies["Compra"]);
-            }
-
         }
 
         protected void imgbtn_Pelicula_Command1(object sender, CommandEventArgs e)

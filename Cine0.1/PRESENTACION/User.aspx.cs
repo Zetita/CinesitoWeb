@@ -29,6 +29,8 @@ namespace PRESENTACION.User
         protected void lbCerrar_Click(object sender, EventArgs e)
         {
             Session["UserLogeado"] = null;
+            Response.Cookies["Mensaje"].Value = "3";
+            Response.Cookies["Mensaje"].Expires = DateTime.Now.AddHours(1);
             Response.Redirect("Inicio.aspx");
         }
 

@@ -55,8 +55,8 @@ namespace PRESENTACION
                 AgregarBxF();
                 AgregarVenta();
                 AgregarDetalleVenta();
-                Response.Cookies["Compra"].Value = "1";
-                Response.Cookies["Compra"].Expires = DateTime.Now.AddHours(1);
+                Response.Cookies["Mensaje"].Value = "1";
+                Response.Cookies["Mensaje"].Expires = DateTime.Now.AddHours(1);
                 Response.Redirect("Inicio.aspx");
             }
             else

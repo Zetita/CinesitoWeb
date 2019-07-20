@@ -33,7 +33,7 @@
     
            <a href="User.aspx">Historial de compras</a>
            <a href="User_Perfil.aspx" class="active">Editar datos personales</a>
-           <a href="#">Cambiar contraseña</a>
+           <a href="User_Contrasenia.aspx">Cambiar contraseña</a>
            <asp:LinkButton ID="lbCerrar" runat="server" OnClick="lbCerrar_Click" >Cerrar Sesión</asp:LinkButton>
             <asp:LinkButton ID="lbConfig" runat="server" OnClick="lbConfig_Click" ><img src="Recursos/cog.png" width="25" />Administrar datos</asp:LinkButton>
 
@@ -65,13 +65,6 @@
                  <td class="auto-style7">DNI</td>
                  <td class="auto-style6">
                      <asp:TextBox ID="txtDNI" runat="server" BackColor="#03285b" Width="274px" ForeColor="Silver"></asp:TextBox>
-                 </td>
-                 <td class="auto-style5">&nbsp;</td>
-             </tr>
-             <tr>
-                 <td class="auto-style7">FECHA DE NACIMIENTO</td>
-                 <td class="auto-style6">
-                     <asp:TextBox ID="txtFecNac" runat="server" BackColor="#03285b" Width="274px" ForeColor="Silver" TextMode="Date"></asp:TextBox>
                  </td>
                  <td class="auto-style5">&nbsp;</td>
              </tr>

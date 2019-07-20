@@ -15,7 +15,11 @@ namespace PRESENTACION
         protected void Page_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = Session["UserLogeado"].ToString();
-            
+            if (Session["NivelUser"].ToString() == "0")
+            {
+                lbConfig.Visible = false;
+            }
+
             string Usuario;
             n_Usuario n_usuario = new n_Usuario();
             Usuario user = new Usuario();
@@ -30,7 +34,6 @@ namespace PRESENTACION
                 txtNombre.Text = user.Nombre;
                 txtApellido.Text = user.Apellido;
                 txtDNI.Text = user.Dni;
-                txtFecNac.Text = "07/03/2000";
                 txtEmail.Text = user.Email;
                 txtTelefono.Text = user.Telefono;
                                
@@ -39,6 +42,8 @@ namespace PRESENTACION
         protected void lbCerrar_Click(object sender, EventArgs e)
         {
             Session["UserLogeado"] = null;
+            Response.Cookies["Mensaje"].Value = "3";
+            Response.Cookies["Mensaje"].Expires = DateTime.Now.AddHours(1);
             Response.Redirect("Inicio.aspx");
         }
         protected void lbConfig_Click(object sender, EventArgs e)
@@ -84,7 +89,6 @@ namespace PRESENTACION
             user.Nombre = txtNombre.Text;
             user.Dni = txtDNI.Text;
             user.Telefono = txtTelefono.Text;
-            user.FechaNac = DateTime.Parse(txtFecNac.Text);
             user.Administrador = userbk.Administrador;
             user.Activo = userbk.Activo;
 

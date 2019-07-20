@@ -26,7 +26,7 @@
     
            <a href="User.aspx" class="active">Historial de compras</a>
            <a href="User_Perfil.aspx">Editar datos personales</a>
-           <a href="#">Cambiar contraseña</a>
+           <a href="User_Contrasenia.aspx">Cambiar contraseña</a>
            <asp:LinkButton ID="lbCerrar" runat="server" OnClick="lbCerrar_Click" >Cerrar Sesión</asp:LinkButton>
            <asp:LinkButton ID="lbConfig" runat="server" OnClick="lbConfig_Click" ><img src="Recursos/cog.png" width="25" />Administrar datos</asp:LinkButton>
 
@@ -51,7 +51,5 @@
     </td>
 </tr>
 </table>
-
-
 
 </asp:Content>
