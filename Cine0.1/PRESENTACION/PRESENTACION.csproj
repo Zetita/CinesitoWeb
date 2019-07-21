@@ -276,6 +276,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="img\user\" />
     <Folder Include="JS\" />
   </ItemGroup>
   <PropertyGroup>

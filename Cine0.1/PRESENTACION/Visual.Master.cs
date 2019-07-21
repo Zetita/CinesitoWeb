@@ -14,6 +14,17 @@ namespace PRESENTACION
             if (!IsPostBack)
             {
                 txtSearch.Visible = false;
+                if (Session["UserLogeado"] != null)
+                {
+                    lblUsuario.Text = Session["UserLogeado"].ToString();
+                    
+                }
+            }
+            if (Session["UserLogeado"] != null)
+            {
+
+                imgbtnUser.ImageUrl = "~/img/user/" + lblUsuario.Text + ".png";
+
             }
         }
 
@@ -36,17 +47,20 @@ namespace PRESENTACION
             {
                 if (txtSearch.Value.ToString().Trim() != string.Empty)
                 {
+                    lblUsuario.Visible = true;
                     txtSearch.Visible = false;
                     Redirigir();
                 }
                 else
                 {
+                    lblUsuario.Visible = true;
                     txtSearch.Value = string.Empty;
                     txtSearch.Visible = false;
                 }
             }
             else
             {
+                lblUsuario.Visible = false;
                 txtSearch.Value = string.Empty;
                 txtSearch.Visible = true;
             }

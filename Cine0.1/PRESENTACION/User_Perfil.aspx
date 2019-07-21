@@ -48,7 +48,8 @@
          <br />
          <table class="tabla">
              <tr>
-                 <td class="auto-style7">NOMBRE</td>
+                 <td class="auto-style7">NOMBRE
+                 </td>
                  <td class="auto-style6">
                      <asp:TextBox ID="txtNombre" runat="server" BackColor="#03285B" Width="274px" ForeColor="Silver"></asp:TextBox>
                  </td>
@@ -83,6 +84,13 @@
                  <td class="auto-style5">&nbsp;</td>
              </tr>
              <tr>
+                 <td class="auto-style7">IMAGEN</td>
+                 <td class="auto-style6">
+                     <asp:FileUpload ID="flImagen" runat="server" />
+                 </td>
+                 <td class="auto-style5">&nbsp;</td>
+             </tr>
+             <tr>
                  <td class="auto-style7">&nbsp;</td>
                  <td class="auto-style6">
                      &nbsp;</td>
@@ -97,6 +105,7 @@
                  </td>
                  <td class="auto-style5">&nbsp;</td>
              </tr>
+             
          </table>
 
      </div>   

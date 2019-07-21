@@ -84,6 +84,7 @@ namespace PRESENTACION
             n_Usuario n_usuario = new n_Usuario();
             DataTable dt = new DataTable();
             DateTime fecha = new DateTime(2000, 01, 01);
+            ValidarImagen();
 
             dt = n_usuario.ObtenerUsuario(lblUsuario.Text);
 
@@ -112,5 +113,36 @@ namespace PRESENTACION
                 lblEd.ForeColor = System.Drawing.Color.Red;
             }
         }
-    }
+
+        public void ValidarImagen()
+        {
+            string extension = string.Empty;
+            string oPath = string.Empty;
+            if (flImagen.HasFile)
+            {
+                extension = flImagen.FileName.ToString();
+                if (extension.Contains(".jpg") || extension.Contains(".png") || extension.Contains(".gif"))
+                {
+                    if (extension.Contains(".jpg"))
+                    {
+                        oPath = Server.MapPath(string.Format("~/img/user/" + lblUsuario.Text+".jpg"));
+                    }
+                    else if (extension.Contains(".png"))
+                    {
+                        oPath = Server.MapPath(string.Format("~/img/user/" + lblUsuario.Text + ".png"));
+                    }
+                    else
+                    {
+                        oPath = Server.MapPath(string.Format("~/img/user/" + lblUsuario.Text + ".gif"));
+                    }
+
+                    flImagen.SaveAs(oPath);
+                }
+                else
+                {
+                    Response.Write("<script>window.alert('Error de Formato.');</script>");
+                }
+            }
+        }
+    }  
 }
