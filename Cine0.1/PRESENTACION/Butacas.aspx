@@ -84,7 +84,7 @@
     
     <!-- INFO ENTRADA -->
     <asp:Label ID="lblFormato" runat="server"  style="position:absolute;font-family:Calibri;color:white; top: 187px; left: 905px; font-size:x-large" Font-Bold="False"></asp:Label>
-    <asp:Label ID="lblFecha" runat="server" Text="Jueves 13 de Junio - 15:30" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 329px; left: 905px"></asp:Label>
+    <asp:Label ID="lblFecha" runat="server" style="position:absolute;font-family:Calibri;color:white;font-size:x-large; top: 329px; left: 905px"></asp:Label>
     <asp:Label ID="lblEntrada" runat="server"  style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 384px; left: 696px"></asp:Label>
     <asp:Label ID="lblPrecio" runat="server" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 384px; left: 1080px"></asp:Label>
     <asp:Label ID="lblPrecioFinal" runat="server" style="position:absolute;font-family:Calibri;color:white;font-size:x-large;top: 428px; left: 1080px" Font-Bold="True"></asp:Label>
