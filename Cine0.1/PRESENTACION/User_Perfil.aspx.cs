@@ -123,19 +123,7 @@ namespace PRESENTACION
                 extension = flImagen.FileName.ToString();
                 if (extension.Contains(".jpg") || extension.Contains(".png") || extension.Contains(".gif"))
                 {
-                    if (extension.Contains(".jpg"))
-                    {
-                        oPath = Server.MapPath(string.Format("~/img/user/" + lblUsuario.Text+".jpg"));
-                    }
-                    else if (extension.Contains(".png"))
-                    {
-                        oPath = Server.MapPath(string.Format("~/img/user/" + lblUsuario.Text + ".png"));
-                    }
-                    else
-                    {
-                        oPath = Server.MapPath(string.Format("~/img/user/" + lblUsuario.Text + ".gif"));
-                    }
-
+                    oPath = Server.MapPath(string.Format("~/img/user/" + lblUsuario.Text + ".png"));
                     flImagen.SaveAs(oPath);
                 }
                 else

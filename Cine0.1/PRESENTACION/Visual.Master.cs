@@ -23,7 +23,7 @@ namespace PRESENTACION
             if (Session["UserLogeado"] != null)
             {
 
-                imgbtnUser.ImageUrl = "~/img/user/" + lblUsuario.Text + ".png";
+                imgbtnUser.ImageUrl = "~/img/user/" + lblUsuario.Text.Trim() + ".png";
 
             }
         }
