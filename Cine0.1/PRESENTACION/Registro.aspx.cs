@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.IO;
 using ENTIDAD;
 using NEGOCIO;
 
@@ -54,6 +55,7 @@ namespace PRESENTACION
                 {
                     if (n_usuario.agregarUsuario(usuario))
                     {
+                        AgregarImagen();
                         lblAdd.Text = "USUARIO REGISTRADO.";
                         lblAdd.ForeColor = System.Drawing.Color.Blue;
                         ClearInputs(Page.Controls);
@@ -106,6 +108,13 @@ namespace PRESENTACION
                     lblAdv.ForeColor = System.Drawing.Color.Red;
                 }
             }
+        }
+
+        public void AgregarImagen()
+        {
+            string archivoOrigen = @"C:\Users\Absalon\Desktop\Programas\Programitas\CinesitoWeb\Cine0.1\PRESENTACION\Recursos\user.png";
+            string rutaDestino = @"C:\Users\Absalon\Desktop\Programas\Programitas\CinesitoWeb\Cine0.1\PRESENTACION\img\user\"+txtUsuario.Text+".png";
+            File.Copy(archivoOrigen, rutaDestino);
         }
     }
 }
