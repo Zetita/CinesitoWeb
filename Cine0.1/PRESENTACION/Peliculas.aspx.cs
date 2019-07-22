@@ -158,15 +158,16 @@ namespace PRESENTACION
         {
 
             string ID_Funcion = string.Empty;
-
+            string Dia = string.Empty;
             try
             {
-
                 Application["Dia"] += " " + ddlHorario.SelectedItem.ToString();
-               
+                Dia = (DateTime.ParseExact("12/22/2019 7:00:00 AM", "M/d/yyyy h:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture)).ToString();
+                Application["Dia"] = Dia;
                 ID_Funcion = SacarFuncion();
                 Application["ID_Funcion"] = ID_Funcion;
                 Boton("1");
+
             }
             catch
             {
