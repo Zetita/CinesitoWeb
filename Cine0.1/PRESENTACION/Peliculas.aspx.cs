@@ -156,19 +156,16 @@ namespace PRESENTACION
 
         protected void ddlHorario_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             string ID_Funcion = string.Empty;
-            string Dia = string.Empty;
+
             try
             {
                 Application["Dia"] += " " + ddlHorario.SelectedItem.ToString();
-                Dia = (DateTime.ParseExact(Application["Dia"].ToString(), "M/d/yyyy h:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture)).ToString();
-                Application["Dia"] = Dia;
-                btnSeleccionar.Text = Dia;
+                DateTime Dia = Convert.ToDateTime(Application["Dia"].ToString());
+                string Fecha = Dia.ToString("yyyy/M/d h:mm:ss tt");
                 ID_Funcion = SacarFuncion();
                 Application["ID_Funcion"] = ID_Funcion;
                 Boton("1");
-
             }
             catch
             {
