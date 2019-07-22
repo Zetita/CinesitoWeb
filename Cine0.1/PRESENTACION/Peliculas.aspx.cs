@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using NEGOCIO;
 using System.Drawing;
+using System.Globalization;
 
 namespace PRESENTACION
 {
@@ -158,12 +159,14 @@ namespace PRESENTACION
         {
 
             string ID_Funcion = string.Empty;
-            string Dia = string.Empty;
+            DateTime Dia;
+            string Fecha = string.Empty;
             try
             {
                 Application["Dia"] += " " + ddlHorario.SelectedItem.ToString();
-                Dia = (DateTime.ParseExact(Application["Dia"].ToString(), "M/d/yyyy h:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture)).ToString();
-                Application["Dia"] = Dia;
+                Dia = Convert.ToDateTime(Application["Dia"].ToString());
+                Fecha = Dia.ToString("yyyy/M/d h:mm:ss tt");
+                Application["Dia"] = Fecha;
                 ID_Funcion = SacarFuncion();
                 Application["ID_Funcion"] = ID_Funcion;
                 Boton("1");

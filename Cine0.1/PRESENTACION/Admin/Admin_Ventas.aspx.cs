@@ -297,8 +297,8 @@ namespace PRESENTACION
             }
             else
             {
-                string Dia = ddlDia.SelectedItem.ToString() + " " + ddlHorario.SelectedItem.ToString();
-                string Fecha= (DateTime.ParseExact(Dia, "M/d/yyyy h:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture)).ToString();
+                DateTime Dia = Convert.ToDateTime(ddlDia.SelectedItem.ToString() + " " + ddlHorario.SelectedItem.ToString());
+                string Fecha = Dia.ToString("yyyy/M/d h:mm:ss tt");
                 string Consulta = "Select * from Funciones where ID_Pelicula='" + IDPel + "' and ID_Formato='" + IDFor + "' and ID_Sucursal='" + IDSuc+"' and DATEDIFF(n, FechaHora_Funcion,'" + Fecha +"') = 0";
                 return Consulta;
             }
