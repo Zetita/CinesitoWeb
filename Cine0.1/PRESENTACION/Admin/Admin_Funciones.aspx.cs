@@ -36,20 +36,20 @@ namespace PRESENTACION
         }
         public void cargarDDL()
         {
-            //ESTO HAY QUE CAMBIAR XQ ID_PXF NO ESTA MAS
-            //n_PxF n_pxf = new n_PxF();
-            //ddlPXF.DataTextField = "ID_PxF";
-            //ddlPXF.DataValueField = "ID_PxF";
-            //ddlPXF.DataSource = n_pxf.ObtenerTabla();
-            //ddlPXF.DataBind();
+            n_Pelicula n_pelicula = new n_Pelicula();
 
-            //ddlPXF.Items.Insert(0, "---Nada selecionado---");
+            ddlPeliculas.DataTextField = "Titulo_Pelicula";
+            ddlPeliculas.DataValueField = "ID_Pelicula";
+            ddlPeliculas.DataSource = n_pelicula.ObtenerTabla();
+            ddlPeliculas.DataBind();
+            ddlPeliculas.Items.Insert(0, "--Seleccione una pelicula--");
+
             n_Sucursal n_sucursal = new n_Sucursal();
             ddlSucursal.DataTextField = "Nombre_Sucursal";
             ddlSucursal.DataValueField = "ID_Sucursal";
             ddlSucursal.DataSource = n_sucursal.ObtenerTabla();
             ddlSucursal.DataBind();
-
+            
             n_Sala n_sala = new n_Sala();
             ddlSala.DataTextField = "Sala";
             ddlSala.DataValueField = "ID_Sala";
@@ -57,6 +57,7 @@ namespace PRESENTACION
             ddlSala.DataBind();
 
         }
+        
         void ClearInputs(ControlCollection ctrls)
         {
             foreach (Control ctrl in ctrls)
@@ -77,23 +78,51 @@ namespace PRESENTACION
             ddlSala.DataBind();
         }
 
-        protected void ddlPXF_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ddlPeliculas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //n_PxF n_pxf = new n_PxF();
-            //DataTable dt = n_pxf.ObtenerTituloFormato(ddlPXF.Text);
-            //lblPeliculaFormato.Text = dt.Rows[1][0].ToString() + " - "+ dt.Rows[1][1].ToString();
-            
+            n_PxF n_pxf = new n_PxF();
+            DataTable dt = n_pxf.ObtenerFormatosxPel(ddlPeliculas.SelectedValue);
+
+            ddlFormatos.DataTextField = "Nombre_Formato";
+            ddlFormatos.DataValueField = "ID_Formato";
+            ddlFormatos.DataSource = dt;
+            ddlFormatos.DataBind();
+
         }
 
         protected void btnAgregarFuncion_Click(object sender, EventArgs e)
         {
-            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv5.IsValid)
+            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv5.IsValid && rfv6.IsValid)
             {
                 Funcion funcion = new Funcion();
-                funcion.IDFuncion = "FN00" + (grdFunciones.Rows.Count + 1);
-                
-                //funcion.IDPxF = ddlPXF.SelectedValue.ToString();
+                funcion.IDFuncion = "FUN00" + (grdFunciones.Rows.Count + 1);
+
+                //if (grdFunciones.Rows.Count < 10)
+                //    funcion.IDFuncion = "FUN00" + (grdFunciones.Rows.Count + 1);
+                //if (grdFunciones.Rows.Count > 10 && grdFunciones.Rows.Count < 100)
+                //    funcion.IDFuncion = "FUN00" + (grdFunciones.Rows.Count + 1);
+                //if (grdFunciones.Rows.Count > 100)
+                //    funcion.IDFuncion = "FUN" + (grdFunciones.Rows.Count + 1);
+
+                if (grdFunciones.Rows.Count > 0)
+                {
+                    if (grdFunciones.Rows.Count >= 9)
+                    {
+                        if (grdFunciones.Rows.Count >= 99) funcion.IDFuncion = "FUN" + grdFunciones.Rows.Count + 1;
+                        else funcion.IDFuncion = "FUN0" + (grdFunciones.Rows.Count + 1).ToString();
+                    }
+                    else funcion.IDFuncion = "FUN00" + (grdFunciones.Rows.Count + 1).ToString();
+                }
+                else
+                {
+                    funcion.IDFuncion = "FUN001";
+                }
+
+
+                funcion.IDPelicula = ddlPeliculas.SelectedValue.ToString();
+                funcion.IDFormato = ddlFormatos.SelectedValue.ToString();
                 funcion.IDSucursal = ddlSucursal.SelectedValue.ToString();
+
                 funcion.IDSala = ddlSala.SelectedValue.ToString();
                 String[] hor = txtHorario.Text.Split(':');
                 int hora = Int32.Parse(hor[0]);

@@ -31,13 +31,22 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control ddlPXF.
+        /// Control ddlPeliculas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPXF;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPeliculas;
+        
+        /// <summary>
+        /// Control ddlFormatos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFormatos;
         
         /// <summary>
         /// Control rfv1.
@@ -47,6 +56,15 @@ namespace PRESENTACION {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv1;
+        
+        /// <summary>
+        /// Control rfv6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv6;
         
         /// <summary>
         /// Control ddlSucursal.

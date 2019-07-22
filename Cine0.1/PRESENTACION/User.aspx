@@ -13,9 +13,9 @@
         }
         .auto-style5 {
             position: absolute;
-            top: 150px;
-            right: 75px;
-            width: 970px;
+            top: 70px;
+            right: 30px;
+            width: 940px;
         }
     </style>
 
@@ -52,8 +52,6 @@
 
          <asp:Label ID="lblSinCompras" runat="server" ForeColor="White" Style="color:#808080;padding-left: 10px; margin: 10px 0px 0px 10px; font-size: xx-large;" ></asp:Label>
          <br />
-         <asp:DataList ID="dlistCompras" runat="server">
-         </asp:DataList>
 
      </div>   
     </td>

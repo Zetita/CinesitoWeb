@@ -85,6 +85,15 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv3;
         
         /// <summary>
+        /// Control ddlPeliculas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPeliculas;
+        
+        /// <summary>
         /// Control Calendar1.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,15 @@ namespace PRESENTACION {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        
+        /// <summary>
+        /// Control cboxlistFormatos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cboxlistFormatos;
         
         /// <summary>
         /// Control txtDirector.
@@ -112,6 +130,15 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv4;
         
         /// <summary>
+        /// Control btnCargarPelxFor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCargarPelxFor;
+        
+        /// <summary>
         /// Control txtSinopsis.
         /// </summary>
         /// <remarks>
@@ -128,6 +155,15 @@ namespace PRESENTACION {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv5;
+        
+        /// <summary>
+        /// Control lblCargado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCargado;
         
         /// <summary>
         /// Control fileImagen.

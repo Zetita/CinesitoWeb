@@ -28,13 +28,20 @@ namespace DAO
             DataTable tabla = ad.ObtenerTabla("PeliculasxFormatos", "Select * from PeliculasXFormatos Where ID_Pelicula='" + id_pel + "' and ID_Formato='" + id_for + "'");
             return tabla;
         }
-        public DataTable ObtenerTituloFormato(String id)
+        public DataTable ObtenerTituloFormato(String pel, int aa)
         {
             DataTable tabla =
                 ad.ObtenerTabla("TituloFormato", "SELECT Titulo_Pelicula, Nombre_Formato FROM PeliculasXFormatos " +
                 "INNER JOIN Peliculas ON PeliculasxFormatos.ID_Pelicula=Peliculas.ID_Pelicula " +
                 "INNER JOIN Formatos ON PeliculasxFormatos.ID_Formato=Formatos.ID_Formato WHERE " +
-                "PeliculasxFormatos.ID_PxF='" + id + "'");
+                "PeliculasxFormatos.ID_Pelicula='" + pel + "'");
+            return tabla;
+        }
+        public DataTable ObtenerTablaFormatosxPel(String idpel)
+        {
+            DataTable tabla =
+                ad.ObtenerTabla("FormatosxPel", "SELECT PeliculasXFormatos.ID_Formato, Formatos.Nombre_Formato FROM PeliculasXFormatos " +
+                "Inner Join Formatos on PeliculasXFormatos.ID_Formato=Formatos.ID_Formato WHERE PeliculasxFormatos.ID_Pelicula='" + idpel + "'" );
             return tabla;
         }
         public void armarParametros(ref SqlCommand Comando, PeliculasxFormato pxf)

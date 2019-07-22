@@ -137,7 +137,8 @@ namespace PRESENTACION
             String s_Nombres = ((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_Nombres")).Text;
             String s_DNI = ((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_DNI")).Text;
             String s_Telefono = ((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_Telefono")).Text;
-            DateTime dt_FechaNac = DateTime.Parse(((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_FecNac")).Text);
+           
+           DateTime dt_FechaNac = DateTime.Parse(((TextBox)grdUsuarios.Rows[e.RowIndex].FindControl("txt_eit_FecNac")).Text);
             bool b_Activo, b_Admin;
             if (((CheckBox)grdUsuarios.Rows[e.RowIndex].FindControl("cb_eit_Activo")).Checked == true)
                 b_Activo = true;

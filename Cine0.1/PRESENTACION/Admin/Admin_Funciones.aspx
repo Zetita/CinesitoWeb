@@ -21,6 +21,17 @@
         .auto-style6 {
             height: 33px;
         }
+        .auto-style7 {
+            width: 314px;
+            height: 29px;
+        }
+        .auto-style8 {
+            width: 362px;
+            height: 29px;
+        }
+        .auto-style9 {
+            height: 29px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -33,13 +44,16 @@
         <br />
         <table class="auto-style1">
             <tr>
-                <td class="auto-style2">Pelicula-Formato</td>
-                <td class="auto-style3">
-                    <asp:DropDownList ID="ddlPXF" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPXF_SelectedIndexChanged">
+                <td class="auto-style7">Pelicula-Formato</td>
+                <td class="auto-style8">
+                    <asp:DropDownList ID="ddlPeliculas" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPeliculas_SelectedIndexChanged">
+                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddlFormatos" runat="server">
                     </asp:DropDownList>
                 </td>
-                <td>
-                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="ddlPXF" ErrorMessage="*" ForeColor="Red" InitialValue="0" ValidationGroup="add"></asp:RequiredFieldValidator>
+                <td class="auto-style9">
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="ddlPeliculas" ErrorMessage="*" ForeColor="Red" InitialValue="0" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="ddlFormatos" ErrorMessage="*" ForeColor="Red" InitialValue="0" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -114,8 +128,15 @@
                     <EditItemTemplate>
                         <asp:Label ID="lbl_eit_idpxf" runat="server" Text='<%# Bind("ID_PxF") %>'></asp:Label>
                     </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_IDPelicula" runat="server" Text='<%# Bind("ID_Pelicula") %>'></asp:Label>
+                    </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Formato"></asp:TemplateField>
+                <asp:TemplateField HeaderText="Formato">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_IDFormato" runat="server" Text='<%# Bind("ID_Formato") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Sucursal">
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_idsuc" runat="server" Text='<%# Bind("ID_Sucursal") %>'></asp:Label>

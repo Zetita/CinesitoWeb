@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ENTIDAD;
 using NEGOCIO;
+using System.Data;
 
 namespace PRESENTACION
 {
@@ -23,7 +24,8 @@ namespace PRESENTACION
             {
                 cargarGrilla();
                 cargarDDL();
-
+                cargarDDLPeliculas();
+                cargarCheckBoxs();
             }
         }
         public void cargarGrilla()
@@ -41,6 +43,27 @@ namespace PRESENTACION
             ddlClasificacion.Items.Add("SAMP18");
             ddlClasificacion.Items.Insert(0, "-Seleccione Clasificacion-");          
         }
+        public void cargarDDLPeliculas()
+        {
+            n_Pelicula n_pelicula = new n_Pelicula();
+
+            ddlPeliculas.DataTextField = "Titulo_Pelicula";
+            ddlPeliculas.DataValueField = "ID_Pelicula";
+            ddlPeliculas.DataSource = n_pelicula.ObtenerTabla();
+            ddlPeliculas.DataBind();
+            ddlPeliculas.Items.Insert(0, "--Seleccione una pelicula--");
+        }
+        public void cargarCheckBoxs()
+        {
+            n_Formato n_formato = new n_Formato();
+            DataTable dt = n_formato.ObtenerTabla();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cboxlistFormatos.Items.Add(new ListItem(dt.Rows[i]["Nombre_Formato"].ToString(), dt.Rows[i]["ID_Formato"].ToString()));
+            }
+            
+        }
         void ClearInputs(ControlCollection ctrls)
         {
             foreach (Control ctrl in ctrls)
@@ -48,6 +71,8 @@ namespace PRESENTACION
                 if (ctrl is TextBox)
                     ((TextBox)ctrl).Text = string.Empty;
                 ClearInputs(ctrl.Controls);
+                if (ctrl is CheckBoxList)
+                    ((CheckBoxList)ctrl).ClearSelection();
             }
         }
         protected void grdSnacks_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -112,6 +137,7 @@ namespace PRESENTACION
                     lblAgregado.Text = "Cargado exitosamente.";
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
+                    cargarDDLPeliculas();
                     ClearInputs(Page.Controls);
 
                 }
@@ -164,6 +190,58 @@ namespace PRESENTACION
 
 
 
+        }
+
+        protected void btnCargarPelxFor_Click(object sender, EventArgs e)
+        {
+            n_PxF n_pxf = new n_PxF();
+            PeliculasxFormato pel = new PeliculasxFormato();
+            int marcados=0;
+            for (int i = 0; i < cboxlistFormatos.Items.Count; i++)
+            {
+                if (cboxlistFormatos.Items[i].Selected)
+                {
+                    marcados++;
+                }
+            }
+
+            if(ddlPeliculas.SelectedIndex>0 && marcados!=0)
+            {
+                pel.IDPelicula = ddlPeliculas.SelectedValue;
+
+                for (int i = 0; i < cboxlistFormatos.Items.Count; i++)
+                {
+                    pel.IDFormato = "";
+                    if (cboxlistFormatos.Items[i].Selected)
+                    {
+                        pel.IDFormato = cboxlistFormatos.Items[i].Value;
+                        
+                        if (n_pxf.insertarPxF(pel))
+                        {
+                            lblCargado.Text = "Cargado exitosamente.";
+                            lblCargado.ForeColor = System.Drawing.Color.Green;
+                            cargarGrilla();
+                            ClearInputs(Page.Controls);
+
+                        }
+                        else
+                        {
+                            lblCargado.Text = "Error al agregar.";
+                            lblCargado.ForeColor = System.Drawing.Color.Red;
+                        }
+                    }
+                    
+                }
+            }
+            else
+            {
+                lblCargado.Text = "Complete los campos necesarios!";
+            }
+        }
+
+        public void YaHay()
+        {
+            
         }
     }
 }

@@ -21,10 +21,15 @@ namespace NEGOCIO
             DAO_PxF da = new DAO_PxF();
             return da.ObtenerTablaPxF(id_pel,id_for);
         }
-        public DataTable ObtenerTituloFormato(String id)
+        public DataTable ObtenerTituloFormato(String id, int wawa)
+        { 
+            DAO_PxF da = new DAO_PxF();
+            return da.ObtenerTituloFormato(id, wawa);
+        }
+        public DataTable ObtenerFormatosxPel(String idpel)
         {
             DAO_PxF da = new DAO_PxF();
-            return da.ObtenerTituloFormato(id);
+            return da.ObtenerTablaFormatosxPel(idpel);
         }
         public bool editarPxF(PeliculasxFormato pxf)
         {
