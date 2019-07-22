@@ -97,8 +97,8 @@ namespace PRESENTACION
             }
             else
             {
-                lblAdv.Text = "COMPLETE LOS CAMPOS MARCADOS.";
-                lblAdv.ForeColor = System.Drawing.Color.Red;
+                lblAdd.Text = "COMPLETE LOS CAMPOS MARCADOS.";
+                lblAdd.ForeColor = System.Drawing.Color.Red;
             }
         }
         

@@ -52,6 +52,11 @@ namespace PRESENTACION
                     lblAdv2.ForeColor = System.Drawing.Color.Red;
                 }
             }
+            else
+            {
+                lblAdv2.Text = "COMPLETE LOS CAMPOS.";
+                lblAdv2.ForeColor = System.Drawing.Color.Red;
+            }
         }
 
         protected void btnRegistro_Click(object sender, EventArgs e)

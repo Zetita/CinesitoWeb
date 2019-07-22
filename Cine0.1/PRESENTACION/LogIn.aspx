@@ -18,7 +18,7 @@
     <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtContrasenia" ErrorMessage="*" ForeColor="#CC3300" style="position:absolute; top:328px; left:455px;"></asp:RequiredFieldValidator>
 
     <asp:Button ID="btnIniciar" runat="server" Text="INICIAR SESIÓN" style="position:absolute; top:480px; left:320px; width: 360px; height:30px" BackColor="Black" ForeColor="White" BorderColor="White" BorderStyle="Solid" Font-Bold="True" OnClick="btnIniciar_Click" />
-    <asp:Label ID="lblAdv2" runat="server" Text="" ForeColor="White" style="position:absolute; top:530px; left:351px;"></asp:Label>
+    <asp:Label ID="lblAdv2" runat="server" Text="" ForeColor="White" style="position:absolute; top:430px; left:330px;"></asp:Label>
 
     <asp:Button ID="btnRegistro" runat="server" text="Registrarse" style="position:absolute; top:220px; left:775px;" CssClass="botones" OnClick="btnRegistro_Click"></asp:Button>
 
