@@ -162,7 +162,7 @@ namespace PRESENTACION
             try
             {
                 Application["Dia"] += " " + ddlHorario.SelectedItem.ToString();
-                Dia = (DateTime.ParseExact("12/22/2019 7:00:00 AM", "M/d/yyyy h:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture)).ToString();
+                Dia = (DateTime.ParseExact(Application["Dia"].ToString(), "M/d/yyyy h:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture)).ToString();
                 Application["Dia"] = Dia;
                 ID_Funcion = SacarFuncion();
                 Application["ID_Funcion"] = ID_Funcion;
