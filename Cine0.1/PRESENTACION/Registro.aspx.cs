@@ -112,8 +112,8 @@ namespace PRESENTACION
 
         public void AgregarImagen()
         {
-            string archivoOrigen = @"C:\Users\Absalon\Desktop\Programas\Programitas\CinesitoWeb\Cine0.1\PRESENTACION\Recursos\user.png";
-            string rutaDestino = @"C:\Users\Absalon\Desktop\Programas\Programitas\CinesitoWeb\Cine0.1\PRESENTACION\img\user\"+txtUsuario.Text+".png";
+            string archivoOrigen = Server.MapPath(string.Format("~/Recursos/user.png"));
+            string rutaDestino = Server.MapPath(string.Format("~/img/user/" + txtUsuario.Text + ".png"));
             File.Copy(archivoOrigen, rutaDestino);
         }
     }
