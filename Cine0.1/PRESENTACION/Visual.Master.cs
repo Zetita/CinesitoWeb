@@ -36,7 +36,7 @@ namespace PRESENTACION
         protected void imgbtnUser_Click(object sender, ImageClickEventArgs e)
         {
             if (Session["UserLogeado"] == null)
-                Response.Redirect("/Registro.aspx");
+                Response.Redirect("/LogIn.aspx");
             else
                 Response.Redirect("/User.aspx");
         }

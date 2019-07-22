@@ -192,7 +192,7 @@ namespace PRESENTACION
             lblDuracion.Text = "Duración: " + dt.Rows[0]["Duracion"].ToString() + " horas.";
             lblDirector.Text = "Director: " + dt.Rows[0]["Director_Pelicula"].ToString().TrimEnd() + ".";
             imgPortada.ImageUrl = dt.Rows[0]["ImagenURL"].ToString();
-            lblVideo.Text = "<iframe width='853' height='480' src='" + dt.Rows[0]["TrailerURL"].ToString() + "' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen style='position: absolute; top: 136px; left: 800px; height: 275px; width: 437px'></iframe>";
+            lblVideo.Text = "<iframe width='853' height='480' src='" + dt.Rows[0]["TrailerURL"].ToString() + "' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen style='position: absolute; top: 160px; left: 800px; height: 275px; width: 437px'></iframe>";
         }
 
         public void LlenarDDLSucursal(DataTable dt)

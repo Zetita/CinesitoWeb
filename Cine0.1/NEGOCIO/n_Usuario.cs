@@ -73,6 +73,11 @@ namespace NEGOCIO
             DAO_Usuarios da = new DAO_Usuarios();
             return da.estaRegistrado(usuario);
         }
+        public bool estaRegistradoEmail(String email)
+        {
+            DAO_Usuarios da = new DAO_Usuarios();
+            return da.estaRegistradoEmail(email);
+        }
         public bool esAdministrador(String usuario)
         {
             DAO_Usuarios da = new DAO_Usuarios();

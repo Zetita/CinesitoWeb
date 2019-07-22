@@ -9,10 +9,10 @@
     <!-- INFO PELICULA -->
         <asp:Image ID="imgPortada" runat="server" style="position:absolute;top:91px;left:75px; height: 387px; width: 256px;"/>
         <b><asp:Label ID="lblNombre" runat="server" style="position:absolute;text-transform:uppercase; top: 86px; left: 346px; margin-right:700px" Font-Size="XX-Large"></asp:Label></b>
-        <asp:Label ID="lblSinopsis" runat="server" style="position:absolute; top:186px;left:346px; text-align:justify; margin-right:700px"></asp:Label>
+        <asp:Label ID="lblSinopsis" runat="server" style="position:absolute; top:186px;left:346px; text-align:justify; margin-right:750px"></asp:Label>
         <asp:Label ID="lblGenero" runat="server" style="position:absolute; top:336px; left:346px"></asp:Label>
         <asp:Label ID="lblDuracion" runat="server" style="position:absolute; top:360px; left:346px"></asp:Label>
-        <asp:Label ID="lblTrailer" runat="server" Text="TRAILER" style="position:absolute;top:86px;left:800px;font-size:xx-large" Font-Bold="True"></asp:Label>
+        <asp:Label ID="lblTrailer" runat="server" Text="TRAILER" style="position:absolute;top:135px;left:800px;font-size:x-large" Font-Bold="True"></asp:Label>
         <asp:Label ID="lblDirector" runat="server" style="position:absolute; top:386px; left:346px"></asp:Label>
         <asp:Label ID="lblVideo" runat="server"></asp:Label>
     

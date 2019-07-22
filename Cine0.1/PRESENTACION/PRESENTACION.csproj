@@ -85,6 +85,7 @@
     <Content Include="img\slider\3.png" />
     <Content Include="img\snacks\balde_pochoclos_chico.jpg" />
     <Content Include="img\snacks\balde_pochoclos_grande.jpg" />
+    <Content Include="LogIn.aspx" />
     <Content Include="Peliculas.aspx" />
     <Content Include="Recursos\Asiento-Libre.png" />
     <Content Include="Recursos\Asiento-Ocupado.png" />
@@ -177,6 +178,13 @@
     </Compile>
     <Compile Include="Compras.aspx.designer.cs">
       <DependentUpon>Compras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.aspx.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogIn.aspx.designer.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Peliculas.aspx.cs">
       <DependentUpon>Peliculas.aspx</DependentUpon>

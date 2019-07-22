@@ -20,7 +20,12 @@ namespace PRESENTACION
             {
                 Path = "/Scripts/jquery-1.8.0.js"
             });
-            txtUsuario2.Focus();
+            if (!IsPostBack)
+            {
+                txtNacimiento.Attributes.Add("placeholder", "dd/mm/aaaa");
+            }
+
+            
         }
         void ClearInputs(ControlCollection ctrls)
         {
@@ -33,9 +38,29 @@ namespace PRESENTACION
         }
         protected void BtnRegistrar_Click(object sender, EventArgs e)
         {
+            Usuario usuario = new Usuario();
+            n_Usuario n_usuario = new n_Usuario();
+         
+
             if(rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && rfv6.IsValid && rfv7.IsValid && rfv8.IsValid)
             {
-                Usuario usuario = new Usuario();
+                if(n_usuario.estaRegistrado(txtUsuario.Text))
+                {
+                    lblError.Text = "Usuario no disponible" + "<br>";
+                    if (n_usuario.estaRegistradoEmail(txtEmail.Text))
+                    {
+                        lblError.Text += "Email ya se encuentra registrado";
+                        return;
+                    }
+                    return;
+                }
+                if(n_usuario.estaRegistradoEmail(txtEmail.Text))
+                {
+                    lblError.Text += "Email ya se encuentra registrado";
+                    return;
+                }
+
+
                 DateTime CreatdDate = DateTime.ParseExact(txtNacimiento.Text, "dd/mm/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 
                 usuario.User = txtUsuario.Text;
@@ -48,8 +73,6 @@ namespace PRESENTACION
                 usuario.FechaNac = CreatdDate;
                 usuario.Activo = true;
                 usuario.Administrador = false;
-
-                n_Usuario n_usuario = new n_Usuario();
 
                 if (!(n_usuario.estaRegistrado(txtUsuario.Text)))
                 {
@@ -74,47 +97,21 @@ namespace PRESENTACION
             }
             else
             {
-                lblAdv.Text = "COMPLETE LOS CAMPOS MARCADOS.";
-                lblAdv.ForeColor = System.Drawing.Color.Red;
+                lblAdd.Text = "COMPLETE LOS CAMPOS MARCADOS.";
+                lblAdd.ForeColor = System.Drawing.Color.Red;
             }
         }
-
-        protected void btnIniciar_Click(object sender, EventArgs e)
-        { 
-            if (rfv9.IsValid && rfv10.IsValid)
-            {
-                n_Usuario n_usuario = new n_Usuario();
-                DataTable dt = new DataTable();
-                if (n_usuario.estaRegistrado(txtUsuario2.Text, txtContrasenia2.Text)==true)
-                {
-                    Session["UserLogeado"] = txtUsuario2.Text;
-
-                    if (n_usuario.esAdministrador(Session["UserLogeado"].ToString()))
-                    {
-                        Session["NivelUser"] = "1";
-                        Response.Redirect("/Admin/Admin_Peliculas.aspx");
-                    }
-                    else
-                    {
-                        Session["NivelUser"] = "0";
-                        Response.Cookies["Mensaje"].Value = "4";
-                        Response.Cookies["Mensaje"].Expires = DateTime.Now.AddHours(1);
-                        Response.Redirect("~/Inicio.aspx");
-                    }
-                }
-                else
-                {
-                    lblAdv2.Text = "USUARIO Y/O CONTRASEÑA INCORRECTOS.";
-                    lblAdv.ForeColor = System.Drawing.Color.Red;
-                }
-            }
-        }
-
+        
         public void AgregarImagen()
         {
             string archivoOrigen = Server.MapPath(string.Format("~/Recursos/user.png"));
             string rutaDestino = Server.MapPath(string.Format("~/img/user/" + txtUsuario.Text + ".png"));
             File.Copy(archivoOrigen, rutaDestino);
+        }
+
+        protected void btnInicioSesion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/LogIn.aspx");
         }
     }
 }

@@ -27,7 +27,7 @@
             <li><a href="/Snacks.aspx">SNACKS</a></li>
 		    
             <li style="float:right; padding:13px 20px">
-                <asp:ImageButton ID="imgbtnUser" href="Registro.aspx" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/user.png" Height="32px" Width="35px" style="border-radius:50%" OnClick="imgbtnUser_Click" />
+                <asp:ImageButton ID="imgbtnUser" href="LogIn.aspx" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/user.png" Height="32px" Width="35px" style="border-radius:50%" OnClick="imgbtnUser_Click" />
                 <asp:ImageButton ID="imgbtnSearch" runat="server" ImageAlign="Right" ImageUrl="~/Recursos/search.png" Height="32px" Width="35px" style="position:absolute;right:68px;" OnClick="imgbtnSearch_Click" />  
                 <div class="search-box">
                 <input type="text" id="txtSearch" runat="server" placeholder="Titulo de la Película..."/>
