@@ -67,6 +67,38 @@ namespace DAO
                 return false;
         }
 
+        
+        public bool estaRegistradoEmail(String email)
+        {
+            SqlConnection cn = ad.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "SELECT * From Usuarios Where Email_Usuario='" + email + "'";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
+        }
+
         public bool estaRegistrado(string usuario)
         {
             SqlConnection cn = ad.ObtenerConexion();
