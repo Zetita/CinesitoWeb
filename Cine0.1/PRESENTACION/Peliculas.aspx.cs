@@ -163,6 +163,7 @@ namespace PRESENTACION
                 Application["Dia"] += " " + ddlHorario.SelectedItem.ToString();
                 DateTime Dia = Convert.ToDateTime(Application["Dia"].ToString());
                 string Fecha = Dia.ToString("yyyy/M/d h:mm:ss tt");
+                Application["Dia"] = Fecha;
                 ID_Funcion = SacarFuncion();
                 Application["ID_Funcion"] = ID_Funcion;
                 Boton("1");
