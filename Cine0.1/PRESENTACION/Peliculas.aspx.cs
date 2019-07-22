@@ -159,20 +159,21 @@ namespace PRESENTACION
 
             string ID_Funcion = string.Empty;
             string Dia = string.Empty;
-            try
-            {
+            //try
+            //{
                 Application["Dia"] += " " + ddlHorario.SelectedItem.ToString();
                 Dia = (DateTime.ParseExact(Application["Dia"].ToString(), "M/d/yyyy h:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture)).ToString();
                 Application["Dia"] = Dia;
-                ID_Funcion = SacarFuncion();
-                Application["ID_Funcion"] = ID_Funcion;
-                Boton("1");
+            btnSeleccionar.Text = Dia;
+                //ID_Funcion = SacarFuncion();
+           //     Application["ID_Funcion"] = ID_Funcion;
+           //     Boton("1");
 
-            }
-            catch
-            {
-                Boton("2");
-            }
+           //// }
+           // //catch
+           // //{
+           //     Boton("2");
+           // //}
         }
 
         protected void btnSeleccionar_Click(object sender, EventArgs e)

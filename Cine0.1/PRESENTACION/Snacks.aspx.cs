@@ -27,7 +27,7 @@ namespace PRESENTACION
             imgProductoSelec.ImageUrl = dt.Rows[0]["URLImagen_Snack"].ToString();
             lblID.Text = "ID: " + e.CommandName;
             lblProducto.Text = "Producto: " + dt.Rows[0]["Nombre_Snack"].ToString();
-            lblPrecio.Text = "Precio: " + dt.Rows[0]["Precio_Snack"].ToString();
+            lblPrecio.Text = "Precio: $" + dt.Rows[0]["Precio_Snack"].ToString();
         }
     }
 }
