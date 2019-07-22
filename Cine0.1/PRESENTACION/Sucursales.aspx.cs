@@ -36,7 +36,7 @@ namespace PRESENTACION
             DdlSucursal.DataValueField = "ID_Sucursal";
             DdlSucursal.DataSource = n_sucursal.ObtenerTabla();
             DdlSucursal.DataBind();
-            DdlSucursal.Items.Insert(0, "Seleccione Sucursal");
+            DdlSucursal.Items.Insert(0, "----Seleccione Sucursal----");
 
         }
 
@@ -44,13 +44,24 @@ namespace PRESENTACION
         {
 
             n_Sucursal n_sucursal = new n_Sucursal();
-            DataTable dt = n_sucursal.ObtenerTabla(); 
+            DataTable dt = n_sucursal.ObtenerTabla();
+
+            if (DdlSucursal.SelectedIndex == 0)
+            {
+                lblDireccion.Text = "";
+                lblLocalidad.Text = "";
+                lblProvincia.Text = "";
+                lblMapita.Text = "";
+
+            }
+
             if (DdlSucursal.SelectedIndex != 0) { 
             lblDireccion.Text = dt.Rows[DdlSucursal.SelectedIndex-1]["Direccion_Sucursal"].ToString();
             lblLocalidad.Text = dt.Rows[DdlSucursal.SelectedIndex-1]["Localidad_Sucursal"].ToString();
             lblProvincia.Text = dt.Rows[DdlSucursal.SelectedIndex-1]["Provincia_Sucursal"].ToString();
-            lblMapita.Text= "<iframe src ="+dt.Rows[DdlSucursal.SelectedIndex-1]["DireccionURL"]+"width = '300' height = '300' frameborder = '0' style = 'border:0' allowfullscreen ></iframe>";
+            lblMapita.Text= "<iframe src ="+dt.Rows[DdlSucursal.SelectedIndex-1]["DireccionURL"]+"width = '500' height = '500' frameborder = '0' style = 'border:0' allowfullscreen ></iframe>";
             }
+
 
 
         }

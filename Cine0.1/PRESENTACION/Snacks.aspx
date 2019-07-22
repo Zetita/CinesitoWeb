@@ -93,7 +93,7 @@
                 <br />Nombre_Snack:
                 <asp:Label ID="Nombre_SnackLabel" runat="server" Text='<%# Eval("Nombre_Snack") %>' />
                 <br />Precio_Snack:
-                <asp:Label ID="Precio_SnackLabel" runat="server" Text='<%# Eval("Precio_Snack") %>' />
+                <asp:Label ID="Precio_SnackLabel" runat="server" Text='<%#Eval("Precio_Snack") %>' />
                 <br />URLImagen_Snack:
                 <asp:Label ID="URLImagen_SnackLabel" runat="server" Text='<%# Eval("URLImagen_Snack") %>' />
                 <br /></td>

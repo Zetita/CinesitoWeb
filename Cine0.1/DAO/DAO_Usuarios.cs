@@ -14,7 +14,7 @@ namespace DAO
         AccesoDatos ad = new AccesoDatos();
         public DataTable ObtenerTablaTodos()
         {
-            DataTable tabla = ad.ObtenerTabla("Usuarios", "Select * from Usuarios where Activo='True'");
+            DataTable tabla = ad.ObtenerTabla("Usuarios", "Select * from Usuarios");
             return tabla;
         }
         public DataTable ObtenerTablaUsuario(String usuario)
