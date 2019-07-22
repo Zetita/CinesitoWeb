@@ -100,5 +100,5 @@
         </SelectedItemTemplate>
     </asp:ListView>
     
-    <asp:SqlDataSource ID="sqldsSnacks" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString %>" SelectCommand="SELECT [ID_Snack], [Nombre_Snack], [Precio_Snack], [URLImagen_Snack] FROM [Snacks]  WHERE [Estado_Snack] =1"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="sqldsSnacks" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString2 %>" SelectCommand="SELECT [ID_Snack], [Nombre_Snack], [Precio_Snack], [URLImagen_Snack] FROM [Snacks]  WHERE [Estado_Snack] =1"></asp:SqlDataSource>
 </asp:Content>
