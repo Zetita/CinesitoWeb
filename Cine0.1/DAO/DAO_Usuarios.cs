@@ -186,6 +186,18 @@ namespace DAO
             SqlParametros.Value = usuario.Activo;
   
         }
+
+        public void armarParametrosBaja(ref SqlCommand Comando, Usuario usuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = Comando.Parameters.Add("@ID", SqlDbType.Int);
+            SqlParametros.Value = usuario.idUsuario;
+            SqlParametros = Comando.Parameters.Add("@ACTIVO", SqlDbType.Bit);
+            SqlParametros.Value = usuario.Activo;
+
+        }
+
         public void armarCambioContrasenia(ref SqlCommand Comando, Usuario usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -220,7 +232,7 @@ namespace DAO
         public int eliminarUsuario(Usuario usuario)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, usuario);
+            armarParametrosBaja(ref comando, usuario);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarUsuario");
         }
 
