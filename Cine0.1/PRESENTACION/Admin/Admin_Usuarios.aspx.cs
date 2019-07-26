@@ -68,36 +68,47 @@ namespace PRESENTACION
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            if(rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid 
+            lblAg.Text = string.Empty;
+            lblAgregado.Text = string.Empty;
+
+            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid
                 && rfv6.IsValid && rfv7.IsValid && rfv8.IsValid && rfv9.IsValid)
             {
-                Usuario usuario = new Usuario();
-                usuario.User = txtUsuario.Text;
-                usuario.Contrasenia = txtContrasenia.Text;
-                usuario.Email = txtEmail.Text;
-                usuario.Apellido = txtApellidos.Text;
-                usuario.Nombre = txtNombres.Text;
-                usuario.Dni = txtDni.Text;
-                usuario.Telefono = txtTelefono.Text;
-                DateTime dt = DateTime.Parse(txtFecNac.Text);
-                usuario.FechaNac = dt;
-
-                if (rbtnAdmin.SelectedValue.ToString() == "1")
-                    usuario.Administrador = true;
-                else
-                    usuario.Administrador = false;
-                usuario.Activo = true;
-
-                n_Usuario n_usuario = new n_Usuario();
-                if (n_usuario.agregarUsuario(usuario))
+                try
                 {
-                    lblAgregado.Text = "Cargado exitosamente.";
-                    lblAgregado.ForeColor = System.Drawing.Color.Green;
-                    cargarGrilla();
-                    ClearInputs(Page.Controls);
+                    Usuario usuario = new Usuario();
+                    usuario.User = txtUsuario.Text;
+                    usuario.Contrasenia = txtContrasenia.Text;
+                    usuario.Email = txtEmail.Text;
+                    usuario.Apellido = txtApellidos.Text;
+                    usuario.Nombre = txtNombres.Text;
+                    usuario.Dni = txtDni.Text;
+                    usuario.Telefono = txtTelefono.Text;
+                    DateTime dt = DateTime.Parse(txtFecNac.Text);
+                    usuario.FechaNac = dt;
 
+                    if (rbtnAdmin.SelectedValue.ToString() == "1")
+                        usuario.Administrador = true;
+                    else
+                        usuario.Administrador = false;
+                    usuario.Activo = true;
+
+                    n_Usuario n_usuario = new n_Usuario();
+                    if (n_usuario.agregarUsuario(usuario))
+                    {
+                        lblAgregado.Text = "Cargado exitosamente.";
+                        lblAgregado.ForeColor = System.Drawing.Color.Green;
+                        cargarGrilla();
+                        ClearInputs(Page.Controls);
+
+                    }
+                    else
+                    {
+                        lblAgregado.Text = "Error al agregar.";
+                        lblAgregado.ForeColor = System.Drawing.Color.Red;
+                    }
                 }
-                else
+                catch
                 {
                     lblAgregado.Text = "Error al agregar.";
                     lblAgregado.ForeColor = System.Drawing.Color.Red;

@@ -14,10 +14,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <asp:Label ID="Label1" runat="server" Text="Administrar Usuarios"></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="Administrar Usuarios"></asp:Label>
     </div>
     <div class="Label">
-        <asp:Label ID="Label2" runat="server" Text="Cargar Usuario"></asp:Label>
+        <asp:Label ID="lblSubtitulo" runat="server" Text="Cargar Usuario"></asp:Label>
         <br />
         <table class="auto-style1">
             <tr>
@@ -26,7 +26,7 @@
                     <asp:TextBox ID="txtUsuario" runat="server" Width="302px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtUsuario" ErrorMessage="Ingrese un usuario" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtUsuario" ErrorMessage="Ingrese una contraseña" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -107,22 +107,22 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style3">
-                    <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" />
+                    <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" ValidationGroup="add" />
                 </td>
                 <td>
-                    <asp:Label ID="lblAg" runat="server" ForeColor="Red"></asp:Label>
+                    <asp:Label ID="lblAg" runat="server" ForeColor="Red" ValidationGroup="add" ></asp:Label>
                 </td>
             </tr>
-            <tr>
+            <tr >
                 <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style3">
-                    <asp:Label ID="lblAgregado" runat="server"></asp:Label>
+                <td class="auto-style3" >
+                    <asp:Label ID="lblAgregado" runat="server" ValidationGroup="add"></asp:Label>
                 </td>
                 <td>&nbsp;</td>
             </tr>
         </table>
         <br />
-        <asp:Label ID="Label3" runat="server" Text="Listado de Usuarios"></asp:Label>
+        <asp:Label ID="lblListado" runat="server" Text="Listado de Usuarios"></asp:Label>
         <br />
         <asp:Button ID="btnCargarTodos" runat="server" OnClick="btnCargarTodos_Click" Text="Todos" />
 &nbsp;&nbsp;
@@ -198,7 +198,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="FECHA DE NAC">
                     <EditItemTemplate>
-                        <asp:Label ID="txt_eit_FecNac" runat="server" Text='<%# Bind("FechaNac_Usuario", "{0:d}" ) %>'></asp:Label>
+                        <asp:TextBox ID="txt_eit_FecNac" runat="server" Text='<%# Bind("FechaNac_Usuario", "{0:d}" ) %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_FecNac" runat="server" Text='<%# Bind("FechaNac_Usuario", "{0:d}" ) %>'></asp:Label>

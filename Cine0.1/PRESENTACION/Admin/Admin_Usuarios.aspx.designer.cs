@@ -13,22 +13,22 @@ namespace PRESENTACION {
     public partial class Admin_Usuarios {
         
         /// <summary>
-        /// Control Label1.
+        /// Control lblTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblTitulo;
         
         /// <summary>
-        /// Control Label2.
+        /// Control lblSubtitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblSubtitulo;
         
         /// <summary>
         /// Control txtUsuario.
@@ -220,13 +220,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.Label lblAgregado;
         
         /// <summary>
-        /// Control Label3.
+        /// Control lblListado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblListado;
         
         /// <summary>
         /// Control btnCargarTodos.
