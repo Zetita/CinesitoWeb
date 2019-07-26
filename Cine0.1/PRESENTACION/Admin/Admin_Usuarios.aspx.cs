@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ENTIDAD;
+using System.IO;
 using NEGOCIO;
 
 namespace PRESENTACION
@@ -99,6 +100,7 @@ namespace PRESENTACION
                         lblAgregado.Text = "Cargado exitosamente.";
                         lblAgregado.ForeColor = System.Drawing.Color.Green;
                         cargarGrilla();
+                        AgregarImagen();
                         ClearInputs(Page.Controls);
 
                     }
@@ -122,12 +124,13 @@ namespace PRESENTACION
 
         protected void grdUsuarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int codigo = Int32.Parse(((Label)grdUsuarios.Rows[e.RowIndex].FindControl("lbl_IdUsuario")).ToString());
+            int codigo = Int32.Parse(((Label)grdUsuarios.Rows[e.RowIndex].FindControl("lbl_it_IdUsuario")).Text.ToString());
 
             Usuario usuario = new Usuario();
             usuario.idUsuario = codigo;
             usuario.Activo = false;
-
+           
+            
             n_Usuario n_usuario = new n_Usuario();
             n_usuario.eliminarUsuario(usuario);
            
@@ -190,6 +193,13 @@ namespace PRESENTACION
         {
             grdUsuarios.PageIndex = e.NewPageIndex;
             cargarGrilla();
+        }
+
+        public void AgregarImagen()
+        {
+            string archivoOrigen = Server.MapPath(string.Format("~/Recursos/user.png"));
+            string rutaDestino = Server.MapPath(string.Format("~/img/user/" + txtUsuario.Text + ".png"));
+            File.Copy(archivoOrigen, rutaDestino);
         }
     }
 }
