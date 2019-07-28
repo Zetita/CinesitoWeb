@@ -243,20 +243,19 @@ namespace PRESENTACION
 
             if(ddlPeliculas.SelectedIndex>0 && marcados!=0)
             {
-                pel.IDPelicula = ddlPeliculas.SelectedValue;
 
                 for (int i = 0; i < cboxlistFormatos.Items.Count; i++)
                 {
                     pel.IDFormato = "";
                     if (cboxlistFormatos.Items[i].Selected)
                     {
+                        pel.IDPelicula = ddlPeliculas.SelectedValue;
                         pel.IDFormato = cboxlistFormatos.Items[i].Value;
                         
                         if (n_pxf.insertarPxF(pel))
                         {
                             lblCargado.Text = "Cargado exitosamente.";
                             lblCargado.ForeColor = System.Drawing.Color.Green;
-                            ClearInputs(Page.Controls);
 
                         }
                         else
@@ -267,6 +266,7 @@ namespace PRESENTACION
                     }
                     
                 }
+                ClearInputs(Page.Controls);
                 cargarGrilla();
             }
             else

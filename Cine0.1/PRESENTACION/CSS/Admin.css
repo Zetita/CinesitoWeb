@@ -33,6 +33,15 @@ body {
     color: #a7a7a7;
     font-weight: 700;
 }
+.reportes {
+    float: right;
+    margin: auto;
+    padding: 0 1.0%;
+    background-color: #8d0c0c;
+    text-decoration: none;
+    color: #a7a7a7;
+    font-weight: 700;
+}
 
 .tabla {
     font-weight: 400;
