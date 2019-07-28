@@ -37,6 +37,7 @@ namespace PRESENTACION
 
         protected void imgbtn_Pelicula_Command1(object sender, CommandEventArgs e)
         {
+            
             Application["ID_Pelicula"] = e.CommandName.Trim();
             Response.Redirect("Peliculas.aspx");
         }

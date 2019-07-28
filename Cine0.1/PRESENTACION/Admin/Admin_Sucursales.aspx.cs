@@ -138,18 +138,64 @@ namespace PRESENTACION
             }
         }
 
-        protected void grdSucursales_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    
+
+        protected void grdSalas_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            //String codigo = ((Label)grdSucursales.Rows[e.RowIndex].FindControl("lbl_it_IDSucursal")).Text;
-
-            //Sucursal suc = new Sucursal();
-            //suc.idSucursal = codigo;
-            //suc.Estado = false;
-
-            //n_Sucursal n_sucursal = new n_Sucursal();
-            //n_sucursal.eliminarSucursal(suc);
-
-            //cargarGrillaSuc();
+            grdSalas.EditIndex = e.NewEditIndex;
+            cargarGrillaSalas();
         }
+        protected void grdSalas_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            String s_Sala = ((Label)grdSalas.Rows[e.RowIndex].FindControl("lbl_eit_IdSala")).Text;
+            String s_Sucursal = ((Label)grdSalas.Rows[e.RowIndex].FindControl("lbl_eit_IDSucursal")).Text;
+            String s_NombreSala = ((TextBox)grdSalas.Rows[e.RowIndex].FindControl("txt_eit_Sala")).Text;
+            String s_Butacas = ((TextBox)grdSalas.Rows[e.RowIndex].FindControl("txt_eit_Butacas")).Text;
+            
+            
+
+            Sala sala = new Sala();
+            sala.IdSala = s_Sala;
+            sala.IdSucursal = s_Sucursal;
+            sala.NomSala = s_NombreSala;
+            sala.Butacas = Int32.Parse(s_Butacas);
+            
+             n_Sala n_sala = new n_Sala();
+            n_sala.editarSala(sala);
+
+            grdSalas.EditIndex = -1;
+            cargarGrillaSalas();
+        }
+
+        protected void grdSucursales_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            grdSucursales.EditIndex = e.NewEditIndex;
+            cargarGrillaSuc();
+        }
+        protected void grdSucursales_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            String s_Id = ((Label)grdSucursales.Rows[e.RowIndex].FindControl("lbl_eit_IDSucursal")).Text;
+            String s_Nombre = ((TextBox)grdSucursales.Rows[e.RowIndex].FindControl("txt_eit_Nombre")).Text;
+            String s_Direccion = ((TextBox)grdSucursales.Rows[e.RowIndex].FindControl("txt_eit_Direccion")).Text;
+            String s_Localidad = ((TextBox)grdSucursales.Rows[e.RowIndex].FindControl("txt_eit_Localidad")).Text;
+            String s_Provincia = ((TextBox)grdSucursales.Rows[e.RowIndex].FindControl("txt_eit_Provincia")).Text;
+            String s_DireccionURL = ((TextBox)grdSucursales.Rows[e.RowIndex].FindControl("txt_eit_DireccionURL")).Text;
+
+
+            Sucursal sucursal = new Sucursal();
+            sucursal.idSucursal = s_Id;
+            sucursal.Nombre = s_Nombre;
+            sucursal.Direccion = s_Direccion;
+            sucursal.Localidad = s_Localidad;
+            sucursal.Provincia = s_Provincia;
+            sucursal.DireccionURL = s_DireccionURL;
+
+            n_Sucursal n_sucursal = new n_Sucursal();
+            n_sucursal.editarSucursal(sucursal);
+
+            grdSucursales.EditIndex = -1;
+            cargarGrillaSuc();
+        }
+
     }
 }

@@ -52,6 +52,18 @@ namespace DAO
 
         }
 
+        public void armarParametrosBaja(ref SqlCommand Comando, Pelicula pelicula)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = Comando.Parameters.Add("@ID_PELICULA", SqlDbType.Char);
+            SqlParametros.Value = pelicula.idPelicula;
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = pelicula.Estado;
+
+        }
+
+
         public bool ActualizarPeliculas(Pelicula pelicula)
         {
             SqlCommand Comando = new SqlCommand();
@@ -66,7 +78,7 @@ namespace DAO
         public int eliminarPeliculas(Pelicula pelicula)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, pelicula);
+            armarParametrosBaja(ref comando, pelicula);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarPelicula");
         }
 
@@ -82,4 +94,5 @@ namespace DAO
         }
         
     }
+
 }

@@ -124,10 +124,11 @@ namespace PRESENTACION
 
         protected void grdUsuarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int codigo = Int32.Parse(((Label)grdUsuarios.Rows[e.RowIndex].FindControl("lbl_it_IdUsuario")).Text.ToString());
+            String codigo = ((Label)grdUsuarios.Rows[e.RowIndex].FindControl("lbl_it_Usuario")).Text;
+            
 
             Usuario usuario = new Usuario();
-            usuario.idUsuario = codigo;
+            usuario.User = codigo;
             usuario.Activo = false;
            
             
