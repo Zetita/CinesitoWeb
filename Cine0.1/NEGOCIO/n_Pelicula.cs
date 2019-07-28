@@ -23,11 +23,11 @@ namespace NEGOCIO
             DAO_Peliculas da = new DAO_Peliculas();
             return da.ObtenerTablaPeliculas(Consulta);
         }
-        //public bool editarPelicula(Pelicula pelicula)
-        //{
-        //    DAO_Peliculas da = new DAO_Peliculas();
-        //    return da.ActualizarPeliculas(pelicula);
-        //}
+        public bool editarPelicula(Pelicula pelicula)
+        {
+            DAO_Peliculas da = new DAO_Peliculas();
+            return da.ActualizarPeliculas(pelicula);
+        }
         public int eliminarPelicula(Pelicula pelicula)
         {
             DAO_Peliculas da = new DAO_Peliculas();

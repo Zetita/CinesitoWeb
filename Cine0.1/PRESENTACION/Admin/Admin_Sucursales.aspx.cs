@@ -174,7 +174,7 @@ namespace PRESENTACION
         }
         protected void grdSucursales_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            String s_Id = ((Label)grdSucursales.Rows[e.RowIndex].FindControl("lbl_eit_IDSucursal")).Text;
+            String s_Id =((Label)grdSucursales.Rows[e.RowIndex].FindControl("lbl_eit_IDSucursal")).Text;
             String s_Nombre = ((TextBox)grdSucursales.Rows[e.RowIndex].FindControl("txt_eit_Nombre")).Text;
             String s_Direccion = ((TextBox)grdSucursales.Rows[e.RowIndex].FindControl("txt_eit_Direccion")).Text;
             String s_Localidad = ((TextBox)grdSucursales.Rows[e.RowIndex].FindControl("txt_eit_Localidad")).Text;
@@ -183,7 +183,7 @@ namespace PRESENTACION
 
 
             Sucursal sucursal = new Sucursal();
-            sucursal.idSucursal = s_Id;
+            sucursal.idSucursal = s_Id.ToString();
             sucursal.Nombre = s_Nombre;
             sucursal.Direccion = s_Direccion;
             sucursal.Localidad = s_Localidad;

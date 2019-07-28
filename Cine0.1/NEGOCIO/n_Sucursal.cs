@@ -20,6 +20,7 @@ namespace NEGOCIO
         public bool editarSucursal(Sucursal sucursal)
         {
             DAO_Sucursales da = new DAO_Sucursales();
+
             return da.ActualizarSucursal(sucursal);
         }
         public int eliminarSucursal(Sucursal sucursal)

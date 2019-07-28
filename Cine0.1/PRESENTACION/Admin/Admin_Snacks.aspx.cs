@@ -139,9 +139,9 @@ namespace PRESENTACION
             String s_Nombre = ((TextBox)grdSnacks.Rows[e.RowIndex].FindControl("txt_eit_Nombre")).Text;
             String s_Tipo = ((Label)grdSnacks.Rows[e.RowIndex].FindControl("lbl_eit_Tipo")).Text;
             Double d_Precio = Double.Parse(((TextBox)grdSnacks.Rows[e.RowIndex].FindControl("txt_eit_Precio")).Text);
-            
+            String s_UrlImagen = ((FileUpload)grdSnacks.Rows[e.RowIndex].FindControl("FileUpload1")).FileName;
 
-            String s_urlImagen = ((Label)grdSnacks.Rows[e.RowIndex].FindControl("img_eit_Imagen.ImagenURL")).Text; //arreglar
+            String ruta = "~/img/snacks/" + s_UrlImagen;
             bool b_Estado;
 
             if (((CheckBox)grdSnacks.Rows[e.RowIndex].FindControl("cb_eit_Estado")).Checked == true)
@@ -154,7 +154,7 @@ namespace PRESENTACION
             snack.Nombre = s_Nombre;
             snack.Tipo = s_Tipo;
             snack.Precio = d_Precio;
-            snack.ImagenURL = s_urlImagen;
+            snack.ImagenURL = ruta;
             snack.Estado = b_Estado;
 
             n_Snack n_snack = new n_Snack();

@@ -187,7 +187,43 @@ namespace PRESENTACION
 
         protected void grdPeliculas_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            String s_IdPelicula = ((Label)grdPeliculas.Rows[e.RowIndex].FindControl("lbl_eit_IDPelicula")).Text;
+            String s_Titulo = ((TextBox)grdPeliculas.Rows[e.RowIndex].FindControl("txt_eit_Titulo")).Text;
+            String s_Genero = ((TextBox)grdPeliculas.Rows[e.RowIndex].FindControl("txt_eit_Genero")).Text;
+             String s_Clasificacion= ((TextBox)grdPeliculas.Rows[e.RowIndex].FindControl("txt_eit_Clasificacion")).Text;
 
+            DateTime s_Estreno = ((Calendar)grdPeliculas.Rows[e.RowIndex].FindControl("Calendar2")).SelectedDate;
+            String s_Director=((TextBox) grdPeliculas.Rows[e.RowIndex].FindControl("txt_eit_Director")).Text;
+            String s_Sinopsis=((TextBox) grdPeliculas.Rows[e.RowIndex].FindControl("txt_eit_Sinopsis")).Text;
+            String  s_Imagen = ((FileUpload)grdPeliculas.Rows[e.RowIndex].FindControl("FileUpload1")).FileName;
+            String s_duracion=((TextBox) grdPeliculas.Rows[e.RowIndex].FindControl("txt_eit_Duracion")).Text;
+            String s_Trailer=((TextBox) grdPeliculas.Rows[e.RowIndex].FindControl("txt_eit_TrailerURL")).Text;
+            bool b_Estado;
+            if (((CheckBox)grdPeliculas.Rows[e.RowIndex].FindControl("cb_eit_Estado")).Checked == true)
+                b_Estado = true;
+            else
+                b_Estado = false;
+            
+            String ruta = "~/img/portadas/" + s_Imagen;
+
+            Pelicula pelicula = new Pelicula();
+            pelicula.idPelicula = s_IdPelicula;
+            pelicula.Titulo = s_Titulo;
+            pelicula.Generos = s_Genero;
+            pelicula.Clasificacion = s_Clasificacion;
+            pelicula.FecEstreno = s_Estreno;
+            pelicula.Director = s_Director;
+            pelicula.Sinopsis = s_Sinopsis;
+            pelicula.ImagenURL = ruta;
+            pelicula.Duracion =  TimeSpan.Parse(s_duracion);
+            pelicula.TrailerURL = s_Trailer;
+            pelicula.Estado = b_Estado;
+
+            n_Pelicula n_pelicula = new n_Pelicula();
+            n_pelicula.editarPelicula(pelicula);
+
+            grdPeliculas.EditIndex = -1;
+            cargarGrilla();
 
 
         }
@@ -242,6 +278,11 @@ namespace PRESENTACION
         public void YaHay()
         {
             
+        }
+
+        protected void grdPeliculas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
