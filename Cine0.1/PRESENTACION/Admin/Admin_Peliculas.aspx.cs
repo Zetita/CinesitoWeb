@@ -256,7 +256,6 @@ namespace PRESENTACION
                         {
                             lblCargado.Text = "Cargado exitosamente.";
                             lblCargado.ForeColor = System.Drawing.Color.Green;
-                            cargarGrilla();
                             ClearInputs(Page.Controls);
 
                         }
@@ -268,17 +267,14 @@ namespace PRESENTACION
                     }
                     
                 }
+                cargarGrilla();
             }
             else
             {
                 lblCargado.Text = "Complete los campos necesarios!";
             }
         }
-
-        public void YaHay()
-        {
-            
-        }
+        
 
         protected void grdPeliculas_SelectedIndexChanged(object sender, EventArgs e)
         {

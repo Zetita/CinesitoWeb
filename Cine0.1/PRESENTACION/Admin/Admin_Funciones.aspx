@@ -52,8 +52,8 @@
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style9">
-                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="ddlPeliculas" ErrorMessage="*" ForeColor="Red" InitialValue="0" ValidationGroup="add"></asp:RequiredFieldValidator>
-                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="ddlFormatos" ErrorMessage="*" ForeColor="Red" InitialValue="0" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="ddlPeliculas" ErrorMessage="Seleccione una pelicula." ForeColor="Red" InitialValue="0" ValidationGroup="add">*</asp:RequiredFieldValidator>
+                    &nbsp;<asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="ddlFormatos" ErrorMessage="Seleccione un formato." ForeColor="Red" InitialValue="0" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -63,7 +63,7 @@
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="ddlSucursal" ErrorMessage="*" ForeColor="Red" InitialValue="0" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="ddlSucursal" ErrorMessage="Seleccione una sucursal." ForeColor="Red" InitialValue="0" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -73,7 +73,7 @@
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="ddlSala" ErrorMessage="*" ForeColor="Red" InitialValue="0" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="ddlSala" ErrorMessage="Seleccione una sala." ForeColor="Red" InitialValue="0" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -82,21 +82,21 @@
                     <asp:Calendar ID="calFecha" runat="server" Height="109px" Width="328px"></asp:Calendar>
                 </td>
                 <td>
-                    &nbsp;</td>
+                    *</td>
             </tr>
             <tr>
-                <td class="auto-style2">Horario</td>
-                <td class="auto-style3">
+                <td class="auto-style7">Horario(hh:mm)</td>
+                <td class="auto-style8">
                     <asp:TextBox ID="txtHorario" runat="server"></asp:TextBox>
                 </td>
-                <td>
-                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtHorario" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                <td class="auto-style9">
+                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtHorario" ErrorMessage="Seleccione un horario." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style4"></td>
                 <td class="auto-style5">
-                    <asp:Button ID="btnAgregarFuncion" runat="server" Text="Agregar" OnClick="btnAgregarFuncion_Click" />
+                    <asp:Button ID="btnAgregarFuncion" runat="server" Text="Agregar" OnClick="btnAgregarFuncion_Click" ValidationGroup="add" />
                 </td>
                 <td class="auto-style6">
                     <asp:Label ID="lblAg" runat="server" ForeColor="Red"></asp:Label>

@@ -57,7 +57,7 @@
                     <asp:TextBox ID="txtTitulo" runat="server" Width="300px"></asp:TextBox>
                 </td>
                 <td class="auto-style11">
-                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtTitulo" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtTitulo" ErrorMessage="Escriba un titulo." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style3">
                     Cargar Pelicula xFormato</td>
@@ -68,7 +68,7 @@
                     <asp:TextBox ID="txtGeneros" runat="server" Width="300px"></asp:TextBox>
                 </td>
                 <td class="auto-style14">
-                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtGeneros" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtGeneros" ErrorMessage="Seleccione un genero." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style15">
                     Pelicula:</td>
@@ -80,7 +80,7 @@
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style11">
-                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="ddlClasificacion" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="ddlClasificacion" ErrorMessage="Seleccione una clasificación." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style3">
                     <asp:DropDownList ID="ddlPeliculas" runat="server">
@@ -114,7 +114,7 @@
                     <asp:TextBox ID="txtDirector" runat="server" Width="300px"></asp:TextBox>
                 </td>
                 <td class="auto-style11">
-                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txtDirector" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txtDirector" ErrorMessage="Escriba un director." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style3">
                     <asp:Button ID="btnCargarPelxFor" runat="server" Text="Cargar" OnClick="btnCargarPelxFor_Click" />
@@ -126,7 +126,7 @@
                     <asp:TextBox ID="txtSinopsis" runat="server" Height="67px" Width="300px" TextMode="MultiLine"></asp:TextBox>
                 </td>
                 <td class="auto-style11">
-                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtSinopsis" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtSinopsis" ErrorMessage="Escriba una sinopsis." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style3">
                     <asp:Label ID="lblCargado" runat="server"></asp:Label>
@@ -138,7 +138,7 @@
                     <asp:FileUpload ID="fileImagen" runat="server" Width="300px" />
                 </td>
                 <td class="auto-style11">
-                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="fileImagen" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="fileImagen" ErrorMessage="Seleccione una portada." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style3">
                     &nbsp;</td>
@@ -149,7 +149,7 @@
                     <asp:TextBox ID="txtDuracion" runat="server" Width="300px"></asp:TextBox>
                 </td>
                 <td class="auto-style12">
-                    <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txtDuracion" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txtDuracion" ErrorMessage="Escriba una duración." ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style6">
                     &nbsp;</td>
@@ -182,7 +182,7 @@
             <tr>
                 <td class="auto-style9">&nbsp;</td>
                 <td class="auto-style13">
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" ValidationGroup="add" />
                 </td>
                 <td class="auto-style11">
                     <asp:Label ID="lblAg" runat="server" ForeColor="Red"></asp:Label>

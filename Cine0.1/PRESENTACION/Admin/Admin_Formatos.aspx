@@ -110,7 +110,7 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style3">
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" ValidationGroup="add" />
                 </td>
                 <td>
                     <asp:Label ID="lblAg" runat="server" ForeColor="Red"></asp:Label>
