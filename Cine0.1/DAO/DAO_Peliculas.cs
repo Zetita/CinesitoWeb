@@ -17,6 +17,11 @@ namespace DAO
             DataTable tabla = ad.ObtenerTabla("Peliculas", "Select * from Peliculas Where Estado=1");
             return tabla;
         }
+        public DataTable ObtenerTablaPeliculasTodas()
+        {
+            DataTable tabla = ad.ObtenerTabla("Peliculas", "Select * from Peliculas");
+            return tabla;
+        }
         public DataTable ObtenerTablaPeliculas(String Consulta)
         {
             DataTable tabla = ad.ObtenerTabla("Peliculas", Consulta );

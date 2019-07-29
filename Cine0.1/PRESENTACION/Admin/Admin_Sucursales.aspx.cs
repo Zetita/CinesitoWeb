@@ -64,13 +64,14 @@ namespace PRESENTACION
             if(rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid)
             {
                 Sucursal sucursal = new Sucursal();
+                n_Sucursal n_sucursal = new n_Sucursal();
 
-                if (grdSucursales.Rows.Count < 10)
-                    sucursal.idSucursal = "SUC00" + (grdSucursales.Rows.Count + 1);
-                if (grdSucursales.Rows.Count > 10 && grdSucursales.Rows.Count < 100)
-                    sucursal.idSucursal = "SUC0" + (grdSucursales.Rows.Count + 1);
-                if (grdSucursales.Rows.Count > 100)
-                    sucursal.idSucursal = "SUC" + (grdSucursales.Rows.Count + 1);
+                if (n_sucursal.ObtenerCantRegistros() < 10)
+                    sucursal.idSucursal = "SUC00" + (n_sucursal.ObtenerCantRegistros() + 1);
+                if (n_sucursal.ObtenerCantRegistros() > 10 && n_sucursal.ObtenerCantRegistros() < 100)
+                    sucursal.idSucursal = "SUC0" + (n_sucursal.ObtenerCantRegistros() + 1);
+                if (n_sucursal.ObtenerCantRegistros() > 100)
+                    sucursal.idSucursal = "SUC" + (n_sucursal.ObtenerCantRegistros() + 1);
 
                 sucursal.Nombre = txtNombre.Text;
                 sucursal.Direccion = txtDireccion.Text;
@@ -78,7 +79,6 @@ namespace PRESENTACION
                 sucursal.Provincia = txtProvincia.Text;
                 sucursal.DireccionURL = txtDireccionURL.Text;
 
-                n_Sucursal n_sucursal = new n_Sucursal();
 
                 if(n_sucursal.insertarSucursal(sucursal))
                 {
@@ -108,12 +108,12 @@ namespace PRESENTACION
                 Sala sala = new Sala();
                 n_Sala n_sala = new n_Sala();
                 
-                if (grdSalas.Rows.Count < 10)
-                    sala.IdSala = "SAL00" + (grdSalas.Rows.Count + 1);
-                if (grdSalas.Rows.Count > 10 && grdSalas.Rows.Count < 100)
-                    sala.IdSala = "SAL0" + (grdSalas.Rows.Count + 1);
-                if (grdSalas.Rows.Count > 100)
-                    sala.IdSala = "SAL" + (grdSalas.Rows.Count + 1);
+                if (n_sala.ObtenerCantRegistros() < 10)
+                    sala.IdSala = "SAL00" + (n_sala.ObtenerCantRegistros() + 1);
+                if (n_sala.ObtenerCantRegistros() > 10 && n_sala.ObtenerCantRegistros() < 100)
+                    sala.IdSala = "SAL0" + (n_sala.ObtenerCantRegistros() + 1);
+                if (n_sala.ObtenerCantRegistros() > 100)
+                    sala.IdSala = "SAL" + (n_sala.ObtenerCantRegistros() + 1);
 
                 sala.IdSucursal = ddlSucursales.SelectedValue.ToString();
                 sala.NomSala = txtSala.Text;

@@ -16,7 +16,13 @@ namespace NEGOCIO
             DAO_Sucursales da = new DAO_Sucursales();
             return da.ObtenerTablaSucursales();
         }
+        public int ObtenerCantRegistros()
+        {
+            DAO_Sucursales da = new DAO_Sucursales();
+            DataTable dt= da.ObtenerTablaSucursales();
 
+            return dt.Rows.Count;
+        }
         public bool editarSucursal(Sucursal sucursal)
         {
             DAO_Sucursales da = new DAO_Sucursales();

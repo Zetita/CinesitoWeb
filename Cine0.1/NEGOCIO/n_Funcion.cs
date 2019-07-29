@@ -17,6 +17,13 @@ namespace NEGOCIO
             DAO_Funciones da = new DAO_Funciones();
             return da.ObtenerTablaFunciones();
         }
+        public int ObtenerCantRegistros()
+        {
+            DAO_Funciones da = new DAO_Funciones();
+            DataTable dt = da.ObtenerTablaFunciones();
+
+            return dt.Rows.Count;
+        }
 
         public DataTable ObtenerTabla(String Consulta)
         {

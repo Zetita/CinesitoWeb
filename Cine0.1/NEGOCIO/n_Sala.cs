@@ -16,6 +16,13 @@ namespace NEGOCIO
             DAO_Salas da = new DAO_Salas();
             return da.ObtenerTablaSalas();
         }
+        public int ObtenerCantRegistros()
+        {
+            DAO_Salas da = new DAO_Salas();
+            DataTable dt = da.ObtenerTablaSalas();
+
+            return dt.Rows.Count;
+        }
         public DataTable ObtenerTablaSalas(String Suc)
         {
             DAO_Salas da = new DAO_Salas();

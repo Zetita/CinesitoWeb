@@ -17,7 +17,18 @@ namespace NEGOCIO
             DAO_Peliculas da = new DAO_Peliculas();
             return da.ObtenerTablaPeliculas();
         }
+        public DataTable ObtenerTablaTodos()
+        {
+            DAO_Peliculas da = new DAO_Peliculas();
+            return da.ObtenerTablaPeliculasTodas();
+        }
 
+        public int ObtenerCantRegistros()
+        {
+            DAO_Peliculas da = new DAO_Peliculas();
+            DataTable dt= da.ObtenerTablaPeliculasTodas();
+            return dt.Rows.Count;
+        }
         public DataTable ObtenerTabla(String Consulta)
         {
             DAO_Peliculas da = new DAO_Peliculas();

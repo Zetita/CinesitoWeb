@@ -31,16 +31,16 @@ namespace PRESENTACION
         public void cargarGrilla()
         {
             n_Pelicula n_pelicula = new n_Pelicula();
-            grdPeliculas.DataSource = n_pelicula.ObtenerTabla();
+            grdPeliculas.DataSource = n_pelicula.ObtenerTablaTodos();
             grdPeliculas.DataBind();
         }
 
         public void cargarDDL()
         {
             ddlClasificacion.Items.Add("ATP");
-            ddlClasificacion.Items.Add("SAMP13");
-            ddlClasificacion.Items.Add("SAMP16");
-            ddlClasificacion.Items.Add("SAMP18");
+            ddlClasificacion.Items.Add("SAM13");
+            ddlClasificacion.Items.Add("SAM16");
+            ddlClasificacion.Items.Add("SAM18");
             ddlClasificacion.Items.Insert(0, "-Seleccione Clasificacion-");          
         }
         public void cargarDDLPeliculas()
@@ -91,17 +91,14 @@ namespace PRESENTACION
                    Calendar1.SelectedDate.Day);
 
                 Pelicula pelicula = new Pelicula();
-                
-                pelicula.idPelicula = (grdPeliculas.Rows.Count + 1).ToString();
-
-                if (grdPeliculas.Rows.Count < 10)
-                    pelicula.idPelicula = "PEL00" + (grdPeliculas.Rows.Count + 1);
-                if (grdPeliculas.Rows.Count > 10 && grdPeliculas.Rows.Count < 100)
-                    pelicula.idPelicula = "PELC0" + (grdPeliculas.Rows.Count + 1);
-                if (grdPeliculas.Rows.Count > 100)
-                    pelicula.idPelicula = "PEL" + (grdPeliculas.Rows.Count + 1);
-
-
+                n_Pelicula n_pelicula = new n_Pelicula();
+      
+                if (n_pelicula.ObtenerCantRegistros() < 10)
+                    pelicula.idPelicula = "PEL00" + (n_pelicula.ObtenerCantRegistros() + 1);
+                if (n_pelicula.ObtenerCantRegistros() > 10 && n_pelicula.ObtenerCantRegistros() < 100)
+                    pelicula.idPelicula = "PELC0" + (n_pelicula.ObtenerCantRegistros() + 1);
+                if (n_pelicula.ObtenerCantRegistros() > 100)
+                    pelicula.idPelicula = "PEL" + (n_pelicula.ObtenerCantRegistros() + 1);
 
                 pelicula.Titulo = txtTitulo.Text;
                 pelicula.Generos = txtGeneros.Text;
@@ -124,8 +121,6 @@ namespace PRESENTACION
                 pelicula.Duracion = durtime;
                 pelicula.TrailerURL = txtTrailerURL.Text;
                 pelicula.Estado = true;
-
-                n_Pelicula n_pelicula = new n_Pelicula();
 
 
                 if (n_pelicula.insertarPelicula(pelicula))

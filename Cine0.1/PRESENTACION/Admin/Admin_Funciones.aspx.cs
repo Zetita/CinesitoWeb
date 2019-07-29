@@ -101,31 +101,18 @@ namespace PRESENTACION
 
         protected void btnAgregarFuncion_Click(object sender, EventArgs e)
         {
+            n_Funcion n_funcion = new n_Funcion();
+            Funcion funcion = new Funcion();
             if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv5.IsValid && rfv6.IsValid)
             {
-                Funcion funcion = new Funcion();
-                funcion.IDFuncion = "FUN00" + (grdFunciones.Rows.Count + 1);
+                
+                if (n_funcion.ObtenerCantRegistros() < 10)
+                    funcion.IDFuncion = "FUN00" + (n_funcion.ObtenerCantRegistros() + 1);
+                if (n_funcion.ObtenerCantRegistros() > 10 && n_funcion.ObtenerCantRegistros() < 100)
+                    funcion.IDFuncion = "FUN00" + (n_funcion.ObtenerCantRegistros() + 1);
+                if (n_funcion.ObtenerCantRegistros() > 100)
+                    funcion.IDFuncion = "FUN" + (n_funcion.ObtenerCantRegistros() + 1);
 
-                //if (grdFunciones.Rows.Count < 10)
-                //    funcion.IDFuncion = "FUN00" + (grdFunciones.Rows.Count + 1);
-                //if (grdFunciones.Rows.Count > 10 && grdFunciones.Rows.Count < 100)
-                //    funcion.IDFuncion = "FUN00" + (grdFunciones.Rows.Count + 1);
-                //if (grdFunciones.Rows.Count > 100)
-                //    funcion.IDFuncion = "FUN" + (grdFunciones.Rows.Count + 1);
-
-                if (grdFunciones.Rows.Count > 0)
-                {
-                    if (grdFunciones.Rows.Count >= 9)
-                    {
-                        if (grdFunciones.Rows.Count >= 99) funcion.IDFuncion = "FUN" + grdFunciones.Rows.Count + 1;
-                        else funcion.IDFuncion = "FUN0" + (grdFunciones.Rows.Count + 1).ToString();
-                    }
-                    else funcion.IDFuncion = "FUN00" + (grdFunciones.Rows.Count + 1).ToString();
-                }
-                else
-                {
-                    funcion.IDFuncion = "FUN001";
-                }
 
 
                 funcion.IDPelicula = ddlPeliculas.SelectedValue.ToString();
@@ -141,7 +128,6 @@ namespace PRESENTACION
                     calFecha.SelectedDate.Day, hora, min, 0);
                 funcion.FechaHora = datetime;
 
-                n_Funcion n_funcion = new n_Funcion();
                 if (n_funcion.insertarFuncion(funcion))
                 {
                     lblAgregado.Text = "Cargado exitosamente.";
