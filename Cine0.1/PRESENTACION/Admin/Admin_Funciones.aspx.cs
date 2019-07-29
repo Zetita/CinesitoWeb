@@ -230,6 +230,13 @@ namespace PRESENTACION
             int fechaAnio= ((Calendar)grdFunciones.Rows[e.RowIndex].FindControl("cal_eit_fecha")).SelectedDate.Year;
             int fechaMes = ((Calendar)grdFunciones.Rows[e.RowIndex].FindControl("cal_eit_fecha")).SelectedDate.Month;
             int fechaDia = ((Calendar)grdFunciones.Rows[e.RowIndex].FindControl("cal_eit_fecha")).SelectedDate.Day;
+            
+            bool b_Estado;
+            if (((CheckBox)grdFunciones.Rows[e.RowIndex].FindControl("cb_eit_Estado")).Checked == true)
+                b_Estado = true;
+            else
+                b_Estado = false;
+
 
 
             String[] hor = time.Split(':');
@@ -247,6 +254,7 @@ namespace PRESENTACION
             funcion.IDSucursal = s_Sucursal;
             funcion.IDSala = s_Sala;
             funcion.FechaHora = s_Fhf;
+            funcion.Estado = b_Estado;
     
             n_Funcion n_funcion = new n_Funcion();
             n_funcion.editarFuncion(funcion);
@@ -261,5 +269,21 @@ namespace PRESENTACION
             cargarGrilla();
         }
 
+        protected void grdFunciones_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            
+            
+                String codigo = ((Label)grdFunciones.Rows[e.RowIndex].FindControl("lbl_it_IdFuncion")).Text;
+
+                Funcion funcion = new Funcion();
+            funcion.IDFuncion = codigo;
+                funcion.Estado = false;
+
+                n_Funcion n_funcion = new n_Funcion();
+                n_funcion.eliminarFuncion(funcion);
+
+                cargarGrilla();
+           
+        }
     }
 }
