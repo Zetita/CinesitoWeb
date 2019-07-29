@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using ENTIDAD;
 using NEGOCIO;
+using DAO;
 
 namespace PRESENTACION
 {
@@ -33,7 +35,7 @@ namespace PRESENTACION
         }
         public void cargarDDL()
         {
-           
+
             ddlTipoSnack.Items.Add("Pochoclos");
             ddlTipoSnack.Items.Add("Bebidas");
             ddlTipoSnack.Items.Add("Snacks");
@@ -58,8 +60,8 @@ namespace PRESENTACION
         }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            
-            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && cv1.IsValid && ddlTipoSnack.SelectedIndex!=0) 
+
+            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && cv1.IsValid && ddlTipoSnack.SelectedIndex != 0)
             {
                 String pathCarpeta = @"img\snacks\";
                 String savePath = Server.MapPath("~") + pathCarpeta;
@@ -121,6 +123,8 @@ namespace PRESENTACION
             cargarGrilla();
         }
 
+
+
         protected void grdSnacks_RowEditing(object sender, GridViewEditEventArgs e)
         {
             grdSnacks.EditIndex = e.NewEditIndex;
@@ -137,7 +141,7 @@ namespace PRESENTACION
         {
             String s_IdSnack = ((Label)grdSnacks.Rows[e.RowIndex].FindControl("lbl_eit_IdSnack")).Text;
             String s_Nombre = ((TextBox)grdSnacks.Rows[e.RowIndex].FindControl("txt_eit_Nombre")).Text;
-            String s_Tipo = ((Label)grdSnacks.Rows[e.RowIndex].FindControl("lbl_eit_Tipo")).Text;
+            String s_Tipo = ((DropDownList)grdSnacks.Rows[e.RowIndex].FindControl("ddl_eit_TipoSnack")).Text;
             Double d_Precio = Double.Parse(((TextBox)grdSnacks.Rows[e.RowIndex].FindControl("txt_eit_Precio")).Text);
             String s_UrlImagen = ((FileUpload)grdSnacks.Rows[e.RowIndex].FindControl("FileUpload1")).FileName;
 
@@ -145,7 +149,7 @@ namespace PRESENTACION
 
             if (s_UrlImagen == string.Empty)
             {
-               ruta = VerificarImagen(s_IdSnack);
+                ruta = VerificarImagen(s_IdSnack);
             }
             else
             {
@@ -157,7 +161,7 @@ namespace PRESENTACION
                 b_Estado = true;
             else
                 b_Estado = false;
-            
+
             Snack snack = new Snack();
             snack.idSnack = s_IdSnack;
             snack.Nombre = s_Nombre;
@@ -175,22 +179,22 @@ namespace PRESENTACION
 
         public void AgregarImagen()
         {
-                string extension = string.Empty;
-                string oPath = string.Empty;
-                if (FileImagen.HasFile)
+            string extension = string.Empty;
+            string oPath = string.Empty;
+            if (FileImagen.HasFile)
+            {
+                extension = FileImagen.FileName.ToString();
+                if (extension.Contains(".jpg") || extension.Contains(".png") || extension.Contains(".gif"))
                 {
-                    extension = FileImagen.FileName.ToString();
-                    if (extension.Contains(".jpg") || extension.Contains(".png") || extension.Contains(".gif"))
-                    {
-                        oPath = Server.MapPath(string.Format("~/img/snacks/" + FileImagen.FileName));
-                        FileImagen.SaveAs(oPath);
+                    oPath = Server.MapPath(string.Format("~/img/snacks/" + FileImagen.FileName));
+                    FileImagen.SaveAs(oPath);
 
-                    }
-                    else
-                    {
-                        Response.Write("<script>window.alert('Error de Formato.');</script>");
-                    }
-                }       
+                }
+                else
+                {
+                    Response.Write("<script>window.alert('Error de Formato.');</script>");
+                }
+            }
         }
 
         public string VerificarImagen(string id)
@@ -203,6 +207,32 @@ namespace PRESENTACION
             return string.Empty;
         }
 
+        protected void grdSnacks_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            n_Snack n_snack = new n_Snack();
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                if ((e.Row.RowState & DataControlRowState.Edit) > 0)
+                {
+                    DropDownList ddl_eit_Tipo = (DropDownList)e.Row.FindControl("ddl_eit_TipoSnack");
 
+
+                    //bind dropdown-list
+
+                    ddl_eit_Tipo.Items.Add("Pochoclos");
+                    ddl_eit_Tipo.Items.Add("Bebidas");
+                    ddl_eit_Tipo.Items.Add("Snacks");
+                    ddl_eit_Tipo.Items.Add("Golosinas");
+
+
+                    ddl_eit_Tipo.Items.Insert(0, "-Seleccione algun tipo-");
+
+
+                    DataRowView dr = e.Row.DataItem as DataRowView;
+
+                    ddl_eit_Tipo.SelectedValue = dr["Tipo_Snack"].ToString();
+                }
+            }
+        }
     }
 }
