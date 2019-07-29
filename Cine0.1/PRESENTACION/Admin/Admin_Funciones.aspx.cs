@@ -108,9 +108,9 @@ namespace PRESENTACION
                 
                 if (n_funcion.ObtenerCantRegistros() < 10)
                     funcion.IDFuncion = "FUN00" + (n_funcion.ObtenerCantRegistros() + 1);
-                if (n_funcion.ObtenerCantRegistros() > 10 && n_funcion.ObtenerCantRegistros() < 100)
+                if (n_funcion.ObtenerCantRegistros() >= 10 && n_funcion.ObtenerCantRegistros() < 100)
                     funcion.IDFuncion = "FUN00" + (n_funcion.ObtenerCantRegistros() + 1);
-                if (n_funcion.ObtenerCantRegistros() > 100)
+                if (n_funcion.ObtenerCantRegistros() >= 100)
                     funcion.IDFuncion = "FUN" + (n_funcion.ObtenerCantRegistros() + 1);
 
 

@@ -69,9 +69,9 @@ namespace PRESENTACION
                 Snack snack = new Snack();
                 if (grdSnacks.Rows.Count < 10)
                     snack.idSnack = "SNC00" + (grdSnacks.Rows.Count + 1);
-                if (grdSnacks.Rows.Count > 10 && grdSnacks.Rows.Count < 100)
+                if (grdSnacks.Rows.Count >= 10 && grdSnacks.Rows.Count < 100)
                     snack.idSnack = "SNCC0" + (grdSnacks.Rows.Count + 1);
-                if (grdSnacks.Rows.Count > 100)
+                if (grdSnacks.Rows.Count >= 100)
                     snack.idSnack = "SNC" + (grdSnacks.Rows.Count + 1);
 
                 snack.Nombre = txtSnack.Text;
@@ -93,7 +93,7 @@ namespace PRESENTACION
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
                     ClearInputs(Page.Controls);
-
+                    AgregarImagen();
                 }
                 else
                 {
@@ -164,6 +164,27 @@ namespace PRESENTACION
             cargarGrilla();
         }
 
-       
+        public void AgregarImagen()
+        {
+                string extension = string.Empty;
+                string oPath = string.Empty;
+                if (FileImagen.HasFile)
+                {
+                    extension = FileImagen.FileName.ToString();
+                    if (extension.Contains(".jpg") || extension.Contains(".png") || extension.Contains(".gif"))
+                    {
+                        oPath = Server.MapPath(string.Format("~/img/snacks/" + FileImagen.FileName));
+                        FileImagen.SaveAs(oPath);
+
+                    }
+                    else
+                    {
+                        Response.Write("<script>window.alert('Error de Formato.');</script>");
+                    }
+                }
+            
+        }
+
+
     }
 }

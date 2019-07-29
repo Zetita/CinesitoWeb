@@ -68,9 +68,9 @@ namespace PRESENTACION
 
                 if (n_sucursal.ObtenerCantRegistros() < 10)
                     sucursal.idSucursal = "SUC00" + (n_sucursal.ObtenerCantRegistros() + 1);
-                if (n_sucursal.ObtenerCantRegistros() > 10 && n_sucursal.ObtenerCantRegistros() < 100)
+                if (n_sucursal.ObtenerCantRegistros() >= 10 && n_sucursal.ObtenerCantRegistros() < 100)
                     sucursal.idSucursal = "SUC0" + (n_sucursal.ObtenerCantRegistros() + 1);
-                if (n_sucursal.ObtenerCantRegistros() > 100)
+                if (n_sucursal.ObtenerCantRegistros() >= 100)
                     sucursal.idSucursal = "SUC" + (n_sucursal.ObtenerCantRegistros() + 1);
 
                 sucursal.Nombre = txtNombre.Text;

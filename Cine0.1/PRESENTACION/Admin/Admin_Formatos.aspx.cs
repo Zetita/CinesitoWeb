@@ -44,9 +44,9 @@ namespace PRESENTACION
 
                 if (grdFormatos.Rows.Count < 10)
                     formato.IdFormato = "FOR00" + (grdFormatos.Rows.Count + 1);
-                if (grdFormatos.Rows.Count > 10 && grdFormatos.Rows.Count < 100)
+                if (grdFormatos.Rows.Count >= 10 && grdFormatos.Rows.Count < 100)
                     formato.IdFormato = "FOR0" + (grdFormatos.Rows.Count + 1);
-                if (grdFormatos.Rows.Count > 100)
+                if (grdFormatos.Rows.Count >= 100)
                     formato.IdFormato = "FOR" + (grdFormatos.Rows.Count + 1);
                 formato.Nombre = txtNombre.Text;
                 formato.Idioma = txtIdioma.Text;
