@@ -24,11 +24,11 @@ namespace NEGOCIO
             return da.ObtenerTablaFunciones(Consulta);
         }
 
-        //public bool editarFuncion(Funcion Funcion)
-        //{
-        //    DAO_Funciones da = new DAO_Funciones();
-        //    return da.ActualizarFuncion(Funcion);
-        //}
+        public bool editarFuncion(Funcion Funcion)
+        {
+            DAO_Funciones da = new DAO_Funciones();
+            return da.ActualizarFuncion(Funcion);
+        }
         public int eliminarFuncion(Funcion Funcion)
         {
             DAO_Funciones da = new DAO_Funciones();

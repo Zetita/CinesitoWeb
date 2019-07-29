@@ -109,7 +109,7 @@ namespace PRESENTACION
 
         protected void grdSnacks_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            String codigo = ((Label)grdSnacks.Rows[e.RowIndex].FindControl("lbl_it_IdSnack")).Text;
+            String codigo = ((Label)grdSnacks.Rows[e.RowIndex].FindControl("lbl_IdSnack")).Text;
 
             Snack snack = new Snack();
             snack.idSnack = codigo;

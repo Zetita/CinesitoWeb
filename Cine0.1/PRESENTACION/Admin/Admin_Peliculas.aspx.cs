@@ -75,11 +75,7 @@ namespace PRESENTACION
                     ((CheckBoxList)ctrl).ClearSelection();
             }
         }
-        protected void grdSnacks_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            grdPeliculas.PageIndex = e.NewPageIndex;
-            cargarGrilla();
-        }
+
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -153,11 +149,7 @@ namespace PRESENTACION
             }
         }
 
-        protected void grdPeliculas_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            grdPeliculas.PageIndex = e.NewPageIndex;
-            cargarGrilla();
-        }
+     
 
         protected void grdPeliculas_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -274,11 +266,11 @@ namespace PRESENTACION
                 lblCargado.Text = "Complete los campos necesarios!";
             }
         }
-        
 
-        protected void grdPeliculas_SelectedIndexChanged(object sender, EventArgs e)
+        protected void grdPeliculas_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            grdPeliculas.PageIndex = e.NewPageIndex;
+            cargarGrilla();
         }
     }
 }

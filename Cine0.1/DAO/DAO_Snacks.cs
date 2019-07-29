@@ -48,6 +48,18 @@ namespace DAO
 
         }
 
+        public void armarParametrosEliminar(ref SqlCommand Comando, Snack snack)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = Comando.Parameters.Add("@ID_SNACK", SqlDbType.Char, 6);
+            SqlParametros.Value = snack.idSnack;
+           
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = snack.Estado;
+
+        }
+
         public bool ActualizarSnack(Snack snack)
         {
             SqlCommand Comando = new SqlCommand();
@@ -62,7 +74,7 @@ namespace DAO
         public int eliminarSnack(Snack snack)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, snack);
+            armarParametrosEliminar(ref comando, snack);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarSnack");
         }
 

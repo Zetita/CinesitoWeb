@@ -197,5 +197,28 @@ namespace PRESENTACION
             cargarGrillaSuc();
         }
 
+        protected void grdSucursales_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grdSucursales.EditIndex = -1;
+            cargarGrillaSuc();
+        }
+
+        protected void grdSalas_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grdSalas.EditIndex = -1;
+            cargarGrillaSalas();
+        }
+
+        protected void grdSucursales_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdSucursales.PageIndex = e.NewPageIndex;
+            cargarGrillaSuc();
+        }
+        protected void grdSalas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdSalas.PageIndex = e.NewPageIndex;
+            cargarGrillaSalas();
+        }
+
     }
 }
