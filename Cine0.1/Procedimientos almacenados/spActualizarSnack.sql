@@ -17,7 +17,8 @@ SET
 Nombre_Snack=@NOMBRE,
 Tipo_Snack=@TIPO,
 Precio_Snack=@PRECIO,
-Estado_Snack=@ESTADO
+Estado_Snack=@ESTADO,
+URLImagen_Snack=@IMAGENURL
 WHERE ID_Snack=@ID_SNACK
 
 RETURN
