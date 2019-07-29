@@ -100,6 +100,7 @@
     <Content Include="Recursos\search.png" />
     <Content Include="Recursos\user.png" />
     <Content Include="Registro.aspx" />
+    <Content Include="RepEntxPel.aspx" />
     <Content Include="RepVentasxSuc.aspx" />
     <Content Include="Resultados.aspx" />
     <Content Include="Snacks.aspx" />
@@ -209,6 +210,13 @@
     </Compile>
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RepEntxPel.aspx.cs">
+      <DependentUpon>RepEntxPel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RepEntxPel.aspx.designer.cs">
+      <DependentUpon>RepEntxPel.aspx</DependentUpon>
     </Compile>
     <Compile Include="RepVentasxSuc.aspx.cs">
       <DependentUpon>RepVentasxSuc.aspx</DependentUpon>

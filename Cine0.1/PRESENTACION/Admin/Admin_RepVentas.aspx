@@ -56,7 +56,7 @@ color: black;
         <div class="menu_user">
            <a href="Admin_RepVentas.aspx" class="active">Ventas por Año</a>
            <a href="../RepVentasxSuc.aspx">Ventas por Sucursal</a>
-           <a href="Admin_EntxPel.aspx">Total de Entradas Vendidas por Pelicula</a>
+           <a href="../RepEntxPel.aspx">Total de Entradas Vendidas por Pelicula</a>
         </div>
     </td>
 
