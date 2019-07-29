@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ENTIDAD;
 using NEGOCIO;
+using System.IO;
 using System.Data;
 
 namespace PRESENTACION
@@ -95,9 +96,9 @@ namespace PRESENTACION
       
                 if (n_pelicula.ObtenerCantRegistros() < 10)
                     pelicula.idPelicula = "PEL00" + (n_pelicula.ObtenerCantRegistros() + 1);
-                if (n_pelicula.ObtenerCantRegistros() > 10 && n_pelicula.ObtenerCantRegistros() < 100)
-                    pelicula.idPelicula = "PELC0" + (n_pelicula.ObtenerCantRegistros() + 1);
-                if (n_pelicula.ObtenerCantRegistros() > 100)
+                if (n_pelicula.ObtenerCantRegistros() >= 10 && n_pelicula.ObtenerCantRegistros() < 100)
+                    pelicula.idPelicula = "PEL0" + (n_pelicula.ObtenerCantRegistros() + 1);
+                if (n_pelicula.ObtenerCantRegistros() >= 100)
                     pelicula.idPelicula = "PEL" + (n_pelicula.ObtenerCantRegistros() + 1);
 
                 pelicula.Titulo = txtTitulo.Text;
@@ -129,6 +130,7 @@ namespace PRESENTACION
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
                     cargarDDLPeliculas();
+                    AgregarImagen(fileName);
                     ClearInputs(Page.Controls);
 
                 }
@@ -266,6 +268,26 @@ namespace PRESENTACION
         {
             grdPeliculas.PageIndex = e.NewPageIndex;
             cargarGrilla();
+        }
+
+        public void AgregarImagen(string Nombre)
+        {
+            string extension = string.Empty;
+            string oPath = string.Empty;
+            if (fileImagen.HasFile)
+            {
+                extension = fileImagen.FileName.ToString();
+                if (extension.Contains(".jpg") || extension.Contains(".png") || extension.Contains(".gif"))
+                {
+                    oPath = Server.MapPath(string.Format("~/img/portadas/" + fileImagen.FileName));
+                    fileImagen.SaveAs(oPath);
+
+                }
+                else
+                {
+                    Response.Write("<script>window.alert('Error de Formato.');</script>");
+                }
+            }
         }
     }
 }
