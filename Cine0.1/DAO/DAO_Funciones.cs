@@ -70,10 +70,23 @@ namespace DAO
 
         }
 
+        public void armarParametrosEliminar(ref SqlCommand Comando, Funcion funcion)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = Comando.Parameters.Add("@ID_FUNCION", SqlDbType.Char, 6);
+            SqlParametros.Value = funcion.IDFuncion;
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = funcion.Estado;
+
+
+
+        }
+
         public bool ActualizarFuncion(Funcion funcion)
         {
             SqlCommand Comando = new SqlCommand();
-            armarParametrosEditar(ref Comando, funcion);
+            armarParametros(ref Comando, funcion);
             int filasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarFuncion");
             if (filasInsertadas == 1)
                 return true;
@@ -84,7 +97,7 @@ namespace DAO
         public int eliminarFuncion(Funcion funcion)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, funcion);
+            armarParametrosEliminar(ref comando, funcion);
             return ad.EjecutarProcedimientoAlmacenado(comando, "spEliminarFuncion");
         }
 

@@ -59,7 +59,7 @@ namespace PRESENTACION
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             
-            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && cv1.IsValid)
+            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && cv1.IsValid && ddlTipoSnack.SelectedIndex!=0) 
             {
                 String pathCarpeta = @"img\snacks\";
                 String savePath = Server.MapPath("~") + pathCarpeta;
@@ -190,8 +190,7 @@ namespace PRESENTACION
                     {
                         Response.Write("<script>window.alert('Error de Formato.');</script>");
                     }
-                }
-            
+                }       
         }
 
         public string VerificarImagen(string id)

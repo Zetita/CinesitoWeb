@@ -234,7 +234,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Clasificacion">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txt_eit_Clasificacion" runat="server" Text='<%# bind("Genero_Pelicula") %>'></asp:TextBox>
+                        <asp:TextBox ID="txt_eit_Clasificacion" runat="server" Text='<%# Bind("Genero_Pelicula") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_Clasificacion" runat="server" Text='<%# Bind("Clasificacion_Pelicula") %>'></asp:Label>
@@ -250,7 +250,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Director/es">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txt_eit_Director" runat="server" Text='<%# bind("Director_Pelicula") %>'></asp:TextBox>
+                        <asp:TextBox ID="txt_eit_Director" runat="server" Text='<%# Bind("Director_Pelicula") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_Directores" runat="server" Text='<%# Bind("Director_Pelicula") %>'></asp:Label>
@@ -258,7 +258,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Sinopsis">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txt_eit_Sinopsis" runat="server" Text='<%# bind("Sinopsis_Pelicula") %>'></asp:TextBox>
+                        <asp:TextBox ID="txt_eit_Sinopsis" runat="server" Text='<%# Bind("Sinopsis_Pelicula") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_Sinopsis" runat="server" Text='<%# Bind("Sinopsis_Pelicula") %>'></asp:Label>
