@@ -181,8 +181,7 @@ namespace PRESENTACION
                     {
                         Response.Write("<script>window.alert('Error de Formato.');</script>");
                     }
-                }
-            
+                }       
         }
 
 
