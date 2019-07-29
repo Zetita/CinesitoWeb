@@ -24,5 +24,6 @@ Nombres_Usuario=@NOMBRES,
 DNI_Usuario=@DNI,
 Telefono_Usuario=@TELEFONO,
 Administrador=@ADMINISTRADOR
+Activo=@Activo
 WHERE Usuario=@USUARIO
 RETURN
