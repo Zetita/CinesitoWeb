@@ -198,7 +198,7 @@ namespace PRESENTACION
             for (int i = 0; i < grdSnacks.Rows.Count; i++)
             {
                 if (id == grdSnacks.Rows[i].ToString())
-                    return ((Image)grdSnacks.Rows[i].FindControl("img_it_Imagen")).ImageUrl;
+                    return ((ImageButton)grdSnacks.Rows[i].FindControl("img_it_Imagen")).ImageUrl;
             }
             return string.Empty;
         }

@@ -190,9 +190,10 @@ namespace PRESENTACION
 
             string Ruta = string.Empty;
 
-            if (s_Imagen == null)
+            if (s_Imagen == string.Empty)
             {
                 Ruta = VerificarImagen(s_IdPelicula);
+                
             }
             else
             {
@@ -306,7 +307,7 @@ namespace PRESENTACION
             for (int i = 0; i < grdPeliculas.Rows.Count; i++)
             {
                 if (id == grdPeliculas.Rows[i].ToString())
-                    return ((Image)grdPeliculas.Rows[i].FindControl("img_it_Imagen")).ImageUrl;
+                    return ((ImageButton)grdPeliculas.Rows[i].FindControl("img_it_Imagen")).ImageUrl;
             }
             return string.Empty;
         }
