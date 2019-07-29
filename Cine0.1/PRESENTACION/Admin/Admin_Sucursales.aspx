@@ -171,7 +171,7 @@
             <br />
         <asp:Label ID="Label4" runat="server" Text="Listado de Sucursales y Salas"></asp:Label>
             <br />
-            <asp:GridView ID="grdSucursales" runat="server" AllowCustomPaging="True" AutoGenerateColumns="False" AutoGenerateEditButton="True" CssClass="tablalistado" PageSize="5" AllowPaging="True" OnRowEditing="grdSucursales_RowEditing" OnRowUpdating="grdSucursales_RowUpdating" OnPageIndexChanging="grdSucursales_PageIndexChanging" OnRowCancelingEdit="grdSucursales_RowCancelingEdit">
+            <asp:GridView ID="grdSucursales" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" CssClass="tablalistado" PageSize="5" AllowPaging="True" OnRowEditing="grdSucursales_RowEditing" OnRowUpdating="grdSucursales_RowUpdating" OnPageIndexChanging="grdSucursales_PageIndexChanging" OnRowCancelingEdit="grdSucursales_RowCancelingEdit">
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
                         <EditItemTemplate>
@@ -224,7 +224,7 @@
                 </Columns>
             </asp:GridView>
             <br />
-            <asp:GridView ID="grdSalas" runat="server" AllowCustomPaging="True" AutoGenerateColumns="False" AutoGenerateEditButton="True" CssClass="tablalistado" PageSize="5" AllowPaging="True" OnRowEditing="grdSalas_RowEditing" OnRowUpdating="grdSalas_RowUpdating" OnPageIndexChanging="grdSalas_PageIndexChanging" OnRowCancelingEdit="grdSalas_RowCancelingEdit">
+            <asp:GridView ID="grdSalas" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" CssClass="tablalistado" PageSize="5" AllowPaging="True" OnRowEditing="grdSalas_RowEditing" OnRowUpdating="grdSalas_RowUpdating" OnPageIndexChanging="grdSalas_PageIndexChanging" OnRowCancelingEdit="grdSalas_RowCancelingEdit">
                 <Columns>
                     <asp:TemplateField HeaderText="Sucursal">
                         <EditItemTemplate>
