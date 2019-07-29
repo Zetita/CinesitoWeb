@@ -199,10 +199,14 @@ namespace PRESENTACION
 
         public string VerificarImagen(string id)
         {
-            for (int i = 0; i < grdSnacks.Rows.Count; i++)
+            n_Snack n_Sna = new n_Snack();
+            DataTable dt = n_Sna.ObtenerTabla();
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                if (id == grdSnacks.Rows[i].ToString())
-                    return ((ImageButton)grdSnacks.Rows[i].FindControl("img_it_Imagen")).ImageUrl;
+                if (dt.Rows[i]["ID_Snack"].ToString() == id)
+                {
+                    return dt.Rows[i]["URLImagen_Snack"].ToString();
+                }
             }
             return string.Empty;
         }

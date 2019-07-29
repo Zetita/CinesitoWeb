@@ -193,7 +193,6 @@ namespace PRESENTACION
             if (s_Imagen == string.Empty)
             {
                 Ruta = VerificarImagen(s_IdPelicula);
-                
             }
             else
             {
@@ -304,10 +303,14 @@ namespace PRESENTACION
 
         public string VerificarImagen(string id)
         {
-            for (int i = 0; i < grdPeliculas.Rows.Count; i++)
+            n_Pelicula n_Pel = new n_Pelicula();
+            DataTable dt = n_Pel.ObtenerTabla();
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                if (id == grdPeliculas.Rows[i].ToString())
-                    return ((ImageButton)grdPeliculas.Rows[i].FindControl("img_it_Imagen")).ImageUrl;
+                if (dt.Rows[i]["ID_Pelicula"].ToString() == id)
+                {
+                    return dt.Rows[i]["ImagenURL"].ToString();
+                }
             }
             return string.Empty;
         }
