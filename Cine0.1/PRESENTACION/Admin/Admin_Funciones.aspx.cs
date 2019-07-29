@@ -133,8 +133,7 @@ namespace PRESENTACION
                     lblAgregado.Text = "Cargado exitosamente.";
                     lblAgregado.ForeColor = System.Drawing.Color.Green;
                     cargarGrilla();
-
-
+                    ClearInputs(Page.Controls);
                 }
                 else
                 {
