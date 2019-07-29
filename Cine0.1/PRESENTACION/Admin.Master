@@ -7,6 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <link href="CSS/Admin.css" rel="stylesheet" />
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -14,7 +16,7 @@
     <form id="form1" runat="server">
         <div id="div_nav">
             <a href="\Inicio.aspx" class="inicio">INICIO</a>
-            <a href="#" class="reportes">REPORTES</a>
+            <a href="\Admin\Admin_RepResultados.aspx" class="reportes">REPORTES</a>
             <asp:LinkButton ID="LinkUsuarios" runat="server" CssClass="LinksButtons" OnClick="LinkUsuarios_Click">Usuarios</asp:LinkButton>
             <asp:LinkButton ID="LinkSucursales" runat="server" CssClass="LinksButtons" OnClick="LinkSucursales_Click">Sucursales y salas</asp:LinkButton>
             <asp:LinkButton ID="LinkPeliculas" runat="server" CssClass="LinksButtons" OnClick="LinkPeliculas_Click">Peliculas</asp:LinkButton>

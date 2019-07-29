@@ -62,3 +62,36 @@ TABLE.tablalistado {
     TABLE.tablalistado TD {
         PADDING: 4px;
     }
+
+#div_admin {
+    text-align: center;
+    padding: 2.5% 0;
+    background-color: #716b6b;
+}
+
+#div_admin .Admin {
+    width: 250px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+#div_admin .menu_admin {
+    width: 250px;
+}
+
+   #div_admin .menu_admin a {
+        background-color: #111;
+        color: black;
+        display: block;
+        padding: 12px;
+        text-decoration: none;
+    }
+
+       #div_admin .menu_admin a:hover {
+            background-color: #f1f1f1; /* Color para el mouse-over */
+        }
+
+        #div_admin .menu_admin a.active {
+            background-color: #818181; /* Para marcar el link activo */
+            color: white;
+        }

@@ -141,7 +141,16 @@ namespace PRESENTACION
             Double d_Precio = Double.Parse(((TextBox)grdSnacks.Rows[e.RowIndex].FindControl("txt_eit_Precio")).Text);
             String s_UrlImagen = ((FileUpload)grdSnacks.Rows[e.RowIndex].FindControl("FileUpload1")).FileName;
 
-            String ruta = "~/img/snacks/" + s_UrlImagen;
+            String ruta = string.Empty;
+
+            if (s_UrlImagen == string.Empty)
+            {
+               ruta = VerificarImagen(s_IdSnack);
+            }
+            else
+            {
+                ruta = "~/img/snacks/" + s_UrlImagen;
+            }
             bool b_Estado;
 
             if (((CheckBox)grdSnacks.Rows[e.RowIndex].FindControl("cb_eit_Estado")).Checked == true)
@@ -183,6 +192,16 @@ namespace PRESENTACION
                     }
                 }
             
+        }
+
+        public string VerificarImagen(string id)
+        {
+            for (int i = 0; i < grdSnacks.Rows.Count; i++)
+            {
+                if (id == grdSnacks.Rows[i].ToString())
+                    return ((Image)grdSnacks.Rows[i].FindControl("img_it_Imagen")).ImageUrl;
+            }
+            return string.Empty;
         }
 
 

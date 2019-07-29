@@ -187,13 +187,24 @@ namespace PRESENTACION
             String  s_Imagen = ((FileUpload)grdPeliculas.Rows[e.RowIndex].FindControl("FileUpload1")).FileName;
             String s_duracion=((TextBox) grdPeliculas.Rows[e.RowIndex].FindControl("txt_eit_Duracion")).Text;
             String s_Trailer=((TextBox) grdPeliculas.Rows[e.RowIndex].FindControl("txt_eit_TrailerURL")).Text;
+
+            string Ruta = string.Empty;
+
+            if (s_Imagen == null)
+            {
+                Ruta = VerificarImagen(s_IdPelicula);
+            }
+            else
+            {
+                Ruta = "~/img/portadas/" + s_Imagen;
+            }
             bool b_Estado;
             if (((CheckBox)grdPeliculas.Rows[e.RowIndex].FindControl("cb_eit_Estado")).Checked == true)
                 b_Estado = true;
             else
                 b_Estado = false;
             
-            String ruta = "~/img/portadas/" + s_Imagen;
+            
 
             Pelicula pelicula = new Pelicula();
             pelicula.idPelicula = s_IdPelicula;
@@ -203,7 +214,7 @@ namespace PRESENTACION
             pelicula.FecEstreno = s_Estreno;
             pelicula.Director = s_Director;
             pelicula.Sinopsis = s_Sinopsis;
-            pelicula.ImagenURL = ruta;
+            pelicula.ImagenURL = Ruta;
             pelicula.Duracion =  TimeSpan.Parse(s_duracion);
             pelicula.TrailerURL = s_Trailer;
             pelicula.Estado = b_Estado;
@@ -288,6 +299,16 @@ namespace PRESENTACION
                     Response.Write("<script>window.alert('Error de Formato.');</script>");
                 }
             }
+        }
+
+        public string VerificarImagen(string id)
+        {
+            for (int i = 0; i < grdPeliculas.Rows.Count; i++)
+            {
+                if (id == grdPeliculas.Rows[i].ToString())
+                    return ((Image)grdPeliculas.Rows[i].FindControl("img_it_Imagen")).ImageUrl;
+            }
+            return string.Empty;
         }
     }
 }
