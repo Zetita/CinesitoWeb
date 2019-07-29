@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Admin_RepVentas.aspx.cs" Inherits="PRESENTACION.R_Recaudaciones" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="RepVentasxSuc.aspx.cs" Inherits="PRESENTACION.RepVentasxSuc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-<style type="text/css">
+    <style type="text/css">
         
         .auto-style3 {
             width: 290px;
@@ -54,18 +53,25 @@ color: black;
             <br />
         </div>
         <div class="menu_user">
-           <a href="Admin_RepVentas.aspx" class="active">Ventas por Año</a>
-           <a href="../RepVentasxSuc.aspx">Ventas por Sucursal</a>
+           <a href="Admin/Admin_RepVentas.aspx" >Ventas por Año</a>
+           <a href="RepVentasxSuc.aspx" class="active">Ventas por Sucursal</a>
            <a href="Admin_EntxPel.aspx">Total de Entradas Vendidas por Pelicula</a>
         </div>
     </td>
 
 <td class="auto-style4">
      <div class="contenido">
-         <asp:Label ID="Titulos" runat="server" Text="Ventas por Año" CssClass="Titulos"></asp:Label>
+         <asp:Label ID="Titulos" runat="server" Text="Ventas por Sucursal" CssClass="Titulos"></asp:Label>
          <hr class="auto-style8" />
          <br />
-         <asp:GridView ID="grdVentas" runat="server" AutoGenerateColumns="False"  style="position:absolute;top:120px;left:10px;width:98%" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging" PageSize="8">
+         <asp:DropDownList ID="ddlSuc" runat="server" style="position:absolute;top:82px;width:200px;left:305px;text-align:center">
+         </asp:DropDownList>
+         <asp:Label ID="lblSinVentas" runat="server" ForeColor="White" Style="color:#808080;padding-left: 10px; margin: 10px 0px 0px 10px; font-size: xx-large;" Visible="False" ></asp:Label>
+         <br />
+         <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" style="position:absolute;top:81px;width:200px;right:290px" OnClick="btnFiltrar_Click"/>
+         <asp:Label ID="lblRecaudacion" runat="server" style="position:absolute;left:180px;top:349px;font-size:x-large"> </asp:Label>
+
+         <asp:GridView ID="grdVentas" runat="server" AutoGenerateColumns="False"  style="position:absolute;top:120px;left:10px;width:98%" AllowPaging="True" PageSize="8" OnPageIndexChanging="grdVentas_PageIndexChanging">
              <Columns>
                  <asp:TemplateField HeaderText="ID VENTA">
                      <ItemTemplate>
@@ -99,22 +105,13 @@ color: black;
                  </asp:TemplateField>
              </Columns>
          </asp:GridView>
-     
 
-         <asp:DropDownList ID="ddlAños" runat="server" style="position:absolute;top:82px;width:200px;left:305px;text-align:center">
-         </asp:DropDownList>
 
-         <asp:Label ID="lblSinVentas" runat="server" ForeColor="White" Style="color:#808080;padding-left: 10px; margin: 10px 0px 0px 10px; font-size: xx-large;" ></asp:Label>
-         <br />
-         <asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar" style="position:absolute;top:81px;width:200px;right:290px"/>
-         <asp:Label ID="lblRecaudacion" runat="server" style="position:absolute;left:180px;top:349px;font-size:x-large"> </asp:Label>
-
-     </div>   
+              </div>   
     </td>
     
 
 </tr>
     </table>
-
 
 </asp:Content>

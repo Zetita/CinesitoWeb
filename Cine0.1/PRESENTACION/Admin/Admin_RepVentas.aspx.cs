@@ -14,7 +14,7 @@ namespace PRESENTACION
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarDDLAños();
+            if(!IsPostBack) CargarDDLAños();
         }
 
         public void CargarDDLAños()
