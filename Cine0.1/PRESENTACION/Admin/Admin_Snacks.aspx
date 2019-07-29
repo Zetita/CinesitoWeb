@@ -130,7 +130,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="TIPO ">
                     <EditItemTemplate>
-                        <asp:DropDownList ID="ddl_eit_TipoSnack" runat="server" SelectedValue='<%# Bind("Tipo_Snack") %>'>
+                        <asp:DropDownList ID="ddl_eit_TipoSnack" runat="server">
                         </asp:DropDownList>
                     </EditItemTemplate>
                     <ItemTemplate>
