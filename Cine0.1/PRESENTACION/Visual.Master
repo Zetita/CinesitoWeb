@@ -1,15 +1,17 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Visual.master.cs" Inherits="PRESENTACION.Visual" %>
 
+
 <!DOCTYPE html>
 
 <html>
+    
 <head runat="server">
      <link rel="stylesheet" type="text/css" href="CSS/Barras.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" type="text/css" href="CSS/User.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
    <link rel="stylesheet" type="text/css" href="CSS/Buscador.css" />
-
+    
 
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">

@@ -11,17 +11,19 @@ namespace PRESENTACION
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ClearSession();
             if (!IsPostBack)
             {
                 txtSearch.Visible = false;
                 if (Session["UserLogeado"] != null)
                 {
                     lblUsuario.Text = Session["UserLogeado"].ToString();
-                    
+
                 }
             }
             if (Session["UserLogeado"] != null)
             {
+
 
                 imgbtnUser.ImageUrl = "~/img/user/" + lblUsuario.Text.Trim() + ".png";
 
@@ -73,5 +75,12 @@ namespace PRESENTACION
             Response.Redirect("Resultados.aspx");
         }
 
+        protected void ClearSession()
+        {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ExpiresAbsolute = DateTime.UtcNow.AddDays(-1d);
+            Response.Expires = -1500;
+            Response.CacheControl = "no-Cache";
+        }
     }
 }

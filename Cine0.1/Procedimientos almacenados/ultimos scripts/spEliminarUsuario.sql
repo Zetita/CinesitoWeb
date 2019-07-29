@@ -3,12 +3,12 @@ go
 
 CREATE PROCEDURE spEliminarUsuario
 (
-@ID int,
+@USUARIO varchar(40),
 @ACTIVO bit
 )
 AS 
 UPDATE Usuarios
 SET Activo=@ACTIVO
-WHERE ID_Usuario=@ID
+WHERE Usuario=@USUARIO
 
 RETURN

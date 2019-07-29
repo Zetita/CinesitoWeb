@@ -125,6 +125,7 @@ namespace PRESENTACION
                 {
                     oPath = Server.MapPath(string.Format("~/img/user/" + lblUsuario.Text + ".png"));
                     flImagen.SaveAs(oPath);
+                    
                 }
                 else
                 {

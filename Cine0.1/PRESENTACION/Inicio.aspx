@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Visual.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="PRESENTACION.Inicio" %>
 
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
     <style type="text/css">
         .auto-style1 {
             width: 420px;
@@ -95,7 +96,7 @@
                 <br /></td>
         </SelectedItemTemplate>
     </asp:ListView>
-        <asp:SqlDataSource ID="sqldsFuente" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString5 %>" SelectCommand="SELECT [ImagenURL], LTRIM(RTRIM([Titulo_Pelicula])),[ID_Pelicula] FROM [Peliculas]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="sqldsFuente" runat="server" ConnectionString="<%$ ConnectionStrings:CineFrenzConnectionString5 %>" SelectCommand="SELECT [ImagenURL], LTRIM(RTRIM([Titulo_Pelicula])),[ID_Pelicula] FROM [Peliculas] WHERE [Estado]='True'"></asp:SqlDataSource>
     </div>
     <div style="margin-top:70px"></div>
 </asp:Content>

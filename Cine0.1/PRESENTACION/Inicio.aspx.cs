@@ -7,10 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace PRESENTACION
 {
+    
     public partial class Inicio : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             int Mensaje;
             if(Request.Cookies["Mensaje"] != null)
             {
