@@ -1,18 +1,18 @@
 USE CineFrenz
-GO
-
-CREATE PROCEDURE spActualizarSala(
-@ID_SALA char(6),
-@ID_SUCURSAL char(6),
+go
+create procedure spActualizarSala
+(
+@ID_Sala char(6),
+@ID_Sucursal char(6),
 @SALA varchar(20),
 @BUTACAS int
 )
 AS
-
 UPDATE Salas
 SET
+ID_Sucursal=@ID_Sucursal,
 Sala=@SALA,
 Butacas_Sala=@BUTACAS
-WHERE ID_Sala=@ID_SALA and ID_Sucursal=@ID_SUCURSAL
-
+WHERE ID_Sala=@ID_Sala
 RETURN
+go
