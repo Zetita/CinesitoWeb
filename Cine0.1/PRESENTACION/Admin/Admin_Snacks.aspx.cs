@@ -69,9 +69,9 @@ namespace PRESENTACION
                 Snack snack = new Snack();
                 if (grdSnacks.Rows.Count < 10)
                     snack.idSnack = "SNC00" + (grdSnacks.Rows.Count + 1);
-                if (grdSnacks.Rows.Count > 10 && grdSnacks.Rows.Count < 100)
+                if (grdSnacks.Rows.Count >= 10 && grdSnacks.Rows.Count < 100)
                     snack.idSnack = "SNCC0" + (grdSnacks.Rows.Count + 1);
-                if (grdSnacks.Rows.Count > 100)
+                if (grdSnacks.Rows.Count >= 100)
                     snack.idSnack = "SNC" + (grdSnacks.Rows.Count + 1);
 
                 snack.Nombre = txtSnack.Text;
