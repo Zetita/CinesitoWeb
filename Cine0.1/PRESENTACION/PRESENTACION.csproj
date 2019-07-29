@@ -100,8 +100,8 @@
     <Content Include="Recursos\search.png" />
     <Content Include="Recursos\user.png" />
     <Content Include="Registro.aspx" />
-    <Content Include="RepEntxPel.aspx" />
-    <Content Include="RepVentasxSuc.aspx" />
+    <Content Include="Admin2\Admin_RepEntxPel.aspx" />
+    <Content Include="Admin2\Admin_RepVentasxSuc.aspx" />
     <Content Include="Resultados.aspx" />
     <Content Include="Snacks.aspx" />
     <Content Include="Sucursales.aspx" />
@@ -211,19 +211,19 @@
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RepEntxPel.aspx.cs">
-      <DependentUpon>RepEntxPel.aspx</DependentUpon>
+    <Compile Include="Admin2\Admin_RepEntxPel.aspx.cs">
+      <DependentUpon>Admin_RepEntxPel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RepEntxPel.aspx.designer.cs">
-      <DependentUpon>RepEntxPel.aspx</DependentUpon>
+    <Compile Include="Admin2\Admin_RepEntxPel.aspx.designer.cs">
+      <DependentUpon>Admin_RepEntxPel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RepVentasxSuc.aspx.cs">
-      <DependentUpon>RepVentasxSuc.aspx</DependentUpon>
+    <Compile Include="Admin2\Admin_RepVentasxSuc.aspx.cs">
+      <DependentUpon>Admin_RepVentasxSuc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RepVentasxSuc.aspx.designer.cs">
-      <DependentUpon>RepVentasxSuc.aspx</DependentUpon>
+    <Compile Include="Admin2\Admin_RepVentasxSuc.aspx.designer.cs">
+      <DependentUpon>Admin_RepVentasxSuc.aspx</DependentUpon>
     </Compile>
     <Compile Include="Resultados.aspx.cs">
       <DependentUpon>Resultados.aspx</DependentUpon>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="RepVentasxSuc.aspx.cs" Inherits="PRESENTACION.RepVentasxSuc" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Admin_RepVentasxSuc.aspx.cs" Inherits="PRESENTACION.RepVentasxSuc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -53,9 +53,9 @@ color: black;
             <br />
         </div>
         <div class="menu_user">
-           <a href="Admin/Admin_RepVentas.aspx" >Ventas por Año</a>
-           <a href="RepVentasxSuc.aspx" class="active">Ventas por Sucursal</a>
-           <a href="RepEntxPel.aspx">Total de Entradas Vendidas por Pelicula</a>
+           <a href="../Admin/Admin_RepVentas.aspx" >Ventas por Año</a>
+           <a href="Admin_RepVentasxSuc.aspx" class="active">Ventas por Sucursal</a>
+           <a href="Admin_RepEntxPel.aspx">Total de Entradas Vendidas por Pelicula</a>
         </div>
     </td>
 
