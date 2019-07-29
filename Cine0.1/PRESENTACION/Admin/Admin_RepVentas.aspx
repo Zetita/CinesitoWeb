@@ -54,15 +54,15 @@ color: black;
             <br />
         </div>
         <div class="menu_user">
-           <a href="User.aspx" class="active">Ventas</a>
-           <a href="User_Perfil.aspx">Ventas por Sucursal</a>
-           <a href="User_Contrasenia.aspx">Total de Entradas Vendidas por Pelicula</a>
+           <a href="Admin_RepVentas.aspx" class="active">Ventas por Año</a>
+           <a href="Admin_RepVenxSuc.aspx">Ventas por Sucursal</a>
+           <a href="Admin_EntxPel.aspx">Total de Entradas Vendidas por Pelicula</a>
         </div>
     </td>
 
 <td class="auto-style4">
      <div class="contenido">
-         <asp:Label ID="Titulos" runat="server" Text="Ventas" CssClass="Titulos"></asp:Label>
+         <asp:Label ID="Titulos" runat="server" Text="Ventas por Año" CssClass="Titulos"></asp:Label>
          <hr class="auto-style8" />
          <br />
          <asp:GridView ID="grdVentas" runat="server" AutoGenerateColumns="False"  style="position:absolute;top:120px;left:10px;width:98%" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging" PageSize="8">

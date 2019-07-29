@@ -65,6 +65,7 @@
     <Content Include="Admin\Admin_Formatos.aspx" />
     <Content Include="Admin\Admin_Funciones.aspx" />
     <Content Include="Admin\Admin_Peliculas.aspx" />
+    <Content Include="Admin\Admin_RepVentas.aspx" />
     <Content Include="Admin\Admin_Snacks.aspx" />
     <Content Include="Admin\Admin_Sucursales.aspx" />
     <Content Include="Admin\Admin_Usuarios.aspx" />
@@ -100,7 +101,6 @@
     <Content Include="Recursos\user.png" />
     <Content Include="Registro.aspx" />
     <Content Include="Resultados.aspx" />
-    <Content Include="Admin\Admin_RepVentas.aspx" />
     <Content Include="Snacks.aspx" />
     <Content Include="Sucursales.aspx" />
     <Content Include="User.aspx" />
@@ -137,6 +137,13 @@
     </Compile>
     <Compile Include="Admin\Admin_Peliculas.aspx.designer.cs">
       <DependentUpon>Admin_Peliculas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admin_RepVentas.aspx.cs">
+      <DependentUpon>Admin_RepVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin_RepVentas.aspx.designer.cs">
+      <DependentUpon>Admin_RepVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Admin_Snacks.aspx.cs">
       <DependentUpon>Admin_Snacks.aspx</DependentUpon>
@@ -208,13 +215,6 @@
     </Compile>
     <Compile Include="Resultados.aspx.designer.cs">
       <DependentUpon>Resultados.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Admin_RepVentas.aspx.cs">
-      <DependentUpon>Admin_RepVentas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Admin_RepVentas.aspx.designer.cs">
-      <DependentUpon>Admin_RepVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Snacks.aspx.cs">
       <DependentUpon>Snacks.aspx</DependentUpon>
