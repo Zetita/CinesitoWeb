@@ -100,7 +100,7 @@
     <Content Include="Recursos\user.png" />
     <Content Include="Registro.aspx" />
     <Content Include="Resultados.aspx" />
-    <Content Include="Admin\Admin_RepResultados.aspx" />
+    <Content Include="Admin\Admin_RepVentas.aspx" />
     <Content Include="Snacks.aspx" />
     <Content Include="Sucursales.aspx" />
     <Content Include="User.aspx" />
@@ -209,12 +209,12 @@
     <Compile Include="Resultados.aspx.designer.cs">
       <DependentUpon>Resultados.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Admin_RepResultados.aspx.cs">
-      <DependentUpon>Admin_RepResultados.aspx</DependentUpon>
+    <Compile Include="Admin\Admin_RepVentas.aspx.cs">
+      <DependentUpon>Admin_RepVentas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Admin_RepResultados.aspx.designer.cs">
-      <DependentUpon>Admin_RepResultados.aspx</DependentUpon>
+    <Compile Include="Admin\Admin_RepVentas.aspx.designer.cs">
+      <DependentUpon>Admin_RepVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Snacks.aspx.cs">
       <DependentUpon>Snacks.aspx</DependentUpon>
